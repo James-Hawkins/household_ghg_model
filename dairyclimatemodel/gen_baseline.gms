@@ -176,7 +176,7 @@ v_fdcons.l(hh,aaact,type,inten,y,m,'grass')=20;
 
 
 
-SOLVE DairyClimateModel maximizing v_npv using RMINLP;
+SOLVE DairyClimateModel maximizing v_npv using NLP;
 
 *$include productivity_module.gms
 

@@ -1,5 +1,5 @@
 *$setglobal filelocation  C:\dairyclimatemodel_4.30
-$setglobal filelocation   C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel
+*$setglobal filelocation   C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel
 
 
 
@@ -73,7 +73,7 @@ p_labourPrice;
 $setglobal CREDIT OFF
 $setglobal RISK ON
 $setglobal GHG_Emissions OFF
-$setglobal output_SCEN ON
+$setglobal output_SCEN OFF
 $setglobal Scenario Base
 $setglobal rangeland_constraint ON
 
@@ -176,7 +176,7 @@ v_fdcons.l(hh,aaact,type,inten,y,m,'grass')=20;
 
 
 
-SOLVE DairyClimateModel maximizing v_npv using RMINLP;
+SOLVE DairyClimateModel maximizing v_npv using NLP;
 
 *$include productivity_module.gms
 

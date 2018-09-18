@@ -28,4 +28,4 @@ I 3253 p_fossil_fuel_emissions
 I 3261 p_meatPrice
 I 3262 p_purchPrice
 I 3273 p_labourPrice
-B 3280 Model Statistics    SOLVE DairyClimateModel Using RMINLP From line 1852
+B 3280 Model Statistics    SOLVE DairyClimateModel Using NLP From line 1852

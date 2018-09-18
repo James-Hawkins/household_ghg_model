@@ -1,4 +1,4 @@
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/14/18 14:01:31 Page 1
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/18/18 14:54:40 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -1658,7 +1658,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
 1324  e_VS(hh,aaact,type,inten,minten,y,m)..                                    
               v_VS(hh,aaact,type,inten,minten,y,m) =e= 30*((v_grossEnergy(hh,aaa
       ct,type,inten,minten,y,m)-v_digestibleEnergy(hh,aaact,type,inten,minten,y,
-      m))+((0.04*v_grossEnergy(hh,aaact,type,inten,minten,y,m)))*(0.92/18.45));
+      m))+(0.04*v_grossEnergy(hh,aaact,type,inten,minten,y,m)))*(0.92/18.45);
 1325   
 1326  e_manure_methane(hh,y)..                                                  
               v_manure_methane(hh,y)  =e=   28*Sum((breed_aaact(breed,aaact),typ
@@ -2385,7 +2385,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
 1849   
 1850   
 1851   
-1852  SOLVE DairyClimateModel maximizing v_npv using RMINLP;
+1852  SOLVE DairyClimateModel maximizing v_npv using NLP;
 1853   
 1854  *$include productivity_module.gms
 1855   
@@ -2824,7 +2824,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
 2145  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emis
       sions_parameters      rng=GHG_emissions_parameters!'
 2146   
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/14/18 14:01:31 Page 2
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/18/18 14:54:40 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -2909,8 +2909,8 @@ Include File Summary
                                            iryclimatemodel\GHG_params2.gms
 
 
-COMPILATION TIME     =       11.500 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/14/18 14:01:31 Page 3
+COMPILATION TIME     =        6.797 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/18/18 14:54:40 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3276,9 +3276,9 @@ hh2   40000.000   40000.000  130137.600  104110.080  104110.080   91096.320
 
 hh2 3000.000
 
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/14/18 14:01:31 Page 4
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             09/18/18 14:54:40 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE DairyClimateModel Using RMINLP From line 1852
+Model Statistics    SOLVE DairyClimateModel Using NLP From line 1852
 
 
 LOOPS                                   y2   1
@@ -3293,7 +3293,7 @@ DERIVATIVE POOL             870     CONSTANT POOL              65
 CODE LENGTH             250,609
 
 
-GENERATION TIME      =        0.203 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
+GENERATION TIME      =        0.297 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
 
 
-EXECUTION TIME       =        0.250 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
+EXECUTION TIME       =        0.297 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
