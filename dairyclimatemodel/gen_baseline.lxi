@@ -1,0 +1,31 @@
+B 2 C o m p i l a t i o n
+B 2828 Include File Summary
+B 2914 E x e c u t i o n
+I 2915 v0_aactLev
+I 2957 p_B0
+I 2959 p_FRAC_leach
+I 2962 p_FRAC_vol
+I 2965 p_EF_5
+I 2969 p_EF_4
+I 2973 p_MCF
+I 2978 p_ADF
+I 2988 p_crudeProtein
+I 2998 p_Energy_req
+I 3097 p_digestibleEnergy
+I 3107 p_grossEnergy
+I 3117 p_crop_sell_price
+I 3128 offfarm_income
+I 3133 p_offFarmIncome
+I 3138 p_forage_yield
+I 3144 rangeland_yield
+I 3150 p_yldCrop
+I 3169 p_s
+I 3180 startfeed
+I 3230 p_netEnergy
+I 3240 p_dryMatter
+I 3251 p_transferrate
+I 3253 p_fossil_fuel_emissions
+I 3261 p_meatPrice
+I 3262 p_purchPrice
+I 3273 p_labourPrice
+B 3280 Model Statistics    SOLVE DairyClimateModel Using RMINLP From line 1852

@@ -1,5 +1,5 @@
 *$setglobal filelocation  C:\dairyclimatemodel_4.30
-*$setglobal filelocation   C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel
+$setglobal filelocation   C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel
 
 
 

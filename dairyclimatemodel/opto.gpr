@@ -1058,12 +1058,12 @@ WIDTH=907
 1=
 
 [MRUFILES]
-1=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\set_definitions.gms
-2=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\gen_baseline.lst
-3=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\gen_baseline.gms
-4=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\data\parameters.gms
-5=C:\Market_Model_06.06\LIVSIM\src\results_2nd_instance.gdx
-6=C:\Market_Model_06.06\LIVSIM\src\final_results.gdx
-7=C:\Market_Model_06.06\LIVSIM\src\data.gdx
-8=C:\Market_Model_06.06\LIVSIM\src\_gams_py_gjo108.lst
-9=C:\Market_Model_06.06\LIVSIM\src\_gams_py_gjo106.lst
+1=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.lst
+2=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
+3=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\set_definitions.gms
+4=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\gen_baseline.lst
+5=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\gen_baseline.gms
+6=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\data\parameters.gms
+7=C:\Market_Model_06.06\LIVSIM\src\results_2nd_instance.gdx
+8=C:\Market_Model_06.06\LIVSIM\src\final_results.gdx
+9=C:\Market_Model_06.06\LIVSIM\src\data.gdx
