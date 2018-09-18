@@ -52,6 +52,7 @@ e_enteric_fermentation(hh,y)..                                                  
 e_Ym(hh,aaact,type,inten,minten,y,m)..                                            v_Ym(hh,aaact,type,inten,minten,y,m)       =e= 9.75 - v_Ym_coeff(hh,aaact,type,inten,minten,y,m) ;
 
 e_Ym_coeff(hh,aaact,type,inten,minten,y,m)..                                      v_Ym_coeff(hh,aaact,type,inten,minten,y,m)*v_grossEnergy(hh,aaact,type,inten,minten,y,m)    =e=  (.05)*100*v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) ;
+*v_Ym_coeff(hh,aaact,type,inten,minten,y,m)/v_grossEnergy(hh,aaact,type,inten,minten,y,m)    =e=  (.05)*100*v_dmd(hh,y,m,aaact,type,inten,minten)  ;
 
 * the below equation needs to be revised, see the equation listings in the appendix
 e_VS(hh,aaact,type,inten,minten,y,m)..                                            v_VS(hh,aaact,type,inten,minten,y,m) =e= 30*((v_grossEnergy(hh,aaact,type,inten,minten,y,m)-v_digestibleEnergy(hh,aaact,type,inten,minten,y,m))+(0.04*v_grossEnergy(hh,aaact,type,inten,minten,y,m)))*(0.92/18.45);
