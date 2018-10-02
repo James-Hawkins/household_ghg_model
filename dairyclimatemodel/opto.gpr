@@ -24,9 +24,6 @@
 [RP:HOUSEHOLD_MODULE2]
 1=
 
-[RP:MARKET_MODEL]
-1=
-
 [RP:OLD_CODE]
 1=
 
@@ -1035,12 +1032,6 @@ PlaneRownr=-1
 [SOLVERS]
 NLP=SNOPT
 
-[RP:SET_DEFINITIONS]
-1=
-
-[RP:GHG_PARAMETERS]
-1=
-
 [RP:SCENARIO_PARAMETERS]
 1=
 
@@ -1050,32 +1041,36 @@ NLP=SNOPT
 [RP:LIVESTOCK_MODULE]
 1=
 
-[RP:EMISSIONS_MODULE]
+[RP:GHG_PARAMETERS]
 1=
 
 [RP:GEN_BASELINE]
 1=
 
+[RP:SET_DEFINITIONS]
+1=
+
+[RP:MARKET_MODEL]
+1=
+
+[RP:EMISSIONS_MODULE]
+1=
+
 [MRUFILES]
-1=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.lst
-2=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\set_definitions.gms
-3=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\gen_baseline.lst
-4=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\gen_baseline.gms
-5=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\new\dairyclimatemodel\data\parameters.gms
-6=C:\Market_Model_06.06\LIVSIM\src\results_2nd_instance.gdx
-7=C:\Market_Model_06.06\LIVSIM\src\final_results.gdx
-8=C:\Market_Model_06.06\LIVSIM\src\data.gdx
+1=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\emissions_module.gms
+2=C:\Users\James\Documents\GitHub\Sectoral_Dairy_Model_Tanzania\Model\gms\market_model.gms
+3=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\set_definitions.gms
+4=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.lst
+5=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
+6=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\emissions_module.gms
+7=C:\Users\James\Documents\GitHub\Sectoral_Dairy_Model_Tanzania\Model\gms\Tz_Market_Model_test_AFRC_version.gms
+8=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\livestock_module.gms
+9=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\data\scenario_parameters.gms
 
 [OPENWINDOW_1]
-FILE0=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\data\ghg_parameters.gms
-FILE1=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\data\scenario_parameters.gms
-FILE2=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\emissions_module.gms
-FILE3=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
-FILE4=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\livestock_module.gms
-FILE5=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\set_definitions.gms
-FILE6=C:\Users\James\Documents\GitHub\Sectoral_Dairy_Model_Tanzania\Model\gms\Tz_Market_Model_test_AFRC_version.gms
-FILE7=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\data\ghg_parameters.gms
-MAXIM=0
+FILE0=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
+FILE1=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
+MAXIM=1
 TOP=2
 LEFT=108
 HEIGHT=765
