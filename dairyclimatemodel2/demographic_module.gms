@@ -1,5 +1,5 @@
 $ontext
-This module calculates herd demographics throughout the model time period. 
+This module calculates herd demographics throughout the model time period.
 
 $offtext
 

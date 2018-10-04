@@ -72,12 +72,12 @@ p_labourPrice;
 
 
 *define scenarios and model versions
-$setglobal CREDIT ON
+$setglobal CREDIT OFF
 $setglobal output_SCEN OFF
 $setglobal RISK OFF
 $setglobal GHG_Emissions OFF
 $setglobal Scenario Base
-$setglobal rangeland_constraint OFF
+$setglobal rangeland_constraint ON
 
 
 ** Price scenarios
@@ -242,7 +242,7 @@ production('Milk produced (kg/hh/y)',hh,y2)=sum((adultf,type,inten,m),v_prodQmil
 production('Meat produced (kg/hh/y)',hh,y2)=Sum((aaact,type,inten,m),v_prodQmeat.l(hh,aaact,type,inten,'y01',m));
 
 * consumption
-consumption(hh,y2,m,good,'Household consumption (kg/hh/m)')=v_cons.l(hh,'y01',m,good);
+consumption(hh,y2,'xx',good,'Household consumption (kg/hh/m)')=v_cons.l(hh,'y01',good);
 
 
 * labour
@@ -383,7 +383,7 @@ herd('Animal Activity Levels (head)',hh,aaact,type,inten,minten)=Sum((y2,m),anim
 
 
 
-*$exit
+
 execute_unload "results/results.gdx"
 land,
 Model_Status,
@@ -408,7 +408,7 @@ animal_numbers_monthly
 animal_numbers_annual,
 diet_annual
 cash_balance;
-
+$exit
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=Model_Status       rng=Model_Status!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financials         rng=financials!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financials_crop    rng=financials_crop!'

@@ -9,7 +9,7 @@ hhold_member /total,over_65,under_15,adult/
 *-- time sets
 m twelve months                                  /m01*m12/
 year years                                       /1*20,y01*y12/
-y(year) years in model horizon                   /y01/
+y(year) years in model horizon                   /y01*y02/
 y2(year) years in current run or recursive steps /1/
 
 laterm(m) /m02*m12/

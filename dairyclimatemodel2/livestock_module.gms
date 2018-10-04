@@ -15,7 +15,7 @@ $offtext
 Variables
   v_dmd(hh,y,m,aaact,type,inten,minten)                     'Monthly mean dry matter digestibility (g/100 g DM)'
   v_ADF(hh,y,m,aaact,type,inten,minten)                     'Acid detergent fibre intake (g/100g DM)'
-  v_NDF(hh,y,m,aaact,type,inten,minten)                     'Neutral detergent fibre intake (g/100g DM)' 
+  v_NDF(hh,y,m,aaact,type,inten,minten)                     'Neutral detergent fibre intake (g/100g DM)'
   v_diet_N(hh,y,m,aaact,type,inten,minten)                  'Dietary N intake (g/100g DM)'
   v_prodQmilk(hh,aaact,type,inten,year,m)                   'Milk produced (kg/month/animal)'
   v_prodQmeat(hh,aaact,type,inten,year,m)                   'Meat produced (kg/month/animal)'
@@ -44,8 +44,17 @@ Nonnegative variables
 *fix starting values for livestock numbers in first month and first year
 v_aactLev.fx(hh,aaact,type,inten,minten,'y01','m01')=v0_aactLev(hh,aaact,type,inten,minten);
 
-*v_aactLevbuy.fx(hh,young,type,inten,minten,y,m)=0    ;
-*v_aactLevsell.fx(hh,young,type,inten,minten,y,m)=0  ;
+v_aactLevbuy.fx(hh,young,type,inten,minten,y,m)=0    ;
+v_aactLevsell.fx(hh,young,type,inten,minten,y,m)=0  ;
+v_aactLevbuy.fx(hh,weaner,type,inten,minten,y,lastm)=0    ;
+v_aactLevsell.fx(hh,weaner,type,inten,minten,y,lastm)=0  ;
+
+*v_aactLevbuy.lo(hh,weaner,type,inten,minten,y,m)=    ;
+*v_aactLevsell.lo(hh,weaner,type,inten,minten,y,m)=0  ;
+
+
+*v_aactLevbuy.fx(hh,aaact,type,inten,minten,y,lastm)=0;
+*v_aactLevsell.fx(hh,aaact,type,inten,minten,y,lastm)=0;
 
 
 

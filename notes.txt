@@ -1,0 +1,6 @@
+on issues with cash flow equation
+when income enters this equation with a one month lag (cash in present period equals income from previous period) it gives problems.
+Try it instead with present month income. 
+
+relating to demographics. 
+- there is no purchase/sale variables for calves. Either fix this variable at zero or add it to the demog equations
