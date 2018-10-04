@@ -8,4 +8,5 @@ v_dryMatterIntake.fx(hh,'y01',m,aaact,type,inten)=v_dryMatterIntake.l(hh,'y01',m
 v_areaCrop.fx(hh,'y01',c)=v_areaCrop.l(hh,'y01',c);
 v_feed_crop_land.fx(hh,'y01')=v_feed_crop_land.l(hh,'y01');
 v_ADF.fx(hh,'y01',m,aaact,type,inten,minten)=v_ADF.l(hh,'y01',m,aaact,type,inten,minten);
+v_NDF.fx(hh,'y01',m,aaact,type,inten,minten)=v_NDF.l(hh,'y01',m,aaact,type,inten,minten);
 v_dmd.fx(hh,'y01',m,aaact,type,inten,minten)=v_dmd.l(hh,'y01',m,aaact,type,inten,minten);

@@ -19,7 +19,7 @@ firstm(m)  /m01/
 lastm(m)   /m12/
 
 *scenarios
-scen 'Model scenarios' /Base/
+scen 'Model scenarios' /Base,Scen1/
 *, Scen1, Scen2, Scen3, Scen4/
 
 good /food, nonfood/

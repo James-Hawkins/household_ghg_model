@@ -72,7 +72,7 @@ p_labourPrice;
 
 
 *define scenarios and model versions
-$setglobal CREDIT OFF
+$setglobal CREDIT ON
 $setglobal output_SCEN OFF
 $setglobal RISK OFF
 $setglobal GHG_Emissions OFF

@@ -15,7 +15,6 @@ $offtext
 Variables
   v_dmd(hh,y,m,aaact,type,inten,minten)                     'Monthly mean dry matter digestibility (g/100 g DM)'
   v_ADF(hh,y,m,aaact,type,inten,minten)                     'Acid detergent fibre intake (g/100g DM)'
-  v_NDF(hh,y,m,aaact,type,inten,minten)                     'Neutral detergent fibre intake (g/100g DM)' 
   v_diet_N(hh,y,m,aaact,type,inten,minten)                  'Dietary N intake (g/100g DM)'
   v_prodQmilk(hh,aaact,type,inten,year,m)                   'Milk produced (kg/month/animal)'
   v_prodQmeat(hh,aaact,type,inten,year,m)                   'Meat produced (kg/month/animal)'
@@ -88,7 +87,6 @@ Equations
    e_digestibleEnergy            'Calculate digestible energy'
    e_diet_N                      'Calculate diet N intake'
    e_diet_ADF                    'Calculate diet ADF intake'
-   e_diet_NDF                    'Calculate diet NDF intake'
    e_min_protein                 'Minimum protein intake'
 ;
 
@@ -118,15 +116,13 @@ e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aa
 
 e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_dmd(hh,y,m,aaact,type,inten,minten) =e= 83.58 - 0.824*v_ADF(hh,y,m,aaact,type,inten,minten) + 2.626*v_diet_N(hh,y,m,aaact,type,inten,minten) ;
 
-e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..           Sum((feed),v_fdcons(hh,aaact,'dairy',inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))*0.9     =g= .1* p_Protein_req(aaact,'dairy',inten,minten);  !! protein requirments need to be updated
+e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..           Sum((feed),v_fdcons(hh,aaact,'dairy',inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))*0.9     =g= .1* p_Protein_req(aaact,'dairy',inten,minten);
 
 e_grossEnergy(hh,y,m,aaact,type,minten,inten)..            v_grossEnergy(hh,aaact,type,inten,minten,y,m)   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_grossEnergy(feed));
 
 e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_digestibleEnergy(feed)); ;
 
 e_diet_ADF(hh,y,m,aaact,type,inten,minten)..       v_ADF(hh,y,m,aaact,type,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)) =e=   100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_ADF(feed)) ;
-
-e_diet_NDF(hh,y,m,aaact,type,inten,minten)..       v_NDF(hh,y,m,aaact,type,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)) =e=   100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_NDF(feed)) ;
 
 e_diet_N(hh,y,m,aaact,type,inten,minten)..          v_diet_N(hh,y,m,aaact,type,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)) =e=  100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed)/6.25)  ;
 
@@ -151,7 +147,6 @@ $ifi %rangeland_constraint%==ON    e_rangeland
    e_digestibleEnergy
    e_diet_N
    e_diet_ADF
-   e_diet_NDF
    e_dryMatterIntake
    e_grazing_demand
    e_energySource
