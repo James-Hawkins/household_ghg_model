@@ -4,3 +4,9 @@ Try it instead with present month income.
 
 relating to demographics. 
 - there is no purchase/sale variables for calves. Either fix this variable at zero or add it to the demog equations
+
+
+model works better when risk module is on
+model works better when output scenario is on
+fixed cotton seed cake to zero
+
