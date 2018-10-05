@@ -40,7 +40,7 @@ minten level for maintenance       /ext/
 
 
 *- nutrient sets
-anut /netenergy,grossenergy,crudeprotein,metabolisableprotein,drymatter,digestibility,N,ADF/
+anut /netenergy,grossenergy,crudeprotein,metabolisableprotein,drymatter,digestibility,N,ADF,NDF/
 
 *-- animal activity related sets
 breed /local,improved/

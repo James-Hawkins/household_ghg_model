@@ -104,7 +104,7 @@ Equations
 ;
 
 
-e_milkproduction(hh,aaact,type,inten,y,m)..   v_prodQmilk(hh,aaact,type,inten,y,m) =e= p_milkprod(aaact,type,inten)*30*Sum(minten,v_aactLev(hh,aaact,type,inten,minten,y,m));
+e_milkproduction(hh,aaact,type,inten,y,m)..   v_prodQmilk(hh,aaact,type,inten,y,m) =e= 0.3*p_milkprod(aaact,type,inten)*30*Sum(minten,v_aactLev(hh,aaact,type,inten,minten,y,m));
 
 e_meatproduction(hh,aaact,type,inten,y,m)..    v_prodQmeat(hh,aaact,type,inten,y,m)  =e= 0.6*p_salesw(aaact,type,inten)*Sum(minten,v_aactLevsell(hh,aaact,type,inten,minten,y,m));
 *p_dress_pct(aaact,type,inten)*
@@ -133,7 +133,8 @@ e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..           Sum((
 
 e_grossEnergy(hh,y,m,aaact,type,minten,inten)..            v_grossEnergy(hh,aaact,type,inten,minten,y,m)   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_grossEnergy(feed));
 
-e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_digestibleEnergy(feed)); ;
+e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) =e=  (1/100)*v_dmd(hh,y,m,aaact,type,inten,minten)*v_grossEnergy(hh,aaact,type,inten,minten,y,m);
+*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_digestibleEnergy(feed)); ;
 
 e_diet_ADF(hh,y,m,aaact,type,inten,minten)..       v_ADF(hh,y,m,aaact,type,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)) =e=   100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_ADF(feed)) ;
 
