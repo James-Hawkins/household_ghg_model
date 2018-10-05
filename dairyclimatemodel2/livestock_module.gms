@@ -44,10 +44,12 @@ Nonnegative variables
 *fix starting values for livestock numbers in first month and first year
 v_aactLev.fx(hh,aaact,type,inten,minten,'y01','m01')=v0_aactLev(hh,aaact,type,inten,minten);
 
-v_aactLevbuy.fx(hh,young,type,inten,minten,y,m)=0    ;
-v_aactLevsell.fx(hh,young,type,inten,minten,y,m)=0  ;
+v_aactLevbuy.fx(hh,young,type,inten,minten,y,lastm)=0    ;
+v_aactLevsell.fx(hh,young,type,inten,minten,y,lastm)=0  ;
 v_aactLevbuy.fx(hh,weaner,type,inten,minten,y,lastm)=0    ;
 v_aactLevsell.fx(hh,weaner,type,inten,minten,y,lastm)=0  ;
+v_aactLevbuy.fx(hh,reprod,type,inten,minten,y,lastm)=0    ;
+v_aactLevsell.fx(hh,reprod,type,inten,minten,y,lastm)=0  ;
 
 *v_aactLevbuy.lo(hh,weaner,type,inten,minten,y,m)=    ;
 *v_aactLevsell.lo(hh,weaner,type,inten,minten,y,m)=0  ;

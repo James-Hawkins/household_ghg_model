@@ -1,5 +1,5 @@
 $ontext
-This module calculates herd demographics throughout the model time period. 
+This module calculates herd demographics throughout the model time period.
 
 $offtext
 
@@ -55,6 +55,8 @@ Sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,m))=e=
 Sum((inten,minten),
 v0_aactLev(hh,'adultf_loc',type,inten,minten)*p_rateFert('adultf_loc',type,inten)*p_sexratio(young_loc,type,inten)+
 v0_aactLev(hh,young_loc,type,inten,minten)*(1-p_grad(young_loc,type,inten))*(1-p_mort(young_loc,type,minten))
++v_aactLevbuy(hh,young_loc,type,inten,minten,y,m-1)
+-v_aactLevsell(hh,young_loc,type,inten,minten,y,m-1)
 )
 ;
 
@@ -63,6 +65,8 @@ Sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,m))=e=
 Sum((inten,minten),
 v0_aactLev(hh,'adultf_imp',type,inten,minten)*p_rateFert('adultf_imp',type,inten)*p_sexratio(young_imp,type,inten)+
 v0_aactLev(hh,young_imp,type,inten,minten)*(1-p_grad(young_imp,type,inten))*(1-p_mort(young_imp,type,minten))
++v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
+-v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
 )
 ;
 
@@ -71,6 +75,8 @@ Sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,m))=e=
 Sum((inten,minten),
 v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*p_rateFert('adultf_loc',type,inten)*p_sexratio(young_loc,type,inten)+
 v_aactLev(hh,young_loc,type,inten,minten,y,m-1)*(1-p_grad(young_loc,type,inten))*(1-p_mort(young_loc,type,minten))
++v_aactLevbuy(hh,young_loc,type,inten,minten,y,m-1)
+-v_aactLevsell(hh,young_loc,type,inten,minten,y,m-1)
 )
 ;
 
@@ -78,14 +84,18 @@ E_youngm_imp2(hh,young_imp,type,y,m)$(ord(m) gt 2 )..
 Sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,m))=e=
 Sum((inten,minten),
 v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*p_rateFert('adultf_imp',type,inten)*p_sexratio(young_imp,type,inten)+
-v_aactLev(hh,young_imp,type,inten,minten,y,m-1)*(1-p_grad(young_imp,type,inten))*(1-p_mort(young_imp,type,minten))
+v_aactLev(hh,young_imp,type,inten,minten,y,m-1)*(1-p_grad(young_imp,type,inten))*(1-p_mort(young_imp,type,minten)
++v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
+-v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
 )
 ;
 
 E_youngy_loc(hh,young_loc,type,y,'m01')$(ord(y) gt 2 )..
 sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,'m01'))=e=
 sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*p_rateFert('adultf_loc',type,inten)*p_sexratio(young_loc,type,inten)
-+ v_aactLev(hh,young_loc,type,inten,minten,y-1,'m12')*(1-p_grad(young_loc,type,inten))
++ v_aactLev(hh,young_loc,type,inten,minten,y-1,'m12')*(1-p_grad(young_loc,type,inten)
++v_aactLevbuy(hh,young_loc,type,inten,minten,y-1,'m12')
+-v_aactLevsell(hh,young_loc,type,inten,minten,y-1,'m12'))
 );
 
 E_youngy_imp(hh,young_imp,type,y,'m01')$(ord(y) gt 2)..
@@ -93,7 +103,8 @@ sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,'m01'))=e=
 sum((inten,minten),
 v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*p_rateFert('adultf_imp',type,inten)*p_sexratio(young_imp,type,inten)+
 v_aactLev(hh,young_imp,type,inten,minten,y-1,'m12')*(1-p_grad(young_imp,type,inten))*(1-p_mort(young_imp,type,minten))
-);
++v_aactLevbuy(hh,young_imp,type,inten,minten,y-1,'m12')
+-v_aactLevsell(hh,young_imp,type,inten,minten,y-1,'m12'));
 ;
 
 ** WEANERS

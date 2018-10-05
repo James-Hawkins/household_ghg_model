@@ -73,8 +73,8 @@ p_labourPrice;
 
 *define scenarios and model versions
 $setglobal CREDIT OFF
-$setglobal output_SCEN OFF
-$setglobal RISK OFF
+$setglobal output_SCEN ON
+$setglobal RISK ON
 $setglobal GHG_Emissions OFF
 $setglobal Scenario Base
 $setglobal rangeland_constraint ON
@@ -178,7 +178,7 @@ v_fdcons.l(hh,aaact,type,inten,y,m,'grass')=20;
 
 
 
-SOLVE DairyClimateModel maximizing v_npv using RMINLP;  !! best solved with SNOPT
+SOLVE DairyClimateModel maximizing v_npv using NLP;  !! best solved with SNOPT
 *RMINLP
 *$include productivity_module.gms
 
@@ -242,7 +242,7 @@ production('Milk produced (kg/hh/y)',hh,y2)=sum((adultf,type,inten,m),v_prodQmil
 production('Meat produced (kg/hh/y)',hh,y2)=Sum((aaact,type,inten,m),v_prodQmeat.l(hh,aaact,type,inten,'y01',m));
 
 * consumption
-consumption(hh,y2,'xx',good,'Household consumption (kg/hh/m)')=v_cons.l(hh,'y01',good);
+consumption(hh,y2,m,good,'Household consumption (kg/hh/m)')=v_cons.l(hh,'y01',m,good);
 
 
 * labour

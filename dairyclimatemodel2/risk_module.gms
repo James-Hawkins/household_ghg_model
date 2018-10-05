@@ -13,7 +13,7 @@ Set i /i1*i100/
 Parameters
 sigma_output(outputs)   'Standard deviation of output prices'
 /
-milk 35
+milk 15
 meat 45
 /
 

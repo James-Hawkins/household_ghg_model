@@ -36,7 +36,7 @@ e_offfarm_income_wo_loan(hh,y)..                v_off_farm_income(hh,y) =e=   p_
 e_crop_expenses(hh,y,m)..                       v_crop_expenses(hh,y,m)  =e=  v_labour_hired_crop(hh,y,m)*p_labourPrice(hh) + Sum(c,v_areaCrop(hh,y,c)*p_cropcosts(hh,c)/12);
 
 e_livestock_expenses(hh,y,m)..                  v_lives_expenses(hh,y,m) =e=
-2*
+1*
 (
 sum((aaact,type,inten,minten),v_aactLevbuy(hh,aaact,type,inten,minten,y,m)*p_purchPrice(hh,aaact))
 +v_labour_hired_lives(hh,y,m)*p_labourPrice(hh)
