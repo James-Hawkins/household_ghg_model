@@ -72,8 +72,8 @@ p_labourPrice;
 
 
 *define scenarios and model versions
-$setglobal CREDIT ON
-$setglobal output_SCEN ON
+$setglobal CREDIT OFF
+$setglobal output_SCEN OFF
 $setglobal RISK ON
 $setglobal GHG_Emissions OFF
 $setglobal Scenario Base
@@ -81,7 +81,7 @@ $setglobal rangeland_constraint ON
 
 
 ** Price scenarios
-p_feedPrice(feed)=(0.75)*prices_feed(feed);
+*p_feedPrice(feed)=(0.75)*prices_feed(feed);
 *p_purchPrice(hh,aaact)=0.75*prices_lives(aaact,'buy') ;
 
 *p_milkPrice('Scen')=  prices_milk;

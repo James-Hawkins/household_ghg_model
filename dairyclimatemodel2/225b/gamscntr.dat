@@ -1,18 +1,18 @@
 42
 4 316 0 0 235  0.00000000000000E+0000 0  0.00000000000000E+0000 0 1
-11915 2326 0 0 1316 11480 409 26 0 0 0
-18308 9960 0 0 0 0 0 0
-216526 38064
-18308 0 0 0 0 0 0 9204 0 9104
-543 0 0 0 0 0 0
+23705 4628 0 0 2567 22883 818 4 0 0 0
+35625 19056 0 0 0 0 0 0
+422688 71016
+35625 0 0 0 0 0 0 17448 0 18177
+183 0 0 0 0 0 0
 1 1214 0
-323273 76 870
+602097 72 870
  1.00000000000000E-0001  0.00000000000000E+0000 0
 0  0.00000000000000E+0000 0  0.00000000000000E+0000
  1.00000000000000E+0003 2000000000 0
 1 0
  0.00000000000000E+0000 0 0 0  1.00000000000000E+0000 0
-17072 100
+33153 100
 0 0 0 0 0
  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000
 C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel2\225b\gamsmatr.dat
@@ -23,7 +23,7 @@ C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairycli
 
 C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel2\225b\gamsdict.dat
 3
-14:22:52
+14:51:00
 10/05/18
 C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel2\
 C:\Program Files (x86)\GAMS23.5\
@@ -33,7 +33,7 @@ C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairycli
 Gary Goldstein                                 G010614:2121CA-WIN0
 Decision Ware, Inc.                                              0
 0922806101BDMCCOCPM5GEMPO2PTSNXAXP                  00000000000000
-0 1 5790 0
+0 1 11483 0
 225b\gmsprmNT.dat
 15 84 21
 LP          29 0

@@ -58,7 +58,6 @@ v_aactLevsell.fx(hh,reprod,type,inten,minten,y,lastm)=0  ;
 *v_aactLevbuy.fx(hh,aaact,type,inten,minten,y,lastm)=0;
 *v_aactLevsell.fx(hh,aaact,type,inten,minten,y,lastm)=0;
 
-v_fdcons.fx(hh,aaact,type,inten,y,m,'cotton_seed_cake')=0;
 
 
 *v_fdcons.fx(hh,aaact_imp,type,inten,y,m,grazed)=0;

@@ -125,7 +125,7 @@ e_pasture(hh,y)..                                 v_pasture_land(hh,y) =e= (1/10
 
 e_dryMatterIntake(hh,y,m,aaact,type,inten)..      v_dryMatterIntake(hh,y,m,aaact,type,inten)   =e=  Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed));
 
-e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aaact,type,inten,'ext')*(1/0.9)   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')/100;
+e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aaact,type,inten,'ext')   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')*0.81/100;
 
 e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_dmd(hh,y,m,aaact,type,inten,minten) =e= 83.58 - 0.824*v_ADF(hh,y,m,aaact,type,inten,minten) + 2.626*v_diet_N(hh,y,m,aaact,type,inten,minten) ;
 

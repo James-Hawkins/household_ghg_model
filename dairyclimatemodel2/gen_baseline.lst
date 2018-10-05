@@ -1,4 +1,4 @@
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:22:52 Page 1
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:51:00 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -45,7 +45,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
   42  *-- time sets
   43  m twelve months                                  /m01*m12/
   44  year years                                       /1*20,y01*y12/
-  45  y(year) years in model horizon                   /y01/
+  45  y(year) years in model horizon                   /y01*y02/
   46  y2(year) years in current run or recursive steps /1/
   47   
   48  laterm(m) /m02*m12/
@@ -140,9 +140,8 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
  125  *feed sets
  126  feed       'feed sources'          /maize_residue,cpea_residue,grnut_resid
       ue,bean_residue,sorgh_residue,millet_residue,banana_residue,maize_silage,s
-      unflower_seed_cake,cotton_seed_cake,maize_bran,grass,grass_hay,napier/
- 127  feed_off_farm(feed)                /sunflower_seed_cake,cotton_seed_cake,m
-      aize_bran/
+      unflower_seed_cake,maize_bran,grass,grass_hay,napier/
+ 127  feed_off_farm(feed)                /sunflower_seed_cake,maize_bran/
  128  feed_on_farm(feed)                 /maize_residue,cpea_residue,grnut_resid
       ue,bean_residue,sorgh_residue,millet_residue,grass,grass_hay,napier,maize_
       silage/
@@ -151,7 +150,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
  130  grazed(feed)                       /grass/
  131  ration(feed)                       /maize_residue,bean_residue,cpea_residu
       e,grnut_residue,sorgh_residue,millet_residue,maize_silage,grass_hay,napier
-      ,sunflower_seed_cake,cotton_seed_cake,maize_bran/
+      ,sunflower_seed_cake,maize_bran/
  132  feed_on_farm_non_fodder(feed)      /maize_residue,cpea_residue,grnut_resid
       ue,bean_residue,sorgh_residue,millet_residue,banana_residue/
  133   
@@ -161,7 +160,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
       .grnut_residue,sorghum.sorgh_residue,millet.millet_residue/
  137  fodder_feed(fodder,feed) /napier.napier,pasture.grass_hay/
  138  feedbuy_ration(ration,feed_off_farm) /sunflower_seed_cake.sunflower_seed_c
-      ake,cotton_seed_cake.cotton_seed_cake,maize_bran.maize_bran/
+      ake,maize_bran.maize_bran/
  139  residues_ration(residues,ration) /maize_residue.maize_residue,bean_residue
       .bean_residue,millet_residue.millet_residue,grnut_residue.grnut_residue,so
       rgh_residue.sorgh_residue,cpea_residue.cpea_residue/
@@ -673,7 +672,7 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
  585   
  586   
  587  ** Price scenarios
- 588  p_feedPrice(feed)=(0.75)*prices_feed(feed);
+ 588  *p_feedPrice(feed)=(0.75)*prices_feed(feed);
  589  *p_purchPrice(hh,aaact)=0.75*prices_lives(aaact,'buy') ;
  590   
  591  *p_milkPrice('Scen')=  prices_milk;
@@ -889,717 +888,716 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
  741  *v_aactLevbuy.fx(hh,aaact,type,inten,minten,y,lastm)=0;
  742  *v_aactLevsell.fx(hh,aaact,type,inten,minten,y,lastm)=0;
  743   
- 744  v_fdcons.fx(hh,aaact,type,inten,y,m,'cotton_seed_cake')=0;
+ 744   
  745   
- 746   
- 747  *v_fdcons.fx(hh,aaact_imp,type,inten,y,m,grazed)=0;
+ 746  *v_fdcons.fx(hh,aaact_imp,type,inten,y,m,grazed)=0;
+ 747   
  748   
  749   
  750   
  751   
- 752   
- 753  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 752  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~*
- 754  * #3 Equations  (all variables are declared in terms of sets specifically 
+ 753  * #3 Equations  (all variables are declared in terms of sets specifically 
       defined to this model scenario)
- 755  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 754  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~*
- 756  Equations
- 757  *-- production equations
- 758     e_milkproduction   'milk produced from all animals in a given month (kg
+ 755  Equations
+ 756  *-- production equations
+ 757     e_milkproduction   'milk produced from all animals in a given month (kg
       /hh/month)'
- 759     e_meatproduction   'meat produced from slaughtered animals in a given m
+ 758     e_meatproduction   'meat produced from slaughtered animals in a given m
       onth (kg/hh/month)'
- 760   
- 761  *-- Feed balance equations
- 762     e_feedbal           'livestock feed balance accounting equation (kg per
+ 759   
+ 760  *-- Feed balance equations
+ 761     e_feedbal           'livestock feed balance accounting equation (kg per
        month)'
- 763     e_feedons           'total amount of a feed consumed per month (from al
+ 762     e_feedons           'total amount of a feed consumed per month (from al
       l animals)'
- 764     e_feed_purchased    'total amount of feeds purchased per month (kg/mont
+ 763     e_feed_purchased    'total amount of feeds purchased per month (kg/mont
       h/hhold)'
- 765   
- 766  *-- Labor equation
- 767     e_laborAA           'labor use for livestock activities (person-days/hh
+ 764   
+ 765  *-- Labor equation
+ 766     e_laborAA           'labor use for livestock activities (person-days/hh
       /month)'
- 768   
- 769  *-- Rangeland requirement and availability
- 770     e_grazing_demand             'Demand for grazing land by cattle (ha/hh/
+ 767   
+ 768  *-- Rangeland requirement and availability
+ 769     e_grazing_demand             'Demand for grazing land by cattle (ha/hh/
       year)'
- 771     e_rangeland                  'Availability of rangeland for grazing (ha
+ 770     e_rangeland                  'Availability of rangeland for grazing (ha
       /hh/year)'
- 772     e_pasture                    'Land dedicated to pasture production (ha/
+ 771     e_pasture                    'Land dedicated to pasture production (ha/
       hh/year)'
+ 772   
  773   
- 774   
- 775  *-- Feed and nutrition equations
- 776     e_feed_intake                 'Feed intake equation (as fed)'
- 777     e_dryMatterIntake             'Dry matter intake equation (from Goopy e
+ 774  *-- Feed and nutrition equations
+ 775     e_feed_intake                 'Feed intake equation (as fed)'
+ 776     e_dryMatterIntake             'Dry matter intake equation (from Goopy e
       t al. 2018)'
- 778     e_dry_matter_digestibility    'Dry matter digestibility (from Oddy et a
+ 777     e_dry_matter_digestibility    'Dry matter digestibility (from Oddy et a
       l. 1983)'
- 779     e_energySource                'Specify required energy intake'
- 780     e_grossEnergy                 'Calculate gross energy intake'
- 781     e_netenergy                   'Calculate net energy'
- 782     e_digestibleEnergy            'Calculate digestible energy'
- 783     e_diet_N                      'Calculate diet N intake'
- 784     e_diet_ADF                    'Calculate diet ADF intake'
- 785     e_diet_NDF                    'Calculate diet NDF intake'
- 786     e_min_protein                 'Minimum protein intake'
- 787  ;
+ 778     e_energySource                'Specify required energy intake'
+ 779     e_grossEnergy                 'Calculate gross energy intake'
+ 780     e_netenergy                   'Calculate net energy'
+ 781     e_digestibleEnergy            'Calculate digestible energy'
+ 782     e_diet_N                      'Calculate diet N intake'
+ 783     e_diet_ADF                    'Calculate diet ADF intake'
+ 784     e_diet_NDF                    'Calculate diet NDF intake'
+ 785     e_min_protein                 'Minimum protein intake'
+ 786  ;
+ 787   
  788   
- 789   
- 790  e_milkproduction(hh,aaact,type,inten,y,m)..   v_prodQmilk(hh,aaact,type,in
+ 789  e_milkproduction(hh,aaact,type,inten,y,m)..   v_prodQmilk(hh,aaact,type,in
       ten,y,m) =e= 0.6*p_milkprod(aaact,type,inten)*30*Sum(minten,v_aactLev(hh,a
       aact,type,inten,minten,y,m));
- 791   
- 792  e_meatproduction(hh,aaact,type,inten,y,m)..    v_prodQmeat(hh,aaact,type,i
+ 790   
+ 791  e_meatproduction(hh,aaact,type,inten,y,m)..    v_prodQmeat(hh,aaact,type,i
       nten,y,m)  =e= 0.6*p_salesw(aaact,type,inten)*Sum(minten,v_aactLevsell(hh,
       aaact,type,inten,minten,y,m));
- 793  *p_dress_pct(aaact,type,inten)*
- 794  e_laborAA(hh,y,m)..            sum((aaact,inten,type,minten),v_aactLev(hh,
+ 792  *p_dress_pct(aaact,type,inten)*
+ 793  e_laborAA(hh,y,m)..            sum((aaact,inten,type,minten),v_aactLev(hh,
       aaact,type,inten,minten,y,m)*p_labour_lives(m,inten,aaact,type))   =e= v_t
       otallabourdemlive(hh,y,m);
- 795   
- 796  e_feedons(hh,feed,y,m)..                            v_feedons(hh,feed,y,m)
+ 794   
+ 795  e_feedons(hh,feed,y,m)..                            v_feedons(hh,feed,y,m)
        =e= 30*sum((aaact,type,inten,minten),v_aactLev(hh,aaact,type,inten,minten
       ,y,m)*v_fdcons(hh,aaact,type,inten,y,m,feed));
- 797   
- 798  e_feed_purchased(hh,feed_off_farm,y,m)..            v_feedbuy(hh,feed_off_
+ 796   
+ 797  e_feed_purchased(hh,feed_off_farm,y,m)..            v_feedbuy(hh,feed_off_
       farm,y,m) =e= v_feedons(hh,feed_off_farm,y,m);
- 799   
- 800  e_feedbal(hh,ration,y,m).. v_feedbalance(hh,ration,y,m-1)*(p_transferrate)
+ 798   
+ 799  e_feedbal(hh,ration,y,m).. v_feedbalance(hh,ration,y,m-1)*(p_transferrate)
       $(ord (m) gt 1) + v_feedbalance(hh,ration,y-1,'m12')*(p_transferrate)$((or
       d (y) gt 1) and (ord(m) eq 1)) + p_s(hh,ration)$((ord(m) eq 1) and (ord(y)
        eq 1)) + Sum(residues_ration(residues,ration),v_residuesfeedm(hh,residues
       ,y,m))*1000 + v_crp_feed(hh,y,'maize_silage',m)*1000 +  Sum((fodder_feed(f
       odder,ration)),v_prdCrop(hh,y,fodder,m))*1000 + Sum((feedbuy_ration(ration
       ,feed_off_farm)),v_feedbuy(hh,feed_off_farm,y,m))
- 801  - v_feedons(hh,ration,y,m) =e=  v_feedbalance(hh,ration,y,m);
- 802   
- 803  e_grazing_demand(hh,y)..                           v_graze_dmd(hh,y) =e= (
+ 800  - v_feedons(hh,ration,y,m) =e=  v_feedbalance(hh,ration,y,m);
+ 801   
+ 802  e_grazing_demand(hh,y)..                           v_graze_dmd(hh,y) =e= (
       1/1000)*Sum((aaact,type,inten,minten,m),30*(v_aactLev(hh,aaact,type,inten,
       minten,y,m)*p_dryMatter('grass')*v_fdcons(hh,aaact,type,inten,y,m,'grass')
       ))/sum(m,p_forage_yield(m)) ;
- 804   
- 805  e_rangeland(hh,y)..                                v_graze_dmd(hh,y) =l= p
+ 803   
+ 804  e_rangeland(hh,y)..                                v_graze_dmd(hh,y) =l= p
       _rangeland(hh,y);
- 806   
- 807  e_pasture(hh,y)..                                 v_pasture_land(hh,y) =e=
+ 805   
+ 806  e_pasture(hh,y)..                                 v_pasture_land(hh,y) =e=
        (1/1000)*Sum((aaact,type,inten,minten,m),30*(v_aactLev(hh,aaact,type,inte
       n,minten,y,m)*p_dryMatter('grass_hay')*v_fdcons(hh,aaact,type,inten,y,m,'g
       rass_hay')))/(12*p_forage_yield('m01')) ;
- 808   
- 809  e_dryMatterIntake(hh,y,m,aaact,type,inten)..      v_dryMatterIntake(hh,y,m
+ 807   
+ 808  e_dryMatterIntake(hh,y,m,aaact,type,inten)..      v_dryMatterIntake(hh,y,m
       ,aaact,type,inten)   =e=  Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed
       )*p_dryMatter(feed));
- 810   
- 811  e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_
+ 809   
+ 810  e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_
       req(aaact,type,inten,'ext')   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,
       y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')*0.8
       1/100;
- 812   
- 813  e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_
+ 811   
+ 812  e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_
       dmd(hh,y,m,aaact,type,inten,minten) =e= 83.58 - 0.824*v_ADF(hh,y,m,aaact,t
       ype,inten,minten) + 2.626*v_diet_N(hh,y,m,aaact,type,inten,minten) ;
- 814   
- 815  e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..          
+ 813   
+ 814  e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..          
        Sum((feed),v_fdcons(hh,aaact,'dairy',inten,y,m,feed)*p_dryMatter(feed)*p_
       crudeProtein(feed))*0.9     =g= .1* p_Protein_req(aaact,'dairy',inten,mint
       en);  !! protein requirments need to be updated
- 816   
- 817  e_grossEnergy(hh,y,m,aaact,type,minten,inten)..            v_grossEnergy(h
+ 815   
+ 816  e_grossEnergy(hh,y,m,aaact,type,minten,inten)..            v_grossEnergy(h
       h,aaact,type,inten,minten,y,m)   =e= Sum((feed),v_fdcons(hh,aaact,type,int
       en,y,m,feed)*p_dryMatter(feed)*p_grossEnergy(feed));
- 818   
- 819  e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEne
+ 817   
+ 818  e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEne
       rgy(hh,aaact,type,inten,minten,y,m) =e=  (1/100)*v_dmd(hh,y,m,aaact,type,i
       nten,minten)*v_grossEnergy(hh,aaact,type,inten,minten,y,m);
- 820  *Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_dig
+ 819  *Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_dig
       estibleEnergy(feed)); ;
- 821   
- 822  e_diet_ADF(hh,y,m,aaact,type,inten,minten)..       v_ADF(hh,y,m,aaact,type
+ 820   
+ 821  e_diet_ADF(hh,y,m,aaact,type,inten,minten)..       v_ADF(hh,y,m,aaact,type
       ,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatt
       er(feed)) =e=   100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryM
       atter(feed)*p_ADF(feed)) ;
- 823   
- 824  e_diet_NDF(hh,y,m,aaact,type,inten,minten)..       v_NDF(hh,y,m,aaact,type
+ 822   
+ 823  e_diet_NDF(hh,y,m,aaact,type,inten,minten)..       v_NDF(hh,y,m,aaact,type
       ,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatt
       er(feed)) =e=   100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryM
       atter(feed)*p_NDF(feed)) ;
- 825   
- 826  e_diet_N(hh,y,m,aaact,type,inten,minten)..          v_diet_N(hh,y,m,aaact,
+ 824   
+ 825  e_diet_N(hh,y,m,aaact,type,inten,minten)..          v_diet_N(hh,y,m,aaact,
       type,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dry
       Matter(feed)) =e=  100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_d
       ryMatter(feed)*p_crudeProtein(feed)/6.25)  ;
+ 826   
  827   
- 828   
- 829  option limrow=0; option limcol=0;
+ 828  option limrow=0; option limcol=0;
+ 829   
  830   
  831   
- 832   
- 833  Model livesmod
- 834   
- 835  /
- 836     e_milkproduction
- 837     e_meatproduction
- 838     e_feedbal
- 839     e_feedons
- 840     e_feed_purchased
- 841     e_laborAA
- 842     e_pasture
- 843  e_rangeland
- 844     e_dry_matter_digestibility
- 845     e_grossEnergy
- 846     e_digestibleEnergy
- 847     e_diet_N
- 848     e_diet_ADF
- 849     e_diet_NDF
- 850     e_dryMatterIntake
- 851     e_grazing_demand
- 852     e_energySource
- 853     e_min_protein
- 854  /
+ 832  Model livesmod
+ 833   
+ 834  /
+ 835     e_milkproduction
+ 836     e_meatproduction
+ 837     e_feedbal
+ 838     e_feedons
+ 839     e_feed_purchased
+ 840     e_laborAA
+ 841     e_pasture
+ 842  e_rangeland
+ 843     e_dry_matter_digestibility
+ 844     e_grossEnergy
+ 845     e_digestibleEnergy
+ 846     e_diet_N
+ 847     e_diet_ADF
+ 848     e_diet_NDF
+ 849     e_dryMatterIntake
+ 850     e_grazing_demand
+ 851     e_energySource
+ 852     e_min_protein
+ 853  /
+ 854   
  855   
  856   
- 857   
- 858  * Livestock demographic module
+ 857  * Livestock demographic module
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\demographic_module.gms
       This module calculates herd demographics throughout the model time period.
        
- 864   
- 865  Equations
- 866  *-- Herd dynamics equations
- 867     E_youngm_loc        'young balance each month excluding jan each year'
- 868     E_youngy_loc        'from dec y-1 to jan y if y>1'
- 869     E_youngm_loc2       'young balance each month excluding jan each year'
- 870     E_fweanerm_loc      'female weaner balance each month excluding jan eac
+ 863   
+ 864  Equations
+ 865  *-- Herd dynamics equations
+ 866     E_youngm_loc        'young balance each month excluding jan each year'
+ 867     E_youngy_loc        'from dec y-1 to jan y if y>1'
+ 868     E_youngm_loc2       'young balance each month excluding jan each year'
+ 869     E_fweanerm_loc      'female weaner balance each month excluding jan eac
       h year'
- 871     E_fweanerm_loc2     'female weaner balance each month excluding jan eac
+ 870     E_fweanerm_loc2     'female weaner balance each month excluding jan eac
       h year'
- 872     E_fweanery_loc      'from dec y-1 to jan y if y>1'
- 873     E_mweanerm_loc      'male weaner balance each month excluding jan each 
+ 871     E_fweanery_loc      'from dec y-1 to jan y if y>1'
+ 872     E_mweanerm_loc      'male weaner balance each month excluding jan each 
       year'
- 874     E_mweanerm_loc2     'male weaner balance each month excluding jan each 
+ 873     E_mweanerm_loc2     'male weaner balance each month excluding jan each 
       year'
- 875     E_mweanery_loc      'from dec y-1 to jan y if y>1'
- 876     E_adultfm_loc       'breeder balance each month excluding jan each year
+ 874     E_mweanery_loc      'from dec y-1 to jan y if y>1'
+ 875     E_adultfm_loc       'breeder balance each month excluding jan each year
       '
- 877     E_adultfm_loc2      'breeder balance each month excluding jan each year
+ 876     E_adultfm_loc2      'breeder balance each month excluding jan each year
       '
- 878     E_adultfy_loc       'breeder balance from dec y-1 to jan y if y>1'
- 879     E_adultfy_loc2      'cow balanace when y > 1 and m > 1'
- 880     E_adultfsold_loc    'must sell adults once reach end of productive life
+ 877     E_adultfy_loc       'breeder balance from dec y-1 to jan y if y>1'
+ 878     E_adultfy_loc2      'cow balanace when y > 1 and m > 1'
+ 879     E_adultfsold_loc    'must sell adults once reach end of productive life
       '
- 881     E_adultfsold_loc2   'must sell adults once reach end of productive life
+ 880     E_adultfsold_loc2   'must sell adults once reach end of productive life
       '
- 882     E_adultfsold_loc3   'must sell adults once reach end of productive life
+ 881     E_adultfsold_loc3   'must sell adults once reach end of productive life
       '
- 883     E_reprod_loc1       'bull balance when y = 1 and m = 2'
- 884     E_reprod_loc2       'bull balance when m > 2'
- 885     E_reprod_loc3       'bull balance when y > 1 and m = 1'
+ 882     E_reprod_loc1       'bull balance when y = 1 and m = 2'
+ 883     E_reprod_loc2       'bull balance when m > 2'
+ 884     E_reprod_loc3       'bull balance when y > 1 and m = 1'
+ 885   
  886   
- 887   
- 888     E_youngm_imp        'young balance each month excluding jan each year'
- 889     E_youngm_imp2       'young balance each month excluding jan each year'
- 890     E_youngy_imp        'from dec y-1 to jan y if y>1'
- 891     E_fweanerm_imp      'female weaner balance each month excluding jan eac
+ 887     E_youngm_imp        'young balance each month excluding jan each year'
+ 888     E_youngm_imp2       'young balance each month excluding jan each year'
+ 889     E_youngy_imp        'from dec y-1 to jan y if y>1'
+ 890     E_fweanerm_imp      'female weaner balance each month excluding jan eac
       h year'
- 892     E_fweanerm_imp2     'female weaner balance each month excluding jan eac
+ 891     E_fweanerm_imp2     'female weaner balance each month excluding jan eac
       h year'
- 893     E_fweanery_imp      'from dec y-1 to jan y if y>1'
- 894     E_mweanerm_imp      'male weaner balance each month excluding jan each 
+ 892     E_fweanery_imp      'from dec y-1 to jan y if y>1'
+ 893     E_mweanerm_imp      'male weaner balance each month excluding jan each 
       year'
- 895     E_mweanerm_imp2     'male weaner balance each month excluding jan each 
+ 894     E_mweanerm_imp2     'male weaner balance each month excluding jan each 
       year'
- 896     E_mweanery_imp      'from dec y-1 to jan y if y>1'
- 897     E_adultfm_imp       'breeder balance each month excluding jan each year
+ 895     E_mweanery_imp      'from dec y-1 to jan y if y>1'
+ 896     E_adultfm_imp       'breeder balance each month excluding jan each year
       '
- 898     E_adultfm_imp2      'breeder balance each month excluding jan each year
+ 897     E_adultfm_imp2      'breeder balance each month excluding jan each year
       '
- 899     E_adultfy_imp       'breeder balance from dec y-1 to jan y if y>1'
- 900     E_adultfy_imp2      'cow balanace when y > 1 and m > 1'
- 901     E_adultfsold_imp    'must sell adults once reach end of productive life
+ 898     E_adultfy_imp       'breeder balance from dec y-1 to jan y if y>1'
+ 899     E_adultfy_imp2      'cow balanace when y > 1 and m > 1'
+ 900     E_adultfsold_imp    'must sell adults once reach end of productive life
       '
- 902     E_adultfsold_imp2   'must sell adults once reach end of productive life
+ 901     E_adultfsold_imp2   'must sell adults once reach end of productive life
       '
- 903     E_adultfsold_imp3   'must sell adults once reach end of productive life
+ 902     E_adultfsold_imp3   'must sell adults once reach end of productive life
       '
- 904     E_reprod_imp1       'bull balance when y = 1 and m = 2'
- 905     E_reprod_imp2       'bull balance when m > 2'
- 906     E_reprod_imp3       'bull balance when y > 1 and m = 1'
- 907   
- 908     e_reprod           'minimum number of reproductive animals'
- 909  ;
- 910   
- 911  ** YOUNG
- 912  E_youngm_loc(hh,young_loc,type,y,m)$(ord(m) eq 2 and ord(y) eq 1)..
- 913  Sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,m))=e=
- 914  Sum((inten,minten),
- 915  v0_aactLev(hh,'adultf_loc',type,inten,minten)*p_rateFert('adultf_loc',type
+ 903     E_reprod_imp1       'bull balance when y = 1 and m = 2'
+ 904     E_reprod_imp2       'bull balance when m > 2'
+ 905     E_reprod_imp3       'bull balance when y > 1 and m = 1'
+ 906   
+ 907     e_reprod           'minimum number of reproductive animals'
+ 908  ;
+ 909   
+ 910  ** YOUNG
+ 911  E_youngm_loc(hh,young_loc,type,y,m)$(ord(m) eq 2 and ord(y) eq 1)..
+ 912  Sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,m))=e=
+ 913  Sum((inten,minten),
+ 914  v0_aactLev(hh,'adultf_loc',type,inten,minten)*p_rateFert('adultf_loc',type
       ,inten)*p_sexratio(young_loc,type,inten)+
- 916  v0_aactLev(hh,young_loc,type,inten,minten)*(1-p_grad(young_loc,type,inten)
+ 915  v0_aactLev(hh,young_loc,type,inten,minten)*(1-p_grad(young_loc,type,inten)
       )*(1-p_mort(young_loc,type,minten))
- 917  +v_aactLevbuy(hh,young_loc,type,inten,minten,y,m-1)
- 918  -v_aactLevsell(hh,young_loc,type,inten,minten,y,m-1)
- 919  )
- 920  ;
- 921   
- 922  E_youngm_imp(hh,young_imp,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
- 923  Sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,m))=e=
- 924  Sum((inten,minten),
- 925  v0_aactLev(hh,'adultf_imp',type,inten,minten)*p_rateFert('adultf_imp',type
+ 916  +v_aactLevbuy(hh,young_loc,type,inten,minten,y,m-1)
+ 917  -v_aactLevsell(hh,young_loc,type,inten,minten,y,m-1)
+ 918  )
+ 919  ;
+ 920   
+ 921  E_youngm_imp(hh,young_imp,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+ 922  Sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,m))=e=
+ 923  Sum((inten,minten),
+ 924  v0_aactLev(hh,'adultf_imp',type,inten,minten)*p_rateFert('adultf_imp',type
       ,inten)*p_sexratio(young_imp,type,inten)+
- 926  v0_aactLev(hh,young_imp,type,inten,minten)*(1-p_grad(young_imp,type,inten)
+ 925  v0_aactLev(hh,young_imp,type,inten,minten)*(1-p_grad(young_imp,type,inten)
       )*(1-p_mort(young_imp,type,minten))
- 927  +v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
- 928  -v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
- 929  )
- 930  ;
- 931   
- 932  E_youngm_loc2(hh,young_loc,type,y,m)$(ord(m) gt 2 )..
- 933  Sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,m))=e=
- 934  Sum((inten,minten),
- 935  v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*p_rateFert('adultf_loc'
+ 926  +v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
+ 927  -v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
+ 928  )
+ 929  ;
+ 930   
+ 931  E_youngm_loc2(hh,young_loc,type,y,m)$(ord(m) gt 2 )..
+ 932  Sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,m))=e=
+ 933  Sum((inten,minten),
+ 934  v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*p_rateFert('adultf_loc'
       ,type,inten)*p_sexratio(young_loc,type,inten)+
- 936  v_aactLev(hh,young_loc,type,inten,minten,y,m-1)*(1-p_grad(young_loc,type,i
+ 935  v_aactLev(hh,young_loc,type,inten,minten,y,m-1)*(1-p_grad(young_loc,type,i
       nten))*(1-p_mort(young_loc,type,minten))
- 937  +v_aactLevbuy(hh,young_loc,type,inten,minten,y,m-1)
- 938  -v_aactLevsell(hh,young_loc,type,inten,minten,y,m-1)
- 939  )
- 940  ;
- 941   
- 942  E_youngm_imp2(hh,young_imp,type,y,m)$(ord(m) gt 2 )..
- 943  Sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,m))=e=
- 944  Sum((inten,minten),
- 945  v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*p_rateFert('adultf_imp'
+ 936  +v_aactLevbuy(hh,young_loc,type,inten,minten,y,m-1)
+ 937  -v_aactLevsell(hh,young_loc,type,inten,minten,y,m-1)
+ 938  )
+ 939  ;
+ 940   
+ 941  E_youngm_imp2(hh,young_imp,type,y,m)$(ord(m) gt 2 )..
+ 942  Sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,m))=e=
+ 943  Sum((inten,minten),
+ 944  v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*p_rateFert('adultf_imp'
       ,type,inten)*p_sexratio(young_imp,type,inten)+
- 946  v_aactLev(hh,young_imp,type,inten,minten,y,m-1)*(1-p_grad(young_imp,type,i
+ 945  v_aactLev(hh,young_imp,type,inten,minten,y,m-1)*(1-p_grad(young_imp,type,i
       nten))*(1-p_mort(young_imp,type,minten)
- 947  +v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
- 948  -v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
- 949  ))
- 950  ;
- 951   
- 952  E_youngy_loc(hh,young_loc,type,y,'m01')$(ord(y) gt 2 )..
- 953  sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,'m01'))=e=
- 954  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*
+ 946  +v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
+ 947  -v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
+ 948  ))
+ 949  ;
+ 950   
+ 951  E_youngy_loc(hh,young_loc,type,y,'m01')$(ord(y) gt 2 )..
+ 952  sum((inten,minten),v_aactLev(hh,young_loc,type,inten,minten,y,'m01'))=e=
+ 953  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*
       p_rateFert('adultf_loc',type,inten)*p_sexratio(young_loc,type,inten)
- 955  + v_aactLev(hh,young_loc,type,inten,minten,y-1,'m12')*(1-p_grad(young_loc,
+ 954  + v_aactLev(hh,young_loc,type,inten,minten,y-1,'m12')*(1-p_grad(young_loc,
       type,inten)
- 956  +v_aactLevbuy(hh,young_loc,type,inten,minten,y-1,'m12')
- 957  -v_aactLevsell(hh,young_loc,type,inten,minten,y-1,'m12'))
- 958  );
- 959   
- 960  E_youngy_imp(hh,young_imp,type,y,'m01')$(ord(y) gt 2)..
- 961  sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,'m01'))=e=
- 962  sum((inten,minten),
- 963  v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*p_rateFert('adultf_
+ 955  +v_aactLevbuy(hh,young_loc,type,inten,minten,y-1,'m12')
+ 956  -v_aactLevsell(hh,young_loc,type,inten,minten,y-1,'m12'))
+ 957  );
+ 958   
+ 959  E_youngy_imp(hh,young_imp,type,y,'m01')$(ord(y) gt 2)..
+ 960  sum((inten,minten),v_aactLev(hh,young_imp,type,inten,minten,y,'m01'))=e=
+ 961  sum((inten,minten),
+ 962  v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*p_rateFert('adultf_
       imp',type,inten)*p_sexratio(young_imp,type,inten)+
- 964  v_aactLev(hh,young_imp,type,inten,minten,y-1,'m12')*(1-p_grad(young_imp,ty
+ 963  v_aactLev(hh,young_imp,type,inten,minten,y-1,'m12')*(1-p_grad(young_imp,ty
       pe,inten))*(1-p_mort(young_imp,type,minten))
- 965  +v_aactLevbuy(hh,young_imp,type,inten,minten,y-1,'m12')
- 966  -v_aactLevsell(hh,young_imp,type,inten,minten,y-1,'m12'));
- 967  ;
- 968   
- 969  ** WEANERS
- 970   
- 971  E_fweanerm_loc(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
- 972  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m))=e=
- 973  Sum((inten,minten),
- 974  v0_aactLev(hh,'youngf_loc',type,inten,minten)*p_grad('youngf_loc',type,int
+ 964  +v_aactLevbuy(hh,young_imp,type,inten,minten,y-1,'m12')
+ 965  -v_aactLevsell(hh,young_imp,type,inten,minten,y-1,'m12'));
+ 966  ;
+ 967   
+ 968  ** WEANERS
+ 969   
+ 970  E_fweanerm_loc(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+ 971  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m))=e=
+ 972  Sum((inten,minten),
+ 973  v0_aactLev(hh,'youngf_loc',type,inten,minten)*p_grad('youngf_loc',type,int
       en)
- 975  +v0_aactLev(hh,'weanerf_loc',type,inten,minten)*(1-p_grad('weanerf_loc',ty
+ 974  +v0_aactLev(hh,'weanerf_loc',type,inten,minten)*(1-p_grad('weanerf_loc',ty
       pe,inten))*(1-p_mort('weanerf_loc',type,minten))
- 976  +v_aactLevbuy(hh,'weanerf_loc',type,inten,minten,y,m-1)
- 977  -v_aactLevsell(hh,'weanerf_loc',type,inten,minten,y,m-1)) ;
- 978   
- 979  E_fweanerm_imp(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
- 980  *and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
- 981  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m))=e=
- 982  sum((inten,minten),
- 983  v0_aactLev(hh,'youngf_imp',type,inten,minten)*p_grad('youngf_imp',type,int
+ 975  +v_aactLevbuy(hh,'weanerf_loc',type,inten,minten,y,m-1)
+ 976  -v_aactLevsell(hh,'weanerf_loc',type,inten,minten,y,m-1)) ;
+ 977   
+ 978  E_fweanerm_imp(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+ 979  *and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
+ 980  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m))=e=
+ 981  sum((inten,minten),
+ 982  v0_aactLev(hh,'youngf_imp',type,inten,minten)*p_grad('youngf_imp',type,int
       en)
- 984  +v0_aactLev(hh,'weanerf_imp',type,inten,minten)*(1-p_grad('weanerf_imp',ty
+ 983  +v0_aactLev(hh,'weanerf_imp',type,inten,minten)*(1-p_grad('weanerf_imp',ty
       pe,inten))*(1-p_mort('weanerf_imp',type,minten))
- 985  +v_aactLevbuy(hh,'weanerf_imp',type,inten,minten,y,m-1)
- 986  -v_aactLevsell(hh,'weanerf_imp',type,inten,minten,y,m-1))
- 987  ;
- 988   
- 989  E_fweanerm_loc2(hh,type,y,m)$(ord(m) gt 2 )..
- 990  *and sum(minten,v0_aactLev(hh,'weanerf_loc',type,inten,minten))
- 991  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m))=e=
- 992  sum((inten,minten),
- 993  v_aactLev(hh,'youngf_loc',type,inten,minten,y,m-1)*p_grad('youngf_loc',typ
+ 984  +v_aactLevbuy(hh,'weanerf_imp',type,inten,minten,y,m-1)
+ 985  -v_aactLevsell(hh,'weanerf_imp',type,inten,minten,y,m-1))
+ 986  ;
+ 987   
+ 988  E_fweanerm_loc2(hh,type,y,m)$(ord(m) gt 2 )..
+ 989  *and sum(minten,v0_aactLev(hh,'weanerf_loc',type,inten,minten))
+ 990  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m))=e=
+ 991  sum((inten,minten),
+ 992  v_aactLev(hh,'youngf_loc',type,inten,minten,y,m-1)*p_grad('youngf_loc',typ
       e,inten)
- 994  +v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m-1)*(1-p_grad('weanerf_lo
+ 993  +v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m-1)*(1-p_grad('weanerf_lo
       c',type,inten))*(1-p_mort('weanerf_loc',type,minten))
- 995  +v_aactLevbuy(hh,'weanerf_loc',type,inten,minten,y,m-1)
- 996  -v_aactLevsell(hh,'weanerf_loc',type,inten,minten,y,m-1));
- 997   
- 998  E_fweanerm_imp2(hh,type,y,m)$(ord(m) gt 2 )..
- 999  *and sum(minten,v0_aactLev(hh,'weanerf_imp',type,inten,minten))
-1000  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m))=e=
-1001  sum((inten,minten),
-1002  v_aactLev(hh,'youngf_imp',type,inten,minten,y,m-1)*p_grad('youngf_imp',typ
+ 994  +v_aactLevbuy(hh,'weanerf_loc',type,inten,minten,y,m-1)
+ 995  -v_aactLevsell(hh,'weanerf_loc',type,inten,minten,y,m-1));
+ 996   
+ 997  E_fweanerm_imp2(hh,type,y,m)$(ord(m) gt 2 )..
+ 998  *and sum(minten,v0_aactLev(hh,'weanerf_imp',type,inten,minten))
+ 999  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m))=e=
+1000  sum((inten,minten),
+1001  v_aactLev(hh,'youngf_imp',type,inten,minten,y,m-1)*p_grad('youngf_imp',typ
       e,inten)
-1003  +v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m-1)*(1-p_grad('weanerf_im
+1002  +v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m-1)*(1-p_grad('weanerf_im
       p',type,inten))*(1-p_mort('weanerf_imp',type,minten))
-1004  +v_aactLevbuy(hh,'weanerf_imp',type,inten,minten,y,m-1)
-1005  -v_aactLevsell(hh,'weanerf_imp',type,inten,minten,y,m-1)
-1006  );
-1007   
-1008  E_mweanerm_loc(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
-1009  *and sum(minten,v0_aactLev(hh,'weanerm_loc',type,inten,minten))
-1010  sum((inten,minten),v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m))=e=
-1011  sum((inten,minten),
-1012  v0_aactLev(hh,'youngm_loc',type,inten,minten)*p_grad('youngm_loc',type,int
+1003  +v_aactLevbuy(hh,'weanerf_imp',type,inten,minten,y,m-1)
+1004  -v_aactLevsell(hh,'weanerf_imp',type,inten,minten,y,m-1)
+1005  );
+1006   
+1007  E_mweanerm_loc(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+1008  *and sum(minten,v0_aactLev(hh,'weanerm_loc',type,inten,minten))
+1009  sum((inten,minten),v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m))=e=
+1010  sum((inten,minten),
+1011  v0_aactLev(hh,'youngm_loc',type,inten,minten)*p_grad('youngm_loc',type,int
       en)*(1-p_mort('weanerm_loc',type,minten))
-1013  +v0_aactLev(hh,'weanerm_loc',type,inten,minten)*(1-p_grad('weanerm_loc',ty
+1012  +v0_aactLev(hh,'weanerm_loc',type,inten,minten)*(1-p_grad('weanerm_loc',ty
       pe,inten))
-1014  +v_aactLevbuy(hh,'weanerm_loc',type,inten,minten,y,m-1)
-1015  -v_aactLevsell(hh,'weanerm_loc',type,inten,minten,y,m-1));
-1016   
-1017  E_mweanerm_imp(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
-1018  * and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
-1019  sum((inten,minten),v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m))=e=
-1020  Sum((inten,minten),
-1021  v0_aactLev(hh,'youngm_imp',type,inten,minten)*p_grad('youngm_imp',type,int
+1013  +v_aactLevbuy(hh,'weanerm_loc',type,inten,minten,y,m-1)
+1014  -v_aactLevsell(hh,'weanerm_loc',type,inten,minten,y,m-1));
+1015   
+1016  E_mweanerm_imp(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+1017  * and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
+1018  sum((inten,minten),v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m))=e=
+1019  Sum((inten,minten),
+1020  v0_aactLev(hh,'youngm_imp',type,inten,minten)*p_grad('youngm_imp',type,int
       en)*(1-p_mort('weanerm_imp',type,minten))
-1022  +v0_aactLev(hh,'weanerm_imp',type,inten,minten)*(1-p_grad('weanerm_imp',ty
+1021  +v0_aactLev(hh,'weanerm_imp',type,inten,minten)*(1-p_grad('weanerm_imp',ty
       pe,inten))
-1023  +v_aactLevbuy(hh,'weanerm_imp',type,inten,minten,y,m-1)
-1024  -v_aactLevsell(hh,'weanerm_imp',type,inten,minten,y,m-1));
-1025   
-1026  E_mweanerm_loc2(hh,type,y,m)$(ord(m) gt 2 )..
-1027  *and sum(minten,v0_aactLev(hh,'weanerm_loc',type,inten,minten))
-1028  sum((inten,minten),v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m))=e=
-1029  sum((inten,minten),
-1030  v_aactLev(hh,'youngm_loc',type,inten,minten,y,m-1)*p_grad('youngm_loc',typ
+1022  +v_aactLevbuy(hh,'weanerm_imp',type,inten,minten,y,m-1)
+1023  -v_aactLevsell(hh,'weanerm_imp',type,inten,minten,y,m-1));
+1024   
+1025  E_mweanerm_loc2(hh,type,y,m)$(ord(m) gt 2 )..
+1026  *and sum(minten,v0_aactLev(hh,'weanerm_loc',type,inten,minten))
+1027  sum((inten,minten),v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m))=e=
+1028  sum((inten,minten),
+1029  v_aactLev(hh,'youngm_loc',type,inten,minten,y,m-1)*p_grad('youngm_loc',typ
       e,inten)*(1-p_mort('weanerm_loc',type,minten))
-1031  +v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m-1)*(1-p_grad('weanerm_lo
+1030  +v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m-1)*(1-p_grad('weanerm_lo
       c',type,inten))
-1032  +v_aactLevbuy(hh,'weanerm_loc',type,inten,minten,y,m-1)
-1033  -v_aactLevsell(hh,'weanerm_loc',type,inten,minten,y,m-1));
-1034   
-1035  E_mweanerm_imp2(hh,type,y,m)$(ord(m) gt 2 )..
-1036  *and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
-1037  sum((inten,minten),v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m))=e=
-1038  sum((inten,minten),
-1039  v_aactLev(hh,'youngm_imp',type,inten,minten,y,m-1)*p_grad('youngm_imp',typ
+1031  +v_aactLevbuy(hh,'weanerm_loc',type,inten,minten,y,m-1)
+1032  -v_aactLevsell(hh,'weanerm_loc',type,inten,minten,y,m-1));
+1033   
+1034  E_mweanerm_imp2(hh,type,y,m)$(ord(m) gt 2 )..
+1035  *and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
+1036  sum((inten,minten),v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m))=e=
+1037  sum((inten,minten),
+1038  v_aactLev(hh,'youngm_imp',type,inten,minten,y,m-1)*p_grad('youngm_imp',typ
       e,inten)*(1-p_mort('weanerm_imp',type,minten))
-1040  +v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m-1)*(1-p_grad('weanerm_im
+1039  +v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m-1)*(1-p_grad('weanerm_im
       p',type,inten))
-1041  +v_aactLevbuy(hh,'weanerm_imp',type,inten,minten,y,m-1)
-1042  -v_aactLevsell(hh,'weanerm_imp',type,inten,minten,y,m-1));
-1043   
-1044  E_fweanery_loc(hh,type,y,'m01')$(ord(y) gt 1 )..
-1045  *and sum(minten,v0_aactLev(hh,'weanerf_loc',type,inten,minten))
-1046  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,'m01'))=
+1040  +v_aactLevbuy(hh,'weanerm_imp',type,inten,minten,y,m-1)
+1041  -v_aactLevsell(hh,'weanerm_imp',type,inten,minten,y,m-1));
+1042   
+1043  E_fweanery_loc(hh,type,y,'m01')$(ord(y) gt 1 )..
+1044  *and sum(minten,v0_aactLev(hh,'weanerf_loc',type,inten,minten))
+1045  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,'m01'))=
       e=
-1047  sum((inten,minten),
-1048  v_aactLev(hh,'youngf_loc',type,inten,minten,y-1,'m12')*p_grad('youngf_loc'
+1046  sum((inten,minten),
+1047  v_aactLev(hh,'youngf_loc',type,inten,minten,y-1,'m12')*p_grad('youngf_loc'
       ,type,inten)*(1-p_mort('weanerf_loc',type,minten))
-1049  +v_aactLev(hh,'weanerf_loc',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
+1048  +v_aactLev(hh,'weanerf_loc',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
       f_loc',type,inten))
-1050  +v_aactLevbuy(hh,'weanerf_loc',type,inten,minten,y-1,'m12')
-1051  -v_aactLevsell(hh,'weanerf_loc',type,inten,minten,y-1,'m12')
-1052  );
-1053   
-1054  E_fweanery_imp(hh,type,y,'m01')$(ord(y) gt 1 )..
-1055  *and sum(minten,v0_aactLev(hh,'weanerf_imp',type,inten,minten))
-1056  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,'m01'))=
+1049  +v_aactLevbuy(hh,'weanerf_loc',type,inten,minten,y-1,'m12')
+1050  -v_aactLevsell(hh,'weanerf_loc',type,inten,minten,y-1,'m12')
+1051  );
+1052   
+1053  E_fweanery_imp(hh,type,y,'m01')$(ord(y) gt 1 )..
+1054  *and sum(minten,v0_aactLev(hh,'weanerf_imp',type,inten,minten))
+1055  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,'m01'))=
       e=
-1057  sum((inten,minten),v_aactLev(hh,'youngf_imp',type,inten,minten,y-1,'m12')*
+1056  sum((inten,minten),v_aactLev(hh,'youngf_imp',type,inten,minten,y-1,'m12')*
       p_grad('youngf_imp',type,inten)*(1-p_mort('weanerf_imp',type,minten))
-1058  +v_aactLev(hh,'weanerf_imp',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
+1057  +v_aactLev(hh,'weanerf_imp',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
       f_imp',type,inten))
-1059  +v_aactLevbuy(hh,'weanerf_imp',type,inten,minten,y-1,'m12')
-1060  -v_aactLevsell(hh,'weanerf_imp',type,inten,minten,y-1,'m12'));
-1061   
-1062  E_mweanery_loc(hh,type,y,'m01')$(ord(y) gt 1 )..
-1063  *and sum(minten,v0_aactLev(hh,'weanerm_loc',type,inten,minten))
-1064  sum((inten,minten),
-1065  v_aactLev(hh,'weanerm_loc',type,inten,minten,y,'m01'))=e=
-1066  sum((inten,minten),
-1067  v_aactLev(hh,'youngm_loc',type,inten,minten,y-1,'m12')*p_grad('youngm_loc'
+1058  +v_aactLevbuy(hh,'weanerf_imp',type,inten,minten,y-1,'m12')
+1059  -v_aactLevsell(hh,'weanerf_imp',type,inten,minten,y-1,'m12'));
+1060   
+1061  E_mweanery_loc(hh,type,y,'m01')$(ord(y) gt 1 )..
+1062  *and sum(minten,v0_aactLev(hh,'weanerm_loc',type,inten,minten))
+1063  sum((inten,minten),
+1064  v_aactLev(hh,'weanerm_loc',type,inten,minten,y,'m01'))=e=
+1065  sum((inten,minten),
+1066  v_aactLev(hh,'youngm_loc',type,inten,minten,y-1,'m12')*p_grad('youngm_loc'
       ,type,inten)*(1-p_mort('weanerm_loc',type,minten))
-1068  +v_aactLev(hh,'weanerm_loc',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
+1067  +v_aactLev(hh,'weanerm_loc',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
       m_loc',type,inten))
-1069  +v_aactLevbuy(hh,'weanerm_loc',type,inten,minten,y-1,'m12')
-1070  -v_aactLevsell(hh,'weanerm_loc',type,inten,minten,y-1,'m12')
-1071  );
-1072   
-1073  E_mweanery_imp(hh,type,y,'m01')$(ord(y) gt 1 )..
-1074  *and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
-1075  sum((inten,minten),v_aactLev(hh,'weanerm_imp',type,inten,minten,y,'m01'))=
+1068  +v_aactLevbuy(hh,'weanerm_loc',type,inten,minten,y-1,'m12')
+1069  -v_aactLevsell(hh,'weanerm_loc',type,inten,minten,y-1,'m12')
+1070  );
+1071   
+1072  E_mweanery_imp(hh,type,y,'m01')$(ord(y) gt 1 )..
+1073  *and sum(minten,v0_aactLev(hh,'weanerm_imp',type,inten,minten))
+1074  sum((inten,minten),v_aactLev(hh,'weanerm_imp',type,inten,minten,y,'m01'))=
       e=
-1076  sum((inten,minten),
-1077  v_aactLev(hh,'youngm_imp',type,inten,minten,y-1,'m12')*p_grad('youngm_imp'
+1075  sum((inten,minten),
+1076  v_aactLev(hh,'youngm_imp',type,inten,minten,y-1,'m12')*p_grad('youngm_imp'
       ,type,inten)*(1-p_mort('weanerm_imp',type,minten))
-1078  +v_aactLev(hh,'weanerm_imp',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
+1077  +v_aactLev(hh,'weanerm_imp',type,inten,minten,y-1,'m12')*(1-p_grad('weaner
       m_imp',type,inten))*(1-p_mort('weanerm_imp',type,minten))
-1079  +v_aactLevbuy(hh,'weanerm_imp',type,inten,minten,y-1,'m12')
-1080  -v_aactLevsell(hh,'weanerm_imp',type,inten,minten,y-1,'m12'));
-1081   
-1082  ** ADULTS
-1083  * y = 1 and m = 2
-1084  E_adultfm_loc(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
-1085  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
-1086  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,m))=e=
-1087  sum((inten,minten),
-1088  v0_aactLev(hh,'weanerf_loc',type,inten,minten)*p_grad('weanerf_loc',type,i
+1078  +v_aactLevbuy(hh,'weanerm_imp',type,inten,minten,y-1,'m12')
+1079  -v_aactLevsell(hh,'weanerm_imp',type,inten,minten,y-1,'m12'));
+1080   
+1081  ** ADULTS
+1082  * y = 1 and m = 2
+1083  E_adultfm_loc(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+1084  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
+1085  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,m))=e=
+1086  sum((inten,minten),
+1087  v0_aactLev(hh,'weanerf_loc',type,inten,minten)*p_grad('weanerf_loc',type,i
       nten)*(1-p_mort('weanerf_loc',type,minten))
-1089  +v0_aactLev(hh,'adultf_loc',type,inten,minten)*(1-p_grad('adultf_loc',type
+1088  +v0_aactLev(hh,'adultf_loc',type,inten,minten)*(1-p_grad('adultf_loc',type
       ,inten))*(1-p_mort('adultf_loc',type,minten))
-1090  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y,m-1)
-1091  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m-1))
-1092  ;
-1093   
-1094  E_adultfm_imp(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
-1095  * and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
-1096  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,m))=e=
-1097  sum((inten,minten),
-1098  v0_aactLev(hh,'weanerf_imp',type,inten,minten)*p_grad('weanerf_imp',type,i
+1089  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y,m-1)
+1090  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m-1))
+1091  ;
+1092   
+1093  E_adultfm_imp(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+1094  * and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
+1095  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,m))=e=
+1096  sum((inten,minten),
+1097  v0_aactLev(hh,'weanerf_imp',type,inten,minten)*p_grad('weanerf_imp',type,i
       nten) *(1-p_mort('weanerf_imp',type,minten))
-1099  +v0_aactLev(hh,'adultf_imp',type,inten,minten)*(1-p_grad('adultf_imp',type
+1098  +v0_aactLev(hh,'adultf_imp',type,inten,minten)*(1-p_grad('adultf_imp',type
       ,inten))*(1-p_mort('adultf_imp',type,minten))
-1100  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y,m-1)
-1101  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m-1))
-1102  ;
-1103   
-1104  * y = 1 and m > 2
-1105  E_adultfm_loc2(hh,type,y,m)$(ord(m) gt 2 and ord(y) eq 1 )..
-1106  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
-1107  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,m))=e=
-1108  sum((inten,minten),
-1109  v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m-1)*p_grad('weanerf_loc',t
+1099  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y,m-1)
+1100  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m-1))
+1101  ;
+1102   
+1103  * y = 1 and m > 2
+1104  E_adultfm_loc2(hh,type,y,m)$(ord(m) gt 2 and ord(y) eq 1 )..
+1105  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
+1106  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,m))=e=
+1107  sum((inten,minten),
+1108  v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m-1)*p_grad('weanerf_loc',t
       ype,inten)*(1-p_mort('weanerf_loc',type,minten))
-1110  +v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*(1-p_grad('adultf_loc'
+1109  +v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*(1-p_grad('adultf_loc'
       ,type,inten))*(1-p_mort('adultf_loc',type,minten))
-1111  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y,m-1)
-1112  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m-1));
-1113   
-1114  E_adultfm_imp2(hh,type,y,m)$(ord(m) gt 2 and ord(y) eq 1 )..
-1115  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
-1116  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,m))=e=
-1117  sum((inten,minten),
-1118  v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m-1)*p_grad('weanerf_imp',t
+1110  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y,m-1)
+1111  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m-1));
+1112   
+1113  E_adultfm_imp2(hh,type,y,m)$(ord(m) gt 2 and ord(y) eq 1 )..
+1114  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
+1115  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,m))=e=
+1116  sum((inten,minten),
+1117  v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m-1)*p_grad('weanerf_imp',t
       ype,inten) *(1-p_mort('weanerf_imp',type,minten))
-1119  +v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*(1-p_grad('adultf_imp'
+1118  +v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*(1-p_grad('adultf_imp'
       ,type,inten))*(1-p_mort('adultf_imp',type,minten))
-1120  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y,m-1)
-1121  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m-1));
-1122   
-1123  * y > 1 and m = 1
-1124  E_adultfy_loc(hh,type,y,'m01')$(ord(y) gt 1 )..
-1125  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
-1126  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,'m01'))=e
+1119  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y,m-1)
+1120  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m-1));
+1121   
+1122  * y > 1 and m = 1
+1123  E_adultfy_loc(hh,type,y,'m01')$(ord(y) gt 1 )..
+1124  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
+1125  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,'m01'))=e
       =
-1127  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y-1,'m12')
+1126  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y-1,'m12')
       *p_grad('weanerf_loc',type,inten)*(1-p_mort('weanerf_loc',type,minten))
-1128  +v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*(1-p_grad('adultf_
+1127  +v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*(1-p_grad('adultf_
       loc',type,inten))*(1-p_mort('adultf_loc',type,minten))
-1129  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y-1,'m12')
-1130  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y-1,'m12'));
-1131   
-1132  E_adultfy_imp(hh,type,y,'m01')$(ord(y) gt 1 )..
-1133  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
-1134  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,'m01'))=e
+1128  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y-1,'m12')
+1129  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y-1,'m12'));
+1130   
+1131  E_adultfy_imp(hh,type,y,'m01')$(ord(y) gt 1 )..
+1132  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
+1133  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,'m01'))=e
       =
-1135  sum((inten,minten),
-1136  v_aactLev(hh,'weanerf_imp',type,inten,minten,y-1,'m12')*p_grad('weanerf_im
+1134  sum((inten,minten),
+1135  v_aactLev(hh,'weanerf_imp',type,inten,minten,y-1,'m12')*p_grad('weanerf_im
       p',type,inten)*(1-p_mort('weanerf_imp',type,minten))
-1137  +v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*(1-p_grad('adultf_
+1136  +v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*(1-p_grad('adultf_
       imp',type,inten))*(1-p_mort('adultf_imp',type,minten))
-1138  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y-1,'m12')
-1139  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y-1,'m12'));
-1140   
-1141  * y > 1 and m > 1
-1142  E_adultfy_loc2(hh,type,y,m)$(ord(y) gt 1 and ord(m) gt 1 )..
-1143  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
-1144  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,m))=e=
-1145  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m-1)*p_g
+1137  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y-1,'m12')
+1138  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y-1,'m12'));
+1139   
+1140  * y > 1 and m > 1
+1141  E_adultfy_loc2(hh,type,y,m)$(ord(y) gt 1 and ord(m) gt 1 )..
+1142  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
+1143  sum((inten,minten),v_aactLev(hh,'adultf_loc',type,inten,minten,y,m))=e=
+1144  sum((inten,minten),v_aactLev(hh,'weanerf_loc',type,inten,minten,y,m-1)*p_g
       rad('weanerf_loc',type,inten)*(1-p_mort('weanerf_loc',type,minten))
-1146  +v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*(1-p_grad('adultf_loc'
+1145  +v_aactLev(hh,'adultf_loc',type,inten,minten,y,m-1)*(1-p_grad('adultf_loc'
       ,type,inten))*(1-p_mort('adultf_loc',type,minten))
-1147  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y,m-1)
-1148  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m-1));
-1149   
-1150  E_adultfy_imp2(hh,type,y,m)$(ord(y) gt 1 and ord(m) gt 1 )..
-1151  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
-1152  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,m))=e=
-1153  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m-1)*p_g
+1146  +v_aactLevbuy(hh,'adultf_loc',type,inten,minten,y,m-1)
+1147  -v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m-1));
+1148   
+1149  E_adultfy_imp2(hh,type,y,m)$(ord(y) gt 1 and ord(m) gt 1 )..
+1150  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
+1151  sum((inten,minten),v_aactLev(hh,'adultf_imp',type,inten,minten,y,m))=e=
+1152  sum((inten,minten),v_aactLev(hh,'weanerf_imp',type,inten,minten,y,m-1)*p_g
       rad('weanerf_imp',type,inten)*(1-p_mort('weanerf_imp',type,minten))
-1154  +v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*(1-p_grad('adultf_imp'
+1153  +v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*(1-p_grad('adultf_imp'
       ,type,inten))*(1-p_mort('adultf_imp',type,minten))
-1155  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y,m-1)
-1156  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m-1));
-1157   
-1158  * Sales
-1159   
-1160  E_adultfsold_loc2(hh,type,y,m)$((ord(m) gt 1) )..
-1161  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
-1162  sum((inten,minten),v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m))=e
+1154  +v_aactLevbuy(hh,'adultf_imp',type,inten,minten,y,m-1)
+1155  -v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m-1));
+1156   
+1157  * Sales
+1158   
+1159  E_adultfsold_loc2(hh,type,y,m)$((ord(m) gt 1) )..
+1160  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
+1161  sum((inten,minten),v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m))=e
       =
-1163  sum((inten,minten),
-1164  v_aactLev(hh,'adultf_loc',type,inten,minten,y,m)*p_grad('adultf_loc',type,
+1162  sum((inten,minten),
+1163  v_aactLev(hh,'adultf_loc',type,inten,minten,y,m)*p_grad('adultf_loc',type,
       inten)*(1-p_mort('adultf_loc',type,minten)));
-1165  ;
-1166   
-1167  E_adultfsold_imp2(hh,type,y,m)$((ord(m) gt 1) )..
-1168  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
-1169  sum((inten,minten),v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m))=e
+1164  ;
+1165   
+1166  E_adultfsold_imp2(hh,type,y,m)$((ord(m) gt 1) )..
+1167  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
+1168  sum((inten,minten),v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m))=e
       =
-1170  sum((inten,minten),
-1171  v_aactLev(hh,'adultf_imp',type,inten,minten,y,m)*p_grad('adultf_imp',type,
+1169  sum((inten,minten),
+1170  v_aactLev(hh,'adultf_imp',type,inten,minten,y,m)*p_grad('adultf_imp',type,
       inten)*(1-p_mort('adultf_imp',type,minten)));
-1172  ;
+1171  ;
+1172   
 1173   
-1174   
-1175  E_adultfsold_loc3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
-1176  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
-1177  sum((inten,minten),v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m))=e
+1174  E_adultfsold_loc3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
+1175  *and sum(minten,v0_aactLev(hh,'adultf_loc',type,inten,minten))
+1176  sum((inten,minten),v_aactLevsell(hh,'adultf_loc',type,inten,minten,y,m))=e
       =
-1178  Sum((inten,minten),
-1179  v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*p_grad('adultf_loc'
+1177  Sum((inten,minten),
+1178  v_aactLev(hh,'adultf_loc',type,inten,minten,y-1,'m12')*p_grad('adultf_loc'
       ,type,inten)*(1-p_mort('adultf_loc',type,minten)));
-1180  ;
-1181   
-1182  E_adultfsold_imp3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
-1183  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
-1184  sum((inten,minten),v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m))=e
+1179  ;
+1180   
+1181  E_adultfsold_imp3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
+1182  *and sum(minten,v0_aactLev(hh,'adultf_imp',type,inten,minten))
+1183  sum((inten,minten),v_aactLevsell(hh,'adultf_imp',type,inten,minten,y,m))=e
       =
-1185  Sum((inten,minten),
-1186  v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*p_grad('adultf_imp'
+1184  Sum((inten,minten),
+1185  v_aactLev(hh,'adultf_imp',type,inten,minten,y-1,'m12')*p_grad('adultf_imp'
       ,type,inten)*(1-p_mort('adultf_imp',type,minten)))
-1187  ;
-1188   
-1189  e_reprod_loc1(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
-1190  sum((inten,minten),v_aactLev(hh,'reprod_loc',type,inten,minten,y,m))=e=
-1191  sum((inten,minten),
-1192  v0_aactLev(hh,'weanerm_loc',type,inten,minten)*p_grad('weanerm_loc',type,i
+1186  ;
+1187   
+1188  e_reprod_loc1(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+1189  sum((inten,minten),v_aactLev(hh,'reprod_loc',type,inten,minten,y,m))=e=
+1190  sum((inten,minten),
+1191  v0_aactLev(hh,'weanerm_loc',type,inten,minten)*p_grad('weanerm_loc',type,i
       nten)*(1-p_mort('weanerm_loc',type,minten))
-1193  +v0_aactLev(hh,'reprod_loc',type,inten,minten)*(1-p_grad('weanerm_loc',typ
+1192  +v0_aactLev(hh,'reprod_loc',type,inten,minten)*(1-p_grad('weanerm_loc',typ
       e,inten))
-1194  +v_aactLevbuy(hh,'reprod_loc',type,inten,minten,y,m-1)
-1195  -v_aactLevsell(hh,'reprod_loc',type,inten,minten,y,m-1))
-1196  ;
-1197   
-1198  e_reprod_loc2(hh,type,y,m)$(ord(m) gt 2)..
-1199  sum((inten,minten),v_aactLev(hh,'reprod_loc',type,inten,minten,y,m))=e=
-1200  sum((inten,minten),
-1201  v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m-1)*p_grad('weanerm_loc',t
+1193  +v_aactLevbuy(hh,'reprod_loc',type,inten,minten,y,m-1)
+1194  -v_aactLevsell(hh,'reprod_loc',type,inten,minten,y,m-1))
+1195  ;
+1196   
+1197  e_reprod_loc2(hh,type,y,m)$(ord(m) gt 2)..
+1198  sum((inten,minten),v_aactLev(hh,'reprod_loc',type,inten,minten,y,m))=e=
+1199  sum((inten,minten),
+1200  v_aactLev(hh,'weanerm_loc',type,inten,minten,y,m-1)*p_grad('weanerm_loc',t
       ype,inten)*(1-p_mort('weanerm_loc',type,minten))
-1202  +v_aactLev(hh,'reprod_loc',type,inten,minten,y,m-1)*(1-p_grad('weanerm_loc
+1201  +v_aactLev(hh,'reprod_loc',type,inten,minten,y,m-1)*(1-p_grad('weanerm_loc
       ',type,inten))
-1203  +v_aactLevbuy(hh,'reprod_loc',type,inten,minten,y,m-1)
-1204  -v_aactLevsell(hh,'reprod_loc',type,inten,minten,y,m-1))
-1205  ;
-1206   
-1207  e_reprod_loc3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
-1208  sum((inten,minten),v_aactLev(hh,'reprod_loc',type,inten,minten,y,m))=e=
-1209  sum((inten,minten),
-1210  v_aactLev(hh,'weanerm_loc',type,inten,minten,y-1,'m12')*p_grad('weanerm_lo
+1202  +v_aactLevbuy(hh,'reprod_loc',type,inten,minten,y,m-1)
+1203  -v_aactLevsell(hh,'reprod_loc',type,inten,minten,y,m-1))
+1204  ;
+1205   
+1206  e_reprod_loc3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
+1207  sum((inten,minten),v_aactLev(hh,'reprod_loc',type,inten,minten,y,m))=e=
+1208  sum((inten,minten),
+1209  v_aactLev(hh,'weanerm_loc',type,inten,minten,y-1,'m12')*p_grad('weanerm_lo
       c',type,inten)*(1-p_mort('weanerm_loc',type,minten))
-1211  +v_aactLev(hh,'reprod_loc',type,inten,minten,y-1,'m12')*(1-p_grad('weanerm
+1210  +v_aactLev(hh,'reprod_loc',type,inten,minten,y-1,'m12')*(1-p_grad('weanerm
       _loc',type,inten))
-1212  +v_aactLevbuy(hh,'reprod_loc',type,inten,minten,y-1,'m12')
-1213  -v_aactLevsell(hh,'reprod_loc',type,inten,minten,y-1,'m12'))
-1214  ;
-1215   
-1216  e_reprod_imp1(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
-1217  sum((inten,minten),v_aactLev(hh,'reprod_imp',type,inten,minten,y,m))=e=
-1218  sum((inten,minten),
-1219  v0_aactLev(hh,'weanerm_imp',type,inten,minten)*p_grad('weanerm_imp',type,i
+1211  +v_aactLevbuy(hh,'reprod_loc',type,inten,minten,y-1,'m12')
+1212  -v_aactLevsell(hh,'reprod_loc',type,inten,minten,y-1,'m12'))
+1213  ;
+1214   
+1215  e_reprod_imp1(hh,type,y,m)$(ord(m) eq 2 and ord(y) eq 1 )..
+1216  sum((inten,minten),v_aactLev(hh,'reprod_imp',type,inten,minten,y,m))=e=
+1217  sum((inten,minten),
+1218  v0_aactLev(hh,'weanerm_imp',type,inten,minten)*p_grad('weanerm_imp',type,i
       nten)*(1-p_mort('weanerm_imp',type,minten))
-1220  +v0_aactLev(hh,'reprod_imp',type,inten,minten)*(1-p_grad('weanerm_imp',typ
+1219  +v0_aactLev(hh,'reprod_imp',type,inten,minten)*(1-p_grad('weanerm_imp',typ
       e,inten))
-1221  +v_aactLevbuy(hh,'reprod_imp',type,inten,minten,y,m-1)
-1222  -v_aactLevsell(hh,'reprod_imp',type,inten,minten,y,m-1))
-1223  ;
-1224   
-1225  e_reprod_imp2(hh,type,y,m)$(ord(m) gt 2)..
-1226  sum((inten,minten),v_aactLev(hh,'reprod_imp',type,inten,minten,y,m))=e=
-1227  sum((inten,minten),
-1228  v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m-1)*p_grad('weanerm_imp',t
+1220  +v_aactLevbuy(hh,'reprod_imp',type,inten,minten,y,m-1)
+1221  -v_aactLevsell(hh,'reprod_imp',type,inten,minten,y,m-1))
+1222  ;
+1223   
+1224  e_reprod_imp2(hh,type,y,m)$(ord(m) gt 2)..
+1225  sum((inten,minten),v_aactLev(hh,'reprod_imp',type,inten,minten,y,m))=e=
+1226  sum((inten,minten),
+1227  v_aactLev(hh,'weanerm_imp',type,inten,minten,y,m-1)*p_grad('weanerm_imp',t
       ype,inten)*(1-p_mort('weanerm_imp',type,minten))
-1229  +v_aactLev(hh,'reprod_imp',type,inten,minten,y,m-1)*(1-p_grad('weanerm_imp
+1228  +v_aactLev(hh,'reprod_imp',type,inten,minten,y,m-1)*(1-p_grad('weanerm_imp
       ',type,inten))
-1230  +v_aactLevbuy(hh,'reprod_imp',type,inten,minten,y,m-1)
-1231  -v_aactLevsell(hh,'reprod_imp',type,inten,minten,y,m-1))
-1232  ;
+1229  +v_aactLevbuy(hh,'reprod_imp',type,inten,minten,y,m-1)
+1230  -v_aactLevsell(hh,'reprod_imp',type,inten,minten,y,m-1))
+1231  ;
+1232   
 1233   
-1234   
-1235  e_reprod_imp3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
-1236  sum((inten,minten),v_aactLev(hh,'reprod_imp',type,inten,minten,y,m))=e=
-1237  sum((inten,minten),
-1238  v_aactLev(hh,'weanerm_imp',type,inten,minten,y-1,'m12')*p_grad('weanerm_im
+1234  e_reprod_imp3(hh,type,y,m)$(ord(m) eq 1 and ord(y) gt 1 )..
+1235  sum((inten,minten),v_aactLev(hh,'reprod_imp',type,inten,minten,y,m))=e=
+1236  sum((inten,minten),
+1237  v_aactLev(hh,'weanerm_imp',type,inten,minten,y-1,'m12')*p_grad('weanerm_im
       p',type,inten)*(1-p_mort('weanerm_imp',type,minten))
-1239  +v_aactLev(hh,'reprod_imp',type,inten,minten,y-1,'m12')*(1-p_grad('weanerm
+1238  +v_aactLev(hh,'reprod_imp',type,inten,minten,y-1,'m12')*(1-p_grad('weanerm
       _imp',type,inten))
-1240  +v_aactLevbuy(hh,'reprod_imp',type,inten,minten,y-1,'m12')
-1241  -v_aactLevsell(hh,'reprod_imp',type,inten,minten,y-1,'m12'));
+1239  +v_aactLevbuy(hh,'reprod_imp',type,inten,minten,y-1,'m12')
+1240  -v_aactLevsell(hh,'reprod_imp',type,inten,minten,y-1,'m12'));
+1241   
 1242   
-1243   
-1244  e_reprod(hh,y,m)..
-1245    Sum((reprod_loc,inten,type,minten),v_aactLev(hh,reprod_loc,type,inten,mi
+1243  e_reprod(hh,y,m)..
+1244    Sum((reprod_loc,inten,type,minten),v_aactLev(hh,reprod_loc,type,inten,mi
       nten,y,m))    =g=
-1246  Sum((adultf_loc,inten,type,minten),v_aactLev(hh,adultf_loc,type,inten,mint
+1245  Sum((adultf_loc,inten,type,minten),v_aactLev(hh,adultf_loc,type,inten,mint
       en,y,m))*0.2   ;
+1246   
 1247   
 1248   
 1249   
 1250   
 1251   
 1252   
-1253   
-1254  Model demogMod    /
-1255     E_youngm_loc
-1256     E_youngy_loc
-1257     E_youngm_loc2
-1258     E_fweanerm_loc
-1259     E_fweanerm_loc2
-1260     E_fweanery_loc
-1261     E_mweanerm_loc
-1262     E_mweanerm_loc2
-1263     E_mweanery_loc
-1264     E_adultfm_loc
-1265     E_adultfm_loc2
-1266     E_adultfy_loc
-1267     E_adultfy_loc2
-1268     E_adultfsold_loc2
-1269     E_adultfsold_loc3
-1270     E_reprod_loc1
-1271     E_reprod_loc2
-1272     E_reprod_loc3
+1253  Model demogMod    /
+1254     E_youngm_loc
+1255     E_youngy_loc
+1256     E_youngm_loc2
+1257     E_fweanerm_loc
+1258     E_fweanerm_loc2
+1259     E_fweanery_loc
+1260     E_mweanerm_loc
+1261     E_mweanerm_loc2
+1262     E_mweanery_loc
+1263     E_adultfm_loc
+1264     E_adultfm_loc2
+1265     E_adultfy_loc
+1266     E_adultfy_loc2
+1267     E_adultfsold_loc2
+1268     E_adultfsold_loc3
+1269     E_reprod_loc1
+1270     E_reprod_loc2
+1271     E_reprod_loc3
+1272   
 1273   
-1274   
-1275     E_youngm_imp
-1276     E_youngy_imp
-1277     E_youngm_imp2
-1278     E_fweanerm_imp
-1279     E_fweanerm_imp2
-1280     E_fweanery_imp
-1281     E_mweanerm_imp
-1282     E_mweanerm_imp2
-1283     E_mweanery_imp
-1284     E_adultfm_imp
-1285     E_adultfm_imp2
-1286     E_adultfy_imp
-1287     E_adultfy_imp2
-1288     E_adultfsold_imp2
-1289     E_adultfsold_imp3
-1290     E_reprod_imp1
-1291     E_reprod_imp2
-1292     E_reprod_imp3
-1293   
-1294     e_reprod
-1295  /
-1296  ;
-1297   
-1298  * Emissions module
+1274     E_youngm_imp
+1275     E_youngy_imp
+1276     E_youngm_imp2
+1277     E_fweanerm_imp
+1278     E_fweanerm_imp2
+1279     E_fweanery_imp
+1280     E_mweanerm_imp
+1281     E_mweanerm_imp2
+1282     E_mweanery_imp
+1283     E_adultfm_imp
+1284     E_adultfm_imp2
+1285     E_adultfy_imp
+1286     E_adultfy_imp2
+1287     E_adultfsold_imp2
+1288     E_adultfsold_imp3
+1289     E_reprod_imp1
+1290     E_reprod_imp2
+1291     E_reprod_imp3
+1292   
+1293     e_reprod
+1294  /
+1295  ;
+1296   
+1297  * Emissions module
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\emissions_module.gms
       This module includes equations that calculate GHG emissions from dairy pro
@@ -1609,472 +1607,471 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
       reduce the solve time and size of the model. The emissions intensities are
        calculated in 'gen_baseline.gms' by dividing these emissions by total mil
       k and meat production
+1304   
 1305   
 1306   
-1307   
-1308  Variables
-1309  dummy                                                          'Dummy vari
+1307  Variables
+1308  dummy                                                          'Dummy vari
       able for solving emissions module equations'
-1310  v_enteric_methane(hh,y)                                        'Enteric me
+1309  v_enteric_methane(hh,y)                                        'Enteric me
       thane emissions (kg CO2eq/household/year)'
-1311  v_Ym(hh,aaact,type,inten,minten,year,m)                        'Methane co
+1310  v_Ym(hh,aaact,type,inten,minten,year,m)                        'Methane co
       nversion factor for a given animal (Ym) (%)'
-1312  v_VS(hh,aaact,type,inten,minten,y,m)                           'Volatile s
+1311  v_VS(hh,aaact,type,inten,minten,y,m)                           'Volatile s
       olids from manure (kg/household/month)'
-1313  v_manure_methane(hh,y)                                         'Manure met
+1312  v_manure_methane(hh,y)                                         'Manure met
       hane (kg CO2eq/household/year)'
-1314  v_manure_nitrous_oxide_direct(hh,y)                            'Direct man
+1313  v_manure_nitrous_oxide_direct(hh,y)                            'Direct man
       ure nitrous oxide (kg CO2eq/household/year)'
-1315  v_manure_nitrous_oxide_leach(hh,y)                             'Leached ma
+1314  v_manure_nitrous_oxide_leach(hh,y)                             'Leached ma
       nure nitrous oxide (kg CO2eq/household/year)'
-1316  v_manure_nitrous_oxide_vol(hh,y)                               'Volatilize
+1315  v_manure_nitrous_oxide_vol(hh,y)                               'Volatilize
       d manure nitrous oxide (kg CO2eq/household/year)'
-1317  v_nitrogen_intake(hh,aaact,type,inten,minten,y,m)              'Nitrogen i
+1316  v_nitrogen_intake(hh,aaact,type,inten,minten,y,m)              'Nitrogen i
       ntake for a given animal (kg N/head/month)'
-1318  v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m)       'Nitrogen r
+1317  v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m)       'Nitrogen r
       etained for lactation for a given cow (kg/head/month)'
-1319  v_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m)       'Nitrogen r
+1318  v_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m)       'Nitrogen r
       etained for gain for a given animal (kg/head/month)'
-1320  v_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)           'Nitrogen e
+1319  v_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)           'Nitrogen e
       xcreted for a given animal (kg/head/month)'
-1321  v_soil_nitrous_oxide(hh,y)                                     'Soil nitro
+1320  v_soil_nitrous_oxide(hh,y)                                     'Soil nitro
       us oxide from all feed sources (note that non-feed crops are excluded) (kg
        CO2eq/household/year)'
-1322  v_fossil_fuel_CO2(hh,y)                                        'Carbon dio
+1321  v_fossil_fuel_CO2(hh,y)                                        'Carbon dio
       xide from fossil fuel energy (kg CO2/household/year)'
-1323  v_LUC_CLC(hh,y)                                                'Carbon dio
+1322  v_LUC_CLC(hh,y)                                                'Carbon dio
       xide emissions from land converted to cropland (kg CO2/household/year)'
-1324  ;
+1323  ;
+1324   
 1325   
 1326   
 1327   
-1328   
-1329  Equations
-1330  e_dummy
-1331  e_enteric_fermentation           'Enteric fermentation from cattle in the 
+1328  Equations
+1329  e_dummy
+1330  e_enteric_fermentation           'Enteric fermentation from cattle in the 
       herd'
-1332  e_Ym                             'Methane conversion factor (Ym)'
-1333  e_VS                             'Manure volatile solids'
-1334  e_manure_methane                 'Manure methane'
-1335  e_nitrogen_intake                'Nitrogen intake'
-1336  e_nitrogen_retained_lact         'Nitrogen retained for lactation'
-1337  e_nitrogen_retained_gain         'Nitrogen retained for gain'
-1338  e_nitrogen_excretion             'Nitrogen excretion'
-1339  e_manure_nitrous_oxide_direct    'Direct manure nitrous oxide'
-1340  e_manure_nitrous_oxide_leach     'Leached manure nitrous oxide'
-1341  e_manure_nitrous_oxide_vol       'Volatilized manure nitrous oxide'
-1342  e_soil_nitrous_oxide             'Soil nitrous oxide'
-1343  e_fossil_fuel_energy             'Fossil fuel energy'
-1344  ;
+1331  e_Ym                             'Methane conversion factor (Ym)'
+1332  e_VS                             'Manure volatile solids'
+1333  e_manure_methane                 'Manure methane'
+1334  e_nitrogen_intake                'Nitrogen intake'
+1335  e_nitrogen_retained_lact         'Nitrogen retained for lactation'
+1336  e_nitrogen_retained_gain         'Nitrogen retained for gain'
+1337  e_nitrogen_excretion             'Nitrogen excretion'
+1338  e_manure_nitrous_oxide_direct    'Direct manure nitrous oxide'
+1339  e_manure_nitrous_oxide_leach     'Leached manure nitrous oxide'
+1340  e_manure_nitrous_oxide_vol       'Volatilized manure nitrous oxide'
+1341  e_soil_nitrous_oxide             'Soil nitrous oxide'
+1342  e_fossil_fuel_energy             'Fossil fuel energy'
+1343  ;
+1344   
 1345   
-1346   
-1347  e_enteric_fermentation(hh,y)..                                            
+1346  e_enteric_fermentation(hh,y)..                                            
               v_enteric_methane(hh,y) =e=   28*Sum((aaact,type,minten,inten,m),3
       0*v_aactLev(hh,aaact,type,inten,minten,y,m)*v_grossEnergy(hh,aaact,type,in
       ten,minten,y,m)*v_Ym(hh,aaact,type,inten,minten,y,m)/(100*55.65))     ;
-1348   
-1349  e_Ym(hh,aaact,type,inten,minten,y,m)..                                    
+1347   
+1348  e_Ym(hh,aaact,type,inten,minten,y,m)..                                    
               v_Ym(hh,aaact,type,inten,minten,y,m)       =e= 3.7 - 0.243*v_dryMa
       tterIntake(hh,y,m,aaact,type,inten) + 0.0059*10*v_NDF(hh,y,m,aaact,type,in
       ten,minten)   +  0.0057*10*v_dmd(hh,y,m,aaact,type,inten,minten) ;
-1350  *3.7 - 0.243*p_DMI(y_fwd,r,breed,cohort,scen)+0.0059*10*p_ADF_intake(y_fwd
+1349  *3.7 - 0.243*p_DMI(y_fwd,r,breed,cohort,scen)+0.0059*10*p_ADF_intake(y_fwd
       ,r,breed,cohort,scen)+0.0057*10*p_dry_matter_digestibility(y_fwd,r,breed,c
       ohort,scen)/100             ;
-1351   
-1352  * 3.7 - 0.243*p_DMI(y_fwd,r,breed,cohort,scen)+0.0059*10*p_ADF_intake(y_fw
+1350   
+1351  * 3.7 - 0.243*p_DMI(y_fwd,r,breed,cohort,scen)+0.0059*10*p_ADF_intake(y_fw
       d,r,breed,cohort,scen)+0.0057*10*p_dry_matter_digestibility(y_fwd,r,breed,
       cohort,scen)/100 ;
-1353  *e_Ym_coeff(hh,aaact,type,inten,minten,y,m)..                             
+1352  *e_Ym_coeff(hh,aaact,type,inten,minten,y,m)..                             
                v_Ym_coeff(hh,aaact,type,inten,minten,y,m)*v_grossEnergy(hh,aaact
       ,type,inten,minten,y,m)    =e=  (.05)*100*v_digestibleEnergy(hh,aaact,type
       ,inten,minten,y,m) ;
-1354   
-1355  * the below equation needs to be revised, see the equation listings in the
+1353   
+1354  * the below equation needs to be revised, see the equation listings in the
        appendix
-1356  e_VS(hh,aaact,type,inten,minten,y,m)..                                    
+1355  e_VS(hh,aaact,type,inten,minten,y,m)..                                    
               v_VS(hh,aaact,type,inten,minten,y,m) =e= 30*((v_grossEnergy(hh,aaa
       ct,type,inten,minten,y,m)-v_digestibleEnergy(hh,aaact,type,inten,minten,y,
       m))+((0.04*v_grossEnergy(hh,aaact,type,inten,minten,y,m)))*(0.92/18.45));
-1357   
-1358  e_manure_methane(hh,y)..                                                  
+1356   
+1357  e_manure_methane(hh,y)..                                                  
               v_manure_methane(hh,y)  =e=   28*Sum((breed_aaact(breed,aaact),typ
       e,inten,minten,m),v_aactLev(hh,aaact,type,inten,minten,y,m)*v_VS(hh,aaact,
       type,inten,minten,y,m)*p_B0*0.67*p_MCF(breed))          ;
-1359   
-1360  e_nitrogen_intake(hh,aaact,type,inten,minten,y,m)..                       
+1358   
+1359  e_nitrogen_intake(hh,aaact,type,inten,minten,y,m)..                       
               v_nitrogen_intake(hh,aaact,type,inten,minten,y,m)  =e= (1/18.45)*(
       1/6.25)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed
       )*p_grossEnergy(feed))*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p
       _dryMatter(feed)*p_crudeProtein(feed))/(.001+v_dryMatterIntake(hh,y,m,aaac
       t,type,inten));
-1361   
-1362  e_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)..                    
+1360   
+1361  e_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)..                    
               v_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)  =e= v_nitrog
       en_intake(hh,aaact,type,inten,minten,y,m)*0.15;
-1363  *- v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m) - v_nitrogen_r
+1362  *- v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m) - v_nitrogen_r
       etained_gain(hh,aaact,type,inten,minten,y,m)   ;
-1364  * - v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m);
-1365  * n retained for milk, gain, fetal
-1366   
-1367  e_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m)..                
+1363  * - v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m);
+1364  * n retained for milk, gain, fetal
+1365   
+1366  e_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m)..                
               v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m) =e=   0.0
       35*p_milkprod(aaact,type,inten);
-1368   
-1369  e_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m)..                
+1367   
+1368  e_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m)..                
               v_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m) =e= p_gai
       n(aaact,type,inten)*(268-(7.03*p_NE_gain(hh,aaact,type,inten,minten,y,m)/(
       .001+p_gain(aaact,type,inten))))/(1000/6.25) ;
-1370   
-1371  e_manure_nitrous_oxide_direct(hh,y)..                                     
+1369   
+1370  e_manure_nitrous_oxide_direct(hh,y)..                                     
               v_manure_nitrous_oxide_direct(hh,y) =e=  265*Sum((aaact,type,inten
       ,minten,m),30*v_aactLev(hh,aaact,type,inten,minten,y,m)*v_nitrogen_excreti
       on(hh,aaact,type,inten,minten,y,m)*p_EF_3)      ;
-1372  *(1/18.45)*(1/6.25)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dr
+1371  *(1/18.45)*(1/6.25)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dr
       yMatter(feed)*p_grossEnergy(feed))*Sum((feed),v_fdcons(hh,aaact,type,inten
       ,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))/(.001+v_dryMatterIntake
       (hh,y,m,aaact,type,inten));
-1373  *265*Sum((aaact,type,inten,minten,m),30*v_aactLev(hh,aaact,type,inten,mint
+1372  *265*Sum((aaact,type,inten,minten,m),30*v_aactLev(hh,aaact,type,inten,mint
       en,y,m)*v_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)*p_EF_3)      
       ;
-1374   
-1375  e_manure_nitrous_oxide_vol(hh,y)..                                        
+1373   
+1374  e_manure_nitrous_oxide_vol(hh,y)..                                        
               v_manure_nitrous_oxide_vol(hh,y) =e=  265*Sum((aaact,type,inten,mi
       nten,m),30*v_aactLev(hh,aaact,type,inten,minten,y,m)*v_nitrogen_excretion(
       hh,aaact,type,inten,minten,y,m)*p_FRAC_vol*p_EF_4)      ;
-1376   
-1377  e_manure_nitrous_oxide_leach(hh,y)..                                      
+1375   
+1376  e_manure_nitrous_oxide_leach(hh,y)..                                      
               v_manure_nitrous_oxide_leach(hh,y) =e=  265*Sum((aaact,type,inten,
       minten,m),30*v_aactLev(hh,aaact,type,inten,minten,y,m)*v_nitrogen_excretio
       n(hh,aaact,type,inten,minten,y,m)*p_FRAC_leach*p_EF_5)      ;
-1378   
-1379  e_soil_nitrous_oxide(hh,y)..                                              
+1377   
+1378  e_soil_nitrous_oxide(hh,y)..                                              
               v_soil_nitrous_oxide(hh,y)=e=  265*Sum((fodder),v_areaCrop(hh,y,fo
       dder)*p_nitrous_oxide(fodder)) + 265*Sum((non_fodder),v_areaCrop(hh,y,non_
       fodder)*p_nitrous_oxide(non_fodder)*p_alloc_factor(non_fodder))*Sum((resid
       ues_non_fodder(residues,non_fodder),m),v_residuesfeedm(hh,residues,y,m))/S
       um((residues_non_fodder(residues,non_fodder),m),0.001+v_residues(hh,y,resi
       dues,m))
-1380  +  265*Sum((m,feed_off_farm),v_feedbuy(hh,feed_off_farm,y,m)*p_nitrous_oxi
+1379  +  265*Sum((m,feed_off_farm),v_feedbuy(hh,feed_off_farm,y,m)*p_nitrous_oxi
       de_offfarm(feed_off_farm)/1000);
-1381   
-1382  e_fossil_fuel_energy(hh,y)..                                              
+1380   
+1381  e_fossil_fuel_energy(hh,y)..                                              
               v_fossil_fuel_CO2(hh,y)  =e=    sum((m,feed_off_farm),(1/1000)*v_f
       eedbuy(hh,feed_off_farm,y,m)*p_fossil_fuel_emissions(feed_off_farm));
-1383   
-1384  *e_Total(hh,y)..                                                          
+1382   
+1383  *e_Total(hh,y)..                                                          
                v_Total_GHG_emissions(hh,y)  =e= v_enteric_methane(hh,y) + v_manu
       re_methane(hh,y)  +  v_manure_nitrous_oxide_vol(hh,y) + v_manure_nitrous_o
       xide_leach(hh,y) + v_manure_nitrous_oxide_direct(hh,y)+ v_soil_nitrous_oxi
       de(hh,y)      ;
-1385   
-1386  *e_Emissions_Intensity(hh,y)..                                            
+1384   
+1385  *e_Emissions_Intensity(hh,y)..                                            
                v_Emissions_Intensity(hh,y)*sum((adultf,type,inten,m),v_prodQmilk
       (hh,adultf,type,inten,y,m))   =e=  v_Total_GHG_emissions(hh,y)      ;
-1387   
-1388  e_dummy..  dummy =e= 10;
-1389   
-1390  Model Emissionsmod
-1391  /
-1392  e_enteric_fermentation
-1393  e_Ym
-1394  e_VS
-1395  e_manure_methane
-1396  e_nitrogen_intake
-1397  e_nitrogen_retained_lact
-1398  e_nitrogen_excretion
-1399  e_nitrogen_retained_gain
-1400  e_manure_nitrous_oxide_direct
-1401  e_manure_nitrous_oxide_leach
-1402  e_manure_nitrous_oxide_vol
-1403  e_soil_nitrous_oxide
-1404  e_fossil_fuel_energy
-1405  e_dummy
-1406  /
+1386   
+1387  e_dummy..  dummy =e= 10;
+1388   
+1389  Model Emissionsmod
+1390  /
+1391  e_enteric_fermentation
+1392  e_Ym
+1393  e_VS
+1394  e_manure_methane
+1395  e_nitrogen_intake
+1396  e_nitrogen_retained_lact
+1397  e_nitrogen_excretion
+1398  e_nitrogen_retained_gain
+1399  e_manure_nitrous_oxide_direct
+1400  e_manure_nitrous_oxide_leach
+1401  e_manure_nitrous_oxide_vol
+1402  e_soil_nitrous_oxide
+1403  e_fossil_fuel_energy
+1404  e_dummy
+1405  /
+1406   
 1407   
 1408   
 1409   
 1410   
 1411   
-1412   
-1413  * Loan module
+1412  * Loan module
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\loan_module.gms
       This module includes all the equations relating to the loan. The equations
        in this model are only included if credit is turned on in 'gen_baseline.g
       ms'
        
-1419   
-1420  Variables
-1421  v_loan(hh)                  'Value of loan taken out by household (TSh/hh)
+1418   
+1419  Variables
+1420  v_loan(hh)                  'Value of loan taken out by household (TSh/hh)
       '
-1422  v_loan_principle(hh,y)      'Remaining principle on loan in a given year (
+1421  v_loan_principle(hh,y)      'Remaining principle on loan in a given year (
       TSh)'
-1423  v_loan_installment(hh,y)    'Installment paid towards loan principle in a 
+1422  v_loan_installment(hh,y)    'Installment paid towards loan principle in a 
       given year (TSh)'
-1424  v_credit_interest(hh,y,m)   'Interest paid on loan in a given month (TSh/m
+1423  v_credit_interest(hh,y,m)   'Interest paid on loan in a given month (TSh/m
       onth)'
-1425  ;
+1424  ;
+1425   
 1426   
 1427   
 1428   
-1429   
-1430  Parameters
-1431  p_r_loan(hh)                  'Interest rate on loan (as a fraction)'
-1432  p_loan_installment(hh)        'Loan installment in current year (TSh)'
-1433  p_loan_principle(hh,year)     'Loan principle in a given year (TSh)'
-1434  p_loan_value(hh)              'Initial loan value (TSh)'
-1435  p_credit_interest(hh)         'Credit interest (TSh)'
-1436  ;
-1437   
-1438  p_loan_principle(hh,y)=0;
-1439  p_loan_value(hh)=0    ;
-1440  p_loan_installment(hh)=0 ;
-1441  p_credit_interest(hh) =0;
-1442  *p_r_loan(hh)  =0.15;
+1429  Parameters
+1430  p_r_loan(hh)                  'Interest rate on loan (as a fraction)'
+1431  p_loan_installment(hh)        'Loan installment in current year (TSh)'
+1432  p_loan_principle(hh,year)     'Loan principle in a given year (TSh)'
+1433  p_loan_value(hh)              'Initial loan value (TSh)'
+1434  p_credit_interest(hh)         'Credit interest (TSh)'
+1435  ;
+1436   
+1437  p_loan_principle(hh,y)=0;
+1438  p_loan_value(hh)=0    ;
+1439  p_loan_installment(hh)=0 ;
+1440  p_credit_interest(hh) =0;
+1441  *p_r_loan(hh)  =0.15;
+1442   
 1443   
-1444   
-1445  * Specify maximum loan amount of 10,000 lc
-1446  v_loan.up(hh)=500000;
-1447  v_loan.lo(hh)=0   ;
+1444  * Specify maximum loan amount of 10,000 lc
+1445  v_loan.up(hh)=500000;
+1446  v_loan.lo(hh)=0   ;
+1447   
 1448   
-1449   
-1450  Equations
-1451  loan_installment    'Annual payment on loan (10% of principle is paid back
+1449  Equations
+1450  loan_installment    'Annual payment on loan (10% of principle is paid back
        per year) (lc/yr)'
-1452  loan_principle      'Amortization schedule for loan'
-1453  loan_payments       'Annual payment on loan interest (lc/yr)'
-1454   
-1455  ;
-1456   
-1457  loan_installment(hh,y)..                   v_loan_installment(hh,y) =e=   
+1451  loan_principle      'Amortization schedule for loan'
+1452  loan_payments       'Annual payment on loan interest (lc/yr)'
+1453   
+1454  ;
+1455   
+1456  loan_installment(hh,y)..                   v_loan_installment(hh,y) =e=   
       v_loan(hh)*(0.1)  ;
-1458   
-1459  loan_principle(hh,y)..                     v_loan_principle(hh,y) =e=  v_l
+1457   
+1458  loan_principle(hh,y)..                     v_loan_principle(hh,y) =e=  v_l
       oan(hh) - (ord(y)*v_loan_installment(hh,y))   ;
-1460   
-1461  loan_payments(hh,y,m)..                      v_credit_interest(hh,y,m) =e=
+1459   
+1460  loan_payments(hh,y,m)..                      v_credit_interest(hh,y,m) =e=
          p_r_loan(hh)*v_loan_principle(hh,y)/12     ;
+1461   
 1462   
 1463   
-1464   
-1465  model loanmod
-1466  /
-1467  loan_payments
-1468  loan_principle
-1469  loan_installment
-1470  /
-1471   
-1472  * Household module
+1464  model loanmod
+1465  /
+1466  loan_payments
+1467  loan_principle
+1468  loan_installment
+1469  /
+1470   
+1471  * Household module
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\household_module.gms
       This module includes all general equations related to the household, inclu
       ding labour constraints, cash constraints, and conditions relating to cred
       it expenses.
        
+1477   
 1478   
 1479   
-1480   
-1481  Parameters
-1482  p_labouravailablehome(hh,y,m)           'Monthly labour available from hou
+1480  Parameters
+1481  p_labouravailablehome(hh,y,m)           'Monthly labour available from hou
       sehold members (person-days per month per household)'
-1483  hhold_members(hh,hhold_member)          'Number of people of a given age c
+1482  hhold_members(hh,hhold_member)          'Number of people of a given age c
       lass in the household'
-1484  p_offFarmIncome(hh)                     'Annual off-farm income (lc/hh/yea
+1483  p_offFarmIncome(hh)                     'Annual off-farm income (lc/hh/yea
       r)'
-1485  p_credit_interest(hh)                   'Annual expenses on credit interes
+1484  p_credit_interest(hh)                   'Annual expenses on credit interes
       t (lc/hh/year)'
-1486  p_cash(hh)                              'Cash balance in beginning month (
+1485  p_cash(hh)                              'Cash balance in beginning month (
       lc/hh)'
-1487  ;
+1486  ;
+1487   
 1488   
 1489   
 1490   
-1491   
-1492  Nonnegative Variables
-1493  v_hhold_expen(hh,y,m)                'Household expenditure (lc/hh/month)'
-1494  v_income(hh,y,m)                     'Total household income (lc/hh/yr)'
-1495  v_cash(hh,y,m)                       'Cash available for the household in 
+1491  Nonnegative Variables
+1492  v_hhold_expen(hh,y,m)                'Household expenditure (lc/hh/month)'
+1493  v_income(hh,y,m)                     'Total household income (lc/hh/yr)'
+1494  v_cash(hh,y,m)                       'Cash available for the household in 
       a given year (lc)'
-1496  v_labour_hired(hh,y,m)               'Total hired labour in a given month'
-1497  v_labourcrophome(hh,y,m)             'Home labour dedicated to cropping ac
+1495  v_labour_hired(hh,y,m)               'Total hired labour in a given month'
+1496  v_labourcrophome(hh,y,m)             'Home labour dedicated to cropping ac
       tivities (person-days/month)'
-1498  v_labourliveshome(hh,y,m)            'Home labour dedicated to livestock a
+1497  v_labourliveshome(hh,y,m)            'Home labour dedicated to livestock a
       ctivities (person-days/month)'
-1499  v_cons(hh,y,m,good)                  ''
-1500  v_labour_hired_lives(hh,y,m)         'Hired labour for livestock activitie
+1498  v_cons(hh,y,m,good)                  ''
+1499  v_labour_hired_lives(hh,y,m)         'Hired labour for livestock activitie
       s (person-days/month)'
-1501  v_labour_hired_crop(hh,y,m)          'Hired labour for cropping activities
+1500  v_labour_hired_crop(hh,y,m)          'Hired labour for cropping activities
        (person-days/month)'
-1502  v_leisure(hh,y,m)                    'Leisure time (person-days/household/
+1501  v_leisure(hh,y,m)                    'Leisure time (person-days/household/
       month)'
-1503  v_tot_credit_expenses(hh,y,m)        'Total loan expenses in a given month
+1502  v_tot_credit_expenses(hh,y,m)        'Total loan expenses in a given month
        (lc/month)'
-1504  v_lives_expenses(hh,y,m)             'Total livestock expenses in a given 
+1503  v_lives_expenses(hh,y,m)             'Total livestock expenses in a given 
       month (lc/month)'
-1505  v_crop_expenses(hh,y,m)              'Total crop expenses in a given month
+1504  v_crop_expenses(hh,y,m)              'Total crop expenses in a given month
        (lc/month)'
-1506   
-1507  v_Qmilk_hcons(hh,y,m)                'Milk consumed at home (kg/household/
+1505   
+1506  v_Qmilk_hcons(hh,y,m)                'Milk consumed at home (kg/household/
       month)'
-1508  v_Qmilk_marketed(hh,y,m)             'Total amount of milk marketed (kg/ho
+1507  v_Qmilk_marketed(hh,y,m)             'Total amount of milk marketed (kg/ho
       usehold/month)'
-1509  v_Qmilk_marketed_contract(hh,y,m)    'Total amount of milk marketed via a 
+1508  v_Qmilk_marketed_contract(hh,y,m)    'Total amount of milk marketed via a 
       contract (kg/household/month)'
-1510  v_Qmilk_marketed_informal(hh,y,m)    'Total amount of milk marketed inform
+1509  v_Qmilk_marketed_informal(hh,y,m)    'Total amount of milk marketed inform
       ally (kg/household/month)'
-1511  v_Land_use(hh,y)                     'Total on farm and upstream land use 
+1510  v_Land_use(hh,y)                     'Total on farm and upstream land use 
       (ha)'
-1512  v_crop_Land_use(hh,y)                'Total land dedicated to feed crops (
+1511  v_crop_Land_use(hh,y)                'Total land dedicated to feed crops (
       ha)'
-1513  ;
-1514   
-1515  *specify home consumption of milk and household expenditure
-1516  v_Qmilk_hcons.fx(hh,y,m)=5*45/12;
-1517  v_hhold_expen.fx(hh,y,laterm)=4000000/12;
-1518   
-1519  *variable bounds
-1520  v_leisure.lo(hh,y,m)=0;
-1521  v_labour_hired_crop.lo(hh,y,m)=0;
-1522   
-1523  Equations
-1524  e_cashconstraint           'Cash constraint when credit is turned off'
-1525  e_cashconstraint2          'Cash constraint when credit turned on'
-1526  e_cash_flow                'Cash flow equation without credit'
-1527  e_cash_flow2               'Cash flow equation with credit'
-1528  e_loan_payments            'Payments on loans in a given period'
-1529  e_labourbalancetotal       'Labour balance equation'
-1530  e_labourbalancecrop        'Labour balance equation for crops'
-1531  e_labourbalancelives       'Labour balance equation for livestock'
-1532  e_homelabour               'Home labour balance equation'
-1533  e_credit_expenses          'Credit expenses in a given month (lc/household
+1512  ;
+1513   
+1514  *specify home consumption of milk and household expenditure
+1515  v_Qmilk_hcons.fx(hh,y,m)=5*45/12;
+1516  v_hhold_expen.fx(hh,y,laterm)=4000000/12;
+1517   
+1518  *variable bounds
+1519  v_leisure.lo(hh,y,m)=0;
+1520  v_labour_hired_crop.lo(hh,y,m)=0;
+1521   
+1522  Equations
+1523  e_cashconstraint           'Cash constraint when credit is turned off'
+1524  e_cashconstraint2          'Cash constraint when credit turned on'
+1525  e_cash_flow                'Cash flow equation without credit'
+1526  e_cash_flow2               'Cash flow equation with credit'
+1527  e_loan_payments            'Payments on loans in a given period'
+1528  e_labourbalancetotal       'Labour balance equation'
+1529  e_labourbalancecrop        'Labour balance equation for crops'
+1530  e_labourbalancelives       'Labour balance equation for livestock'
+1531  e_homelabour               'Home labour balance equation'
+1532  e_credit_expenses          'Credit expenses in a given month (lc/household
       /month)'
-1534  e_home_produce_demand      'Consumption of home produced food '
-1535  e_home_food_demand         'Consumption of milk produced by the household'
-1536  e_dairy_land_use           'Calculate sum of cropland, pastureland, and ra
+1533  e_home_produce_demand      'Consumption of home produced food '
+1534  e_home_food_demand         'Consumption of milk produced by the household'
+1535  e_dairy_land_use           'Calculate sum of cropland, pastureland, and ra
       ngeland (ha)'
-1537  e_cons                     'Calculate consumption of food and non-food goo
+1536  e_cons                     'Calculate consumption of food and non-food goo
       ds'
-1538  e_milk_marketed            'Total amount of milk marketed'
-1539  e_feed_crop_land           'Total land dedicated to feed crops'
-1540  e_feed_crop_land_on_farm   'Total land dedicated to feed crops on farm'
-1541  e_feed_crop_land_off_farm  'Total land dedicated to feed crops off farm'
-1542  ;
+1537  e_milk_marketed            'Total amount of milk marketed'
+1538  e_feed_crop_land           'Total land dedicated to feed crops'
+1539  e_feed_crop_land_on_farm   'Total land dedicated to feed crops on farm'
+1540  e_feed_crop_land_off_farm  'Total land dedicated to feed crops off farm'
+1541  ;
+1542   
 1543   
-1544   
-1545  *-- Cash constraint
-1546   
-1547  e_cashconstraint(hh,y,m)..   v_lives_expenses(hh,y,m) + v_crop_expenses(hh
+1544  *-- Cash constraint
+1545   
+1546  e_cashconstraint(hh,y,m)..   v_lives_expenses(hh,y,m) + v_crop_expenses(hh
       ,y,m) +  sum(good, v_cons(hh,y,m,good))   =l=  v_cash(hh,y-1,'m12')$((ord(
       y) gt 1) and (ord(m) eq 1)) + v_cash(hh,y,m)$(ord(m) gt 1) + p_cash(hh)$((
       ord(y) eq 1) and (ord(m) eq 1))  ;
-1548  *v_hhold_expen(hh,y,m)   + v_cash(hh,y,m-1)$(ord(m) gt 1)
-1549  e_cashconstraint2(hh,y,m)..   v_lives_expenses(hh,y,m) + v_crop_expenses(h
+1547  *v_hhold_expen(hh,y,m)   + v_cash(hh,y,m-1)$(ord(m) gt 1)
+1548  e_cashconstraint2(hh,y,m)..   v_lives_expenses(hh,y,m) + v_crop_expenses(h
       h,y,m) +  sum(good, v_cons(hh,y,m,good)) +   v_tot_credit_expenses(hh,y,m)
        =l=  v_cash(hh,y,m)$(ord(y) gt 1) + v_cash(hh,y,m-1)$(ord(m) gt 1)  + p_c
       ash(hh)$((ord(y) eq 1) and (ord(m) eq 1)) + (1/12)*v_loan(hh)  ;
-1550  *+ p_offFarmIncome(hh)*(1/12)
-1551   
-1552  e_cash_flow(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 1
+1549  *+ p_offFarmIncome(hh)*(1/12)
+1550   
+1551  e_cash_flow(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 1
       ) and (ord(m) eq 1)) + v_cash(hh,y,m-1)$(ord(m) gt 1) + v_cash(hh,y-1,'m12
       ')$((ord(m) eq 1) and (ord(y) gt 1))  + (v_income(hh,y,m-1)$(ord(m) gt 1))
        + v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1))- sum(good, v_c
       ons(hh,y,m,good)) ;
-1553  *- ((v_lives_expenses(hh,y-1,'m12') + v_crop_expenses(hh,y-1,'m12'))$((ord
+1552  *- ((v_lives_expenses(hh,y-1,'m12') + v_crop_expenses(hh,y-1,'m12'))$((ord
       (m) eq 1) and (ord(y) gt 1))) - ((v_lives_expenses(hh,y,m-1) + v_crop_expe
       nses(hh,y,m-1))$(ord(m) gt 1));
-1554  *+  p_offFarmIncome(hh)*(1/12)
-1555  *+ (v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1)))
-1556  e_cash_flow2(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 
+1553  *+  p_offFarmIncome(hh)*(1/12)
+1554  *+ (v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1)))
+1555  e_cash_flow2(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 
       1) and (ord(m) eq 1)) + v_cash(hh,y,m-1)$(ord(m) gt 1) + v_cash(hh,y-1,'m1
       2')$((ord(m) eq 1) and (ord(y) gt 1)) + (v_income(hh,y,m-1)$(ord(m) gt 1))
        + (v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1)))  - sum(good,
        v_cons(hh,y,m,good)) - (v_tot_credit_expenses(hh,y-1,'m12'))$((ord(m) eq 
       1) and (ord(y) gt 1))
-1557  - ((  v_tot_credit_expenses(hh,y,m))$(ord(m) gt 1) );
-1558  *v_lives_expenses(hh,y,m-1) + v_crop_expenses(hh,y,m-1)
-1559   
-1560  e_credit_expenses(hh,y,m)..                     (1/12)*v_credit_interest(h
+1556  - ((  v_tot_credit_expenses(hh,y,m))$(ord(m) gt 1) );
+1557  *v_lives_expenses(hh,y,m-1) + v_crop_expenses(hh,y,m-1)
+1558   
+1559  e_credit_expenses(hh,y,m)..                     (1/12)*v_credit_interest(h
       h,y,m)$(ord(y) gt 1) + (1/12)*v_loan_installment(hh,y)$(ord(y) gt 1) + (1/
       12)*p_credit_interest(hh)$(ord(y) eq 1) + (1/12)*p_loan_installment(hh)$(o
       rd(y) eq 1) =e= v_tot_credit_expenses(hh,y,m) ;
-1561   
-1562  e_labourbalancetotal(hh,y,m)..                  v_totallabourdemcrop(hh,y,
+1560   
+1561  e_labourbalancetotal(hh,y,m)..                  v_totallabourdemcrop(hh,y,
       m)   + v_totallabourdemlive(hh,y,m)    =e= p_labouravailablehome(hh,y,m) -
        v_leisure(hh,y,m) + v_labour_hired_crop(hh,y,m) + v_labour_hired_lives(hh
       ,y,m);
-1563   
-1564  e_labourbalancecrop(hh,y,m)..                   v_totallabourdemcrop(hh,y,
+1562   
+1563  e_labourbalancecrop(hh,y,m)..                   v_totallabourdemcrop(hh,y,
       m)      =e= v_labourcrophome(hh,y,m) + v_labour_hired_crop(hh,y,m) ;
-1565   
-1566  e_labourbalancelives(hh,y,m)..                  v_totallabourdemlive(hh,y,
+1564   
+1565  e_labourbalancelives(hh,y,m)..                  v_totallabourdemlive(hh,y,
       m)    =e= v_labourliveshome(hh,y,m) + v_labour_hired_lives(hh,y,m) ;
-1567   
-1568  e_cons(hh,y,m,good)$(ord(m) gt 1)..                           v_cons(hh,y,
+1566   
+1567  e_cons(hh,y,m,good)$(ord(m) gt 1)..                           v_cons(hh,y,
       m,good) =e= 100000*(0.75 + 0.55*(v_income(hh,y,m) - sum(good2,v_cons(hh,y,
       m,good2))))/1;
-1569   
-1570  *e_cons(hh,y,m,good)..                           v_cons(hh,y,m,good) =e= (
+1568   
+1569  *e_cons(hh,y,m,good)..                           v_cons(hh,y,m,good) =e= (
       0.75 + 0.5*(v_income(hh,y,m) - sum(good2,v_cons(hh,y,m,good2))));
-1571   
-1572  *(.4)*v_cash(hh,y,m)    ;
-1573  *
+1570   
+1571  *(.4)*v_cash(hh,y,m)    ;
+1572  *
+1573   
 1574   
-1575   
-1576  e_home_produce_demand(hh,food,y,m)..            v_prdCrop(hh,y,food,m)   =
+1575  e_home_produce_demand(hh,food,y,m)..            v_prdCrop(hh,y,food,m)   =
       e= v_crp_cons(hh,y,food,m);
-1577   
-1578  e_home_food_demand(hh,y,m)..                    sum((type,inten,aaact),v_p
+1576   
+1577  e_home_food_demand(hh,y,m)..                    sum((type,inten,aaact),v_p
       rodQmilk(hh,aaact,type,inten,y,m)) =e= v_Qmilk_marketed(hh,y,m)  + v_Qmilk
       _hcons(hh,y,m);
-1579   
-1580  e_milk_marketed(hh,y,m)..                       v_Qmilk_marketed_contract(
+1578   
+1579  e_milk_marketed(hh,y,m)..                       v_Qmilk_marketed_contract(
       hh,y,m)  + v_Qmilk_marketed_informal(hh,y,m) =e= v_Qmilk_marketed(hh,y,m) 
       ;
-1581   
-1582  e_homelabour(hh,y,m)..                          p_labouravailablehome(hh,y
+1580   
+1581  e_homelabour(hh,y,m)..                          p_labouravailablehome(hh,y
       ,m)   =e=   v_labourcrophome(hh,y,m) +  v_labourliveshome(hh,y,m) + v_leis
       ure(hh,y,m)  ;
-1583   
-1584  e_dairy_land_use(hh,y)..                        v_Land_use(hh,y) =e= sum(f
+1582   
+1583  e_dairy_land_use(hh,y)..                        v_Land_use(hh,y) =e= sum(f
       odder,v_areaCrop(hh,y,fodder)) +  v_pasture_land(hh,y) +   v_graze_dmd(hh,
       y)   + sum((m,feed_off_farm),(1/1000)*v_feedbuy(hh,feed_off_farm,y,m)*1);
-1585   
-1586  e_feed_crop_land(hh,y)..                        v_feed_crop_land(hh,y)  =e
+1584   
+1585  e_feed_crop_land(hh,y)..                        v_feed_crop_land(hh,y)  =e
       =   Sum(fodder,v_areaCrop(hh,y,fodder))   +  Sum((feed_off_farm,m), (1/100
       0)*v_feedbuy(hh,feed_off_farm,y,m)/p_yield_feed_crop(feed_off_farm));
-1587   
-1588  e_feed_crop_land_on_farm(hh,y)..                v_feed_crop_land_on_farm(h
+1586   
+1587  e_feed_crop_land_on_farm(hh,y)..                v_feed_crop_land_on_farm(h
       h,y)  =e=   Sum(fodder,v_areaCrop(hh,y,fodder))   ;
-1589   
-1590  e_feed_crop_land_off_farm(hh,y)..               v_feed_crop_land_off_farm(
+1588   
+1589  e_feed_crop_land_off_farm(hh,y)..               v_feed_crop_land_off_farm(
       hh,y)  =e=    Sum((feed_off_farm,m), (1/1000)*v_feedbuy(hh,feed_off_farm,y
       ,m)/p_yield_feed_crop(feed_off_farm));
+1590   
 1591   
 1592   
-1593   
-1594  Model Householdmod
-1595  /
-1596  *$ifi %CREDIT%==OFF e_cashconstraint
-1597  *$ifi %CREDIT%==ON e_cashconstraint2
-1599  e_cash_flow2
-1600  e_labourbalancetotal
-1601  e_labourbalancecrop
-1602  e_labourbalancelives
-1603  e_dairy_land_use
-1604  e_cons
-1605  e_credit_expenses
-1606  e_homelabour
-1607  e_home_produce_demand
-1608  e_home_food_demand
-1609  *e_dairy_crop_land_use
-1610  e_milk_marketed
-1611  e_feed_crop_land
-1612  e_feed_crop_land_on_farm
-1613  e_feed_crop_land_off_farm
-1614  /
+1593  Model Householdmod
+1594  /
+1595  *$ifi %CREDIT%==OFF e_cashconstraint
+1596  *$ifi %CREDIT%==ON e_cashconstraint2
+1597  e_cash_flow
+1599  e_labourbalancetotal
+1600  e_labourbalancecrop
+1601  e_labourbalancelives
+1602  e_dairy_land_use
+1603  e_cons
+1605  e_homelabour
+1606  e_home_produce_demand
+1607  e_home_food_demand
+1608  *e_dairy_crop_land_use
+1609  e_milk_marketed
+1610  e_feed_crop_land
+1611  e_feed_crop_land_on_farm
+1612  e_feed_crop_land_off_farm
+1613  /
+1614   
 1615   
-1616   
-1617  * Risk module
+1616  * Risk module
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\risk_module.gms
       This module has the purpose of calculating the standard deviation in net p
@@ -2088,169 +2085,168 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
       the NPV over 100 different iterations, drawing randomly from the distbribu
       tions of the four random variables, and then calculating the random NPV th
       ese 100 different random NPVs.
+1624   
 1625   
 1626   
 1627   
-1628   
-1629  Set i /i1*i100/
-1630   
-1631  Parameters
-1632  sigma_output(outputs)   'Standard deviation of output prices'
-1633  /
-1634  milk 15
-1635  meat 45
-1636  /
-1637   
-1638  sigma_feed(feed_off_farm)  'Standard deviation of feed prices'
-1639  /
-1640  maize_bran            40
-1641  sunflower_seed_cake   30
-1642  cotton_seed_cake      20
-1643  /
-1644   
-1645  sigma_animals(aaact)     'Standard deviation of replacement animal prices'
-1646  /
-1647  adultf_imp 25
-1648  adultf_loc 25
-1649  reprod_loc 25
-1650  reprod_imp 25
-1651  /
-1652   
-1653  sigma_cash_crop(cash)  'Standard deviation of cash crop prices'
+1628  Set i /i1*i100/
+1629   
+1630  Parameters
+1631  sigma_output(outputs)   'Standard deviation of output prices'
+1632  /
+1633  milk 15
+1634  meat 45
+1635  /
+1636   
+1637  sigma_feed(feed_off_farm)  'Standard deviation of feed prices'
+1638  /
+1639  maize_bran            40
+1640  sunflower_seed_cake   20
+1641  /
+1642   
+1643  sigma_animals(aaact)     'Standard deviation of replacement animal prices'
+1644  /
+1645  adultf_imp 25
+1646  adultf_loc 25
+1647  reprod_loc 25
+1648  reprod_imp 25
+1649  /
+1650   
+1651  sigma_cash_crop(cash)  'Standard deviation of cash crop prices'
+1652  /
+1653  banana 30
 1654  /
-1655  banana 30
-1656  /
-1657   
-1658  OPV(i,outputs)                  'Output price variability'
-1659  FPV(i,feed_off_farm)            'Feed price variability'
-1660  APV(i,aaact)                    'Animal price variability'
-1661  CCPV(i,*)                       'Cash crop price variability'
-1662  ;
-1663   
-1664  *Specify distributions of cash crop prices, input prices (feeds and animal
+1655   
+1656  OPV(i,outputs)                  'Output price variability'
+1657  FPV(i,feed_off_farm)            'Feed price variability'
+1658  APV(i,aaact)                    'Animal price variability'
+1659  CCPV(i,*)                       'Cash crop price variability'
+1660  ;
+1661   
+1662  *Specify distributions of cash crop prices, input prices (feeds and animal
       s), and milk and meat prices
-1665  CCPV(i,'banana')=normal(1,sigma_cash_crop('banana'));
-1666  FPV(i,feed_off_farm)=normal(1,sigma_feed(feed_off_farm));
-1667  APV(i,aaact)=normal(1,sigma_animals(aaact));
-1668  OPV(i,'milk')= normal(1,sigma_output('milk'));
-1669  OPV(i,'meat')= normal(1,sigma_output('meat'));
+1663  CCPV(i,'banana')=normal(1,sigma_cash_crop('banana'));
+1664  FPV(i,feed_off_farm)=normal(1,sigma_feed(feed_off_farm));
+1665  APV(i,aaact)=normal(1,sigma_animals(aaact));
+1666  OPV(i,'milk')= normal(1,sigma_output('milk'));
+1667  OPV(i,'meat')= normal(1,sigma_output('meat'));
+1668   
+1669   
 1670   
-1671   
-1672   
-1673  Variables
-1674  v_off_farm_income(hh,y)                     'Off farm income (TSh/hh/year)
+1671  Variables
+1672  v_off_farm_income(hh,y)                     'Off farm income (TSh/hh/year)
       '
-1675  v_income_lives_rd(hh,i,y,m)                 'Income from livestock activit
+1673  v_income_lives_rd(hh,i,y,m)                 'Income from livestock activit
       ies (TSh/hh/year)'
-1676  v_lives_expenses_rd(hh,i,y,m)               'Random livestock expenses in 
+1674  v_lives_expenses_rd(hh,i,y,m)               'Random livestock expenses in 
       ith iteration (TSh/hh/month)'
-1677  v_income_crop_rd(hh,i,y,m)                  'Income from cropping activiti
+1675  v_income_crop_rd(hh,i,y,m)                  'Income from cropping activiti
       es (Tsh/hh/year)'
-1678  v_income_rd(hh,i,y,m)                       'Random income in ith iteratio
+1676  v_income_rd(hh,i,y,m)                       'Random income in ith iteratio
       n (TSh/hh/month)'
-1679  v_npv                                       'Net present value (lc/hh)'
-1680  v_dev(i,hh,y,m)                             'Standard deviation of net pre
+1677  v_npv                                       'Net present value (lc/hh)'
+1678  v_dev(i,hh,y,m)                             'Standard deviation of net pre
       sent value'
-1681  v_stddev_income(hh,y,m)                     'Standard deviation of income'
-1682  ;
-1683   
-1684   
-1685  Equations
-1686           e_offfarm_income_wo_loan_rd         'Off farm income (lc/hh/year)
+1679  v_stddev_income(hh,y,m)                     'Standard deviation of income'
+1680  ;
+1681   
+1682   
+1683  Equations
+1684           e_offfarm_income_wo_loan_rd         'Off farm income (lc/hh/year)
       '
-1687           e_offfarm_income_w_loan_rd          'Off farm income (lc/hh/year)
+1685           e_offfarm_income_w_loan_rd          'Off farm income (lc/hh/year)
       '
-1688           e_farm_income_lives_rd              'Livestock income income defi
+1686           e_farm_income_lives_rd              'Livestock income income defi
       nition (lc/hh/year)'
-1689           e_farm_income_crop_rd               'Crop enterprise income defin
+1687           e_farm_income_crop_rd               'Crop enterprise income defin
       ition (lc/hh/year)'
-1690           e_crop_expenses_rd                  'Annual expenses on crop prod
+1688           e_crop_expenses_rd                  'Annual expenses on crop prod
       uction (lc/hh/year)'
-1691           e_livestock_expenses_rd             'Annual expenses on livestock
+1689           e_livestock_expenses_rd             'Annual expenses on livestock
        production (lc/hh/year)'
-1692           e_total_income_rd                   'Total household income (farm
+1690           e_total_income_rd                   'Total household income (farm
        plus off farm) in a given year (lc/hh/year)'
-1693           e_milk_contract_rd                  'Specify terms of milk contra
+1691           e_milk_contract_rd                  'Specify terms of milk contra
       ct'
-1694           e_milk_no_contract_rd               'Specify no milk is marketed 
+1692           e_milk_no_contract_rd               'Specify no milk is marketed 
       under purchase agreement'
-1695           e_dev                               'Specify deviation of income 
+1693           e_dev                               'Specify deviation of income 
       for ith iteration'
-1696           e_stdddev                           'Specify standard deviation o
+1694           e_stdddev                           'Specify standard deviation o
       f income'
-1697           e_objective2                        'Net present value'
-1698  ;
-1699   
-1700  e_offfarm_income_w_loan_rd (hh,y)..        v_off_farm_income(hh,y) =e=   p
+1695           e_objective2                        'Net present value'
+1696  ;
+1697   
+1698  e_offfarm_income_w_loan_rd (hh,y)..        v_off_farm_income(hh,y) =e=   p
       _offFarmIncome(hh) -p_r_loan(hh)*v_loan_principle(hh,y)   - v_loan_install
       ment(hh,y)    ;
-1701   
-1702  e_offfarm_income_wo_loan_rd (hh,y)..       v_off_farm_income(hh,y) =e=   p
+1699   
+1700  e_offfarm_income_wo_loan_rd (hh,y)..       v_off_farm_income(hh,y) =e=   p
       _offFarmIncome(hh)    ;
-1703   
-1704  e_crop_expenses_rd (hh,y,m)..              v_crop_expenses(hh,y,m)  =e=  v
+1701   
+1702  e_crop_expenses_rd (hh,y,m)..              v_crop_expenses(hh,y,m)  =e=  v
       _labour_hired_crop(hh,y,m)*p_labourPrice(hh) + Sum(c,v_areaCrop(hh,y,c)*p_
       cropcosts(hh,c)/12);
-1705   
-1706  e_livestock_expenses_rd(hh,i,y,m)..        v_lives_expenses_rd(hh,i,y,m) =
+1703   
+1704  e_livestock_expenses_rd(hh,i,y,m)..        v_lives_expenses_rd(hh,i,y,m) =
       e=
-1707                                                sum((aaact,type,inten,minten
+1705                                                sum((aaact,type,inten,minten
       ),v_aactLevbuy(hh,aaact,type,inten,minten,y,m)*p_purchPrice(hh,aaact)*APV(
       i,aaact))
-1708                                             +  v_labour_hired_lives(hh,y,m)
+1706                                             +  v_labour_hired_lives(hh,y,m)
       *p_labourPrice(hh)
-1709                                             +  sum((feed_off_farm),v_feedbu
+1707                                             +  sum((feed_off_farm),v_feedbu
       y(hh,feed_off_farm,y,m)*p_feedprice(feed_off_farm)*FPV(i,feed_off_farm))
-1710                                             +  sum((aaact,type,inten,minten
+1708                                             +  sum((aaact,type,inten,minten
       ),v_aactLev(hh,aaact,type,inten,minten,y,m)*p_maintExpense(hh,aaact,type,m
       inten)/12);
-1711   
-1712  e_farm_income_crop_rd (hh,i,y,m)..         v_income_crop_rd(hh,i,y,m) =e= 
+1709   
+1710  e_farm_income_crop_rd (hh,i,y,m)..         v_income_crop_rd(hh,i,y,m) =e= 
        Sum((cash), v_prdCrop(hh,y,cash,m)*p_crop_sell_price(hh,y,cash)*CCPV(i,'b
       anana'))  - v_crop_expenses(hh,y,m);
-1713   
-1714  e_farm_income_lives_rd(hh,i,y,m)..         v_income_lives_rd(hh,i,y,m) =e=
+1711   
+1712  e_farm_income_lives_rd(hh,i,y,m)..         v_income_lives_rd(hh,i,y,m) =e=
        sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice*O
       PV(i,'meat'))+ v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract + 
       v_Qmilk_marketed_informal(hh,y,m) * p_milkPrice * OPV(i,'milk') - v_lives_
       expenses_rd(hh,i,y,m);
-1715   
-1716  e_milk_contract_rd (hh,y,m)..              v_Qmilk_marketed_contract(hh,y,
+1713   
+1714  e_milk_contract_rd (hh,y,m)..              v_Qmilk_marketed_contract(hh,y,
       m) =l= 10000/12 ;
-1717   
-1718  e_milk_no_contract_rd (hh,y,m)..           v_Qmilk_marketed_contract(hh,y,
+1715   
+1716  e_milk_no_contract_rd (hh,y,m)..           v_Qmilk_marketed_contract(hh,y,
       m)  =e= 0;
-1719   
-1720  e_total_income_rd(hh,i,y,m)..              v_income_rd(hh,i,y,m) =e=  v_of
+1717   
+1718  e_total_income_rd(hh,i,y,m)..              v_income_rd(hh,i,y,m) =e=  v_of
       f_farm_income(hh,y)/12 + v_income_crop_rd(hh,i,y,m) + v_income_lives_rd(hh
       ,i,y,m)  ;
-1721   
-1722  e_dev(i,hh,y,m)..                          v_dev(i,hh,y,m) =e= v_income(hh
+1719   
+1720  e_dev(i,hh,y,m)..                          v_dev(i,hh,y,m) =e= v_income(hh
       ,y,m) - v_income_rd(hh,i,y,m)   ;
-1723   
-1724  e_stdddev(hh,y,m)..                        v_stddev_income(hh,y,m) =e=  SQ
+1721   
+1722  e_stdddev(hh,y,m)..                        v_stddev_income(hh,y,m) =e=  SQ
       RT{ SUM(i,power(v_dev(i,hh,y,m),2))/CARD(i)}   ;
-1725   
-1726  e_objective2..                             v_npv =e= sum( (hh,y,m) ,((v_in
+1723   
+1724  e_objective2..                             v_npv =e= sum( (hh,y,m) ,((v_in
       come(hh,y,m) - 0.25*v_stddev_income(hh,y,m)) / ( 1 + power(p_r,ord(y))) ) 
       )   ;
+1725   
+1726   
 1727   
-1728   
-1729   
-1730  Model risk_module
-1731  /
-1733  e_offfarm_income_w_loan_rd
-1734   e_farm_income_lives_rd
-1735   e_farm_income_crop_rd
-1736   e_total_income_rd
-1737   e_livestock_expenses_rd
-1738   e_crop_expenses_rd
-1739   e_dev
-1740   e_stdddev
-1741  e_milk_contract_rd
-1743  /
-1744   
-1745  * simulation model
+1728  Model risk_module
+1729  /
+1730  e_offfarm_income_wo_loan_rd
+1732   e_farm_income_lives_rd
+1733   e_farm_income_crop_rd
+1734   e_total_income_rd
+1735   e_livestock_expenses_rd
+1736   e_crop_expenses_rd
+1737   e_dev
+1738   e_stdddev
+1740  e_milk_no_contract_rd
+1741  /
+1742   
+1743  * simulation model
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\simulation_model.gms
       This module has the purpose of defining the objective function of the glob
@@ -2258,625 +2254,624 @@ INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
        on whether risk is turned on/off
       in 'gen_baseline.gms'
        
+1750   
+1751   
 1752   
-1753   
-1754   
-1755  Variables
-1756  v_off_farm_income(hh,y)           'Off farm income (lc/hh/year)'
-1757  v_income_lives(hh,y,m)            'Income from livestock activities (lc/hh
+1753  Variables
+1754  v_off_farm_income(hh,y)           'Off farm income (lc/hh/year)'
+1755  v_income_lives(hh,y,m)            'Income from livestock activities (lc/hh
       /year)'
-1758  v_income_crop(hh,y,m)             'Income from cropping activities (lc/hh/
+1756  v_income_crop(hh,y,m)             'Income from cropping activities (lc/hh/
       year)'
-1759  v_npv                             'Net present value (lc/hh)'
-1760  ;
-1761   
-1762   
-1763  Equations
-1764           e_objective1                     'Objective function when credit 
+1757  v_npv                             'Net present value (lc/hh)'
+1758  ;
+1759   
+1760   
+1761  Equations
+1762           e_objective1                     'Objective function when credit 
       is turned off'
-1765           e_objective2                     'Objective function when credit 
+1763           e_objective2                     'Objective function when credit 
       is turned on'
-1766           e_offfarm_income_wo_loan         'Off farm income (lc/hh/year)'
-1767           e_offfarm_income_w_loan          'Off farm income (lc/hh/year)'
-1768           e_farm_income_lives              'Livestock income income definit
+1764           e_offfarm_income_wo_loan         'Off farm income (lc/hh/year)'
+1765           e_offfarm_income_w_loan          'Off farm income (lc/hh/year)'
+1766           e_farm_income_lives              'Livestock income income definit
       ion (lc/hh/year)'
-1769           e_farm_income_crop               'Crop enterprise income definiti
+1767           e_farm_income_crop               'Crop enterprise income definiti
       on (lc/hh/year)'
-1770           e_crop_expenses                  'Annual expenses on crop product
+1768           e_crop_expenses                  'Annual expenses on crop product
       ion (lc/hh/year)'
-1771           e_livestock_expenses             'Annual expenses on livestock pr
+1769           e_livestock_expenses             'Annual expenses on livestock pr
       oduction (lc/hh/year)'
-1772           e_total_income                   'Total household income (farm pl
+1770           e_total_income                   'Total household income (farm pl
       us off farm) in a given year (lc/hh/year)'
-1773           e_minimum_nutrient               'Specify minimum required nutrie
+1771           e_minimum_nutrient               'Specify minimum required nutrie
       nt intake from farm produce (crops)'
-1774           e_milk_contract                  'Specify terms of milk contract'
-1775           e_milk_no_contract               'Constraint on milk for when the
+1772           e_milk_contract                  'Specify terms of milk contract'
+1773           e_milk_no_contract               'Constraint on milk for when the
       re is no option of a contract'
-1776  ;
-1777   
-1778  e_offfarm_income_w_loan(hh,y)..                 v_off_farm_income(hh,y) =e
+1774  ;
+1775   
+1776  e_offfarm_income_w_loan(hh,y)..                 v_off_farm_income(hh,y) =e
       =   p_offFarmIncome(hh) -p_r_loan(hh)*v_loan_principle(hh,y)   - v_loan_in
       stallment(hh,y)    ;
-1779   
-1780  e_offfarm_income_wo_loan(hh,y)..                v_off_farm_income(hh,y) =e
+1777   
+1778  e_offfarm_income_wo_loan(hh,y)..                v_off_farm_income(hh,y) =e
       =   p_offFarmIncome(hh)    ;
-1781   
-1782  e_crop_expenses(hh,y,m)..                       v_crop_expenses(hh,y,m)  =
+1779   
+1780  e_crop_expenses(hh,y,m)..                       v_crop_expenses(hh,y,m)  =
       e=  v_labour_hired_crop(hh,y,m)*p_labourPrice(hh) + Sum(c,v_areaCrop(hh,y,
       c)*p_cropcosts(hh,c)/12);
-1783   
-1784  e_livestock_expenses(hh,y,m)..                  v_lives_expenses(hh,y,m) =
+1781   
+1782  e_livestock_expenses(hh,y,m)..                  v_lives_expenses(hh,y,m) =
       e=
-1785  1*
-1786  (
-1787  sum((aaact,type,inten,minten),v_aactLevbuy(hh,aaact,type,inten,minten,y,m)
+1783  1*
+1784  (
+1785  sum((aaact,type,inten,minten),v_aactLevbuy(hh,aaact,type,inten,minten,y,m)
       *p_purchPrice(hh,aaact))
-1788  +v_labour_hired_lives(hh,y,m)*p_labourPrice(hh)
-1789  +sum((feed_off_farm),v_feedbuy(hh,feed_off_farm,y,m)*p_feedprice(feed_off_
+1786  +v_labour_hired_lives(hh,y,m)*p_labourPrice(hh)
+1787  +sum((feed_off_farm),v_feedbuy(hh,feed_off_farm,y,m)*p_feedprice(feed_off_
       farm))
-1790  +sum((aaact,type,inten,minten),v_aactLev(hh,aaact,type,inten,minten,y,m)*p
+1788  +sum((aaact,type,inten,minten),v_aactLev(hh,aaact,type,inten,minten,y,m)*p
       _maintExpense(hh,aaact,type,minten)/12)
-1791  );
-1792   
-1793  e_minimum_nutrient(hh,y,nut)..                  Sum((m,food),v_prdCrop(hh,
+1789  );
+1790   
+1791  e_minimum_nutrient(hh,y,nut)..                  Sum((m,food),v_prdCrop(hh,
       y,food,m)*p_nutrientproperty(food,nut)) =g= p_hhold_adult_equivalents(hh)*
       p_nutrientrequirement(hh,nut)*p_FRAC_farmproduce(nut);
-1794   
-1795  e_farm_income_crop(hh,y,m)..                    v_income_crop(hh,y,m) =e= 
+1792   
+1793  e_farm_income_crop(hh,y,m)..                    v_income_crop(hh,y,m) =e= 
        Sum((cash), v_prdCrop(hh,y,cash,m)*p_crop_sell_price(hh,y,cash))  - v_cro
       p_expenses(hh,y,m);
-1796  *Sum(cash,v_crop_sales_cash(hh,y,cash)*p_crop_sell_price(hh,y,cash))
-1797   
-1798  e_farm_income_lives(hh,y,m)..                   v_income_lives(hh,y,m) =e=
+1794  *Sum(cash,v_crop_sales_cash(hh,y,cash)*p_crop_sell_price(hh,y,cash))
+1795   
+1796  e_farm_income_lives(hh,y,m)..                   v_income_lives(hh,y,m) =e=
        sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice)+
        v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract + v_Qmilk_market
       ed_informal(hh,y,m) * p_milkPrice - v_lives_expenses(hh,y,m);
-1799   
-1800  e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(
+1797   
+1798  e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(
       hh,y,m) =l= 10000/12 ;
-1801   
-1802  e_milk_no_contract(hh,y,m)..                    v_Qmilk_marketed_contract(
+1799   
+1800  e_milk_no_contract(hh,y,m)..                    v_Qmilk_marketed_contract(
       hh,y,m)  =e= 0;
-1803   
-1804  e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_o
+1801   
+1802  e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_o
       ff_farm_income(hh,y)/12   + v_income_lives(hh,y,m)   ;
-1805  *   +  v_income_crop(hh,y,m)
-1806  e_objective1..                                  v_npv =e= sum( (hh,y,m) ,v
+1803  *   +  v_income_crop(hh,y,m)
+1804  e_objective1..                                  v_npv =e= sum( (hh,y,m) ,v
       _income(hh,y,m) + v_leisure(hh,y,m)*p_offFarm_wage(hh)*8*.02 / ( 1 + power
       (p_r,ord(y)) ) )   ;
-1807   
-1808  *e_objective2.. v_npv =e= sum( (hh,y,m) ,(v_income(hh,y,m)- v_stddev_incom
+1805   
+1806  *e_objective2.. v_npv =e= sum( (hh,y,m) ,(v_income(hh,y,m)- v_stddev_incom
       e(hh,y,m)) / ( 1 + power(p_r,ord(y)) ) )   ;
+1807   
+1808   
 1809   
 1810   
-1811   
-1812   
-1813  Model simulation_model
-1814  /
-1816  e_objective2
-1818  e_offfarm_income_w_loan
-1819   e_farm_income_lives
-1820   e_farm_income_crop
-1821   e_total_income
-1822   e_livestock_expenses
-1823   e_crop_expenses
-1824   e_minimum_nutrient
-1825  e_milk_contract
-1827  /
-1828   
+1811  Model simulation_model
+1812  /
+1814  e_objective2
+1815  e_offfarm_income_wo_loan
+1817   e_farm_income_lives
+1818   e_farm_income_crop
+1819   e_total_income
+1820   e_livestock_expenses
+1821   e_crop_expenses
+1822   e_minimum_nutrient
+1824  e_milk_no_contract
+1825  /
+1826   
+1827   
+1828  * MODEL DEFINITION
 1829   
-1830  * MODEL DEFINITION
-1831   
-1832  Model  DairyClimateModel
-1833  /
-1834     livesmod
-1835     demogmod
-1836     cropmod
-1837     Householdmod
-1838     simulation_model
-1839  risk_module
-1840  loanmod
-1842  /
-1843  ;
-1844  *DairyClimateModel.SCALEOPT = 10000 ;
-1845   
-1846   
-1847  * results storage parameters
-1848  Parameter
-1849  hh1_animals(*,*,*)
-1850  ghg_summary(*,*,*)
-1851  Model_status(*,*)
-1852  credit(*,*,*)
-1853  consumption(*,*,*,*,*)
-1854  biomass(*,*,*,*,*)
-1855  animal_numbers_monthly(*,*,*,*,*)
-1856  animal_numbers_annual(*,*,*,*)
-1857  financials(*,*,*)
-1858  financials_crop(*,*,*)
-1859  financials_livestock(*,*,*)
-1860  herd_changes(*,*,*,*,*,*,*,*)
-1861  herd(*,*,*,*,*,*)
-1862  herd2(*,*,*)
-1863  diet1(*,*,*,*,*,*)
-1864  diet_annual(*,*,*,*,*,*)
-1865  labour(*,*,*,*)
-1866  diet(*,*,*,*,*,*,*)
-1867  GHG_emissions(*,*,*)
-1868  GHG_emissions_parameters(*,*,*,*,*,*,*,*)
-1869  crops(*,*,*,*)
-1870  production(*,*,*)
-1871  land(*,*,*)
-1872  dry_matter_intake(*,*,*,*,*,*)
-1873  total_feed_consumed1(*,*,*,*)
-1874  total_feed_consumed2(*,*,*,*,*)
-1875  cash_balance(*,*,*)
-1876  ;
+1830  Model  DairyClimateModel
+1831  /
+1832     livesmod
+1833     demogmod
+1834     cropmod
+1835     Householdmod
+1836     simulation_model
+1837  risk_module
+1840  /
+1841  ;
+1842  *DairyClimateModel.SCALEOPT = 10000 ;
+1843   
+1844   
+1845  * results storage parameters
+1846  Parameter
+1847  hh1_animals(*,*,*)
+1848  ghg_summary(*,*,*)
+1849  Model_status(*,*)
+1850  credit(*,*,*)
+1851  consumption(*,*,*,*,*)
+1852  biomass(*,*,*,*,*)
+1853  animal_numbers_monthly(*,*,*,*,*)
+1854  animal_numbers_annual(*,*,*,*)
+1855  financials(*,*,*)
+1856  financials_crop(*,*,*)
+1857  financials_livestock(*,*,*)
+1858  herd_changes(*,*,*,*,*,*,*,*)
+1859  herd(*,*,*,*,*,*)
+1860  herd2(*,*,*)
+1861  diet1(*,*,*,*,*,*)
+1862  diet_annual(*,*,*,*,*,*)
+1863  labour(*,*,*,*)
+1864  diet(*,*,*,*,*,*,*)
+1865  GHG_emissions(*,*,*)
+1866  GHG_emissions_parameters(*,*,*,*,*,*,*,*)
+1867  crops(*,*,*,*)
+1868  production(*,*,*)
+1869  land(*,*,*)
+1870  dry_matter_intake(*,*,*,*,*,*)
+1871  total_feed_consumed1(*,*,*,*)
+1872  total_feed_consumed2(*,*,*,*,*)
+1873  cash_balance(*,*,*)
+1874  ;
+1875   
+1876   
 1877   
-1878   
+1878  *-- recursive loop
 1879   
-1880  *-- recursive loop
+1880  Loop(y2,
 1881   
-1882  Loop(y2,
-1883   
-1884  *v_aactLevsell.fx(hh,'adultf_imp',type,inten,minten,'y01','m01') = v_aactL
+1882  *v_aactLevsell.fx(hh,'adultf_imp',type,inten,minten,'y01','m01') = v_aactL
       ev.l(hh,'adultf_imp',type,inten,minten,'y01','m12')*p_grad('adultf_imp',ty
       pe,inten)*(1-p_mort('adultf_imp',type,minten));
-1885  v_aactLevsell.fx(hh,'adultf_loc',type,inten,minten,'y01','m01')= v_aactLev
+1883  v_aactLevsell.fx(hh,'adultf_loc',type,inten,minten,'y01','m01')= v_aactLev
       .l(hh,'adultf_loc',type,inten,minten,'y01','m12')*p_grad('adultf_loc',type
       ,inten)*(1-p_mort('adultf_loc',type,minten));
-1886   
-1887   
-1888  ** these inititial variable values are specified to reduce the solve time 
+1884   
+1885   
+1886  ** these inititial variable values are specified to reduce the solve time 
       of the model.
-1889  v_fdcons.l(hh,aaact,type,inten,y,m,feed_off_farm)=0;
-1890  v_fdcons.l(hh,aaact,type,inten,y,m,'grass')=20;
+1887  v_fdcons.l(hh,aaact,type,inten,y,m,feed_off_farm)=0;
+1888  v_fdcons.l(hh,aaact,type,inten,y,m,'grass')=20;
+1889   
+1890   
 1891   
-1892   
-1893   
-1894  SOLVE DairyClimateModel maximizing v_npv using NLP;  !! best solved with S
+1892  SOLVE DairyClimateModel maximizing v_npv using NLP;  !! best solved with S
       NOPT
-1895  *RMINLP
-1896  *$include productivity_module.gms
-1897   
-1898  *----- save results from current year
-1899  Model_status('Model Status',y2)=DairyClimateModel.modelstat;
-1900  animal_numbers_monthly('Animal Activity Levels (head)',hh,aaact,y2,m)=Sum(
+1893  *RMINLP
+1894  *$include productivity_module.gms
+1895   
+1896  *----- save results from current year
+1897  Model_status('Model Status',y2)=DairyClimateModel.modelstat;
+1898  animal_numbers_monthly('Animal Activity Levels (head)',hh,aaact,y2,m)=Sum(
       (inten,minten),v_aactLev.l(hh,aaact,'dairy',inten,minten,'y01',m));
-1901  animal_numbers_annual('Animal Activity Levels (head)',hh,aaact,y2)=Sum((in
+1899  animal_numbers_annual('Animal Activity Levels (head)',hh,aaact,y2)=Sum((in
       ten,minten,m),v_aactLev.l(hh,aaact,'dairy',inten,minten,'y01',m))/12;
-1902   
-1903   
-1904  herd_changes('Animal Sales (hd)',hh,aaact,type,inten,minten,y2,m)=v_aactLe
+1900   
+1901   
+1902  herd_changes('Animal Sales (hd)',hh,aaact,type,inten,minten,y2,m)=v_aactLe
       vSell.l(hh,aaact,type,inten,minten,'y01',m);
-1905  herd_changes('Animal Purchases (hd)',hh,aaact,type,inten,minten,y2,m)=v_aa
+1903  herd_changes('Animal Purchases (hd)',hh,aaact,type,inten,minten,y2,m)=v_aa
       ctLevbuy.l(hh,aaact,type,inten,minten,'y01',m);
-1906  *herd_changes('Animal Deaths (hd)',hh,aaact,type,inten,minten,y2,m)=;
-1907   
-1908  biomass('Total feed consumption (kg/hh/month)',hh,feed,y2,m)=v_feedons.l(h
+1904  *herd_changes('Animal Deaths (hd)',hh,aaact,type,inten,minten,y2,m)=;
+1905   
+1906  biomass('Total feed consumption (kg/hh/month)',hh,feed,y2,m)=v_feedons.l(h
       h,feed,'y01',m);
-1909  biomass('Feed Balance (kg/month)',hh,feed,y2,m)=v_feedbalance.l(hh,feed,'y
+1907  biomass('Feed Balance (kg/month)',hh,feed,y2,m)=v_feedbalance.l(hh,feed,'y
       01',m);
-1910  biomass('Residues as Feed (Mg)',hh,residues,y2,m)=v_residuesfeedm.l(hh,res
+1908  biomass('Residues as Feed (Mg)',hh,residues,y2,m)=v_residuesfeedm.l(hh,res
       idues,'y01',m);
-1911  biomass('Residues on field (Mg)',hh,y2,residues,m)=v_residuesfieldm.l(hh,r
+1909  biomass('Residues on field (Mg)',hh,y2,residues,m)=v_residuesfieldm.l(hh,r
       esidues,'y01',m);
-1912  biomass('Feeds purchased (kg/hh/month)',hh,y2,feed_off_farm,m)= v_feedbuy.
+1910  biomass('Feeds purchased (kg/hh/month)',hh,y2,feed_off_farm,m)= v_feedbuy.
       l(hh,feed_off_farm,'y01',m);
-1913   
-1914   
-1915  diet1('Diet (kg/hd/day)',hh,aaact,y2,m,feed)=Sum(inten,v_fdcons.l(hh,aaact
+1911   
+1912   
+1913  diet1('Diet (kg/hd/day)',hh,aaact,y2,m,feed)=Sum(inten,v_fdcons.l(hh,aaact
       ,'dairy',inten,'y01',m,feed));
-1916  diet('Feed intake (kg/hd/day)',hh,aaact,y2,m,inten,feed)=v_fdcons.l(hh,aaa
+1914  diet('Feed intake (kg/hd/day)',hh,aaact,y2,m,inten,feed)=v_fdcons.l(hh,aaa
       ct,'dairy',inten,'y01',m,feed);
-1917  diet_annual('Diet as percentage(% DMI)',hh,aaact,y2,inten,feed)=100*sum((m
+1915  diet_annual('Diet as percentage(% DMI)',hh,aaact,y2,inten,feed)=100*sum((m
       ),p_dryMatter(feed)*v_fdcons.l(hh,aaact,'dairy',inten,'y01',m,feed))/Sum(m
       ,.0001+v_dryMatterIntake.l(hh,'y01',m,aaact,'dairy',inten));
-1918  diet('Gross Energy (MJ/hd/d)',hh,aaact,type,inten,y2,m)=Sum((feed),v_fdcon
+1916  diet('Gross Energy (MJ/hd/d)',hh,aaact,type,inten,y2,m)=Sum((feed),v_fdcon
       s.l(hh,aaact,type,inten,'y01',m,feed)*p_dryMatter(feed)*p_grossEnergy(feed
       ));
-1919  diet('Digestible Energy (MJ/hd/d)',hh,aaact,type,inten,y2,m)=Sum((feed),v_
+1917  diet('Digestible Energy (MJ/hd/d)',hh,aaact,type,inten,y2,m)=Sum((feed),v_
       fdcons.l(hh,aaact,type,inten,'y01',m,feed)*p_dryMatter(feed)*p_digestibleE
       nergy(feed));
-1920   
-1921  dry_matter_intake('Dry matter intake (kg/hd/d)',hh,aaact,inten,y2,m)=v_dry
+1918   
+1919  dry_matter_intake('Dry matter intake (kg/hd/d)',hh,aaact,inten,y2,m)=v_dry
       MatterIntake.l(hh,'y01',m,aaact,'dairy',inten) ;
-1922  total_feed_consumed1('Total of all feeds consumed (kg)',hh,y2,m)=sum(feed,
+1920  total_feed_consumed1('Total of all feeds consumed (kg)',hh,y2,m)=sum(feed,
       biomass('Total feed consumption (kg/hh/month)',hh,feed,'y01',m));
-1923  total_feed_consumed2('Total of an individual feed consumed (%)',hh,feed,y2
+1921  total_feed_consumed2('Total of an individual feed consumed (%)',hh,feed,y2
       ,m)=100*v_feedons.l(hh,feed,'y01',m)/(.0001+total_feed_consumed1('Total of
        all feeds consumed (kg)',hh,y2,m));
-1924   
-1925  *- Financials
-1926  financials('Net present value (objective function) (lc)',hh,y2)=v_npv.l;
-1927  financials('Household Income (lc/yr)',hh,y2)=sum(m,v_income.l(hh,'y01',m))
+1922   
+1923  *- Financials
+1924  financials('Net present value (objective function) (lc)',hh,y2)=v_npv.l;
+1925  financials('Household Income (lc/yr)',hh,y2)=sum(m,v_income.l(hh,'y01',m))
       ;
-1928  financials('Farm Income (lc/yr)',hh,y2)=sum(m,v_income_lives.l(hh,'y01',m)
+1926  financials('Farm Income (lc/yr)',hh,y2)=sum(m,v_income_lives.l(hh,'y01',m)
       +v_income_crop.l(hh,'y01',m));
-1929  financials('Off farm Income (lc/yr)',hh,y2)=v_off_farm_income.l(hh,'y01');
-1930  financials('Farm Expenses (lc/yr)',hh,y2)=sum(m,v_crop_expenses.l(hh,'y01'
+1927  financials('Off farm Income (lc/yr)',hh,y2)=v_off_farm_income.l(hh,'y01');
+1928  financials('Farm Expenses (lc/yr)',hh,y2)=sum(m,v_crop_expenses.l(hh,'y01'
       ,m)+v_lives_expenses.l(hh,'y01',m));
-1931  financials('Cash balance (lc/hh)',hh,y2)=0.35*sum(m,v_income.l(hh,'y01',m)
+1929  financials('Cash balance (lc/hh)',hh,y2)=0.35*sum(m,v_income.l(hh,'y01',m)
       ) ;
-1932   
-1933  financials_livestock('Livestock Income(lc/hh/y)',hh,y2)= sum(m,v_income_li
+1930   
+1931  financials_livestock('Livestock Income(lc/hh/y)',hh,y2)= sum(m,v_income_li
       ves.l(hh,'y01',m));
-1934  financials_livestock('Milk Revenue (lc/hh/y)',hh,y2)=sum((adultf,type,inte
+1932  financials_livestock('Milk Revenue (lc/hh/y)',hh,y2)=sum((adultf,type,inte
       n,m),v_prodQmilk.l(hh,adultf,type,inten,'y01',m)*p_milkPrice);
-1935  financials_livestock('Meat Revenue (lc/hh/y)',hh,y2)=Sum((aaact,type,inten
+1933  financials_livestock('Meat Revenue (lc/hh/y)',hh,y2)=Sum((aaact,type,inten
       ,m),v_prodQmeat.l(hh,aaact,type,inten,'y01',m)*p_meatPrice);
-1936  financials_livestock('Livestock Expenses (lc/yr)',hh,y2)=sum(m,v_lives_exp
+1934  financials_livestock('Livestock Expenses (lc/yr)',hh,y2)=sum(m,v_lives_exp
       enses.l(hh,'y01',m));
-1937  financials_livestock('Replacement Costs(lc/yr)',hh,y2)=sum((aaact,type,int
+1935  financials_livestock('Replacement Costs(lc/yr)',hh,y2)=sum((aaact,type,int
       en,minten,m),v_aactLevbuy.l(hh,aaact,type,inten,minten,'y01',m)*p_purchPri
       ce(hh,aaact));
-1938  financials_livestock('Livestock labour expenses(lc/yr)',hh,y2)=sum(m,v_lab
+1936  financials_livestock('Livestock labour expenses(lc/yr)',hh,y2)=sum(m,v_lab
       our_hired_lives.l(hh,'y01',m)*p_labourPrice(hh)) ;
-1939  financials_livestock('Maintenance Expenses(lc/yr)',hh,y2)= sum((aaact,type
+1937  financials_livestock('Maintenance Expenses(lc/yr)',hh,y2)= sum((aaact,type
       ,m,inten,minten),v_aactLev.l(hh,aaact,type,inten,minten,'y01',m)*p_maintEx
       pense(hh,aaact,type,minten)/12);
-1940  financials_livestock('Feed Expenses(lc/yr)',hh,y2)= sum((m,feed_off_farm),
+1938  financials_livestock('Feed Expenses(lc/yr)',hh,y2)= sum((m,feed_off_farm),
       v_feedbuy.l(hh,feed_off_farm,'y01',m)*p_feedprice(feed_off_farm));
-1941  financials_livestock('Milk marketed informally (lc/yr)',hh,y2)=sum(m,v_Qmi
+1939  financials_livestock('Milk marketed informally (lc/yr)',hh,y2)=sum(m,v_Qmi
       lk_marketed_informal.l(hh,'y01',m));
-1942  financials_livestock('Milk marketed contract(lc/yr)',hh,y2)=sum(m,v_Qmilk_
+1940  financials_livestock('Milk marketed contract(lc/yr)',hh,y2)=sum(m,v_Qmilk_
       marketed_contract.l(hh,'y01',m));
-1943   
-1944  financials_crop('Crop income (lc/yr)',hh,y2)=sum(m,v_income_crop.l(hh,'y01
+1941   
+1942  financials_crop('Crop income (lc/yr)',hh,y2)=sum(m,v_income_crop.l(hh,'y01
       ',m));
-1945  financials_crop('Crop revenue (lc/yr)',hh,y2)=Sum((cash,m), v_prdCrop.l(hh
+1943  financials_crop('Crop revenue (lc/yr)',hh,y2)=Sum((cash,m), v_prdCrop.l(hh
       ,'y01',cash,m)*p_crop_sell_price(hh,'y01',cash));
-1946  financials_crop('Crop Expenses (lc/yr)',hh,y2)=sum(m,v_crop_expenses.l(hh,
+1944  financials_crop('Crop Expenses (lc/yr)',hh,y2)=sum(m,v_crop_expenses.l(hh,
       'y01',m));
-1947  financials_crop('General crop expenses(lc/yr)',hh,y2)=Sum(c,v_areaCrop.l(h
+1945  financials_crop('General crop expenses(lc/yr)',hh,y2)=Sum(c,v_areaCrop.l(h
       h,'y01',c)*p_cropcosts(hh,c))    ;
-1948  financials_crop('Crop labour expenses(lc/yr)',hh,y2)=Sum(m,v_labour_hired_
+1946  financials_crop('Crop labour expenses(lc/yr)',hh,y2)=Sum(m,v_labour_hired_
       crop.l(hh,'y01',m)*p_labourPrice(hh)) ;
+1947   
+1948   
 1949   
 1950   
-1951   
-1952   
-1953  * milk and meat production
-1954  production('Milk produced (kg/hh/y)',hh,y2)=sum((adultf,type,inten,m),v_pr
+1951  * milk and meat production
+1952  production('Milk produced (kg/hh/y)',hh,y2)=sum((adultf,type,inten,m),v_pr
       odQmilk.l(hh,adultf,type,inten,'y01',m));
-1955  production('Meat produced (kg/hh/y)',hh,y2)=Sum((aaact,type,inten,m),v_pro
+1953  production('Meat produced (kg/hh/y)',hh,y2)=Sum((aaact,type,inten,m),v_pro
       dQmeat.l(hh,aaact,type,inten,'y01',m));
-1956   
-1957  * consumption
-1958  consumption(hh,y2,m,good,'Household consumption (kg/hh/m)')=v_cons.l(hh,'y
+1954   
+1955  * consumption
+1956  consumption(hh,y2,m,good,'Household consumption (kg/hh/m)')=v_cons.l(hh,'y
       01',m,good);
-1959   
-1960   
-1961  * labour
-1962  labour('Total livestock labour (person-days/m)',hh,y2,m)=v_totallabourdeml
+1957   
+1958   
+1959  * labour
+1960  labour('Total livestock labour (person-days/m)',hh,y2,m)=v_totallabourdeml
       ive.l(hh,'y01',m);
-1963  labour('Total crop labour (person-days/m)',hh,y2,m)=v_totallabourdemcrop.l
+1961  labour('Total crop labour (person-days/m)',hh,y2,m)=v_totallabourdemcrop.l
       (hh,'y01',m);
-1964  labour('Livestock labour hired (person-days/m)',hh,y2,m)=v_labour_hired_li
+1962  labour('Livestock labour hired (person-days/m)',hh,y2,m)=v_labour_hired_li
       ves.l(hh,'y01',m);
-1965  labour('Crop labour hired (person-days/m)',hh,y2,m)=v_labour_hired_crop.l(
+1963  labour('Crop labour hired (person-days/m)',hh,y2,m)=v_labour_hired_crop.l(
       hh,'y01',m) ;
-1966  labour('Home labour available (person-days/m)',hh,y2,m)=p_labouravailableh
+1964  labour('Home labour available (person-days/m)',hh,y2,m)=p_labouravailableh
       ome(hh,'y01',m);
-1967  labour('Leisure time (person-days/m)',hh,y2,m)=v_leisure.l(hh,'y01',m);
-1968   
-1969  * Crops
-1970  crops('Crop area (ha)',hh,y2,c)=v_areaCrop.l(hh,'y01',c);
-1971  crops('Crop production (Mg)',hh,y2,c)=Sum(m,v_prdCrop.l(hh,'y01',c,m)) ;
-1972  crops('Crop residues produced (Mg)',hh,y2,residues)=Sum(m,v_residues.l(hh,
+1965  labour('Leisure time (person-days/m)',hh,y2,m)=v_leisure.l(hh,'y01',m);
+1966   
+1967  * Crops
+1968  crops('Crop area (ha)',hh,y2,c)=v_areaCrop.l(hh,'y01',c);
+1969  crops('Crop production (Mg)',hh,y2,c)=Sum(m,v_prdCrop.l(hh,'y01',c,m)) ;
+1970  crops('Crop residues produced (Mg)',hh,y2,residues)=Sum(m,v_residues.l(hh,
       'y01',residues,m));
+1971   
+1972   
 1973   
-1974   
-1975   
-1976  * These two lines calculate GHG emissions at a post-model optimization out
+1974  * These two lines calculate GHG emissions at a post-model optimization out
       put (based on the results from the model run in each iteration)
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\GHG_params.gms
-1978   
-1979  v_aactLev.fx(hh,aaact,type,inten,minten,'y01',m)=v_aactLev.l(hh,aaact,type
+1976   
+1977  v_aactLev.fx(hh,aaact,type,inten,minten,'y01',m)=v_aactLev.l(hh,aaact,type
       ,inten,minten,'y01',m) ;
-1980  v_grossEnergy.fx(hh,aaact,type,inten,minten,'y01',m)=v_grossEnergy.l(hh,aa
+1978  v_grossEnergy.fx(hh,aaact,type,inten,minten,'y01',m)=v_grossEnergy.l(hh,aa
       act,type,inten,minten,'y01',m);
-1981  v_digestibleEnergy.fx(hh,aaact,type,inten,minten,'y01',m)=v_digestibleEner
+1979  v_digestibleEnergy.fx(hh,aaact,type,inten,minten,'y01',m)=v_digestibleEner
       gy.l(hh,aaact,type,inten,minten,'y01',m);
-1982  v_fdcons.fx(hh,aaact,type,inten,'y01',m,feed)=v_fdcons.l(hh,aaact,type,int
+1980  v_fdcons.fx(hh,aaact,type,inten,'y01',m,feed)=v_fdcons.l(hh,aaact,type,int
       en,'y01',m,feed);
-1983  v_graze_dmd.fx(hh,'y01')=v_graze_dmd.l(hh,'y01');
-1984  v_dryMatterIntake.fx(hh,'y01',m,aaact,type,inten)=v_dryMatterIntake.l(hh,'
+1981  v_graze_dmd.fx(hh,'y01')=v_graze_dmd.l(hh,'y01');
+1982  v_dryMatterIntake.fx(hh,'y01',m,aaact,type,inten)=v_dryMatterIntake.l(hh,'
       y01',m,aaact,type,inten);
-1985  v_areaCrop.fx(hh,'y01',c)=v_areaCrop.l(hh,'y01',c);
-1986  v_feed_crop_land.fx(hh,'y01')=v_feed_crop_land.l(hh,'y01');
-1987  v_ADF.fx(hh,'y01',m,aaact,type,inten,minten)=v_ADF.l(hh,'y01',m,aaact,type
+1983  v_areaCrop.fx(hh,'y01',c)=v_areaCrop.l(hh,'y01',c);
+1984  v_feed_crop_land.fx(hh,'y01')=v_feed_crop_land.l(hh,'y01');
+1985  v_ADF.fx(hh,'y01',m,aaact,type,inten,minten)=v_ADF.l(hh,'y01',m,aaact,type
       ,inten,minten);
-1988  v_NDF.fx(hh,'y01',m,aaact,type,inten,minten)=v_NDF.l(hh,'y01',m,aaact,type
+1986  v_NDF.fx(hh,'y01',m,aaact,type,inten,minten)=v_NDF.l(hh,'y01',m,aaact,type
       ,inten,minten);
-1989  v_dmd.fx(hh,'y01',m,aaact,type,inten,minten)=v_dmd.l(hh,'y01',m,aaact,type
+1987  v_dmd.fx(hh,'y01',m,aaact,type,inten,minten)=v_dmd.l(hh,'y01',m,aaact,type
       ,inten,minten);
-1990  Solve Emissionsmod using nlp maximizing dummy;
-1991   
-1992  GHG_emissions('Emissions -- Enteric CH4 (kg/yr)',hh,y2)=v_enteric_methane.
+1988  Solve Emissionsmod using nlp maximizing dummy;
+1989   
+1990  GHG_emissions('Emissions -- Enteric CH4 (kg/yr)',hh,y2)=v_enteric_methane.
       l(hh,'y01');
-1993  GHG_emissions('Emissions -- Manure CH4 (kg/yr)',hh,y2)=v_manure_methane.l(
+1991  GHG_emissions('Emissions -- Manure CH4 (kg/yr)',hh,y2)=v_manure_methane.l(
       hh,'y01');
-1994  GHG_emissions('Emissions -- Manure N2O (direct) (kg/yr)',hh,y2)=v_manure_n
+1992  GHG_emissions('Emissions -- Manure N2O (direct) (kg/yr)',hh,y2)=v_manure_n
       itrous_oxide_direct.l(hh,'y01');
-1995  GHG_emissions('Emissions -- Manure N2O (vol) (kg/yr)',hh,y2)=v_manure_nitr
+1993  GHG_emissions('Emissions -- Manure N2O (vol) (kg/yr)',hh,y2)=v_manure_nitr
       ous_oxide_vol.l(hh,'y01');
-1996  GHG_emissions('Emissions -- Manure N2O (leach) (kg/yr)',hh,y2)=v_manure_ni
+1994  GHG_emissions('Emissions -- Manure N2O (leach) (kg/yr)',hh,y2)=v_manure_ni
       trous_oxide_leach.l(hh,'y01');
-1997  GHG_emissions('Emissions -- Soil N2O (kg/yr)',hh,y2)=v_soil_nitrous_oxide.
+1995  GHG_emissions('Emissions -- Soil N2O (kg/yr)',hh,y2)=v_soil_nitrous_oxide.
       l(hh,'y01');
-1998  GHG_emissions('Emissions -- Fossil Fuel CO2 (kg CO2eq/kg milk)',hh,y2)=v_f
+1996  GHG_emissions('Emissions -- Fossil Fuel CO2 (kg CO2eq/kg milk)',hh,y2)=v_f
       ossil_fuel_CO2.l(hh,'y01');
-1999  GHG_emissions('Emissions -- cropland conversion (kg/yr)',hh,y2)=(44/12)*p_
+1997  GHG_emissions('Emissions -- cropland conversion (kg/yr)',hh,y2)=(44/12)*p_
       land_C*(1-exp((-.02)*(ord(y2)-1)))*(v_feed_crop_land.l(hh,'y01') -  p0_fee
       d_crop_land(hh,y2)) ;
-2000  GHG_emissions('Emissions -- Total(kg CO2eq)',hh,y2)=v_enteric_methane.l(hh
+1998  GHG_emissions('Emissions -- Total(kg CO2eq)',hh,y2)=v_enteric_methane.l(hh
       ,'y01')+v_manure_methane.l(hh,'y01')+v_manure_nitrous_oxide_direct.l(hh,'y
       01')+v_manure_nitrous_oxide_vol.l(hh,'y01')+v_manure_nitrous_oxide_leach.l
       (hh,'y01')+v_soil_nitrous_oxide.l(hh,'y01')+v_fossil_fuel_CO2.l(hh,'y01')+
       GHG_emissions('Emissions -- cropland conversion (kg/yr)',hh,y2);
-2001   
-2002  GHG_emissions('Emissions intensity -- Enteric CH4 (kg CO2eq/kg milk)',hh,y
+1999   
+2000  GHG_emissions('Emissions intensity -- Enteric CH4 (kg CO2eq/kg milk)',hh,y
       2)=v_enteric_methane.l(hh,'y01')/(production('Meat produced (kg/hh/y)',hh,
       y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2003  GHG_emissions('Emissions intensity -- Manure CH4 (kg CO2eq/kg milk)',hh,y2
+2001  GHG_emissions('Emissions intensity -- Manure CH4 (kg CO2eq/kg milk)',hh,y2
       )=v_manure_methane.l(hh,'y01')/(production('Meat produced (kg/hh/y)',hh,y2
       )+production('Milk produced (kg/hh/y)',hh,y2));
-2004  GHG_emissions('Emissions intensity -- Manure N2O (direct) (kg CO2eq/kg mil
+2002  GHG_emissions('Emissions intensity -- Manure N2O (direct) (kg CO2eq/kg mil
       k)',hh,y2)=v_manure_nitrous_oxide_direct.l(hh,'y01')/(production('Meat pro
       duced (kg/hh/y)',hh,y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2005  GHG_emissions('Emissions intensity -- Manure N2O (leach)(kg CO2eq/kg milk)
+2003  GHG_emissions('Emissions intensity -- Manure N2O (leach)(kg CO2eq/kg milk)
       ',hh,y2)=v_manure_nitrous_oxide_leach.l(hh,'y01')/(production('Meat produc
       ed (kg/hh/y)',hh,y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2006  GHG_emissions('Emissions intensity -- Manure N2O (vol) (kg CO2eq/kg milk)'
+2004  GHG_emissions('Emissions intensity -- Manure N2O (vol) (kg CO2eq/kg milk)'
       ,hh,y2)=v_manure_nitrous_oxide_vol.l(hh,'y01')/(production('Meat produced 
       (kg/hh/y)',hh,y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2007  GHG_emissions('Emissions intensity -- Soil N2O (kg CO2eq/kg milk)',hh,y2)=
+2005  GHG_emissions('Emissions intensity -- Soil N2O (kg CO2eq/kg milk)',hh,y2)=
       v_soil_nitrous_oxide.l(hh,'y01')/(production('Meat produced (kg/hh/y)',hh,
       y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2008  GHG_emissions('Emissions intensity -- Fossil Fuel CO2 (kg CO2eq/kg milk)',
+2006  GHG_emissions('Emissions intensity -- Fossil Fuel CO2 (kg CO2eq/kg milk)',
       hh,y2)=v_fossil_fuel_CO2.l(hh,'y01')/(production('Meat produced (kg/hh/y)'
       ,hh,y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2009  GHG_emissions('Emissions intensity -- Cropland conversion (kg CO2eq/kg mil
+2007  GHG_emissions('Emissions intensity -- Cropland conversion (kg CO2eq/kg mil
       k)',hh,y2)=GHG_emissions('Emissions -- cropland conversion (kg/yr)',hh,y2)
       /(production('Meat produced (kg/hh/y)',hh,y2)+production('Milk produced (k
       g/hh/y)',hh,y2));
-2010  GHG_emissions('Emissions intensity -- total(kg CO2eq/kg milk)',hh,y2)=GHG_
+2008  GHG_emissions('Emissions intensity -- total(kg CO2eq/kg milk)',hh,y2)=GHG_
       emissions('Emissions -- Total(kg CO2eq)',hh,y2)/(production('Meat produced
        (kg/hh/y)',hh,y2)+production('Milk produced (kg/hh/y)',hh,y2));
-2011   
+2009   
 INCLUDE    C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_mod
            el\dairyclimatemodel2\GHG_params2.gms
-2013  *v_aactLev.l(hh,aaact,type,inten,minten,y,m)=0 ;
-2014  *v_grossEnergy.l(hh,aaact,type,inten,minten,y,m)=0;
-2015  *v_digestibleEnergy.l(hh,aaact,type,inten,minten,y,m)=0;
-2016  *v_fdcons.l(hh,aaact,type,inten,y,m,feed)=0;
-2017  *v_graze_dmd.l(hh,y,m)=0;
-2018  *v_dryMatterIntake.l(hh,y,m,aaact,type,inten)=0;
-2019  *v_areaCrop.l(hh,y,c)=0;
-2020   
-2021  v_aactLev.lo(hh,aaact,type,inten,minten,y,m)=0 ;
-2022  v_aactLev.up(hh,aaact,type,inten,minten,y,m)=+inf ;
-2023   
-2024  v_grossEnergy.lo(hh,aaact,type,inten,minten,y,m)=0;
-2025  v_grossEnergy.up(hh,aaact,type,inten,minten,y,m)=+inf;
-2026   
-2027  v_digestibleEnergy.lo(hh,aaact,type,inten,minten,y,m)=0;
-2028  v_digestibleEnergy.up(hh,aaact,type,inten,minten,y,m)=+inf;
-2029   
-2030  v_fdcons.lo(hh,aaact,type,inten,y,m,feed)=0;
-2031  v_fdcons.up(hh,aaact,type,inten,y,m,feed)=+inf;
-2032   
-2033  v_graze_dmd.lo(hh,y)=0;
-2034  v_graze_dmd.up(hh,y)=+inf;
-2035   
-2036  v_dryMatterIntake.lo(hh,y,m,aaact,type,inten)=0;
-2037  v_dryMatterIntake.up(hh,y,m,aaact,type,inten)=+inf;
-2038   
-2039  v_areaCrop.lo(hh,y,c)=0;
-2040  v_areaCrop.up(hh,y,c)=+inf;
-2041   
-2042   
-2043  *Credit
-2044  credit('Loan (initial value) (lc/yr)',hh,y2)=v_loan.l(hh) ;
-2045  credit('Loan payment (lc/yr)',hh,y2)=p_loan_installment(hh);
-2046  credit('Loan principle (lc)',hh,y2)=p_loan_principle(hh,y2)   ;
-2047  credit('Credit interest (lc/yr)',hh,y2)=p_credit_interest(hh)  ;
+2011  *v_aactLev.l(hh,aaact,type,inten,minten,y,m)=0 ;
+2012  *v_grossEnergy.l(hh,aaact,type,inten,minten,y,m)=0;
+2013  *v_digestibleEnergy.l(hh,aaact,type,inten,minten,y,m)=0;
+2014  *v_fdcons.l(hh,aaact,type,inten,y,m,feed)=0;
+2015  *v_graze_dmd.l(hh,y,m)=0;
+2016  *v_dryMatterIntake.l(hh,y,m,aaact,type,inten)=0;
+2017  *v_areaCrop.l(hh,y,c)=0;
+2018   
+2019  v_aactLev.lo(hh,aaact,type,inten,minten,y,m)=0 ;
+2020  v_aactLev.up(hh,aaact,type,inten,minten,y,m)=+inf ;
+2021   
+2022  v_grossEnergy.lo(hh,aaact,type,inten,minten,y,m)=0;
+2023  v_grossEnergy.up(hh,aaact,type,inten,minten,y,m)=+inf;
+2024   
+2025  v_digestibleEnergy.lo(hh,aaact,type,inten,minten,y,m)=0;
+2026  v_digestibleEnergy.up(hh,aaact,type,inten,minten,y,m)=+inf;
+2027   
+2028  v_fdcons.lo(hh,aaact,type,inten,y,m,feed)=0;
+2029  v_fdcons.up(hh,aaact,type,inten,y,m,feed)=+inf;
+2030   
+2031  v_graze_dmd.lo(hh,y)=0;
+2032  v_graze_dmd.up(hh,y)=+inf;
+2033   
+2034  v_dryMatterIntake.lo(hh,y,m,aaact,type,inten)=0;
+2035  v_dryMatterIntake.up(hh,y,m,aaact,type,inten)=+inf;
+2036   
+2037  v_areaCrop.lo(hh,y,c)=0;
+2038  v_areaCrop.up(hh,y,c)=+inf;
+2039   
+2040   
+2041  *Credit
+2042  credit('Loan (initial value) (lc/yr)',hh,y2)=v_loan.l(hh) ;
+2043  credit('Loan payment (lc/yr)',hh,y2)=p_loan_installment(hh);
+2044  credit('Loan principle (lc)',hh,y2)=p_loan_principle(hh,y2)   ;
+2045  credit('Credit interest (lc/yr)',hh,y2)=p_credit_interest(hh)  ;
+2046   
+2047  cash_balance(hh,y2,m)=v_cash.l(hh,'y01',m);
 2048   
-2049  cash_balance(hh,y2,m)=v_cash.l(hh,'y01',m);
-2050   
-2051  land('Total land use for dairy production (ha/hh/yr)',hh,y2)=v_Land_use.l(
+2049  land('Total land use for dairy production (ha/hh/yr)',hh,y2)=v_Land_use.l(
       hh,'y01');
-2052  land('Total crop land use for dairy production (ha/hh/yr)',hh,y2)=v_feed_c
+2050  land('Total crop land use for dairy production (ha/hh/yr)',hh,y2)=v_feed_c
       rop_land.l(hh,'y01');
-2053  land('Total crop land use for dairy production on farm (ha/hh/yr)',hh,y2)=
+2051  land('Total crop land use for dairy production on farm (ha/hh/yr)',hh,y2)=
       v_feed_crop_land_on_farm.l(hh,'y01') ;
-2054  land('Total crop land use for dairy production off farm (ha/hh/yr)',hh,y2)
+2052  land('Total crop land use for dairy production off farm (ha/hh/yr)',hh,y2)
       =v_feed_crop_land_off_farm.l(hh,'y01') ;
-2055  land('Total rangeland use for dairy production (ha/hh/yr)',hh,y2)=v_graze_
+2053  land('Total rangeland use for dairy production (ha/hh/yr)',hh,y2)=v_graze_
       dmd.l(hh,'y01');
-2056  land('Total pasture land use for dairy production (ha/hh/yr)',hh,y2)=v_pas
+2054  land('Total pasture land use for dairy production (ha/hh/yr)',hh,y2)=v_pas
       ture_land.l(hh,'y01') ;
-2057   
-2058   
-2059  herd2('Percentage local (%)',hh,y2)=100*sum((m,local),animal_numbers_month
+2055   
+2056   
+2057  herd2('Percentage local (%)',hh,y2)=100*sum((m,local),animal_numbers_month
       ly('Animal Activity Levels (head)',hh,local,y2,m))/sum((m,aaact),.0001+ani
       mal_numbers_monthly('Animal Activity Levels (head)',hh,aaact,y2,m));
-2060   
-2061   
-2062  *--------        Re-initialize variables
-2063  *---------------------------------------
-2064  * update loan related parameters based on decisions in year y2 == 1
-2065  p_loan_value(hh)$(ord(y2) eq 1)=v_loan.l(hh);
-2066  p_loan_installment(hh)=p_loan_value(hh)*.1;
-2067  p_loan_principle(hh,y2)= p_loan_value(hh) - (ord(y2)*p_loan_installment(hh
+2058   
+2059   
+2060  *--------        Re-initialize variables
+2061  *---------------------------------------
+2062  * update loan related parameters based on decisions in year y2 == 1
+2063  p_loan_value(hh)$(ord(y2) eq 1)=v_loan.l(hh);
+2064  p_loan_installment(hh)=p_loan_value(hh)*.1;
+2065  p_loan_principle(hh,y2)= p_loan_value(hh) - (ord(y2)*p_loan_installment(hh
       ))   ;
-2068  p_credit_interest(hh)=p_loan_principle(hh,y2)*p_r_loan(hh);
-2069  p_loan_value(hh)$(ord(y2) gt 1)=p_loan_value(hh);
-2070   
-2071  * set loan related variables to zero in every period after y2 == 1
-2072  v_loan.fx(hh)=0;
-2073  v_loan_principle.fx(hh,y)=0;
-2074  v_credit_interest.fx(hh,y,m)=0;
-2075  v_loan_installment.fx(hh,y)=0;
-2076   
-2077  * specify fraction of total income available to be re-invested in the farm
+2066  p_credit_interest(hh)=p_loan_principle(hh,y2)*p_r_loan(hh);
+2067  p_loan_value(hh)$(ord(y2) gt 1)=p_loan_value(hh);
+2068   
+2069  * set loan related variables to zero in every period after y2 == 1
+2070  v_loan.fx(hh)=0;
+2071  v_loan_principle.fx(hh,y)=0;
+2072  v_credit_interest.fx(hh,y,m)=0;
+2073  v_loan_installment.fx(hh,y)=0;
+2074   
+2075  * specify fraction of total income available to be re-invested in the farm
       .
-2078  p_cash(hh)=0.35*sum(m,v_income.l(hh,'y01',m));
-2079   
-2080  *update feed balance
-2081  p_s(hh,feed)=v_feedbalance.l(hh,feed,'y01','m12')*(p_transferrate);
-2082   
-2083  ** re initialize month 1 animal numbers here from month 12 of 'y01'
-2084  ** note: to allow transitions between intensity levels, sum rhs of below e
+2076  p_cash(hh)=0.35*sum(m,v_income.l(hh,'y01',m));
+2077   
+2078  *update feed balance
+2079  p_s(hh,feed)=v_feedbalance.l(hh,feed,'y01','m12')*(p_transferrate);
+2080   
+2081  ** re initialize month 1 animal numbers here from month 12 of 'y01'
+2082  ** note: to allow transitions between intensity levels, sum rhs of below e
       quations over all 'type'
-2085  v0_aactLev(hh,young_imp,type,inten,minten)=
-2086  v_aactLev.l(hh,'adultf_imp',type,inten,minten,'y01','m12')*p_rateFert('adu
+2083  v0_aactLev(hh,young_imp,type,inten,minten)=
+2084  v_aactLev.l(hh,'adultf_imp',type,inten,minten,'y01','m12')*p_rateFert('adu
       ltf_imp',type,inten)*p_sexratio(young_imp,type,inten)+
-2087  v_aactLev.l(hh,young_imp,type,inten,minten,'y01','m12')*(1-p_grad(young_im
+2085  v_aactLev.l(hh,young_imp,type,inten,minten,'y01','m12')*(1-p_grad(young_im
       p,type,inten))*(1-p_mort(young_imp,type,minten))
-2088  ;
-2089   
-2090  v0_aactLev(hh,young_loc,type,inten,minten)=
-2091  v_aactLev.l(hh,'adultf_loc',type,inten,minten,'y01','m12')*p_rateFert('adu
+2086  ;
+2087   
+2088  v0_aactLev(hh,young_loc,type,inten,minten)=
+2089  v_aactLev.l(hh,'adultf_loc',type,inten,minten,'y01','m12')*p_rateFert('adu
       ltf_loc',type,inten)*p_sexratio(young_loc,type,inten)+
-2092  v_aactLev.l(hh,young_loc,type,inten,minten,'y01','m12')*(1-p_grad(young_lo
+2090  v_aactLev.l(hh,young_loc,type,inten,minten,'y01','m12')*(1-p_grad(young_lo
       c,type,inten))*(1-p_mort(young_loc,type,minten))
-2093  ;
-2094   
-2095  v0_aactLev(hh,'weanerf_imp',type,inten,minten)=
-2096  v_aactLev.l(hh,'youngf_imp',type,inten,minten,'y01','m12')*p_grad('youngf_
+2091  ;
+2092   
+2093  v0_aactLev(hh,'weanerf_imp',type,inten,minten)=
+2094  v_aactLev.l(hh,'youngf_imp',type,inten,minten,'y01','m12')*p_grad('youngf_
       imp',type,inten)
-2097  +v_aactLev.l(hh,'weanerf_imp',type,inten,minten,'y01','m12')*(1-p_grad('we
+2095  +v_aactLev.l(hh,'weanerf_imp',type,inten,minten,'y01','m12')*(1-p_grad('we
       anerf_imp',type,inten))*(1-p_mort('weanerf_imp',type,minten))
-2098  ;
-2099   
-2100  v0_aactLev(hh,'weanerf_loc',type,inten,minten)=
-2101  v_aactLev.l(hh,'youngf_loc',type,inten,minten,'y01','m12')*p_grad('youngf_
+2096  ;
+2097   
+2098  v0_aactLev(hh,'weanerf_loc',type,inten,minten)=
+2099  v_aactLev.l(hh,'youngf_loc',type,inten,minten,'y01','m12')*p_grad('youngf_
       loc',type,inten)
-2102  +v_aactLev.l(hh,'weanerf_loc',type,inten,minten,'y01','m12')*(1-p_grad('we
+2100  +v_aactLev.l(hh,'weanerf_loc',type,inten,minten,'y01','m12')*(1-p_grad('we
       anerf_loc',type,inten))*(1-p_mort('weanerf_loc',type,minten))
-2103  ;
-2104   
-2105  v0_aactLev(hh,'weanerm_imp',type,inten,minten)=
-2106  v_aactLev.l(hh,'youngm_imp',type,inten,minten,'y01','m12')*p_grad('youngm_
+2101  ;
+2102   
+2103  v0_aactLev(hh,'weanerm_imp',type,inten,minten)=
+2104  v_aactLev.l(hh,'youngm_imp',type,inten,minten,'y01','m12')*p_grad('youngm_
       imp',type,inten)
-2107  +v_aactLev.l(hh,'weanerm_imp',type,inten,minten,'y01','m12')*(1-p_grad('we
+2105  +v_aactLev.l(hh,'weanerm_imp',type,inten,minten,'y01','m12')*(1-p_grad('we
       anerm_imp',type,inten))*(1-p_mort('weanerf_imp',type,minten))
-2108  ;
-2109   
-2110  v0_aactLev(hh,'weanerm_loc',type,inten,minten)=
-2111  v_aactLev.l(hh,'youngm_loc',type,inten,minten,'y01','m12')*p_grad('youngm_
+2106  ;
+2107   
+2108  v0_aactLev(hh,'weanerm_loc',type,inten,minten)=
+2109  v_aactLev.l(hh,'youngm_loc',type,inten,minten,'y01','m12')*p_grad('youngm_
       loc',type,inten)
-2112  +v_aactLev.l(hh,'weanerm_loc',type,inten,minten,'y01','m12')*(1-p_grad('we
+2110  +v_aactLev.l(hh,'weanerm_loc',type,inten,minten,'y01','m12')*(1-p_grad('we
       anerm_loc',type,inten))*(1-p_mort('weanerf_loc',type,minten))
-2113  -v_aactLevsell.l(hh,'weanerm_loc',type,inten,minten,'y01','m12')
-2114  ;
-2115   
-2116  v0_aactLev(hh,'adultf_loc',type,inten,minten)=
-2117  v_aactLev.l(hh,'weanerf_loc',type,inten,minten,'y01','m12')*p_grad('weaner
+2111  -v_aactLevsell.l(hh,'weanerm_loc',type,inten,minten,'y01','m12')
+2112  ;
+2113   
+2114  v0_aactLev(hh,'adultf_loc',type,inten,minten)=
+2115  v_aactLev.l(hh,'weanerf_loc',type,inten,minten,'y01','m12')*p_grad('weaner
       f_loc',type,inten)
-2118  +v_aactLev.l(hh,'adultf_loc',type,inten,minten,'y01','m12')*(1-p_grad('adu
+2116  +v_aactLev.l(hh,'adultf_loc',type,inten,minten,'y01','m12')*(1-p_grad('adu
       ltf_loc',type,inten))*(1-p_mort('adultf_loc',type,minten))
-2119  -v_aactLevsell.l(hh,'adultf_loc',type,inten,minten,'y01','m12')
-2120  +v_aactLevbuy.l(hh,'adultf_loc',type,inten,minten,'y01','m12');
-2121   
-2122  v0_aactLev(hh,'adultf_imp',type,inten,minten)=
-2123  v_aactLev.l(hh,'weanerf_imp',type,inten,minten,'y01','m12')*p_grad('weaner
+2117  -v_aactLevsell.l(hh,'adultf_loc',type,inten,minten,'y01','m12')
+2118  +v_aactLevbuy.l(hh,'adultf_loc',type,inten,minten,'y01','m12');
+2119   
+2120  v0_aactLev(hh,'adultf_imp',type,inten,minten)=
+2121  v_aactLev.l(hh,'weanerf_imp',type,inten,minten,'y01','m12')*p_grad('weaner
       f_imp',type,inten)
-2124  +v_aactLev.l(hh,'adultf_imp',type,inten,minten,'y01','m12')*(1-p_grad('adu
+2122  +v_aactLev.l(hh,'adultf_imp',type,inten,minten,'y01','m12')*(1-p_grad('adu
       ltf_imp',type,inten))*(1-p_mort('adultf_imp',type,minten))
-2125  -v_aactLevsell.l(hh,'adultf_imp',type,inten,minten,'y01','m12')
-2126  +v_aactLevbuy.l(hh,'adultf_imp',type,inten,minten,'y01','m12')
-2127  ;
-2128   
-2129  v_aactLev.fx(hh,aaact,type,inten,minten,'y01','m01')=v0_aactLev(hh,aaact,t
+2123  -v_aactLevsell.l(hh,'adultf_imp',type,inten,minten,'y01','m12')
+2124  +v_aactLevbuy.l(hh,'adultf_imp',type,inten,minten,'y01','m12')
+2125  ;
+2126   
+2127  v_aactLev.fx(hh,aaact,type,inten,minten,'y01','m01')=v0_aactLev(hh,aaact,t
       ype,inten,minten);
+2128   
+2129  );
 2130   
-2131  );
+2131  *$exit
 2132   
-2133  *$exit
-2134   
-2135  herd('Animal Activity Levels (head)',hh,aaact,type,inten,minten)=Sum((y2,m
+2133  herd('Animal Activity Levels (head)',hh,aaact,type,inten,minten)=Sum((y2,m
       ),animal_numbers_monthly('Animal Activity Levels (head)',hh,aaact,y2,m))/(
       card(m)*card(y2));
+2134   
+2135   
 2136   
 2137   
 2138   
-2139   
-2140   
-2141  execute_unload "results/results.gdx"
-2142  land,
-2143  Model_Status,
-2144  herd,
-2145  herd2,
-2146  diet,
-2147  total_feed_consumed1,
-2148  total_feed_consumed2,
-2149  herd_changes,
-2150  dry_matter_intake,
-2151  labour, financials,
-2152  financials_livestock,
-2153  financials_crop,
-2154  GHG_emissions,
-2155  GHG_emissions_parameters,
-2156  crops,
-2157  credit,
-2158  production,
-2159  consumption,
-2160  biomass,
-2161  animal_numbers_monthly
-2162  animal_numbers_annual,
-2163  diet_annual
-2164  cash_balance;
-2165  *$exit
-2166  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=Model_St
+2139  execute_unload "results/results.gdx"
+2140  land,
+2141  Model_Status,
+2142  herd,
+2143  herd2,
+2144  diet,
+2145  total_feed_consumed1,
+2146  total_feed_consumed2,
+2147  herd_changes,
+2148  dry_matter_intake,
+2149  labour, financials,
+2150  financials_livestock,
+2151  financials_crop,
+2152  GHG_emissions,
+2153  GHG_emissions_parameters,
+2154  crops,
+2155  credit,
+2156  production,
+2157  consumption,
+2158  biomass,
+2159  animal_numbers_monthly
+2160  animal_numbers_annual,
+2161  diet_annual
+2162  cash_balance;
+2163  *$exit
+2164  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=Model_St
       atus       rng=Model_Status!'
-2167  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financia
+2165  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financia
       ls         rng=financials!'
-2168  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financia
+2166  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financia
       ls_crop    rng=financials_crop!'
-2169  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financia
+2167  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financia
       ls_livestock         rng=financials_livestock!'
-2170  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=labour  
+2168  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=labour  
                  rng=labour!'
-2171  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=producti
+2169  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=producti
       on         rng=production!'
-2172  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=credit  
+2170  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=credit  
                  rng=credit!'
-2173  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=consumpt
+2171  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=consumpt
       ion    rng=consumption!'
-2174  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=land    
+2172  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=land    
        rng=land!'
-2175  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=cash_bal
+2173  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=cash_bal
       ance    rng=cash_balance!'
-2176  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=biomass 
+2174  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=biomass 
                  rng=biomass!'
-2177  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=crops   
+2175  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=crops   
                  rng=crops!'
-2178  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd2   
+2176  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd2   
                  rng=herd2!'
-2179  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd    
+2177  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd    
                  rng=herd!'
-2180  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet    
+2178  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet    
                  rng=diet!'
-2181  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd_cha
+2179  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd_cha
       nges       rng=herd_changes!'
-2182  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_n
+2180  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_n
       umbers_monthly     rng=animal_numbers_monthly!'
-2183  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_n
+2181  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_n
       umbers_annual     rng=animal_numbers_annual!'
-2184  *execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=total_f
+2182  *execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=total_f
       eed_consumed rng=total_feed_consumed !'
-2185  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=dry_matt
+2183  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=dry_matt
       er_intake      rng=dry_matter_intake!'
-2186  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet_ann
+2184  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet_ann
       ual     rng=diet_annual!'
-2187  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emis
+2185  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emis
       sions      rng=GHG_emissions!'
-2188   
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:22:52 Page 2
+2186   
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:51:00 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -2934,35 +2929,35 @@ Include File Summary
     16      683 INCLUDE        1      96  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\livestock_module.gms
-    17      859 INCLUDE        1      99  .C:\Users\James\Documents\GitHub\house
+    17      858 INCLUDE        1      99  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\demographic_module.g
                                            ms
-    18     1299 INCLUDE        1     102  .C:\Users\James\Documents\GitHub\house
+    18     1298 INCLUDE        1     102  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\emissions_module.gms
-    19     1414 INCLUDE        1     105  .C:\Users\James\Documents\GitHub\house
+    19     1413 INCLUDE        1     105  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\loan_module.gms
-    20     1473 INCLUDE        1     108  .C:\Users\James\Documents\GitHub\house
+    20     1472 INCLUDE        1     108  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\household_module.gms
-    21     1618 INCLUDE        1     111  .C:\Users\James\Documents\GitHub\house
+    21     1617 INCLUDE        1     111  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\risk_module.gms
-    22     1746 INCLUDE        1     114  .C:\Users\James\Documents\GitHub\house
+    22     1744 INCLUDE        1     114  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\simulation_model.gms
-    23     1977 INCLUDE        1     264  .C:\Users\James\Documents\GitHub\house
+    23     1975 INCLUDE        1     264  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\GHG_params.gms
-    24     2012 INCLUDE        1     287  .C:\Users\James\Documents\GitHub\house
+    24     2010 INCLUDE        1     287  .C:\Users\James\Documents\GitHub\house
                                            hold_ghg_model\household_ghg_model\da
                                            iryclimatemodel2\GHG_params2.gms
 
 
-COMPILATION TIME     =        3.719 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:22:52 Page 3
+COMPILATION TIME     =        3.469 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:51:00 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3035,8 +3030,8 @@ napier              0.425,    maize_residue       0.359
 cpea_residue        0.386,    grnut_residue       0.439
 bean_residue        0.076,    sorgh_residue       0.350
 maize_silage        0.270,    sunflower_seed_cake 0.320
-cotton_seed_cake    0.178,    maize_bran          0.145
-grass               0.394,    grass_hay           0.538
+maize_bran          0.145,    grass               0.394
+grass_hay           0.538
 
 
 ----    549 PARAMETER p_crudeProtein  
@@ -3045,8 +3040,8 @@ napier              0.097,    maize_residue       0.120
 cpea_residue        0.200,    grnut_residue       0.175
 bean_residue        0.248,    sorgh_residue       0.082
 maize_silage        0.080,    sunflower_seed_cake 0.324
-cotton_seed_cake    0.473,    maize_bran          0.119
-grass               0.045,    grass_hay           0.045
+maize_bran          0.119,    grass               0.045
+grass_hay           0.045
 
 
 ----    549 PARAMETER p_Energy_req  energy requirement  (MJ/head/day)
@@ -3154,8 +3149,8 @@ napier              10.684,    maize_residue        7.800
 cpea_residue        10.800,    grnut_residue       10.860
 bean_residue        11.160,    sorgh_residue       10.860
 maize_silage        11.340,    sunflower_seed_cake 11.853
-cotton_seed_cake    15.640,    maize_bran          13.838
-grass               11.340,    grass_hay           11.340
+maize_bran          13.838,    grass               11.340
+grass_hay           11.340
 
 
 ----    549 PARAMETER p_grossEnergy  
@@ -3164,8 +3159,8 @@ napier              17.400,    maize_residue       13.000
 cpea_residue        18.000,    grnut_residue       18.100
 bean_residue        18.600,    sorgh_residue       18.100
 maize_silage        18.900,    sunflower_seed_cake 19.400
-cotton_seed_cake    20.000,    maize_bran          18.500
-grass               18.900,    grass_hay           18.900
+maize_bran          18.500,    grass               18.900
+grass_hay           18.900
 
 
 ----    549 PARAMETER p_crop_sell_price  Sell price of crops (lc/kg)
@@ -3173,10 +3168,12 @@ grass               18.900,    grass_hay           18.900
               beans       maize     sorghum      millet   groundnut      cowpea
 
 hh2.y01 1297071.380  509990.520  693064.040  741988.860  900036.320  994053.140
+hh2.y02 1297071.380  509990.520  693064.040  741988.860  900036.320  994053.140
 
       +      banana
 
 hh2.y01  865090.020
+hh2.y02  865090.020
 
 
 ----    549 PARAMETER offfarm_income  Annual off farm income (lc/hh/year)
@@ -3226,9 +3223,9 @@ hh2.groundnut     705.000
 
 hh2    1000.000     300.000     300.000     300.000     300.000     300.000
 
-  +  cotton_se~  maize_bran       grass   grass_hay
+  +  maize_bran       grass   grass_hay
 
-hh2     300.000     300.000     300.000   15000.000
+hh2     300.000     300.000   15000.000
 
 
 ----    549 PARAMETER startfeed  Starting feed balance
@@ -3241,44 +3238,44 @@ hh2.grnut_residue           300.000
 hh2.bean_residue            300.000
 hh2.sorgh_residue           300.000
 hh2.sunflower_seed_cake     300.000
-hh2.cotton_seed_cake        300.000
 hh2.maize_bran              300.000
 hh2.grass                   300.000
 hh2.grass_hay             15000.000
 hh2.soyb_residue            300.000
+hh2.cotton_seed_cake        300.000
 hh1.maize_residue          1000.000
 hh1.cpea_residue            300.000
 hh1.grnut_residue           300.000
 hh1.bean_residue            300.000
 hh1.sorgh_residue           300.000
 hh1.sunflower_seed_cake     300.000
-hh1.cotton_seed_cake        300.000
 hh1.maize_bran              300.000
 hh1.grass                   300.000
 hh1.grass_hay             15000.000
 hh1.soyb_residue            300.000
+hh1.cotton_seed_cake        300.000
 hh3.maize_residue          1000.000
 hh3.cpea_residue            300.000
 hh3.grnut_residue           300.000
 hh3.bean_residue            300.000
 hh3.sorgh_residue           300.000
 hh3.sunflower_seed_cake     300.000
-hh3.cotton_seed_cake        300.000
 hh3.maize_bran              300.000
 hh3.grass                   300.000
 hh3.grass_hay             15000.000
 hh3.soyb_residue            300.000
+hh3.cotton_seed_cake        300.000
 hh4.maize_residue          1000.000
 hh4.cpea_residue            300.000
 hh4.grnut_residue           300.000
 hh4.bean_residue            300.000
 hh4.sorgh_residue           300.000
 hh4.sunflower_seed_cake     300.000
-hh4.cotton_seed_cake        300.000
 hh4.maize_bran              300.000
 hh4.grass                   300.000
 hh4.grass_hay             15000.000
 hh4.soyb_residue            300.000
+hh4.cotton_seed_cake        300.000
 
 
 ----    549 PARAMETER p_netEnergy  
@@ -3287,8 +3284,8 @@ napier               9.200,    maize_residue       11.300
 cpea_residue        15.646,    grnut_residue       15.733
 bean_residue        16.168,    sorgh_residue       15.733
 maize_silage        16.428,    sunflower_seed_cake 11.800
-cotton_seed_cake    15.680,    maize_bran          12.000
-grass                9.600,    grass_hay            9.600
+maize_bran          12.000,    grass                9.600
+grass_hay            9.600
 
 
 ----    549 PARAMETER p_dryMatter  
@@ -3297,8 +3294,8 @@ napier              0.179,    maize_residue       0.290
 cpea_residue        0.209,    grnut_residue       0.269
 bean_residue        0.269,    sorgh_residue       0.281
 maize_silage        0.235,    sunflower_seed_cake 0.890
-cotton_seed_cake    0.909,    maize_bran          0.887
-grass               0.300,    grass_hay           0.300
+maize_bran          0.887,    grass               0.300
+grass_hay           0.300
 
 
 ----    549 PARAMETER p_transferrate       =        1.000  transfer rate of feed
@@ -3307,8 +3304,7 @@ grass               0.300,    grass_hay           0.300
 ----    549 PARAMETER p_fossil_fuel_emissions  Embodied emissions from feed prod
                                                uction (kg CO2eq/Mg feed)
 
-sunflower_seed_cake 78.600,    cotton_seed_cake    78.600
-maize_bran          78.600
+sunflower_seed_cake 78.600,    maize_bran          78.600
 
 
 ----    549 PARAMETER p_meatPrice          =      315.000  Price of meat (lc/kg)
@@ -3328,9 +3324,9 @@ hh2   40000.000   40000.000  130137.600  104110.080  104110.080   91096.320
 
 hh2 3000.000
 
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:22:52 Page 4
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/05/18 14:51:00 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE DairyClimateModel Using NLP From line 1894
+Model Statistics    SOLVE DairyClimateModel Using NLP From line 1892
 
 
 LOOPS                                   y2   1
@@ -3338,14 +3334,14 @@ LOOPS                                   y2   1
 
 MODEL STATISTICS
 
-BLOCKS OF EQUATIONS          98     SINGLE EQUATIONS       11,915
-BLOCKS OF VARIABLES          60     SINGLE VARIABLES       18,308
-NON ZERO ELEMENTS       216,526     NON LINEAR N-Z         38,064
-DERIVATIVE POOL             870     CONSTANT POOL              76
-CODE LENGTH             323,273
+BLOCKS OF EQUATIONS          94     SINGLE EQUATIONS       23,705
+BLOCKS OF VARIABLES          55     SINGLE VARIABLES       35,625
+NON ZERO ELEMENTS       422,688     NON LINEAR N-Z         71,016
+DERIVATIVE POOL             870     CONSTANT POOL              72
+CODE LENGTH             602,097
 
 
-GENERATION TIME      =        0.312 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
+GENERATION TIME      =        0.547 SECONDS     31 Mb  WIN235-235 Jul  2, 2010
 
 
-EXECUTION TIME       =        0.359 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
+EXECUTION TIME       =        0.547 SECONDS     31 Mb  WIN235-235 Jul  2, 2010
