@@ -75,7 +75,7 @@ p_labourPrice;
 
 *define scenarios and model versions
 $setglobal CREDIT OFF
-$setglobal output_SCEN ON
+$setglobal output_SCEN OFF
 $setglobal RISK ON
 $setglobal GHG_Emissions OFF
 $setglobal Scenario Base
@@ -150,7 +150,7 @@ herd_changes(*,*,*,*,*,*,*,*)
 herd(*,*,*,*,*,*)
 herd2(*,*,*)
 diet1(*,*,*,*,*,*)
-diet_annual(*,*,*,*,*)
+diet_annual(*,*,*,*,*,*)
 labour(*,*,*,*)
 diet(*,*,*,*,*,*,*)
 GHG_emissions(*,*,*)
@@ -203,7 +203,7 @@ biomass('Feeds purchased (kg/hh/month)',hh,y2,feed_off_farm,m)= v_feedbuy.l(hh,f
 
 diet1('Diet (kg/hd/day)',hh,aaact,y2,m,feed)=Sum(inten,v_fdcons.l(hh,aaact,'dairy',inten,'y01',m,feed));
 diet('Feed intake (kg/hd/day)',hh,aaact,y2,m,inten,feed)=v_fdcons.l(hh,aaact,'dairy',inten,'y01',m,feed);
-diet_annual('Diet as percentage(% DMI)',hh,aaact,y2,feed)=sum((inten,m),v_fdcons.l(hh,aaact,'dairy',inten,'y01',m,feed)/(.0001+diet('Feed intake (kg/hd/day)',hh,aaact,y2,m,inten,feed)));
+diet_annual('Diet as percentage(% DMI)',hh,aaact,y2,inten,feed)=100*sum((m),p_dryMatter(feed)*v_fdcons.l(hh,aaact,'dairy',inten,'y01',m,feed))/Sum(m,.0001+v_dryMatterIntake.l(hh,'y01',m,aaact,'dairy',inten));
 diet('Gross Energy (MJ/hd/d)',hh,aaact,type,inten,y2,m)=Sum((feed),v_fdcons.l(hh,aaact,type,inten,'y01',m,feed)*p_dryMatter(feed)*p_grossEnergy(feed));
 diet('Digestible Energy (MJ/hd/d)',hh,aaact,type,inten,y2,m)=Sum((feed),v_fdcons.l(hh,aaact,type,inten,'y01',m,feed)*p_dryMatter(feed)*p_digestibleEnergy(feed));
 
@@ -433,5 +433,4 @@ execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_numbers
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=dry_matter_intake      rng=dry_matter_intake!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet_annual     rng=diet_annual!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emissions      rng=GHG_emissions!'
-execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emissions_parameters      rng=GHG_emissions_parameters!'
 

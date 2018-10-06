@@ -20,8 +20,7 @@ meat 45
 sigma_feed(feed_off_farm)  'Standard deviation of feed prices'
 /
 maize_bran            40
-sunflower_seed_cake   30
-cotton_seed_cake      20
+sunflower_seed_cake   20
 /
 
 sigma_animals(aaact)     'Standard deviation of replacement animal prices'

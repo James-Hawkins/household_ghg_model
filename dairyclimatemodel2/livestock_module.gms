@@ -60,7 +60,6 @@ v_aactLevsell.fx(hh,reprod,type,inten,minten,y,lastm)=0  ;
 
 
 
-
 *v_fdcons.fx(hh,aaact_imp,type,inten,y,m,grazed)=0;
 
 
@@ -104,7 +103,7 @@ Equations
 ;
 
 
-e_milkproduction(hh,aaact,type,inten,y,m)..   v_prodQmilk(hh,aaact,type,inten,y,m) =e= p_milkprod(aaact,type,inten)*30*Sum(minten,v_aactLev(hh,aaact,type,inten,minten,y,m));
+e_milkproduction(hh,aaact,type,inten,y,m)..   v_prodQmilk(hh,aaact,type,inten,y,m) =e= 0.6*p_milkprod(aaact,type,inten)*30*Sum(minten,v_aactLev(hh,aaact,type,inten,minten,y,m));
 
 e_meatproduction(hh,aaact,type,inten,y,m)..    v_prodQmeat(hh,aaact,type,inten,y,m)  =e= 0.6*p_salesw(aaact,type,inten)*Sum(minten,v_aactLevsell(hh,aaact,type,inten,minten,y,m));
 *p_dress_pct(aaact,type,inten)*
@@ -125,7 +124,7 @@ e_pasture(hh,y)..                                 v_pasture_land(hh,y) =e= (1/10
 
 e_dryMatterIntake(hh,y,m,aaact,type,inten)..      v_dryMatterIntake(hh,y,m,aaact,type,inten)   =e=  Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed));
 
-e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aaact,type,inten,'ext')*(1/0.9)   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')/100;
+e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aaact,type,inten,'ext')   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')*0.81/100;
 
 e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_dmd(hh,y,m,aaact,type,inten,minten) =e= 83.58 - 0.824*v_ADF(hh,y,m,aaact,type,inten,minten) + 2.626*v_diet_N(hh,y,m,aaact,type,inten,minten) ;
 
@@ -133,7 +132,8 @@ e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..           Sum((
 
 e_grossEnergy(hh,y,m,aaact,type,minten,inten)..            v_grossEnergy(hh,aaact,type,inten,minten,y,m)   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_grossEnergy(feed));
 
-e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_digestibleEnergy(feed)); ;
+e_digestibleEnergy(hh,y,m,aaact,type,minten,inten)..       v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) =e=  (1/100)*v_dmd(hh,y,m,aaact,type,inten,minten)*v_grossEnergy(hh,aaact,type,inten,minten,y,m);
+*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_digestibleEnergy(feed)); ;
 
 e_diet_ADF(hh,y,m,aaact,type,inten,minten)..       v_ADF(hh,y,m,aaact,type,inten,minten)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)) =e=   100*Sum(feed,v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_ADF(feed)) ;
 

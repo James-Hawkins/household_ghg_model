@@ -80,7 +80,7 @@ e_cash_flow(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 1) and 
 *- ((v_lives_expenses(hh,y-1,'m12') + v_crop_expenses(hh,y-1,'m12'))$((ord(m) eq 1) and (ord(y) gt 1))) - ((v_lives_expenses(hh,y,m-1) + v_crop_expenses(hh,y,m-1))$(ord(m) gt 1));
 *+  p_offFarmIncome(hh)*(1/12)
 *+ (v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1)))
-e_cash_flow2(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 1) and (ord(m) eq 1)) + v_cash(hh,y,m-1)$(ord(m) gt 1) + v_cash(hh,y-1,'m12')$((ord(m) eq 1) and (ord(y) gt 1)) + (v_income(hh,y,m)$(ord(m) gt 1)) + (v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1)))  - sum(good, v_cons(hh,y,m,good)) - (v_tot_credit_expenses(hh,y-1,'m12'))$((ord(m) eq 1) and (ord(y) gt 1))
+e_cash_flow2(hh,y,m)..          v_cash(hh,y,m) =e= p_cash(hh)$((ord(y) eq 1) and (ord(m) eq 1)) + v_cash(hh,y,m-1)$(ord(m) gt 1) + v_cash(hh,y-1,'m12')$((ord(m) eq 1) and (ord(y) gt 1)) + (v_income(hh,y,m-1)$(ord(m) gt 1)) + (v_income(hh,y-1,'m12')$((ord(y) gt 1) and (ord(m) eq 1)))  - sum(good, v_cons(hh,y,m,good)) - (v_tot_credit_expenses(hh,y-1,'m12'))$((ord(m) eq 1) and (ord(y) gt 1))
 - ((  v_tot_credit_expenses(hh,y,m))$(ord(m) gt 1) );
 *v_lives_expenses(hh,y,m-1) + v_crop_expenses(hh,y,m-1)
 
@@ -121,7 +121,7 @@ e_feed_crop_land_off_farm(hh,y)..               v_feed_crop_land_off_farm(hh,y) 
 Model Householdmod
 /
 *$ifi %CREDIT%==OFF e_cashconstraint
-$ifi %CREDIT%==ON e_cashconstraint2
+*$ifi %CREDIT%==ON e_cashconstraint2
 $ifi %CREDIT%==OFF e_cash_flow
 $ifi %CREDIT%==ON e_cash_flow2
 e_labourbalancetotal
