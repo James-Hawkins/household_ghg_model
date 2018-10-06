@@ -384,7 +384,7 @@ v_aactLev(hh,'weanerm_imp',type,inten,minten,y-1,'m12')*p_grad('weanerm_imp',typ
 
 e_reprod(hh,y,m)..
   Sum((reprod_loc,inten,type,minten),v_aactLev(hh,reprod_loc,type,inten,minten,y,m))    =g=
-Sum((adultf_loc,inten,type,minten),v_aactLev(hh,adultf_loc,type,inten,minten,y,m))*0.2   ;
+Sum((adultf_loc,inten,type,minten),v_aactLev(hh,adultf_loc,type,inten,minten,y,m))*0.04   ;
 
 
 

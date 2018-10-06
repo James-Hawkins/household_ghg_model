@@ -153,6 +153,7 @@ Parameters
   p_digestibleEnergy(feed)
   p_crudeProtein(feed)
   p_ADF(feed)
+  p_NDF(feed)
 ;
 
 **---- Household parameters
@@ -235,7 +236,8 @@ p_dryMatter(feed)=cropnutrientsdata('drymatter',feed) ;
 p_netEnergy(feed)=cropnutrientsdata('netenergy',feed) ;
 p_digestibleEnergy(feed)=cropnutrientsdata('digestibility',feed)*cropnutrientsdata('grossenergy',feed) ;
 p_crudeProtein(feed)=cropnutrientsdata('crudeprotein',feed) ;
-p_ADF(feed)=cropnutrientsdata('ADF',feed) ; ;
+p_ADF(feed)=cropnutrientsdata('ADF',feed);
+p_NDF(feed)=cropnutrientsdata('NDF',feed)  ;
 
 
 

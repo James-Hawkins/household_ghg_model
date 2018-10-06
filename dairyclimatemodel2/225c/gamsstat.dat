@@ -1,0 +1,121 @@
+=0 C O N O P T 3    Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows
+C O N O P T 3    Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows    
+=1
+ 
+ 
+    C O N O P T 3   version 3.14U
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+=2
+=1
+ Using default options.
+ 
+=2
+    1  INPUT                                                                  (DEFAULT)
+    2  BRANCH * MAJERR MINERR JACERR                                          (DEFAULT)
+    3  OPTIMIZE                                                               (DEFAULT)
+    4  BRANCH * * * * * * MAJERR                                              (DEFAULT)
+    5  OUTPUT                                                                 (DEFAULT)
+    6  EXIT                                                                   (DEFAULT)
+    7  MAJERR MESSAGE MAJOR ERROR - TERMINATE                                 (DEFAULT)
+    8  EXIT                                                                   (DEFAULT)
+    9  MINERR MESSAGE MINOR ERROR - TERMINATE                                 (DEFAULT)
+   10  EXIT                                                                   (DEFAULT)
+   11  JACERR MESSAGE FUNCTION OR DERIVATIVE ERROR                            (DEFAULT)
+   12  OUTPUT                                                                 (DEFAULT)
+   13  EXIT                                                                   (DEFAULT)
+ 
+  ***  Line    1  INPUT
+=5   11854 !sqrt: GRAD SINGULAR: x = 0
+=5   11855 !sqrt: GRAD SINGULAR: x = 0
+=5   11856 !sqrt: GRAD SINGULAR: x = 0
+=5   11857 !sqrt: GRAD SINGULAR: x = 0
+=5   11858 !sqrt: GRAD SINGULAR: x = 0
+=5   11859 !sqrt: GRAD SINGULAR: x = 0
+=5   11860 !sqrt: GRAD SINGULAR: x = 0
+=5   11861 !sqrt: GRAD SINGULAR: x = 0
+=5   11862 !sqrt: GRAD SINGULAR: x = 0
+=5   11863 !sqrt: GRAD SINGULAR: x = 0
+=5   11864 !sqrt: GRAD SINGULAR: x = 0
+=5   11865 !sqrt: GRAD SINGULAR: x = 0
+=5   11854 !sqrt: GRAD SINGULAR: x = 0
+=5   11855 !sqrt: GRAD SINGULAR: x = 0
+=5   11856 !sqrt: GRAD SINGULAR: x = 0
+=5   11857 !sqrt: GRAD SINGULAR: x = 0
+=5   11858 !sqrt: GRAD SINGULAR: x = 0
+=5   11859 !sqrt: GRAD SINGULAR: x = 0
+=5   11860 !sqrt: GRAD SINGULAR: x = 0
+=5   11861 !sqrt: GRAD SINGULAR: x = 0
+=5   11862 !sqrt: GRAD SINGULAR: x = 0
+=5   11863 !sqrt: GRAD SINGULAR: x = 0
+=5   11864 !sqrt: GRAD SINGULAR: x = 0
+=5   11865 !sqrt: GRAD SINGULAR: x = 0
+=1
+ 
+    The model has 18281 variables and 11877 constraints
+    with 220790 Jacobian elements, 37200 of which are nonlinear.
+    The Hessian of the Lagrangian has 1200 elements on the diagonal,
+    85872 elements below the diagonal, and 9492 nonlinear variables.
+=2
+ 
+  ***  Line    2  BRANCH with Lbranch =  1
+ 
+  ***  Line    3  OPTIMIZE
+ 
+Search for a first feasible solution
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        6.8665427512E+06 (Input point)
+=1
+ 
+ ** Warning **  The variance of the derivatives in the initial
+                point is large (= 8.2 ). A better initial
+                point, a better scaling, or better bounds on the
+                variables will probably help the optimization.
+ 
+=2
+=5   11854 !sqrt: GRAD SINGULAR: x = 0
+=5   11855 !sqrt: GRAD SINGULAR: x = 0
+=5   11856 !sqrt: GRAD SINGULAR: x = 0
+=5   11857 !sqrt: GRAD SINGULAR: x = 0
+=5   11858 !sqrt: GRAD SINGULAR: x = 0
+=5   11859 !sqrt: GRAD SINGULAR: x = 0
+=5   11860 !sqrt: GRAD SINGULAR: x = 0
+=5   11861 !sqrt: GRAD SINGULAR: x = 0
+=5   11862 !sqrt: GRAD SINGULAR: x = 0
+=5   11863 !sqrt: GRAD SINGULAR: x = 0
+=5   11864 !sqrt: GRAD SINGULAR: x = 0
+=5   11865 !sqrt: GRAD SINGULAR: x = 0
+=5   11854 !sqrt: GRAD SINGULAR: x = 0
+=5   11855 !sqrt: GRAD SINGULAR: x = 0
+=5   11856 !sqrt: GRAD SINGULAR: x = 0
+=5   11857 !sqrt: GRAD SINGULAR: x = 0
+=5   11858 !sqrt: GRAD SINGULAR: x = 0
+=5   11859 !sqrt: GRAD SINGULAR: x = 0
+=5   11860 !sqrt: GRAD SINGULAR: x = 0
+=5   11861 !sqrt: GRAD SINGULAR: x = 0
+=5   11862 !sqrt: GRAD SINGULAR: x = 0
+=5   11863 !sqrt: GRAD SINGULAR: x = 0
+=5   11864 !sqrt: GRAD SINGULAR: x = 0
+=5   11865 !sqrt: GRAD SINGULAR: x = 0
+                                Pre-triangular equations:      802
+                                Post-triangular equations:    7346
+      1   0        4.2441779469E+06 (After pre-processing)
+      2   0        3.3871333050E+03 (After scaling)
+      3   0    76  3.3871333050E+03               0.0E+00      T  T
+      4   0    76  3.3871333050E+03               0.0E+00      T  T
+      5   0    76  3.3871333050E+03               0.0E+00      T  T
+      6   0    76  3.3871333050E+03               0.0E+00      T  T
+      7   0    76  3.3871333050E+03               0.0E+00      T  T
+      8   0    76  3.3871333050E+03               0.0E+00      T  T
+      9   0    76  3.3871333050E+03               0.0E+00      T  T
+     10   0    76  3.3871333050E+03               0.0E+00      T  T
+     11   0    76  3.3871333050E+03               0.0E+00      T  T
+     12   0    76  3.3871333050E+03               0.0E+00      T  T
+     13   0    76  3.3871333050E+03               0.0E+00      T  T
+     14   0    76  3.3871333050E+03               0.0E+00      T  T
+     15   0    76  3.3871333050E+03               0.0E+00      T  T
+     16   0    76  3.3871333050E+03               0.0E+00      T  T

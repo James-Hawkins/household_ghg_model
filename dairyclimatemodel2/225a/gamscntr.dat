@@ -1,18 +1,18 @@
 42
 4 316 0 0 235  0.00000000000000E+0000 0  0.00000000000000E+0000 0 1
-11703 3764 0 0 2566 10881 818 4 0 0 0
-24537 16584 0 0 0 0 0 0
-134157 72000
-24537 0 0 0 0 0 0 18384 0 6153
-63 0 0 0 0 0 0
-1 30 0
-604113 73 870
+11889 1894 0 0 1292 11478 409 2 0 0 0
+18281 9492 0 0 0 0 0 0
+220802 37200
+18281 0 0 0 0 0 0 9192 0 9089
+111 0 0 0 0 0 0
+1 1214 0
+311717 74 870
  1.00000000000000E-0001  0.00000000000000E+0000 0
 0  0.00000000000000E+0000 0  0.00000000000000E+0000
  1.00000000000000E+0003 2000000000 0
 1 0
  0.00000000000000E+0000 0 0 0  1.00000000000000E+0000 0
-24489 100
+17045 100
 0 0 0 0 0
  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000
 C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\225a\gamsmatr.dat
@@ -23,17 +23,17 @@ C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\225a\gam
 
 C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\225a\gamsdict.dat
 3
-09:01:27
-10/05/18
+07:50:46
+10/06/18
 C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\
 C:\Program Files (x86)\GAMS23.5\
 C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\225a\
 80 2147483647
-0 0 6322 43377 37055 51289
+0 0 6323 43378 37055 51289
 Gary Goldstein                                 G010614:2121CA-WIN0
 Decision Ware, Inc.                                              0
 0922806101BDMCCOCPM5GEMPO2PTSNXAXP                  00000000000000
-0 1 11555 0
+0 1 5778 0
 225a\gmsprmNT.dat
 15 84 21
 LP          29 0

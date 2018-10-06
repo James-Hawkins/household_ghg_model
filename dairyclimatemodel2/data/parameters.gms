@@ -239,7 +239,7 @@ p_crudeProtein(feed)=cropnutrientsdata('crudeprotein',feed) ;
 p_ADF(feed)=cropnutrientsdata('ADF',feed);
 p_NDF(feed)=cropnutrientsdata('NDF',feed)  ;
 
-
+display    p_NDF,p_ADF;
 
 * human nutrition related parameters
 p_nutrientrequirement(hh,'kcal')=2500;

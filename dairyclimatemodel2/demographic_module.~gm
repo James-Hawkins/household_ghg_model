@@ -87,7 +87,7 @@ v_aactLev(hh,'adultf_imp',type,inten,minten,y,m-1)*p_rateFert('adultf_imp',type,
 v_aactLev(hh,young_imp,type,inten,minten,y,m-1)*(1-p_grad(young_imp,type,inten))*(1-p_mort(young_imp,type,minten)
 +v_aactLevbuy(hh,young_imp,type,inten,minten,y,m-1)
 -v_aactLevsell(hh,young_imp,type,inten,minten,y,m-1)
-)
+))
 ;
 
 E_youngy_loc(hh,young_loc,type,y,'m01')$(ord(y) gt 2 )..

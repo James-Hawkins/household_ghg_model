@@ -36,7 +36,7 @@ e_offfarm_income_wo_loan(hh,y)..                v_off_farm_income(hh,y) =e=   p_
 e_crop_expenses(hh,y,m)..                       v_crop_expenses(hh,y,m)  =e=  v_labour_hired_crop(hh,y,m)*p_labourPrice(hh) + Sum(c,v_areaCrop(hh,y,c)*p_cropcosts(hh,c)/12);
 
 e_livestock_expenses(hh,y,m)..                  v_lives_expenses(hh,y,m) =e=
-2*
+1*
 (
 sum((aaact,type,inten,minten),v_aactLevbuy(hh,aaact,type,inten,minten,y,m)*p_purchPrice(hh,aaact))
 +v_labour_hired_lives(hh,y,m)*p_labourPrice(hh)
@@ -55,8 +55,8 @@ e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(hh,y,m
 
 e_milk_no_contract(hh,y,m)..                    v_Qmilk_marketed_contract(hh,y,m)  =e= 0;
 
-e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_off_farm_income(hh,y)/12   + v_income_lives(hh,y,m)   ;
-*   +  v_income_crop(hh,y,m)
+e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_off_farm_income(hh,y)/12   + v_income_lives(hh,y,m)  +  v_income_crop(hh,y,m)   ;
+*
 e_objective1..                                  v_npv =e= sum( (hh,y,m) ,v_income(hh,y,m) + v_leisure(hh,y,m)*p_offFarm_wage(hh)*8*.02 / ( 1 + power(p_r,ord(y)) ) )   ;
 
 *e_objective2.. v_npv =e= sum( (hh,y,m) ,(v_income(hh,y,m)- v_stddev_income(hh,y,m)) / ( 1 + power(p_r,ord(y)) ) )   ;

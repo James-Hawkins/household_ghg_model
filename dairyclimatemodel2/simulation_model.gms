@@ -55,8 +55,8 @@ e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(hh,y,m
 
 e_milk_no_contract(hh,y,m)..                    v_Qmilk_marketed_contract(hh,y,m)  =e= 0;
 
-e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_off_farm_income(hh,y)/12   + v_income_lives(hh,y,m)   ;
-*   +  v_income_crop(hh,y,m)
+e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_off_farm_income(hh,y)/12   + v_income_lives(hh,y,m)  +  v_income_crop(hh,y,m)   ;
+*
 e_objective1..                                  v_npv =e= sum( (hh,y,m) ,v_income(hh,y,m) + v_leisure(hh,y,m)*p_offFarm_wage(hh)*8*.02 / ( 1 + power(p_r,ord(y)) ) )   ;
 
 *e_objective2.. v_npv =e= sum( (hh,y,m) ,(v_income(hh,y,m)- v_stddev_income(hh,y,m)) / ( 1 + power(p_r,ord(y)) ) )   ;
@@ -76,6 +76,6 @@ $ifi %CREDIT%==ON   e_offfarm_income_w_loan
  e_livestock_expenses
  e_crop_expenses
  e_minimum_nutrient
-$ifi %output_SCEN%==ON e_milk_contract
+*$ifi %output_SCEN%==ON e_milk_contract
 $ifi %output_SCEN%==OFF e_milk_no_contract
 /
