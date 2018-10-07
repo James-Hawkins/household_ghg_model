@@ -122,7 +122,7 @@ Parameters
   p_milkprod(aaact,type,inten)              'milk produced per adult female (kg/head/day)'
   p_salesw(aaact,type,inten)                'sales weight of a given animal'
   p_dress_pct(aaact,type,inten)             'dressing percentage of aninal (expressed as fraction)'
-
+  p_corrfc_en(cow)
 * starting livestock numbers
   v0_aactLev(hh,aaact,type,inten,minten)    'parameter used to specify livestock numbers in 1st period of each iteration'
 
@@ -207,6 +207,8 @@ p_milkprod(adultf,type,inten)=prodparams(adultf,type,inten,'milkprod');
 * sales weight (kg)
 p_salesw(aaact,type,inten)=prodparams (aaact,type,inten,'fnweight');
 
+
+p_corrfc_en(cow)=1;
 
 * livestock numbers
 v0_aactLev(hh,aaact,type,inten,minten)=startlivestock(hh,aaact,type,inten,minten,'startvalue');

@@ -19,6 +19,7 @@ Variables
   v_diet_N(hh,y,m,aaact,type,inten,minten)                  'Dietary N intake (g/100g DM)'
   v_prodQmilk(hh,aaact,type,inten,year,m)                   'Milk produced (kg/month/animal)'
   v_prodQmeat(hh,aaact,type,inten,year,m)                   'Meat produced (kg/month/animal)'
+  v_milkprod(hh,cow,type,inten,year)
 ;
 
 
@@ -27,7 +28,7 @@ Nonnegative variables
   v_grossEnergy(hh,aaact,type,inten,minten,year,m)          'Gross energy intake per animal per day (MJ/hd/d)'
   v_netEnergy(hh,aaact,type,inten,minten,year,m)            'Net energy requirement (MJ/hd/d)'
   v_digestibleEnergy(hh,aaact,type,inten,minten,y,m)        'Digestible energy intake per animal per day (MJ/hd/d)'
-
+  v_cp_intake(hh,year,m,aaact,type,inten,minten)
   v_dryMatterIntake(hh,y,m,aaact,type,inten)           'Dry matter intake (kg/hd/d)'
   v_graze_dmd(hh,y)                                    'Estimated demand for grazing land (ha/hh/yr)'
   v_pasture_land(hh,y)                                 'Amount of land dedicated to pasture production (ha/hh/yr)'
@@ -90,6 +91,8 @@ Equations
 
 *-- Feed and nutrition equations
    e_feed_intake                 'Feed intake equation (as fed)'
+   e_mlk_prod
+   e_protein_intake
    e_dryMatterIntake             'Dry matter intake equation (from Goopy et al. 2018)'
    e_dry_matter_digestibility    'Dry matter digestibility (from Oddy et al. 1983)'
    e_energySource                'Specify required energy intake'
@@ -124,11 +127,31 @@ e_pasture(hh,y)..                                 v_pasture_land(hh,y) =e= (1/10
 
 e_dryMatterIntake(hh,y,m,aaact,type,inten)..      v_dryMatterIntake(hh,y,m,aaact,type,inten)   =e=  Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed));
 
+
+
+
+
+e_mlk_prod(hh,y,cow,type,inten)..  v_milkprod(hh,cow,type,inten,y)  =e= (1/12)*Sum(m, min((v_cp_intake(hh,y,m,cow,'dairy',inten,'ext')-0.1)/.06785 ,365*p_corrfc_en(cow)*(p_Energy_req(cow,type,inten,'ext')-35)/(0.8*(0.0406*.02+1.509))));
+
+*e_mlk_prod(hh,y,cow,type,inten)..  v_milkprod(hh,cow,type,inten,y)  =e=  min(1,2);
+
+$ontext
+
+v_milk_yd_per_hd(y_fwd,r,breed,cohort,scen)  =e= min(-p_metpr(breed,cohort)+p_corrfc_pr(breed)*v_me_pr_intake(y_fwd,r,breed,cohort,scen)/.06785 ,365*p_corrfc_en(breed)*v_me_en_lac(y_fwd,r,breed,cohort,scen)/(0.8*(0.0406*.02+1.509)));
+* equation 88 AFRC
+
+$offtext
+
+
+
+
 e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aaact,type,inten,'ext')   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')*0.81/100;
 
 e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_dmd(hh,y,m,aaact,type,inten,minten) =e= 83.58 - 0.824*v_ADF(hh,y,m,aaact,type,inten,minten) + 2.626*v_diet_N(hh,y,m,aaact,type,inten,minten) ;
 
-e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..           Sum((feed),v_fdcons(hh,aaact,'dairy',inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))*0.9     =g= .1* p_Protein_req(aaact,'dairy',inten,minten);  !! protein requirments need to be updated
+e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..            v_cp_intake(hh,y,m,aaact,'dairy',inten,minten)  =g= .1* p_Protein_req(aaact,'dairy',inten,minten);  !! protein requirments need to be updated
+
+e_protein_intake(hh,y,m,aaact,'dairy',inten,minten)..                            v_cp_intake(hh,y,m,aaact,'dairy',inten,minten) =e=  Sum((feed),v_fdcons(hh,aaact,'dairy',inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))*0.9 ;
 
 e_grossEnergy(hh,y,m,aaact,type,minten,inten)..            v_grossEnergy(hh,aaact,type,inten,minten,y,m)   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_grossEnergy(feed));
 
@@ -156,8 +179,10 @@ Model livesmod
    e_feed_purchased
    e_laborAA
    e_pasture
+   e_mlk_prod
 $ifi %rangeland_constraint%==ON    e_rangeland
    e_dry_matter_digestibility
+   e_protein_intake
    e_grossEnergy
    e_digestibleEnergy
    e_diet_N

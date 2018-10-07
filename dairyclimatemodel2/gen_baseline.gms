@@ -180,8 +180,7 @@ v_fdcons.l(hh,aaact,type,inten,y,m,'grass')=20;
 
 
 
-SOLVE DairyClimateModel maximizing v_npv using NLP;  !! best solved with SNOPT
-*RMINLP
+SOLVE DairyClimateModel maximizing v_npv using DNLP;  !! best solved with SNOPT
 *$include productivity_module.gms
 
 *----- save results from current year
