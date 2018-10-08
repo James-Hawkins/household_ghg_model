@@ -19,7 +19,7 @@ Variables
   v_diet_N(hh,y,m,aaact,type,inten,minten)                  'Dietary N intake (g/100g DM)'
   v_prodQmilk(hh,aaact,type,inten,year,m)                   'Milk produced (kg/month/animal)'
   v_prodQmeat(hh,aaact,type,inten,year,m)                   'Meat produced (kg/month/animal)'
-  v_milkprod(hh,cow,type,inten,year)                        'Milk production per cow per day during lactation (kg/head/day)'
+  v_milkprod(hh,cow,type,inten,year)
 ;
 
 

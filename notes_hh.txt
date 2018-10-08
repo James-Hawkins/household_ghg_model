@@ -43,3 +43,10 @@ took the upper bound on milk marketed via contract out.
 
 
 eliminate the intensity index?
+
+
+
+10.8
+when you run the model with SNOPT or PATHNLP for DNLP it solves. Not with conopt though.
+SCENARIO with loan on was going infeasible but it had to do with the fact that the credit interest expense in the cash flow equation was not accounting for the one month lag
+reduced intensity set down to just one (ext) and there are no errors. so next step you can take this and the minten set out

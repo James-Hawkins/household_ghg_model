@@ -1,0 +1,33 @@
+B 2 C o m p i l a t i o n
+B 2912 Include File Summary
+B 2992 E x e c u t i o n
+I 2993 p_NDF
+I 3004 p_ADF
+I 3014 v0_aactLev
+I 3049 p_B0
+I 3051 p_FRAC_leach
+I 3054 p_FRAC_vol
+I 3057 p_EF_5
+I 3061 p_EF_4
+I 3065 p_MCF
+I 3070 p_ADF
+I 3080 p_crudeProtein
+I 3090 p_Energy_req
+I 3189 p_digestibleEnergy
+I 3199 p_grossEnergy
+I 3209 p_crop_sell_price
+I 3220 offfarm_income
+I 3225 p_offFarmIncome
+I 3230 p_forage_yield
+I 3236 rangeland_yield
+I 3242 p_yldCrop
+I 3261 p_s
+I 3272 startfeed
+I 3322 p_netEnergy
+I 3332 p_dryMatter
+I 3343 p_transferrate
+I 3345 p_fossil_fuel_emissions
+I 3352 p_meatPrice
+I 3353 p_purchPrice
+I 3364 p_labourPrice
+B 3371 Model Statistics    SOLVE DairyClimateModel Using DNLP From line 1921

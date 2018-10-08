@@ -1064,61 +1064,62 @@ PlaneRownr=-1
 [RP:SCENARIO_PARAMETERS]
 1=
 
-[RP:MARKET_MODEL]
-1=
-
 [RP:GHG_PARAMETERS]
 1=
 
 [RP:NUTR_PARAMETERS]
 1=
 
-[SOLVERS]
-NLP=CONOPT
-RMINLP=SNOPT
-
 [RP:CROP_MODULE]
-1=
-
-[RP:PARAMETERS]
-1=
-
-[RP:EMISSIONS_MODULE]
 1=
 
 [RP:GHG_PARAMS]
 1=
 
-[RP:LIVESTOCK_MODULE]
-1=
-
 [RP:RISK_MODULE]
-1=
-
-[RP:SET_DEFINITIONS]
 1=
 
 [RP:HOUSEHOLD_MODULE]
 1=
 
+[RP:SIMULATION_MODEL]
+1=
+
+[RP:PARAMETERS]
+1=
+
+[SOLVERS]
+DNLP=CONOPT
+NLP=CONOPT
+RMINLP=SNOPT
+
+[RP:MARKET_MODEL]
+1=
+
 [RP:DEMOGRAPHIC_MODULE]
 1=
 
-[RP:SIMULATION_MODEL]
+[RP:SET_DEFINITIONS]
+1=
+
+[RP:EMISSIONS_MODULE]
+1=
+
+[RP:LIVESTOCK_MODULE]
 1=
 
 [RP:GEN_BASELINE]
 1=
 
 [MRUFILES]
-1=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
-2=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\household_module.gms
-3=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\GHG_params2.gms
-4=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\GHG_params.gms
-5=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\gen_baseline.lst
-6=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\gen_baseline.gms
-7=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\emissions_module.gms
-8=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\demographic_module.gms
+1=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.log
+2=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
+3=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\household_module.gms
+4=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\GHG_params2.gms
+5=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\GHG_params.gms
+6=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\gen_baseline.lst
+7=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\gen_baseline.gms
+8=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\emissions_module.gms
 
 [OPENWINDOW_1]
 FILE0=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\crop_module.gms
@@ -1133,8 +1134,9 @@ FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\li
 FILE9=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\risk_module.gms
 FILE10=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\set_definitions.gms
 FILE11=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
-FILE12=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
-MAXIM=0
+FILE12=C:\Users\Gaming\Documents\Github\Sectoral_Dairy_Model_Tanzania\Model\gms\market_model.gms
+FILE13=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
+MAXIM=1
 TOP=2
 LEFT=108
 HEIGHT=765

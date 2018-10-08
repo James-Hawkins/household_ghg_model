@@ -1,0 +1,227 @@
+
+--- Job gen_baseline.gms Start 10/08/18 07:16:46 WEX-VS8 23.5.1 x86/MS Windows        
+GAMS Rev 235  Copyright (C) 1987-2010 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- gen_baseline.gms(33) 2 Mb
+--- .set_definitions.gms(112) 3 Mb
+--- gen_baseline.gms(36) 3 Mb
+--- .parameters.gms(37) 3 Mb
+--- call gdxxrw.exe data/household_data.xlsx o=data/household_data.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\household_data.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\household_data.gdx
+Substituting Index
+Total time = 406 Ms
+--- .parameters.gms(38) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/household_data.gdx
+--- .parameters.gms(58) 3 Mb
+--- call gdxxrw.exe data/model_data.xlsx o=data/model_data.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\model_data.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\model_data.gdx
+Substituting Index
+Total time = 359 Ms
+--- .parameters.gms(59) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/model_data.gdx
+--- .parameters.gms(266) 3 Mb
+--- gen_baseline.gms(38) 3 Mb
+--- .ghg_parameters.gms(42) 3 Mb
+--- call gdxxrw.exe data/ghg_params.xlsx o=data/ghg_params.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\ghg_params.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\ghg_params.gdx
+Substituting Index
+Total time = 485 Ms
+--- .ghg_parameters.gms(43) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/ghg_params.gdx
+--- .ghg_parameters.gms(72) 3 Mb
+--- gen_baseline.gms(40) 3 Mb
+--- .nutr_parameters.gms(15) 3 Mb
+--- call gdxxrw.exe data/nutrient_requirements.xlsx o=data/nutrient_requirements.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\nutrient_requirements.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\nutrient_requirements.gdx
+Substituting Index
+Total time = 235 Ms
+--- .nutr_parameters.gms(16) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/nutrient_requirements.gdx
+--- .nutr_parameters.gms(27) 3 Mb
+--- gen_baseline.gms(42) 3 Mb
+--- .scenario_parameters.gms(29) 3 Mb
+--- gen_baseline.gms(95) 3 Mb
+--- .crop_module.gms(83) 3 Mb
+--- gen_baseline.gms(98) 3 Mb
+--- .livestock_module.gms(197) 3 Mb
+--- gen_baseline.gms(101) 3 Mb
+--- .demographic_module.gms(437) 3 Mb
+--- gen_baseline.gms(104) 3 Mb
+--- .emissions_module.gms(112) 3 Mb
+--- gen_baseline.gms(107) 3 Mb
+--- .loan_module.gms(56) 3 Mb
+--- gen_baseline.gms(110) 3 Mb
+--- .household_module.gms(142) 3 Mb
+--- gen_baseline.gms(113) 3 Mb
+--- .risk_module.gms(124) 3 Mb
+--- gen_baseline.gms(116) 3 Mb
+--- .simulation_model.gms(81) 3 Mb
+--- gen_baseline.gms(265) 3 Mb
+--- .GHG_params.gms(12) 3 Mb
+--- gen_baseline.gms(288) 3 Mb
+--- .GHG_params2.gms(29) 3 Mb
+--- gen_baseline.gms(435) 3 Mb
+--- Starting execution: elapsed 0:00:01.789
+--- gen_baseline.gms(1909) 4 Mb
+--- Generating DNLP model DairyClimateModel
+--- gen_baseline.gms(1921) 21 Mb
+--- LOOPS y2 = 1
+---   11,931 rows  18,251 columns  212,337 non-zeroes
+---   302,801 nl-code  35,724 nl-non-zeroes
+--- gen_baseline.gms(1921) 18 Mb
+--- Executing SNOPT: elapsed 0:00:02.086
+--- gen_baseline.gms(1921) 18 Mb
+ 
+SNOPT 7.2-4      Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows    
+
+    GAMS/SNOPT, Large Scale Nonlinear SQP Solver
+    S N O P T  7.2-4 (June 2006)
+    P. E. Gill, UC San Diego
+    W. Murray and M. A. Saunders, Stanford University
+
+ Work space allocated           --   31.53 Mb
+ 
+  Reading Rows...
+  Reading Columns...
+  Reading Instructions...
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -1.5E+02 3.3E-04 2603 1.084E+05  0.00000000E+00
+   200 -6.0E+01 8.4E+01 2299 8.355E+04  0.00000000E+00
+   300 -1.9E+03 1.4E-04 1501 4.572E+04  0.00000000E+00
+   400 -2.3E+02 3.6E-03  868 2.580E+04  0.00000000E+00
+   500 -9.9E+03 2.7E-10  866 2.539E+04  0.00000000E+00
+   600 -2.0E+02 7.3E-08  866 2.538E+04  0.00000000E+00
+   700 -2.6E+00 4.0E+01  426 1.496E+04  0.00000000E+00
+   800  2.4E+00 1.9E-09  388 1.113E+04  0.00000000E+00
+   900 -1.3E+00 6.3E-11  290 4.964E+03  0.00000000E+00
+  1000 -1.6E+00 1.6E-09  270 4.159E+03  0.00000000E+00
+  1100 -3.3E-01 2.3E-01  185 5.796E+02  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  1200 -5.8E-01 1.3E+01  106 3.344E+02  0.00000000E+00
+  1300 -4.6E-01 2.1E+01  104 1.376E+02  0.00000000E+00
+  1400 -4.5E-02 9.8E-10  101 1.138E+02  0.00000000E+00
+  1500  1.3E-01 3.7E-10  100 1.128E+02  0.00000000E+00
+  1600 -3.3E-01 2.3E-09   99 1.066E+02  0.00000000E+00
+  1700  1.0E-01 2.6E-10   86 9.463E+01  0.00000000E+00
+  1800  1.2E-01 3.0E-10   84 8.247E+01  0.00000000E+00
+  1900  1.3E-01 3.2E-10   83 7.645E+01  0.00000000E+00
+  2000  1.3E-01 3.2E-10   82 7.020E+01  0.00000000E+00
+  2100  1.1E-01 1.1E-10   79 5.724E+01  0.00000000E+00
+  2200  9.6E-02 3.6E-10   78 4.599E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  2300 -6.0E+00 4.2E-02   77 4.003E+01  0.00000000E+00
+  2400  3.0E-03 2.4E-09   50 2.538E+01  0.00000000E+00
+  2500 -6.9E-03 4.7E-08   44 2.478E+01  0.00000000E+00
+  2600 -2.0E-03 1.8E-04    9 1.664E+01  0.00000000E+00
+  2700 -1.0E-03 1.0E-07    8 1.647E+01  0.00000000E+00
+  2800 -2.0E-04 4.0E-08    7 1.312E+01  0.00000000E+00
+  2900  2.2E-04 7.9E-08    6 1.132E+01  0.00000000E+00
+  3000 -6.2E-05 1.2E-07    5 8.359E+00  0.00000000E+00
+  3100 -1.4E-04 3.5E-06    5 8.359E+00  0.00000000E+00
+  3200 -3.8E-04 1.4E-07    4 6.503E+00  0.00000000E+00
+  3300  8.6E-04 6.0E-08    3 4.765E+00  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  3400 -2.0E-04 1.2E-07    2 3.190E+00  0.00000000E+00
+  3500  3.3E-04 1.4E-07    1 1.762E+00  0.00000000E+00
+  3600 -1.1E+00 4.8E+00   15 2.970E+01  0.00000000E+00
+
+   Itn  3648 linear constraints are feasible, starting major iterations
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -1.1E+02 2.8E-12 1387 7.343E+04  0.00000000E+00
+   200 -1.8E+01 2.8E-12 1382 7.320E+04  0.00000000E+00
+   300  1.4E+02 3.5E-11 1382 7.320E+04  0.00000000E+00
+   400  1.8E+01 3.2E-10 1382 7.320E+04  0.00000000E+00
+   500  5.4E+00 6.2E+01 1354 6.687E+04  0.00000000E+00
+   600 -4.9E+00 9.4E-11 1336 6.530E+04  0.00000000E+00
+   700  4.7E+00 3.6E-11 1336 6.530E+04  0.00000000E+00
+   800  4.7E+00 3.6E-11 1336 6.530E+04  0.00000000E+00
+   900  4.7E+00 3.6E-11 1336 6.530E+04  0.00000000E+00
+  1000  2.7E+00 3.1E+01 1323 6.425E+04  0.00000000E+00
+  1100  2.7E+00 3.1E+01 1246 5.818E+04  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  1200  2.7E+00 3.1E+01 1151 5.036E+04  0.00000000E+00
+  1300  2.7E+00 3.1E+01 1069 4.380E+04  0.00000000E+00
+  1400  2.7E+00 3.1E+01  981 3.655E+04  0.00000000E+00
+  1500 -2.4E+00 1.5E-11  923 3.272E+04  0.00000000E+00
+  1600 -1.2E+00 1.3E+01  849 3.088E+04  0.00000000E+00
+  1700 -6.3E+00 4.5E-01  838 2.934E+04  0.00000000E+00
+  1800 -1.2E+00 1.7E+01  831 2.739E+04  0.00000000E+00
+  1900 -1.4E+00 8.3E-11  815 2.599E+04  0.00000000E+00
+  2000 -1.2E+00 1.3E+01  792 2.507E+04  0.00000000E+00
+  2100 -1.2E+00 1.7E+01  774 2.366E+04  0.00000000E+00
+  2200 -9.9E+01 2.6E-12  763 2.308E+04  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  2300 -2.0E+01 2.7E-14  758 2.291E+04  0.00000000E+00
+  2400 -1.0E+00 4.7E+01  687 2.004E+04  0.00000000E+00
+  2500 -1.0E+00 4.7E+01  587 1.526E+04  0.00000000E+00
+  2600 -1.0E+00 4.7E+01  491 1.071E+04  0.00000000E+00
+  2700 -1.0E+00 4.7E+01  397 6.208E+03  0.00000000E+00
+  2800 -7.7E-01 1.8E-02  321 2.805E+03  0.00000000E+00
+  2900 -3.6E-01 3.6E-11  302 2.536E+03  0.00000000E+00
+  3000  2.4E+00 1.7E-10  281 2.380E+03  0.00000000E+00
+  3100  1.4E+01 9.1E-09  255 2.135E+03  0.00000000E+00
+  3200  3.2E-01 3.7E-10  221 1.831E+03  0.00000000E+00
+  3300  2.4E+00 1.7E-10  188 1.544E+03  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  3400  2.4E+00 1.7E-10  151 1.283E+03  0.00000000E+00
+  3500 -2.9E+01 8.0E-04  117 9.847E+02  0.00000000E+00
+  3600  3.2E-01 3.7E-10   83 6.970E+02  0.00000000E+00
+  3700  2.4E+00 1.7E-10   50 4.635E+02  0.00000000E+00
+  3800 -3.9E-01 3.3E-11   31 1.672E+02  0.00000000E+00
+  3900 -2.8E+00 3.0E-05   21 1.018E+02  0.00000000E+00
+  4000 -1.2E-01 1.0E-10   21 9.336E+01  0.00000000E+00
+  4100  5.3E-02 1.5E-09   20 8.763E+01  0.00000000E+00
+  4200 -2.9E+00 2.5E-09   17 7.764E+01  0.00000000E+00
+  4300  1.8E-02 1.4E-09   14 7.261E+01  0.00000000E+00
+  4400  3.5E-02 1.5E-09    7 4.352E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  4500 -3.6E-03 1.7E-06    7 4.324E+01  0.00000000E+00
+  4600 -3.3E-03 1.6E-10    7 4.321E+01  0.00000000E+00
+  4700 -1.9E-03 1.6E-10    5 3.837E+01  0.00000000E+00
+  4800  1.3E-03 5.6E-10    5 3.829E+01  0.00000000E+00
+  4900  7.0E-03 1.7E-10    5 3.828E+01  0.00000000E+00
+  5000 -5.8E-04 2.5E-10    5 3.818E+01  0.00000000E+00
+  5100 -4.9E-04 2.8E-10    5 3.809E+01  0.00000000E+00
+  5200 -2.9E-03 1.9E+04    5 3.587E+01  0.00000000E+00
+  5300  7.6E-04 2.0E-10    5 3.234E+01  0.00000000E+00
+  5400 -1.5E-04 1.4E-10    5 3.233E+01  0.00000000E+00
+  5500 -2.0E-04 3.2E-10    5 3.233E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  5600 -9.0E-05 1.4E-10    5 3.232E+01  0.00000000E+00
+  5700 -3.3E+01 1.1E-11    5 3.232E+01  0.00000000E+00
+  5800  4.6E-03 2.3E-10    5 3.173E+01  0.00000000E+00
+Sending Stop signal
+Terminate batch job (Y/N)? forrtl: error (200): program aborting due to control-BREAK event
+Image              PC        Routine            Line        Source             
+gmssn_nx.exe       0054C39A  Unknown               Unknown  Unknown
+gmssn_nx.exe       004F4D2E  Unknown               Unknown  Unknown
+gmssn_nx.exe       00501254  Unknown               Unknown  Unknown
+KERNELBASE.dll     76EE2039  Unknown               Unknown  Unknown
+KERNEL32.DLL       74DD8484  Unknown               Unknown  Unknown
+ntdll.dll          774B305A  Unknown               Unknown  Unknown
+ntdll.dll          774B302A  Unknown               Unknown  Unknown
+Exit code = -1073741510
