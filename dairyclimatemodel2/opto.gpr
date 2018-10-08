@@ -1002,9 +1002,6 @@ PlaneRownr=-1
 [RP:OLD_TEXT]
 1=
 
-[RP:LOAN_MODULE]
-1=
-
 [GDXDISP: allocation_factor Par 1]
 PlaneDim=0
 RowDim=1
@@ -1067,45 +1064,48 @@ PlaneRownr=-1
 [RP:GHG_PARAMETERS]
 1=
 
-[RP:NUTR_PARAMETERS]
-1=
-
 [RP:CROP_MODULE]
-1=
-
-[RP:GHG_PARAMS]
-1=
-
-[RP:RISK_MODULE]
-1=
-
-[RP:HOUSEHOLD_MODULE]
-1=
-
-[RP:SIMULATION_MODEL]
 1=
 
 [RP:PARAMETERS]
 1=
 
-[SOLVERS]
-DNLP=CONOPT
-NLP=CONOPT
-RMINLP=SNOPT
-
 [RP:MARKET_MODEL]
+1=
+
+[RP:RISK_MODULE]
 1=
 
 [RP:DEMOGRAPHIC_MODULE]
 1=
 
-[RP:SET_DEFINITIONS]
+[SOLVERS]
+NLP=CONOPT
+DNLP=SNOPT
+RMINLP=SNOPT
+
+[RP:HOUSEHOLD_MODULE]
+1=
+
+[RP:LOAN_MODULE]
+1=
+
+[RP:GHG_PARAMS]
 1=
 
 [RP:EMISSIONS_MODULE]
 1=
 
+[RP:NUTR_PARAMETERS]
+1=
+
+[RP:SIMULATION_MODEL]
+1=
+
 [RP:LIVESTOCK_MODULE]
+1=
+
+[RP:SET_DEFINITIONS]
 1=
 
 [RP:GEN_BASELINE]
@@ -1123,20 +1123,22 @@ RMINLP=SNOPT
 
 [OPENWINDOW_1]
 FILE0=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\crop_module.gms
-FILE1=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\parameters.gms
-FILE2=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\demographic_module.gms
-FILE3=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\emissions_module.gms
-FILE4=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
-FILE5=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
-FILE6=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\GHG_params.gms
-FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\household_module.gms
-FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\livestock_module.gms
-FILE9=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\risk_module.gms
-FILE10=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\set_definitions.gms
-FILE11=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
-FILE12=C:\Users\Gaming\Documents\Github\Sectoral_Dairy_Model_Tanzania\Model\gms\market_model.gms
-FILE13=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
-MAXIM=1
+FILE1=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\nutr_parameters.gms
+FILE2=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\parameters.gms
+FILE3=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\demographic_module.gms
+FILE4=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\emissions_module.gms
+FILE5=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
+FILE6=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
+FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\GHG_params.gms
+FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\household_module.gms
+FILE9=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\livestock_module.gms
+FILE10=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\loan_module.gms
+FILE11=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\risk_module.gms
+FILE12=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\set_definitions.gms
+FILE13=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
+FILE14=C:\Users\Gaming\Documents\Github\Sectoral_Dairy_Model_Tanzania\Model\gms\market_model.gms
+FILE15=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
+MAXIM=0
 TOP=2
 LEFT=108
 HEIGHT=765
