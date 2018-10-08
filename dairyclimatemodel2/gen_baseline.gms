@@ -389,7 +389,6 @@ execute_unload "results/results.gdx"
 land,
 Model_Status,
 herd,
-herd2,
 diet,
 total_feed_consumed1,
 total_feed_consumed2,
@@ -399,7 +398,6 @@ labour, financials,
 financials_livestock,
 financials_crop,
 GHG_emissions,
-GHG_emissions_parameters,
 crops,
 credit,
 production,
@@ -422,7 +420,6 @@ execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=land     rng=l
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=cash_balance    rng=cash_balance!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=biomass            rng=biomass!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=crops              rng=crops!'
-execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd2              rng=herd2!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd               rng=herd!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet               rng=diet!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd_changes       rng=herd_changes!'
