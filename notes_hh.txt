@@ -50,3 +50,9 @@ eliminate the intensity index?
 when you run the model with SNOPT or PATHNLP for DNLP it solves. Not with conopt though.
 SCENARIO with loan on was going infeasible but it had to do with the fact that the credit interest expense in the cash flow equation was not accounting for the one month lag
 reduced intensity set down to just one (ext) and there are no errors. so next step you can take this and the minten set out
+
+
+tasks to work on this week
+-nutrition-productivity system, eliminate inten and minten sets
+- update the objective function -- consumption -- crop production -- nexus with realistic data and procedure
+-
