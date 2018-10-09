@@ -15,6 +15,7 @@ $call "gdxxrw.exe data/nutrient_requirements.xlsx o=data/nutrient_requirements.g
 $GDXIN "data/nutrient_requirements.gdx"
 $LOAD energyrequirements
 $LOAD proteinrequirements
+$LOAD energy_gain
 $GDXIN
 
 p_Energy_req(aaact,'dairy',inten,minten)=energyrequirements('hh1',aaact,'dairy',inten,minten,'energyrequirement');

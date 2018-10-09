@@ -54,8 +54,7 @@ e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(hh,y,m
 
 e_milk_no_contract(hh,y,m)..                    v_Qmilk_marketed_contract(hh,y,m)  =e= 0;
 
-e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_income_lives(hh,y,m)  +  v_income_crop(hh,y,m)  +v_off_farm_income(hh,y)/12 ;    !! revise this to take into account credit expenses
-*- v_tot_credit_expenses(hh,y,m)      ;
+e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=  + v_income_lives(hh,y,m)  +  v_income_crop(hh,y,m) - v_tot_credit_expenses(hh,y,m)      ;
 *
 * v_off_farm_income(hh,y)/12
 e_objective1..                                  v_npv =e= sum( (hh,y,m) ,v_income(hh,y,m) + v_leisure(hh,y,m)*p_offFarm_wage(hh)*8*.02 / ( 1 + power(p_r,ord(y)) ) )   ;

@@ -136,25 +136,16 @@ e_dryMatterIntake(hh,y,m,aaact,type,inten)..      v_dryMatterIntake(hh,y,m,aaact
 
 
 
-e_mlk_prod(hh,y,cow,type,inten)..  v_milkprod(hh,cow,type,inten,y)  =e= (1/12)*Sum(m, min((v_cp_intake(hh,y,m,cow,'dairy',inten,'ext')-0.1)/.06785 ,365*p_corrfc_en(cow)*(p_Energy_req(cow,type,inten,'ext')-35)/(0.8*(0.0406*.02+1.509))));
+e_mlk_prod(hh,y,cow,type,inten)..  v_milkprod(hh,cow,type,inten,y)  =e=              min((1/12)*Sum(m,(v_cp_intake(hh,y,m,cow,'dairy',inten,'ext')-0.05)/.06785 )  ,365*p_corrfc_en(cow)*(p_Energy_req(cow,type,inten,'ext')-35)/(0.8*(0.0406*.02+1.509)));
 
-*e_mlk_prod(hh,y,cow,type,inten)..  v_milkprod(hh,cow,type,inten,y)  =e=  min(1,2);
-
-$ontext
-
-v_milk_yd_per_hd(y_fwd,r,breed,cohort,scen)  =e= min(-p_metpr(breed,cohort)+p_corrfc_pr(breed)*v_me_pr_intake(y_fwd,r,breed,cohort,scen)/.06785 ,365*p_corrfc_en(breed)*v_me_en_lac(y_fwd,r,breed,cohort,scen)/(0.8*(0.0406*.02+1.509)));
-* equation 88 AFRC
-
-$offtext
-
-
+*(1/12)*Sum(m, min((v_cp_intake(hh,y,m,cow,'dairy',inten,'ext')-0.1)/.06785   ,365*p_corrfc_en(cow)*(p_Energy_req(cow,type,inten,'ext')-35)/(0.8*(0.0406*.02+1.509))));
 
 
 e_energySource(hh,y,m,aaact,type,inten)$(ord(m) gt 1)..          p_Energy_req(aaact,type,inten,'ext')   =e= Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed))*18.1*v_dmd(hh,y,m,aaact,type,inten,'ext')*0.81/100;
 
 e_dry_matter_digestibility(hh,y,m,aaact,type,inten,minten)..            v_dmd(hh,y,m,aaact,type,inten,minten) =e= 83.58 - 0.824*v_ADF(hh,y,m,aaact,type,inten,minten) + 2.626*v_diet_N(hh,y,m,aaact,type,inten,minten) ;
 
-e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..            v_cp_intake(hh,y,m,aaact,'dairy',inten,minten)  =g= .1* p_Protein_req(aaact,'dairy',inten,minten);  !! protein requirments need to be updated
+e_min_protein(hh,y,m,aaact,'dairy',inten,minten)$(ord(m) gt 1)..            v_cp_intake(hh,y,m,aaact,'dairy',inten,minten)  =g= .75* p_Protein_req(aaact,'dairy',inten,minten);  !! protein requirments need to be updated
 
 e_protein_intake(hh,y,m,aaact,'dairy',inten,minten)..                            v_cp_intake(hh,y,m,aaact,'dairy',inten,minten) =e=  Sum((feed),v_fdcons(hh,aaact,'dairy',inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))*0.9 ;
 

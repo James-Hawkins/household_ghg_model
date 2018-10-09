@@ -35,7 +35,7 @@ e_VS                             'Manure volatile solids'
 e_manure_methane                 'Manure methane'
 e_nitrogen_intake                'Nitrogen intake'
 e_nitrogen_retained_lact         'Nitrogen retained for lactation'
-*e_nitrogen_retained_gain         'Nitrogen retained for gain'
+e_nitrogen_retained_gain         'Nitrogen retained for gain'
 e_nitrogen_excretion             'Nitrogen excretion'
 e_manure_nitrous_oxide_direct    'Direct manure nitrous oxide'
 e_manure_nitrous_oxide_leach     'Leached manure nitrous oxide'
@@ -67,7 +67,7 @@ e_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)..                          
 
 e_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m)..                        v_nitrogen_retained_lact(hh,aaact,type,inten,minten,y,m) =e=   0.035*p_milkprod(aaact,type,inten);
 
-*e_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m)..                        v_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m) =e= p_gain(aaact,type,inten)*(268-(7.03*p_NE_gain(hh,aaact,type,inten,minten,y,m)/(.001+p_gain(aaact,type,inten))))/(1000/6.25) ;
+e_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m)..                        v_nitrogen_retained_gain(hh,aaact,type,inten,minten,y,m) =e= p_gain(aaact,type,inten)*(268-(7.03*p_NE_gain(hh,aaact,type,inten,minten,y,m)/(.001+p_gain(aaact,type,inten))))/(1000/6.25) ;
 
 e_manure_nitrous_oxide_direct(hh,y)..                                             v_manure_nitrous_oxide_direct(hh,y) =e=  265*Sum((aaact,type,inten,minten,m),30*v_aactLev(hh,aaact,type,inten,minten,y,m)*v_nitrogen_excretion(hh,aaact,type,inten,minten,y,m)*p_EF_3)      ;
 *(1/18.45)*(1/6.25)*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_grossEnergy(feed))*Sum((feed),v_fdcons(hh,aaact,type,inten,y,m,feed)*p_dryMatter(feed)*p_crudeProtein(feed))/(.001+v_dryMatterIntake(hh,y,m,aaact,type,inten));
@@ -97,7 +97,7 @@ e_manure_methane
 e_nitrogen_intake
 e_nitrogen_retained_lact
 e_nitrogen_excretion
-*e_nitrogen_retained_gain
+e_nitrogen_retained_gain
 e_manure_nitrous_oxide_direct
 e_manure_nitrous_oxide_leach
 e_manure_nitrous_oxide_vol

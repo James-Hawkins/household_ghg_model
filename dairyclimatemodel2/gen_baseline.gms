@@ -74,8 +74,8 @@ p_labourPrice;
 
 
 *define scenarios and model versions
-$setglobal CREDIT OFF
-$setglobal output_SCEN OFF
+$setglobal CREDIT ON
+$setglobal output_SCEN ON
 $setglobal RISK ON
 $setglobal GHG_Emissions OFF
 $setglobal Scenario Base
@@ -83,8 +83,8 @@ $setglobal rangeland_constraint ON
 
 
 ** Price scenarios
-*p_feedPrice(feed)=(0.75)*prices_feed(feed);
-*p_purchPrice(hh,aaact)=0.75*prices_lives(aaact,'buy') ;
+p_feedPrice(feed)=(0.75)*prices_feed(feed);
+p_purchPrice(hh,aaact_imp)=0.75*prices_lives(aaact_imp,'buy') ;
 
 *p_milkPrice('Scen')=  prices_milk;
 *p_feedPrice(feed,'Scen3')=prices_feed(feed)*(0.75);
@@ -389,7 +389,6 @@ execute_unload "results/results.gdx"
 land,
 Model_Status,
 herd,
-diet,
 total_feed_consumed1,
 total_feed_consumed2,
 herd_changes,
@@ -406,7 +405,9 @@ biomass,
 animal_numbers_monthly
 animal_numbers_annual,
 diet_annual
-cash_balance;
+cash_balance
+;
+
 *$exit
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=Model_Status       rng=Model_Status!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=financials         rng=financials!'
@@ -421,12 +422,13 @@ execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=cash_balance  
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=biomass            rng=biomass!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=crops              rng=crops!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd               rng=herd!'
-execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet               rng=diet!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=herd_changes       rng=herd_changes!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_numbers_monthly     rng=animal_numbers_monthly!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=animal_numbers_annual     rng=animal_numbers_annual!'
 *execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=total_feed_consumed rng=total_feed_consumed !'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=dry_matter_intake      rng=dry_matter_intake!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=diet_annual     rng=diet_annual!'
+execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=total_feed_consumed1    rng=total_feed_consumed1!'
+execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=total_feed_consumed2    rng=total_feed_consumed2!'
 execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emissions      rng=GHG_emissions!'
 

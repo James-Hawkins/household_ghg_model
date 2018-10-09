@@ -1,0 +1,15 @@
+I "C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms"
+ER=99
+LO=3
+IDE=1
+A=CE
+WDIR="C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\"
+PS=0
+PC=3
+PW=80
+DF=0
+TF=0
+NLP=CONOPT
+DNLP=SNOPT
+RMINLP=SNOPT
+ 
