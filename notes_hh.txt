@@ -56,3 +56,14 @@ tasks to work on this week
 -nutrition-productivity system, eliminate inten and minten sets
 - update the objective function -- consumption -- crop production -- nexus with realistic data and procedure
 -
+10.9
+protein is the limiting constraint on milk productivity
+
+10.10
+added new variable representing actual revenue from formal vs informal milk sales
+milk produced from young animals was entering the production allocation equation
+
+how to get a well defined, holds water objective function?
+minimum amount of land dedicated to crops for food.
+minimum amount of household milk consumption
+

@@ -11,6 +11,8 @@ v_off_farm_income(hh,y)           'Off farm income (lc/hh/year)'
 v_income_lives(hh,y,m)            'Income from livestock activities (lc/hh/year)'
 v_income_crop(hh,y,m)             'Income from cropping activities (lc/hh/year)'
 v_npv                             'Net present value (lc/hh)'
+v_milk_revenue_contract(hh,y,m)
+v_milk_revenue_informal(hh,y,m)
 ;
 
 
@@ -24,6 +26,8 @@ Equations
          e_crop_expenses                  'Annual expenses on crop production (lc/hh/year)'
          e_livestock_expenses             'Annual expenses on livestock production (lc/hh/year)'
          e_total_income                   'Total household income (farm plus off farm) in a given year (lc/hh/year)'
+         e_milk_revenue_contract
+         e_milk_revenue_informal
          e_minimum_nutrient               'Specify minimum required nutrient intake from farm produce (crops)'
          e_milk_contract                  'Specify terms of milk contract'
          e_milk_no_contract               'Constraint on milk for when there is no option of a contract'
@@ -48,7 +52,12 @@ e_minimum_nutrient(hh,y,nut)..                  Sum((m,food),v_prdCrop(hh,y,food
 e_farm_income_crop(hh,y,m)..                    v_income_crop(hh,y,m) =e=  Sum((cash), v_prdCrop(hh,y,cash,m)*p_crop_sell_price(hh,y,cash))  - v_crop_expenses(hh,y,m);
 *Sum(cash,v_crop_sales_cash(hh,y,cash)*p_crop_sell_price(hh,y,cash))
 
-e_farm_income_lives(hh,y,m)..                   v_income_lives(hh,y,m) =e= sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice)+ v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract + v_Qmilk_marketed_informal(hh,y,m) * p_milkPrice - v_lives_expenses(hh,y,m);
+e_farm_income_lives(hh,y,m)..                   v_income_lives(hh,y,m) =e= sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice)+   v_milk_revenue_contract(hh,y,m)  + v_milk_revenue_informal(hh,y,m)  - v_lives_expenses(hh,y,m);
+
+e_milk_revenue_contract(hh,y,m)..                v_milk_revenue_contract(hh,y,m) =e=  v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract ;
+
+e_milk_revenue_informal(hh,y,m)..                v_milk_revenue_informal(hh,y,m)  =e=  v_Qmilk_marketed_informal(hh,y,m) * p_milkPrice;
+
 
 e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(hh,y,m) =l= 10000/12 ;
 
@@ -76,6 +85,8 @@ $ifi %CREDIT%==ON   e_offfarm_income_w_loan
  e_total_income
 *$ifi %CREDIT%==OFF e_total_income1
 *$ifi %CREDIT%==ON  e_total_income2
+ e_milk_revenue_contract
+ e_milk_revenue_informal
  e_livestock_expenses
  e_crop_expenses
  e_minimum_nutrient

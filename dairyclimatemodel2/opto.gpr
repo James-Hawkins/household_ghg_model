@@ -1064,9 +1064,6 @@ PlaneRownr=-1
 [RP:GHG_PARAMETERS]
 1=
 
-[RP:CROP_MODULE]
-1=
-
 [RP:PARAMETERS]
 1=
 
@@ -1084,9 +1081,6 @@ NLP=CONOPT
 DNLP=SNOPT
 RMINLP=SNOPT
 
-[RP:HOUSEHOLD_MODULE]
-1=
-
 [RP:LOAN_MODULE]
 1=
 
@@ -1099,13 +1093,19 @@ RMINLP=SNOPT
 [RP:NUTR_PARAMETERS]
 1=
 
-[RP:SIMULATION_MODEL]
-1=
-
 [RP:LIVESTOCK_MODULE]
 1=
 
 [RP:SET_DEFINITIONS]
+1=
+
+[RP:CROP_MODULE]
+1=
+
+[RP:HOUSEHOLD_MODULE]
+1=
+
+[RP:SIMULATION_MODEL]
 1=
 
 [RP:GEN_BASELINE]
@@ -1128,9 +1128,10 @@ FILE2=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\da
 FILE3=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\demographic_module.gms
 FILE4=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\emissions_module.gms
 FILE5=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
-FILE6=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
-FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
-MAXIM=1
+FILE6=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\household_module.gms
+FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
+FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\crop_module.gms
+MAXIM=0
 TOP=2
 LEFT=108
 HEIGHT=765

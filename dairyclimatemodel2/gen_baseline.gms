@@ -219,7 +219,9 @@ financials('Farm Expenses (lc/yr)',hh,y2)=sum(m,v_crop_expenses.l(hh,'y01',m)+v_
 financials('Cash balance (lc/hh)',hh,y2)=0.35*sum(m,v_income.l(hh,'y01',m)) ;
 
 financials_livestock('Livestock Income(lc/hh/y)',hh,y2)= sum(m,v_income_lives.l(hh,'y01',m));
-financials_livestock('Milk Revenue (lc/hh/y)',hh,y2)=sum((adultf,type,inten,m),v_prodQmilk.l(hh,adultf,type,inten,'y01',m)*p_milkPrice);
+financials_livestock('Milk Revenue total(lc/hh/y)',hh,y2)=sum((m),v_milk_revenue_contract.l(hh,'y01',m)+v_milk_revenue_informal.l(hh,'y01',m));
+financials_livestock('Milk Revenue informal(lc/hh/y)',hh,y2)=sum(m,v_milk_revenue_informal.l(hh,'y01',m));
+financials_livestock('Milk Revenue formal(lc/hh/y)',hh,y2)=sum(m,v_milk_revenue_contract.l(hh,'y01',m));
 financials_livestock('Meat Revenue (lc/hh/y)',hh,y2)=Sum((aaact,type,inten,m),v_prodQmeat.l(hh,aaact,type,inten,'y01',m)*p_meatPrice);
 financials_livestock('Livestock Expenses (lc/yr)',hh,y2)=sum(m,v_lives_expenses.l(hh,'y01',m));
 financials_livestock('Replacement Costs(lc/yr)',hh,y2)=sum((aaact,type,inten,minten,m),v_aactLevbuy.l(hh,aaact,type,inten,minten,'y01',m)*p_purchPrice(hh,aaact));

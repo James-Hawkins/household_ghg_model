@@ -23,7 +23,7 @@ v_cash(hh,y,m)                       'Cash available for the household in a give
 v_labour_hired(hh,y,m)               'Total hired labour in a given month'
 v_labourcrophome(hh,y,m)             'Home labour dedicated to cropping activities (person-days/month)'
 v_labourliveshome(hh,y,m)            'Home labour dedicated to livestock activities (person-days/month)'
-v_cons(hh,y,m,good)                  ''
+v_cons(hh,y,m,good)                  'Consumption expenditure on good in year y and month m (Tsh/hh/m)'
 v_labour_hired_lives(hh,y,m)         'Hired labour for livestock activities (person-days/month)'
 v_labour_hired_crop(hh,y,m)          'Hired labour for cropping activities (person-days/month)'
 v_leisure(hh,y,m)                    'Leisure time (person-days/household/month)'
@@ -88,7 +88,7 @@ e_cons(hh,y,m,good)$(ord(m) gt 1)..                           v_cons(hh,y,m,good
 
 e_home_produce_demand(hh,food,y,m)..            v_prdCrop(hh,y,food,m)   =e= v_crp_cons(hh,y,food,m);
 
-e_home_food_demand(hh,y,m)..                    sum((type,inten,aaact),v_prodQmilk(hh,aaact,type,inten,y,m)) =e= v_Qmilk_marketed(hh,y,m)  + v_Qmilk_hcons(hh,y,m);
+e_home_food_demand(hh,y,m)..                    sum((type,inten,cow),v_prodQmilk(hh,cow,type,inten,y,m)) =e= v_Qmilk_marketed(hh,y,m)  + v_Qmilk_hcons(hh,y,m);
 
 e_milk_marketed(hh,y,m)..                       v_Qmilk_marketed_contract(hh,y,m)  + v_Qmilk_marketed_informal(hh,y,m) =e= v_Qmilk_marketed(hh,y,m) ;
 
