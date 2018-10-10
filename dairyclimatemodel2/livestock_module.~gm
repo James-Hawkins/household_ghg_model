@@ -67,7 +67,7 @@ v_aactLevsell.fx(hh,reprod,type,inten,minten,y,lastm)=0  ;
 
 *v_fdcons.fx(hh,aaact_imp,type,inten,y,m,grazed)=0;
 
-v_prodQmilk.fx(hh,young,type,inten,year,m)=0;
+
 
 
 

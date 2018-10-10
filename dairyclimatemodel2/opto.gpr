@@ -1096,13 +1096,13 @@ RMINLP=SNOPT
 [RP:LIVESTOCK_MODULE]
 1=
 
-[RP:SET_DEFINITIONS]
+[RP:HOUSEHOLD_MODULE]
 1=
 
 [RP:CROP_MODULE]
 1=
 
-[RP:HOUSEHOLD_MODULE]
+[RP:SET_DEFINITIONS]
 1=
 
 [RP:SIMULATION_MODEL]
@@ -1129,9 +1129,11 @@ FILE3=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\de
 FILE4=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\emissions_module.gms
 FILE5=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
 FILE6=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\household_module.gms
-FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
-FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\crop_module.gms
-MAXIM=0
+FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\livestock_module.gms
+FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\set_definitions.gms
+FILE9=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
+FILE10=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\livestock_module.gms
+MAXIM=1
 TOP=2
 LEFT=108
 HEIGHT=765
