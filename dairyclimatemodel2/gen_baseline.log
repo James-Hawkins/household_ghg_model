@@ -1,0 +1,737 @@
+
+--- Job gen_baseline.gms Start 10/15/18 17:39:13 WEX-VS8 23.5.1 x86/MS Windows        
+GAMS Rev 235  Copyright (C) 1987-2010 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- gen_baseline.gms(33) 2 Mb
+--- .set_definitions.gms(112) 3 Mb
+--- gen_baseline.gms(36) 3 Mb
+--- .parameters.gms(37) 3 Mb
+--- call gdxxrw.exe data/household_data.xlsx o=data/household_data.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\household_data.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\household_data.gdx
+Substituting Index
+Total time = 375 Ms
+--- .parameters.gms(38) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/household_data.gdx
+--- .parameters.gms(58) 3 Mb
+--- call gdxxrw.exe data/model_data.xlsx o=data/model_data.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\model_data.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\model_data.gdx
+Substituting Index
+Total time = 360 Ms
+--- .parameters.gms(59) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/model_data.gdx
+--- .parameters.gms(267) 3 Mb
+--- gen_baseline.gms(38) 3 Mb
+--- .ghg_parameters.gms(42) 3 Mb
+--- call gdxxrw.exe data/ghg_params.xlsx o=data/ghg_params.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\ghg_params.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\ghg_params.gdx
+Substituting Index
+Total time = 500 Ms
+--- .ghg_parameters.gms(43) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/ghg_params.gdx
+--- .ghg_parameters.gms(72) 3 Mb
+--- gen_baseline.gms(40) 3 Mb
+--- .nutr_parameters.gms(14) 3 Mb
+--- call gdxxrw.exe data/nutrient_requirements.xlsx o=data/nutrient_requirements.gdx index=index!A3
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\nutrient_requirements.xlsx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\nutrient_requirements.gdx
+Substituting Index
+Total time = 234 Ms
+--- .nutr_parameters.gms(15) 3 Mb
+--- GDXin=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data/nutrient_requirements.gdx
+--- .nutr_parameters.gms(25) 3 Mb
+--- gen_baseline.gms(42) 3 Mb
+--- .scenario_parameters.gms(29) 3 Mb
+--- gen_baseline.gms(95) 3 Mb
+--- .crop_module.gms(83) 3 Mb
+--- gen_baseline.gms(98) 3 Mb
+--- .livestock_module.gms(192) 3 Mb
+--- gen_baseline.gms(101) 3 Mb
+--- .demographic_module.gms(437) 3 Mb
+--- gen_baseline.gms(104) 3 Mb
+--- .emissions_module.gms(112) 3 Mb
+--- gen_baseline.gms(107) 3 Mb
+--- .loan_module.gms(56) 3 Mb
+--- gen_baseline.gms(110) 3 Mb
+--- .household_module.gms(126) 3 Mb
+--- gen_baseline.gms(113) 3 Mb
+--- .risk_module.gms(124) 3 Mb
+--- gen_baseline.gms(116) 3 Mb
+--- .simulation_model.gms(95) 3 Mb
+--- gen_baseline.gms(267) 3 Mb
+--- .GHG_params.gms(12) 3 Mb
+--- gen_baseline.gms(290) 3 Mb
+--- .GHG_params2.gms(29) 3 Mb
+--- gen_baseline.gms(436) 3 Mb
+--- Starting execution: elapsed 0:00:01.790
+--- gen_baseline.gms(1901) 5 Mb
+--- Generating DNLP model DairyClimateModel
+--- gen_baseline.gms(1913) 21 Mb
+--- LOOPS y2 = 1
+---   11,955 rows  17,915 columns  212,025 non-zeroes
+---   302,453 nl-code  35,724 nl-non-zeroes
+--- gen_baseline.gms(1913) 18 Mb
+--- Executing SNOPT: elapsed 0:00:02.088
+--- gen_baseline.gms(1913) 18 Mb
+ 
+SNOPT 7.2-4      Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows    
+
+    GAMS/SNOPT, Large Scale Nonlinear SQP Solver
+    S N O P T  7.2-4 (June 2006)
+    P. E. Gill, UC San Diego
+    W. Murray and M. A. Saunders, Stanford University
+
+ Work space allocated           --   31.49 Mb
+ 
+  Reading Rows...
+  Reading Columns...
+  Reading Instructions...
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -2.3E+03 1.8E-01 1624 5.685E+04  0.00000000E+00
+   200  6.1E+04 5.9E-11 1081 2.908E+04  0.00000000E+00
+   300  1.6E+03 3.3E-10  867 2.523E+04  0.00000000E+00
+   400  7.7E+01 6.6E-10  657 1.768E+04  0.00000000E+00
+   500 -4.6E+00 5.9E+00  436 1.634E+04  0.00000000E+00
+   600 -4.3E+00 9.3E-03  297 8.227E+03  0.00000000E+00
+   700  1.8E+00 3.7E-02  207 1.010E+03  0.00000000E+00
+   800  1.5E+00 5.8E-10  201 1.009E+03  0.00000000E+00
+   900  1.0E+00 6.1E-10  199 1.007E+03  0.00000000E+00
+  1000  1.9E+00 4.7E-10  197 1.005E+03  0.00000000E+00
+  1100  1.6E+00 6.4E-10  195 1.002E+03  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  1200  1.1E+00 8.6E-09  182 9.978E+02  0.00000000E+00
+  1300 -7.1E-01 7.1E-01  166 9.919E+02  0.00000000E+00
+  1400  1.3E+00 2.8E-10  166 9.919E+02  0.00000000E+00
+  1500  1.4E+00 5.5E-10  162 9.909E+02  0.00000000E+00
+  1600  1.4E+00 5.6E-10  107 3.093E+01  0.00000000E+00
+  1700  1.1E+00 4.7E-10  103 2.611E+01  0.00000000E+00
+  1800  8.5E-02 1.3E+00   53 1.456E+01  0.00000000E+00
+  1900  1.1E-03 3.5E-09    4 6.917E+00  0.00000000E+00
+  2000  4.7E-04 4.1E-09    4 6.917E+00  0.00000000E+00
+  2100 -2.8E-03 9.9E-08    4 6.917E+00  0.00000000E+00
+  2200  3.4E-03 1.5E-07    4 6.917E+00  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  2300 -3.4E-03 2.6E-08    4 6.917E+00  0.00000000E+00
+  2400  3.8E-03 1.4E-08    4 6.917E+00  0.00000000E+00
+  2500 -4.0E-03 2.9E-07    4 6.917E+00  0.00000000E+00
+  2600  2.4E-03 1.5E-07    4 6.917E+00  0.00000000E+00
+  2700 -7.4E-03 2.2E-07    4 6.917E+00  0.00000000E+00
+  2800 -1.8E-03 1.3E-07    4 6.917E+00  0.00000000E+00
+  2900 -3.2E-02 2.9E-07    4 6.917E+00  0.00000000E+00
+  3000 -3.9E-02 9.7E-11    4 6.917E+00  0.00000000E+00
+  3100 -1.5E-03 1.4E-09    4 6.917E+00  0.00000000E+00
+  3200  1.9E-03 2.3E-07    4 6.917E+00  0.00000000E+00
+  3300 -4.5E-03 1.8E-05    4 6.917E+00  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  3400 -1.1E+00 1.2E-10    4 6.916E+00  0.00000000E+00
+  3500  0.0E+00 5.6E+01    4 6.907E+00  0.00000000E+00
+  3600  0.0E+00 4.0E+01    4 6.907E+00  0.00000000E+00
+  3700  0.0E+00 2.1E+01    4 6.907E+00  0.00000000E+00
+  3800  0.0E+00 2.1E+01    4 6.907E+00  0.00000000E+00
+  3900 -3.3E+00 1.8E-11  391 1.824E+03  0.00000000E+00
+  4000 -2.2E+00 2.4E-11  383 1.781E+03  0.00000000E+00
+  4100 -1.6E+00 3.8E-11  372 1.721E+03  0.00000000E+00
+  4200 -1.1E+00 2.4E-10  352 1.623E+03  0.00000000E+00
+  4300  8.1E-01 4.9E-11  305 1.421E+03  0.00000000E+00
+  4400 -6.4E-01 6.3E+00  237 1.106E+03  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  4500 -5.1E-01 8.6E+00  158 7.431E+02  0.00000000E+00
+  4600 -3.7E-01 1.9E-10   82 4.041E+02  0.00000000E+00
+  4700  2.7E-04 9.6E-08    3 4.843E+00  0.00000000E+00
+  4800 -3.3E+00 2.7E-07    3 4.843E+00  0.00000000E+00
+  4900  4.9E-04 2.2E-07    1 4.718E+00  0.00000000E+00
+  5000  6.8E-01 3.2E-01  209 1.222E+02  0.00000000E+00
+  5100 -4.0E-01 3.2E-01  109 4.574E+01  0.00000000E+00
+  5200 -1.5E-01 2.7E+00    9 1.407E+00  0.00000000E+00
+
+   Itn  5209 linear constraints are feasible, starting major iterations
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -1.6E+03 5.1E-15 1945 8.217E+04  0.00000000E+00
+   200  3.0E+02 7.1E-10 1945 8.217E+04  0.00000000E+00
+   300  1.5E+02 3.9E-10 1945 8.217E+04  0.00000000E+00
+   400 -1.9E+02 9.7E-13 1944 8.208E+04  0.00000000E+00
+   500 -8.7E+02 5.8E-11 1942 8.061E+04  0.00000000E+00
+   600  2.7E+03 2.8E-11 1942 8.027E+04  0.00000000E+00
+   700 -1.7E+04 3.4E-11 1942 8.027E+04  0.00000000E+00
+   800 -2.7E+01 2.8E-10 1942 7.878E+04  0.00000000E+00
+   900 -2.3E+03 1.0E-10 1916 7.671E+04  0.00000000E+00
+  1000  6.2E+00 2.7E-11 1881 7.449E+04  0.00000000E+00
+  1100  5.1E+00 1.4E+00 1854 7.065E+04  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  1200  4.7E+00 3.6E-11 1809 6.939E+04  0.00000000E+00
+  1300  4.7E+00 3.6E-11 1809 6.939E+04  0.00000000E+00
+  1400  4.7E+00 6.0E+00 1807 6.933E+04  0.00000000E+00
+  1500 -1.9E+03 3.6E-16 1748 6.505E+04  0.00000000E+00
+  1600 -3.0E+00 1.4E+01 1673 6.281E+04  0.00000000E+00
+  1700  2.7E+00 2.7E+01 1622 6.057E+04  0.00000000E+00
+  1800  2.7E+00 3.1E+01 1540 5.402E+04  0.00000000E+00
+  1900  2.7E+00 3.1E+01 1442 4.596E+04  0.00000000E+00
+  2000 -2.1E+01 4.4E-09 1345 3.834E+04  0.00000000E+00
+  2100  2.2E+00 1.5E+01 1260 3.553E+04  0.00000000E+00
+  2200 -2.2E+00 6.8E+00 1194 3.360E+04  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  2300 -5.2E+00 2.0E-01 1132 3.214E+04  0.00000000E+00
+  2400 -1.5E+00 1.4E+01 1095 3.083E+04  0.00000000E+00
+  2500 -2.5E+00 5.6E+00 1045 2.956E+04  0.00000000E+00
+  2600  1.3E+00 6.2E-11  992 2.817E+04  0.00000000E+00
+  2700 -6.3E+00 4.5E-01  986 2.670E+04  0.00000000E+00
+  2800 -1.2E+00 1.3E+01  977 2.492E+04  0.00000000E+00
+  2900 -1.2E+00 1.7E+01  969 2.320E+04  0.00000000E+00
+  3000  1.1E+00 6.9E+00  953 2.245E+04  0.00000000E+00
+  3100 -1.1E+00 2.5E+00  921 2.157E+04  0.00000000E+00
+  3200 -1.0E+00 2.7E+01  908 2.108E+04  0.00000000E+00
+  3300 -1.0E+00 4.7E+01  824 1.795E+04  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  3400 -1.0E+00 4.6E+01  736 1.373E+04  0.00000000E+00
+  3500 -1.0E+00 4.7E+01  637 9.495E+03  0.00000000E+00
+  3600 -7.4E+00 1.8E-02  557 5.653E+03  0.00000000E+00
+  3700  1.0E+00 3.2E+00  481 3.837E+03  0.00000000E+00
+  3800  6.9E-01 2.0E+01  471 3.454E+03  0.00000000E+00
+  3900 -3.2E+01 1.4E-11  470 3.268E+03  0.00000000E+00
+  4000  4.2E-01 3.7E-10  466 3.150E+03  0.00000000E+00
+  4100  1.2E+01 2.5E-01  416 2.885E+03  0.00000000E+00
+  4200  3.2E-01 3.7E-10  390 2.655E+03  0.00000000E+00
+  4300  2.4E+00 1.7E-10  357 2.330E+03  0.00000000E+00
+  4400 -2.9E+01 1.1E-02  323 1.996E+03  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  4500  3.2E-01 3.7E-10  290 1.674E+03  0.00000000E+00
+  4600  2.4E+00 1.7E-10  257 1.348E+03  0.00000000E+00
+  4700 -2.9E+01 1.2E-02  223 1.018E+03  0.00000000E+00
+  4800 -3.1E-01 3.5E-01  202 8.079E+02  0.00000000E+00
+  4900  2.1E-01 8.7E-10  181 4.703E+02  0.00000000E+00
+  5000  1.2E-01 2.9E+01  144 1.564E+02  0.00000000E+00
+  5100  8.2E-02 5.2E+01   55 1.122E+02  0.00000000E+00
+  5200 -1.2E-01 1.1E+01   44 9.434E+01  0.00000000E+00
+  5300 -7.7E-01 1.6E-06   42 9.120E+01  0.00000000E+00
+  5400  7.8E-03 2.5E-09   40 8.831E+01  0.00000000E+00
+  5500  5.5E-03 1.6E-09   40 8.822E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  5600 -9.6E-03 1.2E-09   40 8.812E+01  0.00000000E+00
+  5700 -1.0E-02 2.8E-07   40 8.812E+01  0.00000000E+00
+  5800  5.1E-02 3.6E-07   40 8.812E+01  0.00000000E+00
+  5900 -5.5E-03 2.6E-07   40 8.812E+01  0.00000000E+00
+  6000 -1.1E+01 1.6E-09   40 8.812E+01  0.00000000E+00
+  6100  6.0E-03 4.3E-07   40 8.812E+01  0.00000000E+00
+  6200  6.4E-03 2.2E-07   40 8.801E+01  0.00000000E+00
+  6300  2.1E-02 3.0E-07   40 8.801E+01  0.00000000E+00
+  6400 -1.8E-01 1.2E-07   40 8.801E+01  0.00000000E+00
+  6500  2.9E-02 4.2E-06   40 8.801E+01  0.00000000E+00
+  6600 -1.3E-02 2.5E-01   39 8.174E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  6700 -7.9E-03 7.1E+02   39 8.032E+01  0.00000000E+00
+  6800 -3.5E-02 4.1E-09   39 7.812E+01  0.00000000E+00
+  6900 -4.6E-02 1.6E+00   38 7.380E+01  0.00000000E+00
+  7000 -4.9E-04 1.7E-07   38 7.289E+01  0.00000000E+00
+  7100  2.8E-03 4.8E-07   38 7.289E+01  0.00000000E+00
+  7200 -2.3E-01 1.9E-07   36 6.945E+01  0.00000000E+00
+  7300 -1.1E+00 2.4E-07   36 6.945E+01  0.00000000E+00
+  7400 -3.2E-03 2.2E-07   33 6.731E+01  0.00000000E+00
+  7500 -7.8E-02 4.5E-10   32 6.646E+01  0.00000000E+00
+  7600  5.6E-01 1.9E-09   32 6.646E+01  0.00000000E+00
+  7700 -3.0E-01 1.5E-02   30 6.535E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  7800 -2.7E-02 1.5E-09   30 6.535E+01  0.00000000E+00
+  7900 -1.5E+02 1.8E-05   30 6.128E+01  0.00000000E+00
+  8000 -1.5E-01 9.9E-02   28 5.474E+01  0.00000000E+00
+  8100 -4.7E-01 2.1E-02   26 4.874E+01  0.00000000E+00
+  8200 -5.5E-05 3.8E-07   25 4.857E+01  0.00000000E+00
+  8300  6.0E-05 7.3E-05   25 4.857E+01  0.00000000E+00
+  8400  2.0E-05 2.3E-07   22 3.645E+01  0.00000000E+00
+  8500  1.1E-02 8.1E-09   22 3.645E+01  0.00000000E+00
+  8600 -6.7E-04 8.0E+00   22 3.625E+01  0.00000000E+00
+  8700  0.0E+00 5.5E+01   21 3.615E+01  0.00000000E+00
+  8800  0.0E+00 8.9E-01   21 3.615E+01  0.00000000E+00
+
+   Itn       dj    Step nInf    SumInf       Objective
+  8900  0.0E+00 9.3E-01   21 3.615E+01  0.00000000E+00
+  9000  0.0E+00 1.2E+04   21 3.615E+01  0.00000000E+00
+  9100 -2.2E-05 7.6E-05   21 3.606E+01  0.00000000E+00
+  9200 -4.3E+02 3.4E-09   20 3.446E+01  0.00000000E+00
+  9300  0.0E+00 3.9E-10   18 1.118E+01  0.00000000E+00
+  9400  0.0E+00 1.0E+00    7 4.094E+01  1.31085561E+13
+  9500  0.0E+00 1.0E+00   10 4.150E+01  5.91294986E+11
+  9600 -1.2E+09 6.1E-11   16 1.308E+02  1.51941818E+11
+  9700  0.0E+00 1.0E+00   29 4.419E+02  3.09214624E+10
+  9800 -4.5E+07 1.0E+00   39 5.605E+02  1.40913955E+10
+  9900 -1.6E+06 8.0E-09   41 4.677E+02  1.39937395E+10
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     0  9912 0.0E+00     1 -8.712128E+10 4.0E-02 6.6E-02   43 0.0E+00 FF   r iu
+     1    33 2.0E-06     2 -8.712111E+10 4.0E-02 6.6E-02   51 0.0E+00 FF N r i
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -4.6E+06 1.0E+00   22 1.182E+02  4.94377410E+07
+   200  0.0E+00 1.0E+00   16 1.014E+02  3.90875433E+07
+   300  0.0E+00 6.9E-02   16 5.534E+01  2.65300179E+07
+   400  0.0E+00 1.0E+00   15 4.854E+01  2.11695577E+07
+   500  0.0E+00 1.0E+00   15 4.229E+01  1.80819732E+07
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     2   527 2.2E-06     3 -8.438840E+14 4.0E-02 8.0E-02   21 1.8E+08 FF s   iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00   12 2.844E+01  2.45188834E+10
+   200 -5.8E+09 3.8E-01   15 2.297E+01  3.37255797E+09
+   300  0.0E+00 1.0E+00   19 5.231E+01  1.72402224E+09
+   400  1.7E+07 1.0E+00   25 1.575E+02  9.60847124E+07
+   500  0.0E+00 1.0E+00   33 1.436E+02  5.13602497E+07
+   600  0.0E+00 0.0E+00   32 1.197E+02  4.31666661E+07
+   700  0.0E+00 0.0E+00   28 7.383E+01  3.31725927E+07
+   800  0.0E+00 1.0E+00   17 2.285E+01  2.28664257E+07
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     3   814 7.7E-01     6 -8.758416E+09 5.0E-03 2.3E-01   58 1.6E+04 FF  mr iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -3.1E+00 3.8E-02   32 1.605E+02  0.00000000E+00
+   200  0.0E+00 2.4E-02   23 4.828E+02  1.00156113E+08
+   300  0.0E+00 5.2E-02   17 7.796E+01  1.00504811E+10
+   400 -4.6E+07 8.4E-01   22 1.731E+02  6.01123016E+08
+   500  0.0E+00 0.0E+00   29 2.137E+02  5.12037555E+07
+   600  0.0E+00 4.2E-01   31 1.783E+02  3.94123185E+07
+   700  0.0E+00 9.6E-01   30 1.396E+02  2.99255824E+07
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     4   790 1.0E+00     8 -7.769774E+06 8.8E-04 1.5E-01   56 6.2E+02 FF sMr iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -4.0E+01 1.7E-05   91 3.499E+02  0.00000000E+00
+   200 -2.6E+00 3.2E-08   81 2.672E+02  0.00000000E+00
+   300 -7.3E-01 1.2E-10   62 2.638E+02  0.00000000E+00
+   400 -1.2E-01 3.8E-01   63 2.159E+02  0.00000000E+00
+   500 -1.4E+00 4.9E-03   51 2.434E+02  0.00000000E+00
+   600  0.0E+00 1.0E+00   34 1.781E+02  4.49769385E+11
+   700 -6.1E+09 1.0E+00   33 2.221E+02  7.32143143E+10
+   800 -2.0E+09 1.0E+00   38 2.545E+02  1.91692219E+10
+   900 -6.3E+08 1.8E-15   38 3.208E+02  1.30599038E+09
+  1000  0.0E+00 1.0E+00   45 3.337E+02  5.13875292E+08
+  1100  0.0E+00 1.0E+00   44 3.268E+02  1.98671590E+08
+
+   Itn       dj    Step nInf    SumInf       Objective
+  1200 -8.2E+05 3.1E-03   40 2.444E+02  8.27649720E+07
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     5  1206 1.0E+00     9 -4.249461E+07 3.0E-04 4.7E-01   53 1.6E+02 FF s   iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -3.3E+00 4.0E-04   38 2.007E+02  0.00000000E+00
+   200  0.0E+00 1.0E+00   30 1.892E+02  1.24031279E+08
+   300 -2.1E+08 2.3E-09   33 2.111E+02  7.16774034E+07
+   400  0.0E+00 1.0E+00   36 1.779E+02  3.73592863E+07
+   500  0.0E+00 1.0E+00   36 1.524E+02  3.29846526E+07
+   600 -3.7E+05 2.6E-06   32 1.002E+02  2.24974164E+07
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     6   673 1.0E+00    10 -8.215320E+07 6.4E-05 1.1E-02   60 4.8E+03 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.3E-01   32 7.258E+01  3.83716246E+08
+   200 -4.5E+07 1.0E+00   33 7.667E+01  1.81245982E+07
+   300  0.0E+00 1.0E+00   33 7.212E+01  1.54836747E+07
+   400 -2.9E+05 6.2E-09   33 6.052E+01  1.32543716E+07
+   500  0.0E+00 1.0E+00   30 3.582E+01  8.16513159E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     7   567 1.0E+00    11 -1.618722E+07 7.4E-05 2.2E-02   62 2.7E+02 FF   r iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00   17 8.912E+00  2.85256294E+06
+   200  0.0E+00 1.0E+00   11 5.687E+00  2.25510184E+06
+   300 -8.8E+03 7.4E-02    8 5.511E+00  2.03150015E+06
+   400  0.0E+00 1.0E+00    8 5.506E+00  1.96832596E+06
+   500 -8.7E+02 1.0E+00    3 5.216E+00  1.90160816E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     8   522 1.0E+00    13 -7.214806E+06 2.5E-05 5.2E-01   23 1.8E+02 FF sM  iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    5 5.384E+00  1.87561836E+06
+   200  0.0E+00 1.0E+00    4 5.329E+00  1.81832652E+06
+   300  0.0E+00 2.0E-02    3 5.288E+00  1.76167951E+06
+   400 -1.2E+03 3.0E-01    3 5.125E+00  1.72080967E+06
+   500  0.0E+00 1.0E+00    3 5.348E+00  6.12988016E+07
+   600 -1.5E+03 7.6E-16    3 5.096E+00  5.72535506E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+     9   610 1.0E+00    14 -2.117187E+06 9.5E-05 1.2E-01   29 1.8E+02 FF   r iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    4 5.194E+00  2.01399409E+06
+   200  0.0E+00 1.0E+00    3 5.045E+00  1.96023857E+06
+   300  0.0E+00 1.0E+00    3 4.984E+00  1.94256503E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    10   332 2.6E-01    19 -3.215079E+06 7.0E-05 1.1E-03   40 1.9E+02 FF sm  i
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    2 4.882E+00  1.76864138E+06
+   200 -2.8E+06 7.0E-03    2 4.949E+00  1.69090221E+06
+   300 -1.4E+04 2.4E-01    2 4.950E+00  1.62209160E+06
+   400 -1.7E+06 3.0E-07    2 4.926E+00  1.58116966E+06
+   500 -4.3E+02 2.7E-11    2 4.900E+00  1.56437640E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    11   593 3.7E-01    24 -2.301818E+06 4.4E-05 3.6E-02    9 1.9E+02 FF sM  iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -3.0E+02 2.6E-04    2 4.771E+00  1.36938652E+06
+   200 -1.8E+03 1.5E-02    2 4.767E+00  1.35852724E+06
+   300  0.0E+00 1.0E+00    2 4.681E+00  1.34900459E+06
+   400 -1.4E+03 4.3E-01    2 4.616E+00  1.34357636E+06
+   500  0.0E+00 1.0E+00    1 4.599E+00  1.33840539E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    12   537 3.6E-01    27 -2.011951E+06 3.8E-05 4.3E-02    7 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -6.8E+04 3.1E-11    1 4.624E+00  1.35451876E+06
+   200 -5.5E+02 6.1E-01    1 4.599E+00  1.33217982E+06
+   300  0.0E+00 1.0E+00    1 4.599E+00  1.32662986E+06
+   400  0.0E+00 1.0E+00    1 4.599E+00  1.32329737E+06
+   500 -7.9E+00 2.4E-17    1 4.599E+00  1.32218273E+06
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    13   596 1.4E-01    32 -1.896662E+06 4.6E-05 3.6E-02    8 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -8.0E+02 2.5E-02    1 4.599E+00  1.32751200E+06
+   200 -1.2E+01 9.7E-04    1 4.599E+00  1.32688374E+06
+   300 -1.9E+04 1.1E-11    1 4.599E+00  1.19003086E+06
+   400 -2.6E+02 2.7E-02    1 4.599E+00  9.24962372E+05
+   500 -6.9E+01 5.6E-06    1 4.599E+00  9.23388832E+05
+   600 -3.5E+00 2.1E-15    1 4.599E+00  9.22086058E+05
+   700  0.0E+00 1.0E+00    1 4.599E+00  9.21584902E+05
+   800 -8.9E-01 5.1E-14    1 4.599E+00  9.21512431E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    14   818 1.4E-01    37 -1.802553E+06 6.3E-05 1.1E-01   10 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 2.1E-01    1 4.599E+00  9.35531397E+05
+   200 -5.9E+02 1.0E+00    1 4.599E+00  9.28965796E+05
+   300 -5.1E+01 9.3E-03    1 4.599E+00  9.27079051E+05
+   400 -7.9E+02 9.0E-01    1 4.599E+00  9.25941522E+05
+   500 -5.2E+00 5.8E-13    1 4.599E+00  9.25087139E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    15   558 3.4E-01    41 -1.510305E+06 2.8E-05 3.0E-01    9 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    1 4.599E+00  9.35445628E+05
+   200 -9.1E+02 1.0E+00    1 4.599E+00  9.32513565E+05
+   300  0.0E+00 1.0E+00    1 4.599E+00  9.31648350E+05
+   400  0.0E+00 1.0E+00    1 4.599E+00  9.31078994E+05
+   500 -3.0E+04 2.5E-07    1 4.599E+00  7.34381952E+05
+   600 -2.4E+00 2.9E-01    1 4.599E+00  7.33023628E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    16   636 2.0E-01    44 -1.422306E+06 2.7E-05 5.4E-02   10 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -2.7E+02 1.7E-01    1 4.599E+00  7.37479058E+05
+   200  0.0E+00 1.0E+00    1 4.599E+00  7.36747735E+05
+   300  0.0E+00 1.0E+00    1 4.599E+00  5.95805540E+05
+   400 -3.4E+02 1.1E-01    1 4.599E+00  5.72004926E+05
+   500  0.0E+00 1.0E+00    1 4.599E+00  5.70892437E+05
+   600 -8.8E+00 6.0E-05    1 4.599E+00  5.70172918E+05
+   700 -1.8E+00 1.1E-02    1 4.599E+00  5.70039431E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    17   743 2.9E-01    48 -1.234211E+06 3.2E-05 1.0E-01    6 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    1 4.599E+00  5.78052801E+05
+   200  0.0E+00 1.0E+00    1 4.599E+00  5.73211621E+05
+   300 -3.1E+05 1.3E-01    1 4.599E+00  4.11703585E+05
+   400 -3.1E+02 1.6E-01    1 4.599E+00  4.02989095E+05
+   500  0.0E+00 1.0E+00    1 4.599E+00  4.00929857E+05
+   600  0.0E+00 1.0E+00    1 4.599E+00  4.00264370E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    18   659 2.2E-01    53 -1.114404E+06 3.8E-05 3.8E-01    9 1.9E+02 FF  m  iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -1.6E+04 1.0E+00    1 4.653E+00  4.22970996E+05
+   200 -9.6E+03 1.0E+00    1 4.599E+00  4.11537649E+05
+   300 -1.6E+04 1.0E+00    1 4.599E+00  4.08145026E+05
+   400  0.0E+00 1.0E+00    1 4.599E+00  4.05901222E+05
+   500  0.0E+00 1.0E+00    1 4.599E+00  4.04420124E+05
+   600 -1.3E+01 8.8E-02    1 4.599E+00  4.03239379E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    19   667 2.8E-01    57 -9.703168E+05 4.4E-05 8.6E-02    9 1.9E+02 FF     iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    1 4.686E+00  5.35858259E+05
+   200  0.0E+00 1.0E+00    1 4.599E+00  4.46263560E+05
+   300  0.0E+00 1.0E+00    1 4.599E+00  4.40825032E+05
+   400  0.0E+00 1.0E+00    1 4.599E+00  4.36950470E+05
+   500  0.0E+00 1.0E+00    1 4.599E+00  2.87979274E+05
+   600  0.0E+00 1.0E+00    1 4.599E+00  2.73485033E+05
+   700 -2.3E+02 6.2E-02    1 4.599E+00  2.56480985E+05
+   800 -1.8E+01 4.4E-07    1 4.599E+00  2.51711458E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    20   824 3.5E-01    61 -7.912904E+05 6.8E-05 1.0E-02   51 1.9E+02 FF   r iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -3.8E+05 1.0E+00    3 4.860E+00  3.08607448E+05
+   200 -2.3E+03 5.3E+00    1 4.599E+00  2.37567829E+05
+   300 -1.0E+03 3.8E-01    1 4.599E+00  2.36268903E+05
+   400  0.0E+00 1.0E+00    1 4.599E+00  2.35248329E+05
+   500 -5.4E+02 1.0E+00    1 4.599E+00  3.75356276E+04
+   600 -2.9E+01 5.8E-03    1 4.599E+00  3.69409765E+04
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    21   614 3.9E-01    65 -5.656720E+05 5.7E-05 1.5E-01   56 1.9E+02 FF s   iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -2.6E+02 3.7E-06   17 6.344E+01  0.00000000E+00
+   200 -1.5E+01 8.7E-05   33 6.094E+01  0.00000000E+00
+   300 -1.8E+06 9.2E-02   17 7.171E+00  1.34678374E+06
+   400 -8.7E+03 1.0E+00    9 5.513E+00  4.20997786E+05
+   500 -1.9E+04 3.3E-02    1 4.634E+00  1.86087957E+05
+   600  0.0E+00 1.0E+00    1 4.599E+00  1.70446827E+05
+   700 -2.9E+04 1.2E-03    1 4.599E+00  1.93657308E+04
+   800 -6.7E+01 4.8E-02    1 4.599E+00  1.45403728E+04
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    22   886 7.0E-01    69 -3.044892E+05 9.0E-05 3.4E-02    7 1.9E+02 FF sM  iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -1.5E+03 7.3E-10    1 4.599E+00  1.08265092E+04
+   200  0.0E+00 1.0E+00    1 4.602E+00  1.06038990E+06
+   300  0.0E+00 1.0E+00    2 4.603E+00 -7.12029070E+04
+   400  0.0E+00 1.0E+00    2 4.632E+00 -1.18486787E+05
+   500  0.0E+00 1.0E+00    1 4.599E+00 -1.78453564E+05
+   600  0.0E+00 1.0E+00    1 4.599E+00 -1.78503287E+05
+   700  0.0E+00 1.0E+00    1 4.599E+00 -1.81075409E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    23   734 6.9E-01    72 -1.051376E+05 4.3E-05 2.7E-01   54 1.9E+02 FF   r iu
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100 -2.0E+05 1.0E+00    1 4.599E+00 -2.97903878E+05
+   200  0.0E+00 1.0E+00    1 4.599E+00 -3.79927887E+05
+   300  0.0E+00 1.0E+00    1 4.599E+00 -9.44729354E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    24   304 1.0E+00    73  1.776571E+05 3.0E-05 4.7E-02   53 1.9E+02 FF s r i
+
+   Itn       dj    Step nInf    SumInf       Objective
+   100  0.0E+00 1.0E+00    1 4.599E+00 -9.63424789E+05
+
+ Major Minor   Step   nCon    Merit      Feasibl Optimal   nS Penalty PD
+    25   100 1.0E+00    74  9.448137E+05 2.7E-05 9.7E-03   11 1.9E+02 FF s   i
+    26    21 1.0E+00    75  9.715100E+05 2.2E-05 2.1E-03    9 1.9E+02 FF     i
+    27     8 1.0E+00    76  9.878974E+05 3.0E-05 4.5E-04    9 1.9E+02 FF     i
+    28     6 1.0E+00    77  9.883773E+05 3.3E-06 1.3E-02    8 1.9E+02 FF     i
+    29     4 1.0E+00    78  9.890429E+05 3.3E-06 2.7E-03    9 1.9E+02 FF     i
+    30     2 1.0E+00    79  9.891105E+05 3.3E-06 1.0E-03    9 1.9E+02 FF     i
+    31     1 1.0E+00    80  9.891143E+05 3.3E-06 8.1E-06    9 1.9E+02 FF     i
+    32     1 1.0E+00    81  9.891161E+05 3.3E-06 4.2E-05    9 1.9E+02 FF     i
+    33     1 1.0E+00    82  9.891168E+05 3.3E-06 2.2E-05    9 1.9E+02 FF     i
+    34     1 1.0E+00    83  9.891174E+05 3.3E-06 5.0E-06    9 1.9E+02 FF     i
+    35     1 1.0E+00    84 -9.291548E+10 3.3E-06 7.4E-07    9 1.9E+02 FT   r i
+ 
+ EXIT - Nonlinear infeasibilities minimized.
+ 
+--- Restarting execution
+--- gen_baseline.gms(1913) 0 Mb
+--- Reading solution for model DairyClimateModel
+--- gen_baseline.gms(1913) 4 Mb
+--- Executing after solve: elapsed 0:01:23.645
+--- gen_baseline.gms(1901) 6 Mb
+--- Generating NLP model Emissionsmod
+--- gen_baseline.gms(2010) 8 Mb
+--- LOOPS y2 = 1
+---   2,168 rows  9,538 columns  14,746 non-zeroes
+---   112,341 nl-code  9,936 nl-non-zeroes
+--- gen_baseline.gms(2010) 6 Mb
+--- Executing CONOPT: elapsed 0:01:23.699
+--- gen_baseline.gms(2010) 6 Mb
+C O N O P T 3    Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows    
+ 
+ 
+    C O N O P T 3   version 3.14U
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ Using default options.
+ 
+ Reading Data
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        5.1107109565E+05 (Input point)
+                                Pre-triangular equations:     2166
+                                Post-triangular equations:       2
+      1   0        0.0000000000E+00 (After pre-processing)
+      2   0        0.0000000000E+00 (After scaling)
+ 
+ ** Feasible solution. Value of objective =    10.0000000000
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+      3   3        1.0000000000E+01 0.0E+00     0 0.0E+00    0 F  T
+      4   3        1.0000000000E+01 0.0E+00     0
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+--- Restarting execution
+--- gen_baseline.gms(2010) 0 Mb
+--- Reading solution for model Emissionsmod
+--- Executing after solve: elapsed 0:01:23.935
+--- gen_baseline.gms(2185) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 406 Ms
+--- gen_baseline.gms(2186) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 360 Ms
+--- gen_baseline.gms(2187) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 359 Ms
+--- gen_baseline.gms(2188) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 797 Ms
+--- gen_baseline.gms(2189) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 375 Ms
+--- gen_baseline.gms(2190) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 344 Ms
+--- gen_baseline.gms(2191) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 547 Ms
+--- gen_baseline.gms(2192) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 375 Ms
+--- gen_baseline.gms(2193) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 469 Ms
+--- gen_baseline.gms(2194) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 391 Ms
+--- gen_baseline.gms(2195) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 422 Ms
+--- gen_baseline.gms(2196) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 375 Ms
+--- gen_baseline.gms(2197) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 421 Ms
+--- gen_baseline.gms(2198) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 360 Ms
+--- gen_baseline.gms(2199) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 375 Ms
+--- gen_baseline.gms(2200) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 391 Ms
+--- gen_baseline.gms(2202) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 391 Ms
+--- gen_baseline.gms(2203) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 391 Ms
+--- gen_baseline.gms(2204) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 422 Ms
+--- gen_baseline.gms(2205) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 438 Ms
+--- gen_baseline.gms(2206) 6 Mb
+
+GDXXRW           Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows       
+Input file : C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.gdx
+Output file: C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\results\results.xls
+Total time = 375 Ms
+--- gen_baseline.gms(2206) 6 Mb
+*** Status: Normal completion
+--- Job gen_baseline.gms Stop 10/15/18 17:40:47 elapsed 0:01:33.630

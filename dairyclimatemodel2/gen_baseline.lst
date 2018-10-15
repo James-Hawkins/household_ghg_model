@@ -1,4 +1,4 @@
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 1
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -32,8 +32,8 @@ C o m p i l a t i o n
   30   
   31   
   32  * Set Declarations
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\set_definitions.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\set_definitions.gms
   34  Sets
   35   
   36  *-- household sets
@@ -177,8 +177,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  145   
  146   
  147  * Data load in
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\data\parameters.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\data\parameters.gms
  149  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~*
  150  * #1 Core model parameters   (all parameters are declared in terms of gene
@@ -220,8 +220,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  182  harvest_index            'Harvest index for crops (ratio)'
  183  ;
  184   
-GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
-        yclimatemodel2\data/household_data.gdx
+GDXIN   C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\
+        data/household_data.gdx
  187  *household specific params
 --- LOAD  offfarm_income = 2:offfarm_income
 --- LOAD  total_ag_land = 5:total_ag_land
@@ -229,19 +229,19 @@ GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
 --- LOAD  arable_land = 6:arable_land
 --- LOAD  start_cash = 3:start_cash
 --- LOAD  rangeland = 4:rangeland
---- LOAD  crop_price = 17:crop_price
+--- LOAD  crop_price = 15:crop_price
 --- LOAD  area_crop = 7:area_crop
---- LOAD  crop_costs = 19:crop_costs
+--- LOAD  crop_costs = 17:crop_costs
 --- LOAD  crop_yield = 8:crop_yield
 --- LOAD  rangeland_yield = 9:rangeland_yield
---- LOAD  startfeed = 13:startfeed
---- LOAD  startlivestock = 14:startlivestock
---- LOAD  maintenanceExpense = 15:maintenanceExpense
---- LOAD  mortality = 16:mortality
+--- LOAD  startfeed = 11:startfeed
+--- LOAD  startlivestock = 12:startlivestock
+--- LOAD  maintenanceExpense = 13:maintenanceExpense
+--- LOAD  mortality = 14:mortality
  204   
  205   
-GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
-        yclimatemodel2\data/model_data.gdx
+GDXIN   C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\
+        data/model_data.gdx
  208  *general model parameters
  209  *$LOAD crop_price
 --- LOAD  prices_lives = 4:prices_lives
@@ -488,8 +488,8 @@ GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
  414   
  415   
  416   
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\data\ghg_parameters.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\data\ghg_parameters.gms
  418  ** -- Greenhouse gas estimation parameters
  419   
  420  Parameters
@@ -541,8 +541,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  456  ;
  457   
  458   
-GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
-        yclimatemodel2\data/ghg_params.gdx
+GDXIN   C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\
+        data/ghg_params.gdx
 --- LOAD  MCF = 1:MCF
 --- LOAD  B0 = 2:B0
 --- LOAD  EF_3 = 3:EF_3
@@ -572,8 +572,8 @@ GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
  488  p_nitrous_oxide(c)=soil_N2O(c);
  489   
  490   
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\data\nutr_parameters.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\data\nutr_parameters.gms
  492   
  493  **------------------------ Nutrition and cattle diet related parameters
  494   
@@ -589,8 +589,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  502  ;
  503   
  504   
-GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
-        yclimatemodel2\data/nutrient_requirements.gdx
+GDXIN   C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\
+        data/nutrient_requirements.gdx
 --- LOAD  energyrequirements = 1:energyrequirements
 --- LOAD  proteinrequirements = 2:proteinrequirements
  510   
@@ -605,8 +605,8 @@ GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
  516  *p_NE_gain(hh,aaact,type,inten,minten,y,m)=1.5*energy_gain(hh,aaact,type,i
       nten,minten,'energyrequirement');
  517   
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\data\scenario_parameters.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\data\scenario_parameters.gms
  519  ** Scenario or simulation specific parameters
  520  Scalar
  521  p_r  'rate of return used in the objective function'   /0.04/
@@ -684,8 +684,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  597   
  598   
  599  * Crop module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\crop_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\crop_module.gms
       This module includes all equations relating to the crop enterprise, includ
       ing crop areas, crop production, labour requirements for cropping activiti
       es, and accounting equations for
@@ -801,8 +801,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  683   
  684   
  685  * Livestock module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\livestock_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\livestock_module.gms
  687   
       This module includes all the livestock related equations, including milk a
       nd meat production based on the quantity of adult females and animals bein
@@ -1092,8 +1092,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
  878   
  879   
  880  * Livestock demographic module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\demographic_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\demographic_module.gms
       This module calculates herd demographics throughout the model time period.
        
  886   
@@ -1628,8 +1628,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 1318  ;
 1319   
 1320  * Emissions module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\emissions_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\emissions_module.gms
       This module includes equations that calculate GHG emissions from dairy pro
       duction on the farm.
       Note that these equations are run using a separate solve statement (i.e. t
@@ -1825,8 +1825,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 1433   
 1434   
 1435  * Loan module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\loan_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\loan_module.gms
       This module includes all the equations relating to the loan. The equations
        in this model are only included if credit is turned on in 'gen_baseline.g
       ms'
@@ -1893,8 +1893,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 1492  /
 1493   
 1494  * Household module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\household_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\household_module.gms
       This module includes all general equations related to the household, inclu
       ding labour constraints, cash constraints, and conditions relating to cred
       it expenses.
@@ -2078,8 +2078,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 1621   
 1622   
 1623  * Risk module
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\risk_module.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\risk_module.gms
       This module has the purpose of calculating the standard deviation in net p
       resent value based on random input and output prices.
       The standard deviations for dairy outputs (milk and meat), inputs (feeds a
@@ -2253,8 +2253,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 1748  /
 1749   
 1750  * simulation model
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\simulation_model.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\simulation_model.gms
       This module has the purpose of defining the objective function of the glob
       al model. Note that the objective function that gets executed is dependent
        on whether risk is turned on/off
@@ -2592,8 +2592,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 1995   
 1996  * These two lines calculate GHG emissions at a post-model optimization out
       put (based on the results from the model run in each iteration)
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\GHG_params.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\GHG_params.gms
 1998   
 1999  v_aactLev.fx(hh,aaact,type,inten,minten,'y01',m)=v_aactLev.l(hh,aaact,type
       ,inten,minten,'y01',m) ;
@@ -2668,8 +2668,8 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
       emissions('Emissions -- Total(kg CO2eq)',hh,y2)/(production('Meat produced
        (kg/hh/y)',hh,y2)+production('Milk produced (kg/hh/y)',hh,y2));
 2031   
-INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\GHG_params2.gms
+INCLUDE    C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\GHG_params2.gms
 2033  *v_aactLev.l(hh,aaact,type,inten,minten,y,m)=0 ;
 2034  *v_grossEnergy.l(hh,aaact,type,inten,minten,y,m)=0;
 2035  *v_digestibleEnergy.l(hh,aaact,type,inten,minten,y,m)=0;
@@ -2897,89 +2897,87 @@ INCLUDE    C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
 2206  execute 'gdxxrw.exe results/results.gdx o=results/results.xls par=GHG_emis
       sions      rng=GHG_emissions!'
 2207   
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 2
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
 
    SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
 
-     1        1 INPUT          0       0  C:\Users\hawkins3\Documents\household_
-                                          ghg_model\household_ghg_model\dairycli
-                                          matemodel2\gen_baseline.gms
-     2       33 INCLUDE        1      33  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\set_definitions.gms
-     3      148 INCLUDE        1      36  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data\parameters.gms
+     1        1 INPUT          0       0  C:\Users\Gaming\Documents\Github\house
+                                          hold_ghg_model\dairyclimatemodel2\gen_
+                                          baseline.gms
+     2       33 INCLUDE        1      33  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\se
+                                           t_definitions.gms
+     3      148 INCLUDE        1      36  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta\parameters.gms
      4      185 CALL           3      37  .gdxxrw.exe data/household_data.xlsx o
                                            =data/household_data.gdx index=index!
                                            A3
-     5      186 GDXIN          3      38  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data/household_data.gdx
+     5      186 GDXIN          3      38  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta/household_data.gdx
      6      206 CALL           3      58  .gdxxrw.exe data/model_data.xlsx o=dat
                                            a/model_data.gdx index=index!A3
-     7      207 GDXIN          3      59  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data/model_data.gdx
-     8      417 INCLUDE        1      38  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data\ghg_parameters.gms
+     7      207 GDXIN          3      59  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta/model_data.gdx
+     8      417 INCLUDE        1      38  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta\ghg_parameters.gms
      9      459 CALL           8      42  .gdxxrw.exe data/ghg_params.xlsx o=dat
                                            a/ghg_params.gdx index=index!A3
-    10      460 GDXIN          8      43  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data/ghg_params.gdx
-    11      491 INCLUDE        1      40  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data\nutr_parameters.gms
+    10      460 GDXIN          8      43  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta/ghg_params.gdx
+    11      491 INCLUDE        1      40  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta\nutr_parameters.gms
     12      505 CALL          11      14  .gdxxrw.exe data/nutrient_requirements
                                            .xlsx o=data/nutrient_requirements.gd
                                            x index=index!A3
-    13      506 GDXIN         11      15  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data/nutrient_requiremen
-                                           ts.gdx
-    14      518 INCLUDE        1      42  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\data\scenario_parameters
-                                           .gms
-    15      600 INCLUDE        1      95  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\crop_module.gms
-    16      686 INCLUDE        1      98  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\livestock_module.gms
-    17      881 INCLUDE        1     101  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\demographic_module.gms
-    18     1321 INCLUDE        1     104  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\emissions_module.gms
-    19     1436 INCLUDE        1     107  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\loan_module.gms
-    20     1495 INCLUDE        1     110  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\household_module.gms
-    21     1624 INCLUDE        1     113  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\risk_module.gms
-    22     1751 INCLUDE        1     116  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\simulation_model.gms
-    23     1997 INCLUDE        1     267  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\GHG_params.gms
-    24     2032 INCLUDE        1     290  .C:\Users\hawkins3\Documents\household
-                                           _ghg_model\household_ghg_model\dairyc
-                                           limatemodel2\GHG_params2.gms
+    13      506 GDXIN         11      15  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta/nutrient_requirements.gdx
+    14      518 INCLUDE        1      42  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\da
+                                           ta\scenario_parameters.gms
+    15      600 INCLUDE        1      95  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\cr
+                                           op_module.gms
+    16      686 INCLUDE        1      98  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\li
+                                           vestock_module.gms
+    17      881 INCLUDE        1     101  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\de
+                                           mographic_module.gms
+    18     1321 INCLUDE        1     104  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\em
+                                           issions_module.gms
+    19     1436 INCLUDE        1     107  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\lo
+                                           an_module.gms
+    20     1495 INCLUDE        1     110  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\ho
+                                           usehold_module.gms
+    21     1624 INCLUDE        1     113  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\ri
+                                           sk_module.gms
+    22     1751 INCLUDE        1     116  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\si
+                                           mulation_model.gms
+    23     1997 INCLUDE        1     267  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\GH
+                                           G_params.gms
+    24     2032 INCLUDE        1     290  .C:\Users\Gaming\Documents\Github\hous
+                                           ehold_ghg_model\dairyclimatemodel2\GH
+                                           G_params2.gms
 
 
-COMPILATION TIME     =       23.672 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 3
+COMPILATION TIME     =        1.765 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
@@ -3358,7 +3356,7 @@ hh2   40000.000   40000.000  130137.600  104110.080  104110.080   91096.320
 
 hh2 3000.000
 
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 4
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE DairyClimateModel Using DNLP From line 1913
 
@@ -3375,13 +3373,13 @@ DERIVATIVE POOL             870     CONSTANT POOL              77
 CODE LENGTH             302,453
 
 
-GENERATION TIME      =        0.453 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
+GENERATION TIME      =        0.297 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
 
 
-EXECUTION TIME       =        0.469 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
+EXECUTION TIME       =        0.297 SECONDS     18 Mb  WIN235-235 Jul  2, 2010
                L O O P S                 y2 1
 
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 5
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE DairyClimateModel Using DNLP From line 1913
 
@@ -3396,7 +3394,7 @@ Solution Report     SOLVE DairyClimateModel Using DNLP From line 1913
 **** MODEL STATUS      5 Locally Infeasible        
 **** OBJECTIVE VALUE          1918291.8748
 
- RESOURCE USAGE, LIMIT        142.391      1000.000
+ RESOURCE USAGE, LIMIT         81.047      1000.000
  ITERATION COUNT, LIMIT     30510    2000000000
  EVALUATION ERRORS              0             0
  
@@ -3416,7 +3414,7 @@ SNOPT 7.2-4      Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows
  Funobj, Funcon calls       85      85
  Superbasics                 9
  Aggregations               87
- Interpreter Usage        0.25     0.2%
+ Interpreter Usage        0.09     0.1%
 
  Work space used by solver      --   26.10 Mb
  
@@ -47478,7 +47476,7 @@ hh2.y01.m12     -INF    932.517     +INF       .
                     MEAN     4.599
                              0  UNBOUNDED
                              0     ERRORS
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 6
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Model Statistics    SOLVE Emissionsmod Using NLP From line 2010
 
@@ -47495,13 +47493,13 @@ DERIVATIVE POOL           1,302     CONSTANT POOL              47
 CODE LENGTH             112,341
 
 
-GENERATION TIME      =        0.063 SECONDS      6 Mb  WIN235-235 Jul  2, 2010
+GENERATION TIME      =        0.047 SECONDS      6 Mb  WIN235-235 Jul  2, 2010
 
 
-EXECUTION TIME       =        0.235 SECONDS      6 Mb  WIN235-235 Jul  2, 2010
+EXECUTION TIME       =        0.141 SECONDS      6 Mb  WIN235-235 Jul  2, 2010
                L O O P S                 y2 1
 
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 7
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Solution Report     SOLVE Emissionsmod Using NLP From line 2010
 
@@ -47516,7 +47514,7 @@ Solution Report     SOLVE Emissionsmod Using NLP From line 2010
 **** MODEL STATUS      1 Optimal                   
 **** OBJECTIVE VALUE               10.0000
 
- RESOURCE USAGE, LIMIT          0.063      1000.000
+ RESOURCE USAGE, LIMIT          0.031      1000.000
  ITERATION COUNT, LIMIT         4    2000000000
  EVALUATION ERRORS              0             0
  
@@ -47538,9 +47536,9 @@ Solution Report     SOLVE Emissionsmod Using NLP From line 2010
  ** Optimal solution. Reduced gradient less than tolerance.
  
  
- CONOPT time Total                            0.028 seconds
-   of which: Function evaluations             0.001 =  3.6%
-             1st Derivative evaluations       0.004 = 14.3%
+ CONOPT time Total                            0.011 seconds
+   of which: Function evaluations             0.001 =  9.1%
+             1st Derivative evaluations       0.003 = 27.3%
  
  Workspace           =     7.39 Mbytes
     Estimate         =     7.39 Mbytes
@@ -70672,12 +70670,12 @@ hh2.y01     -INF      8.085     +INF       .
                              0 INFEASIBLE
                              0  UNBOUNDED
                              0     ERRORS
-GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 14:18:51 Page 8
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 17:39:13 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-EXECUTION TIME       =      133.250 SECONDS      6 Mb  WIN235-235 Jul  2, 2010
+EXECUTION TIME       =        9.765 SECONDS      6 Mb  WIN235-235 Jul  2, 2010
 
 
 USER: Gary Goldstein                                 G010614:2121CA-WIN
@@ -70686,7 +70684,7 @@ USER: Gary Goldstein                                 G010614:2121CA-WIN
 
 **** FILE SUMMARY
 
-Input      C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\gen_baseline.gms
-Output     C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
-           airyclimatemodel2\gen_baseline.lst
+Input      C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\gen_baseline.gms
+Output     C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemode
+           l2\gen_baseline.lst

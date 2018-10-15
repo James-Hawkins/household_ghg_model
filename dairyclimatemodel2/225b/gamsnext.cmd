@@ -1,2 +1,2 @@
 @echo off
-gmsxitNT.cmd "C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225b\" "C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\" 8 8
+gmssn_nt.cmd "C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\225b\" "C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\" %1 "C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\225b\gamscntr.dat" "C:\Program Files (x86)\GAMS23.5\"

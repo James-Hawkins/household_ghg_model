@@ -75,3 +75,26 @@ ran the model with local cattle, reduced off farm income, reduced start cash, an
 when i put off farm income to around 1,500,000 and start cash to around 800,000, it is not feasible
 but with offfi at 2,500,000 and start cash at 800,000 it is feasible
 
+
+10.15
+important typology specific data
+- off farm income
+- household arable land 
+- household members
+- starting livestock by local and improved
+- mortality by livestock type
+- crop costs
+-
+
+important model data (not household specific)
+- crop labour inputs
+- wage rate on labour
+- dairy labour disaggregated by breed
+-
+
+
+for 10.16 
+is rangeland constraint needed? if not take it out of model and data
+rangeland yield is model not household data
+
+
