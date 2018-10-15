@@ -1122,19 +1122,11 @@ RMINLP=SNOPT
 8=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\emissions_module.gms
 
 [OPENWINDOW_1]
-FILE0=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\crop_module.gms
-FILE1=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\nutr_parameters.gms
-FILE2=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\data\parameters.gms
-FILE3=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\demographic_module.gms
-FILE4=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\emissions_module.gms
-FILE5=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
-FILE6=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\household_module.gms
-FILE7=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\livestock_module.gms
-FILE8=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\set_definitions.gms
-FILE9=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\simulation_model.gms
-FILE10=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\livestock_module.gms
+FILE0=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
+FILE1=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
+FILE2=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
 MAXIM=1
 TOP=2
 LEFT=108
-HEIGHT=765
-WIDTH=907
+HEIGHT=541
+WIDTH=380

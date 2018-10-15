@@ -67,3 +67,11 @@ how to get a well defined, holds water objective function?
 minimum amount of land dedicated to crops for food.
 minimum amount of household milk consumption
 
+
+
+10.12
+on the robustness of the current model version to different initializing conditions as per hhold_data (and hence the typology)
+ran the model with local cattle, reduced off farm income, reduced start cash, and reduced land availability. goes infeasible
+when i put off farm income to around 1,500,000 and start cash to around 800,000, it is not feasible
+but with offfi at 2,500,000 and start cash at 800,000 it is feasible
+
