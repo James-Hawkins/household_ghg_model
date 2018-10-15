@@ -37,13 +37,21 @@ Search for a first feasible solution
  
  
    Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
-      0   0        4.4433692857E+05 (Input point)
+      0   0        1.1633068293E+05 (Input point)
 =1
  
  ** Warning **  The number of nonlinear derivatives equal to zero
                 in the initial point is large (= 32 percent).
                 A better initial point will probably help the
                 optimization.
+ 
+=2
+=1
+ 
+ ** Warning **  The variance of the derivatives in the initial
+                point is large (= 4.1 ). A better initial
+                point, a better scaling, or better bounds on the
+                variables will probably help the optimization.
  
 =2
                                 Pre-triangular equations:     2166
@@ -61,7 +69,7 @@ Search for an optimal solution.
       4   3        1.0000000000E+01 0.0E+00     0
 =1
  
- ** Optimal solution. Reduced gradient less than tolerance.
+ ** Optimal solution. There are no superbasic variables.
  
 =2
  
@@ -72,9 +80,9 @@ Search for an optimal solution.
   ***  Line    6  EXIT
 =1
  
- CONOPT time Total                            0.030 seconds
-   of which: Function evaluations             0.000 =  0.0%
-             1st Derivative evaluations       0.003 = 10.0%
+ CONOPT time Total                            0.040 seconds
+   of which: Function evaluations             0.002 =  5.0%
+             1st Derivative evaluations       0.007 = 17.5%
  
 =2
  
@@ -84,8 +92,8 @@ Search for an optimal solution.
  
  Timing for Function Evaluations:
  
- Statistics for FDEval-Fnc Calls:      879 Time:      0.000 T/C:    0.0000E+00
- Statistics for FDEval-Drv Calls:      879 Time:      0.003 T/C:    3.4130E-06
+ Statistics for FDEval-Fnc Calls:      879 Time:      0.002 T/C:    2.2753E-06
+ Statistics for FDEval-Drv Calls:      879 Time:      0.007 T/C:    7.9636E-06
  Statistics for 2DDir      Calls:        0 Time:      0.000 T/C:    0.0000E+00
  Statistics for 2DLagr     Calls:        0 Time:      0.000 T/C:    0.0000E+00
  

@@ -23,7 +23,7 @@ C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimate
 
 C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225b\gamsdict.dat
 3
-11:57:00
+14:08:13
 10/15/18
 C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\
 C:\Program Files (x86)\GAMS23.5\
@@ -44,7 +44,7 @@ MCP         73 0
 MPEC        62 0
 RMPEC       62 0
 CNS         21 0
-DNLP        81 0
+DNLP        76 0
 RMINLP      81 0
 MINLP       34 0
 QCP         21 0

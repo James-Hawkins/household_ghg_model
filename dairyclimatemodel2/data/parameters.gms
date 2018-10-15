@@ -167,8 +167,8 @@ p_offFarm_wage(hh)=3000;
 p_cropcosts(hh,c)=crop_costs(hh,c) ;
 p_cash(hh)  = start_cash(hh)  ;
 p_labourPrice(hh)= labour_rate(hh,'lives');
-*p_maintExpense(hh,aaact,'dairy',minten)= maintenanceExpense(hh,aaact);
-p_maintExpense(hh,aaact,type,minten)= maintenanceExpense(hh,aaact,type,minten);
+p_maintExpense(hh,aaact,'dairy',minten)= maintenanceExpense(hh,aaact);
+*p_maintExpense(hh,aaact,type,minten)= maintenanceExpense(hh,aaact,type,minten);
 
 
 

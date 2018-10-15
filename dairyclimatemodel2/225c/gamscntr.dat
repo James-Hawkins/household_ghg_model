@@ -15,26 +15,26 @@
 7371 100
 0 0 0 0 0
  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000  0.00000000000000E+0000
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\gamsmatr.dat
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\gamsinst.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\gamsmatr.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\gamsinst.dat
 C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\conopt.opt
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\gamsstat.dat
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\gamssolu.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\gamsstat.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\gamssolu.dat
 
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\gamsdict.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\gamsdict.dat
 3
-13:48:24
+14:10:18
 10/15/18
 C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\
 C:\Program Files (x86)\GAMS23.5\
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\
 80 2147483647
 0 0 6332 43387 37055 51292
 Gary Goldstein                                 G010614:2121CA-WIN0
 Decision Ware, Inc.                                              0
 0922806101BDMCCOCPM5GEMPO2PTSNXAXP                  00000000000000
 0 1 2168 0
-225a\gmsprmNT.dat
+225c\gmsprmNT.dat
 15 84 21
 LP          29 0
 MIP         29 0
@@ -44,7 +44,7 @@ MCP         73 0
 MPEC        62 0
 RMPEC       62 0
 CNS         21 0
-DNLP        81 0
+DNLP        21 0
 RMINLP      81 0
 MINLP       34 0
 QCP         21 0
@@ -305,8 +305,8 @@ C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimate
 0 0 0
 0 0 0 1 0
 C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\Emissionsmod.dll
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\sbbinfo.dat
-C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225a\gamscntr.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\sbbinfo.dat
+C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\225c\gamscntr.dat
 C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\
 dat
  1.00000000000000E+0020
