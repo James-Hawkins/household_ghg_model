@@ -1064,9 +1064,6 @@ PlaneRownr=-1
 [RP:GHG_PARAMETERS]
 1=
 
-[RP:PARAMETERS]
-1=
-
 [RP:MARKET_MODEL]
 1=
 
@@ -1075,11 +1072,6 @@ PlaneRownr=-1
 
 [RP:DEMOGRAPHIC_MODULE]
 1=
-
-[SOLVERS]
-NLP=CONOPT
-DNLP=SNOPT
-RMINLP=SNOPT
 
 [RP:LOAN_MODULE]
 1=
@@ -1102,13 +1094,21 @@ RMINLP=SNOPT
 [RP:CROP_MODULE]
 1=
 
-[RP:SET_DEFINITIONS]
-1=
-
 [RP:SIMULATION_MODEL]
 1=
 
+[RP:PARAMETERS]
+1=
+
+[SOLVERS]
+NLP=CONOPT
+DNLP=SNOPT
+RMINLP=SNOPT
+
 [RP:GEN_BASELINE]
+1=
+
+[RP:SET_DEFINITIONS]
 1=
 
 [MRUFILES]
@@ -1122,11 +1122,14 @@ RMINLP=SNOPT
 8=C:\Users\James\Documents\GitHub\smallholder_dairy_ghg_model\smallholder_dairy_ghg_model\dairyclimatemodel\emissions_module.gms
 
 [OPENWINDOW_1]
-FILE0=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
-FILE1=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
-FILE2=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
+FILE0=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\data\parameters.gms
+FILE1=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
+FILE2=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
+FILE3=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\parameters.lst
+FILE4=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\set_definitions.gms
+FILE5=C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dairyclimatemodel2\gen_baseline.lst
 MAXIM=1
 TOP=2
 LEFT=108
 HEIGHT=541
-WIDTH=380
+WIDTH=1171
