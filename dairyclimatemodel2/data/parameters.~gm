@@ -10,6 +10,7 @@ startfeed                'Starting feed balance'
 startlivestock           'Starting livestock quantities'
 transferrate             'Transfer rate for feed biomass'
 maintenanceExpense       'General expenses on livestock'
+maintenanceExpense2
 mortality                'Mortality rate of livestock'
 prices_lives             'Sale and purchase prices of livestock'
 prices_milk              'Sale price of milk'
@@ -50,7 +51,8 @@ $LOAD crop_yield
 $LOAD rangeland_yield
 $LOAD startfeed
 $LOAD startlivestock
-$LOAD maintenanceExpense
+*$LOAD maintenanceExpense
+$LOAD maintenanceExpense2
 $LOAD mortality
 $GDXIN
 

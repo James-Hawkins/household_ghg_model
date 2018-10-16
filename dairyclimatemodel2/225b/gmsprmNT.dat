@@ -1,5 +1,5 @@
 NLP=CONOPT
-DNLP=SNOPT
+DNLP=PATHNLP
 RMINLP=SNOPT
 Input=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.gms
 Output=C:\Users\Gaming\Documents\Github\household_ghg_model\dairyclimatemodel2\gen_baseline.lst

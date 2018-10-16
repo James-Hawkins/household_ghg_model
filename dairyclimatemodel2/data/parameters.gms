@@ -10,6 +10,7 @@ startfeed                'Starting feed balance'
 startlivestock           'Starting livestock quantities'
 transferrate             'Transfer rate for feed biomass'
 maintenanceExpense       'General expenses on livestock'
+maintenanceExpense2
 mortality                'Mortality rate of livestock'
 prices_lives             'Sale and purchase prices of livestock'
 prices_milk              'Sale price of milk'
@@ -50,6 +51,7 @@ $LOAD crop_yield
 $LOAD rangeland_yield
 $LOAD startfeed
 $LOAD startlivestock
+*$LOAD maintenanceExpense
 $LOAD maintenanceExpense
 $LOAD mortality
 $GDXIN
@@ -167,8 +169,8 @@ p_offFarm_wage(hh)=3000;
 p_cropcosts(hh,c)=crop_costs(hh,c) ;
 p_cash(hh)  = start_cash(hh)  ;
 p_labourPrice(hh)= labour_rate(hh,'lives');
-p_maintExpense(hh,aaact,'dairy',minten)= maintenanceExpense(hh,aaact);
-*p_maintExpense(hh,aaact,type,minten)= maintenanceExpense(hh,aaact,type,minten);
+*p_maintExpense(hh,aaact,'dairy',minten)= maintenanceExpense(hh,aaact);
+p_maintExpense(hh,aaact,type,minten)= maintenanceExpense(hh,aaact,type,minten);
 
 
 
