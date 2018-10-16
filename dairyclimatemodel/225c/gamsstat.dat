@@ -1,0 +1,158 @@
+=0 SNOPT 7.2-4      Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows
+=1
+ 
+SNOPT 7.2-4      Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows    
+
+    GAMS/SNOPT, Large Scale Nonlinear SQP Solver
+    S N O P T  7.2-4 (June 2006)
+    P. E. Gill, UC San Diego
+    W. Murray and M. A. Saunders, Stanford University
+
+=2
+=1
+
+ Work space allocated           --   31.52 Mb
+
+=2
+
+         ==============================
+         S N O P T  7.2-4    (Jun 2006)
+         ==============================
+1
+ 
+ Parameters
+ ==========
+
+ Files
+ -----
+ Solution file..........         0       Old basis file ........         0       Standard input.........         5
+ Insert file............         0       New basis file ........         0       (Printer)..............        14
+ Punch file.............         0       Backup basis file......         0       (Specs file)...........         0
+ Load file..............         0       Dump file..............         0       Standard output........         6
+
+ Frequencies
+ -----------
+ Print frequency........       100       Check frequency........        60       Save new basis map.....       100
+ Summary frequency......       100       Factorization frequency        50       Expand frequency.......     10000
+
+ QP subproblems
+ --------------
+ QPsolver Cholesky......
+ Scale tolerance........     0.900       Minor feasibility tol..  1.00E-06       Iteration limit........   9999999
+ Scale option...........         1       Minor optimality  tol..  1.00E-06       Minor print level......         1
+ Crash tolerance........     0.100       Pivot tolerance........  3.25E-11       Partial price..........         1
+ Crash option...........         3       Elastic weight.........  1.00E+05       Prtl price section ( A)     17843
+                                         New superbasics........        99       Prtl price section (-I)     11870
+
+ The SQP Method
+ --------------
+ Minimize...............                 Cold start.............                 Proximal Point method..         1
+ Nonlinear objectiv vars      9606       Major optimality tol...  2.00E-06       Function precision.....  3.00E-13
+ Unbounded step size....  1.00E+20       Superbasics limit......       500       Difference interval....  5.48E-07
+ Unbounded objective....  1.00E+15       Reduced Hessian dim....       500       Central difference int.  6.70E-05
+ Major step limit.......  2.00E+00       Derivative linesearch..                 Derivative level.......         3
+ Major iterations limit.   9999999       Linesearch tolerance...   0.05000       Verify level...........        -1
+ Minor iterations limit.       500       Penalty parameter......  0.00E+00       Major Print Level......         1
+
+ Hessian Approximation
+ ---------------------
+ Limited-Memory Hessian.                 Hessian updates........        10       Hessian frequency......  99999999
+                                                                                 Hessian flush..........  99999999
+
+ Nonlinear constraints
+ ---------------------
+ Nonlinear constraints..      2380       Major feasibility tol..  1.00E-06       Violation limit........  1.00E+06
+ Nonlinear Jacobian vars      8406
+
+ Miscellaneous
+ -------------
+ LU factor tolerance....      3.99       LU singularity tol.....  3.25E-11       Timing level...........         3
+ LU update tolerance....      3.99       LU swap tolerance......  1.22E-04       Debug level............         0
+ LU partial  pivoting...                 eps (machine precision)  2.22E-16       System information.....        No
+1
+ 
+
+ 
+
+ Matrix statistics
+ -----------------
+               Total      Normal        Free       Fixed     Bounded
+ Rows          11870         423           1       11446           0
+ Columns       17843        8793        8673         376           1
+
+ No. of matrix elements               210721     Density       0.099
+ Biggest                          6.3539E+07  (excluding fixed columns,
+ Smallest                         0.0000E+00   free rows, and RHS)
+
+ No. of objective coefficients            12
+ Biggest                          9.6154E-01  (excluding fixed columns)
+ Smallest                         9.6154E-01
+
+ Nonlinear constraints    2380     Linear constraints    9490
+ Nonlinear variables      9606     Linear variables      8237
+ Jacobian  variables      8406     Objective variables   9606
+ Total constraints       11870     Total variables      17843
+1
+ 
+
+    Itn       LPmult  LPstep   nInf   SumInf             LPobjective   +SBS   -SBS    -BS    Pivot     L+U ncp
+    100     -3.0E+05 3.5E-05   1394  4.0E+04                           8189   8189   7964  1.5E+00   50212
+    200     -7.4E+03 5.9E-11   1165  3.5E+04                           9873   9873  23243 -8.3E-01   50800
+    300      1.8E+05 5.6E-11    860  3.0E+04                           9867   9867  23237  8.8E-01   52022
+    400     -2.8E+00 3.0E+01    580  5.1E+03                          11360  11360   4749 -2.2E+00   54175
+    500      1.7E+00 8.5E-10    369  1.8E+03                          15564  15564  25500 -5.7E-02   54713
+    600     -9.5E-01 8.4E-10    352  1.2E+03                          15440  15440  25640  5.8E-02   55164
+    700      2.6E+00 5.6E-10    348  9.9E+02                          16297  16297  25021 -8.7E-02   55548
+    800      7.9E-01 7.6E-10    348  9.9E+02                          16371  16371  25083 -6.5E-02   55702
+    900      1.1E+00 7.2E-10    346  9.9E+02                          15847  15847  25915 -6.8E-02   55947
+   1000     -1.6E+02 5.5E-10    332  9.8E+02                          15621  15621  25785 -8.9E-02   55622
+   1100      9.6E-01 6.6E-10    131  3.8E+01                          16318  16318  25042 -7.4E-02   55508
+   1200      1.1E+00 6.5E-10    129  3.6E+01                          16103  16103  25967 -7.5E-02   55922
+   1300      9.9E-01 6.8E-10    127  3.4E+01                          15542  15542  25874 -7.2E-02   55744
+   1400      9.5E-01 6.6E-10    125  3.2E+01                          16312  16312  25036 -7.4E-02   56111
+   1500      8.6E-01 7.1E-10    123  3.1E+01                          15714  15714  25182 -6.9E-02   56116
+   1600      2.8E-01 4.4E-10    115  2.3E+01                          16136  16136  25616 -1.1E-01   56965
+   1700      1.2E+00 3.2E-09    113  2.1E+01                          16553  16553  28157 -1.5E-02   58725
+   1800      2.8E-02 4.5E-09     11  7.4E+00                          10160  10160  12142  1.1E-02   59701
+   1900      2.2E-02 5.3E-09     11  7.4E+00                          10332  10332   8324  9.2E-03   70950
+   2000      1.8E-02 4.0E-09     11  7.4E+00                          10283  10283  12265  1.2E-02   82100
+   2100     -1.2E-03 7.9E-08     11  7.4E+00                          10361  10361  12055  1.7E-02   95459
+   2200     -7.7E-03 6.1E-07     11  7.4E+00                          17422  17422  27682  8.0E-05   94749
+   2300     -6.6E-05 2.4E-04     10  1.9E+00                          17263  17263  27595  1.6E-04   95654
+   2400      1.8E-05 1.9E-03      9  1.8E+00                          17295  17295  12805  9.8E-02   96065
+   2500      3.3E-05 2.7E-07      9  1.8E+00                          16796  16796  12810  4.4E-01   93165
+   2600     -4.7E-05 1.1E-07      7  1.7E+00                          17586  17586  27726  4.6E-04   91979
+   2700     -2.0E-05 4.2E-07      6  1.7E+00                          17313  17313  28089  1.2E-04   91723
+   2800     -1.7E-04 6.7E+00      5  1.6E+00                          12904  12904  12064 -1.7E-04   91490
+   2900              3.1E+01      5  1.6E+00                           2302   2302   1739  3.4E+00   90734
+   3000              3.9E+01      5  1.6E+00                           3719   3719   1848  1.2E+00   91333
+   3100              3.3E+01      5  1.6E+00                           5149   5149   1958  2.2E+00   91862
+   3200              2.9E+01      5  1.6E+00                           6579   6579   2068  1.5E+00   92314
+   3300     -7.0E+00 3.9E+00    400  1.8E+03                           7820   7820   7817  1.5E+01   92949
+   3400     -2.8E+00 1.2E-10    388  1.8E+03                           4809   4809   4803  4.0E-01   92639
+   3500     -1.9E+00 1.5E-11    377  1.7E+03                           4159   4159   4161  3.2E+00   92836
+   3600     -1.4E+00 3.3E-11    363  1.6E+03                           7188   7188   7190  1.5E+00   92523
+   3700     -1.0E+00 2.6E-11    340  1.5E+03                           6421   6421   6423  1.9E+00   92760
+   3800     -7.5E-01 1.0E-10    281  1.3E+03                           2430   2430   2424  4.7E-01   92847
+   3900      5.8E-01 4.9E-11    212  9.8E+02                           5084   5084                   92707
+   4000     -4.5E-01 8.7E-11    130  6.0E+02                           6980   6980   6982  5.6E-01   92981
+
+    Itn       LPmult  LPstep   nInf   SumInf             LPobjective   +SBS   -SBS    -BS    Pivot     L+U ncp
+   4100     -2.7E-01 2.2E+01     45  2.0E+02                           2043   2043  22830 -2.7E-01   92763
+   4200     -3.4E-05 2.4E-07      4  1.6E+00                          17212  17212  27772 -2.0E-04   92795
+   4300     -3.4E-05 2.6E-07      3  1.5E+00                          16680  16680  27552  1.9E-04   92688
+   4400     -1.2E+00 9.0E-10      3  1.5E+00                          12201  12201   8319  2.9E-01   92118
+   4500      2.5E-05 4.1E-07      2  8.1E-01                          17030  17030  28130 -1.2E-04   91895
+   4600     -2.5E-05 3.4E-07      1  3.8E-01                          16633  16633  27697 -1.5E-04   91513
+
+    Itn       LPmult  LPstep   nInf   SumInf             LPobjective   +SBS   -SBS    -BS    Pivot     L+U ncp
+   4700     -8.2E-01 2.2E+00    241  1.7E+02                          22716  22716   5277 -8.2E-01   90894
+   4800     -4.7E-01 4.0E+00    141  6.6E+01                          22845  22845   2989 -4.7E-01   90362
+   4900     -2.5E-01 2.9E-01     41  1.1E+01                          22597  22597   3522 -2.5E-01   89526
+
+ 
+=5 11932 !sqrt: GRAD SINGULAR: x = 0
+ The user has defined   34650   out of   34650   constraint gradients.
+ The user has defined    9606   out of    9606   objective  gradients.
+1
+ 
