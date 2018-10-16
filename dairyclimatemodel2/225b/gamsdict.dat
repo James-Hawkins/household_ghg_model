@@ -1,5 +1,5 @@
 1
-572 173 16 154 173 11955 17915 0 4 0 98 2 7 5616 39312 163582 690 2348 6763 635 0 60503 103079
+573 173 16 154 173 11955 17915 0 4 0 98 2 7 5616 39312 163582 690 2348 6763 635 0 60503 103079
 2
 3 0
 hh2
@@ -370,635 +370,635 @@ feed_off_farm
 residues
 7 0 1 0 0 0
 
-312 5 9 0
+313 5 9 0
 v_prdCrop
 108 0 4 1 4 11 2 22 1
 Crop production (Mg/m)
-315 5 10 0
+316 5 10 0
 v_crp_feed
 12 0 4 1 4 13 2 26 1
 Fodder crops produced (Mg)
-316 5 10 0
+317 5 10 0
 v_crp_cons
 72 0 4 1 4 12 2 64 1
 kg of food crop consumed per month by the household (kg/hh/year)
-317 5 20 0
+318 5 20 0
 v_totallabourdemcrop
 12 0 3 1 4 2 69 1
 Monthly labour demand for cropping activities (person-days per month)
-318 5 16 0
+319 5 16 0
 v_residuesfieldm
 84 0 4 1 15 4 2 27 1
 Residues left on field (kg)
-319 5 10 0
+320 5 10 0
 v_residues
 84 0 4 1 4 15 2 27 1
 Residues produced (kg/year)
-320 5 15 0
+321 5 15 0
 v_residuesfeedm
 84 0 4 1 15 3 2 47 1
 residues of feed coming from on farm production
-321 5 16 0
+322 5 16 0
 v_feed_crop_land
 1 0 2 1 4 38 1
 Total land for feed crops (ha/hh/year)
-322 5 25 0
+323 5 25 0
 v_feed_crop_land_off_farm
 1 0 2 1 4 53 1
 Total land for feed crops produced off farm (ha/year)
-323 5 24 0
+324 5 24 0
 v_feed_crop_land_on_farm
 1 0 2 1 4 53 1
 Total land for feeds crops produced on farm (ha/year)
-324 5 10 0
+325 5 10 0
 v_areaCrop
 9 0 3 1 4 11 37 1
 Area dedicated to crop c (ha/hh/year)
-325 6 13 0
+326 6 13 0
 e_arable_land
 1 0 2 0 0 53 1
 Arable land constraint (for crops, excluding pasture)
-326 6 21 0
+327 6 21 0
 e_total_land_holdings
 1 0 2 0 0 50 1
 Total land constraint (for all crops plus pasture)
-327 6 9 0
+328 6 9 0
 e_crp_prd
 108 0 4 0 0 0 0 57 1
 Define crop production (Mg/ha/yr) based on area and yield
-328 6 21 0
+329 6 21 0
 e_crp_fate_food_byprd
 84 0 4 0 0 0 0 45 1
 Define the quantity of residues produced (Mg)
-329 6 13 0
+330 6 13 0
 e_food_silage
 12 0 3 0 0 0 49 1
 Define amount of maize being used as maize silage
-330 6 15 0
+331 6 15 0
 e_residues_prod
 84 0 4 0 0 0 0 44 1
 Accounting equation for the fate of residues
-331 6 16 0
+332 6 16 0
 e_residues_field
 84 0 4 0 0 0 0 46 1
 Define quantity of residues left on field (Mg)
-332 6 14 0
+333 6 14 0
 e_labourdemand
 12 0 3 0 0 0 88 1
 Define the labour required for cropping activities (person-days per household per month)
-334 5 5 0
+335 5 5 0
 v_dmd
 432 0 7 1 4 2 9 6 7 8 50 1
 Monthly mean dry matter digestibility (g/100 g DM)
-335 5 5 0
+336 5 5 0
 v_ADF
 432 0 7 1 4 2 9 6 7 8 39 1
 Acid detergent fibre intake (g/100g DM)
-336 5 5 0
+337 5 5 0
 v_NDF
 432 0 7 1 4 2 9 6 7 8 42 1
 Neutral detergent fibre intake (g/100g DM)
-337 5 8 0
+338 5 8 0
 v_diet_N
 432 0 7 1 4 2 9 6 7 8 28 1
 Dietary N intake (g/100g DM)
-338 5 11 0
+339 5 11 0
 v_prodQmilk
 72 0 6 1 9 6 7 3 2 31 1
 Milk produced (kg/month/animal)
-339 5 11 0
+340 5 11 0
 v_prodQmeat
 432 0 6 1 9 6 7 3 2 31 1
 Meat produced (kg/month/animal)
-340 5 10 0
+341 5 10 0
 v_milkprod
 6 0 5 1 10 6 7 3 62 1
 Milk production per cow per day during lactation (kg/head/day)
-341 5 20 0
+342 5 20 0
 v_totallabourdemlive
 12 0 3 1 3 2 32 1
 Person-days of labour/month/herd
-342 5 13 0
+343 5 13 0
 v_grossEnergy
 432 0 7 1 9 6 7 8 3 2 48 1
 Gross energy intake per animal per day (MJ/hd/d)
-344 5 18 0
+345 5 18 0
 v_digestibleEnergy
 432 0 7 1 9 6 7 8 4 2 53 1
 Digestible energy intake per animal per day (MJ/hd/d)
-345 5 11 0
+346 5 11 0
 v_cp_intake
 432 0 7 1 3 2 9 6 7 8 0 0
 
-346 5 17 0
+347 5 17 0
 v_dryMatterIntake
 432 0 6 1 4 2 9 6 7 27 1
 Dry matter intake (kg/hd/d)
-347 5 11 0
+348 5 11 0
 v_graze_dmd
 1 0 2 1 4 44 1
 Estimated demand for grazing land (ha/hh/yr)
-348 5 14 0
+349 5 14 0
 v_pasture_land
 1 0 2 1 4 57 1
 Amount of land dedicated to pasture production (ha/hh/yr)
-349 5 13 0
+350 5 13 0
 v_feedbalance
 132 0 4 1 13 3 2 34 1
 kg feed carried over to next month
-350 5 9 0
+351 5 9 0
 v_feedbuy
 24 0 4 1 14 4 2 53 1
 kg of a feed purchased in a given month (kg/hh/month)
-351 5 8 0
+352 5 8 0
 v_fdcons
 5616 0 7 1 9 6 7 4 2 13 65 1
 Amount of a specific feed consumed per animal per day (kg as fed)
-352 5 9 0
+353 5 9 0
 v_feedons
 156 0 4 1 13 3 2 77 1
 Total kg of a feed consumed per month (for all cattle) (as fed) (kg/hh/month)
-353 5 9 0
+354 5 9 0
 v_aactLev
 432 0 7 1 9 6 7 8 3 2 31 1
 Livestock activity level (head)
-354 5 13 0
+355 5 13 0
 v_aactLevsell
 432 0 7 1 9 6 7 8 3 2 21 1
 Sell livestock (head)
-355 5 12 0
+356 5 12 0
 v_aactLevbuy
 432 0 7 1 9 6 7 8 3 2 20 1
 Buy livestock (head)
-356 6 16 0
+357 6 16 0
 e_milkproduction
 72 0 6 0 0 0 0 0 0 61 1
 milk produced from all animals in a given month (kg/hh/month)
-357 6 16 0
+358 6 16 0
 e_meatproduction
 432 0 6 0 0 0 0 0 0 69 1
 meat produced from slaughtered animals in a given month (kg/hh/month)
-358 6 9 0
+359 6 9 0
 e_feedbal
 132 0 4 0 0 0 0 57 1
 livestock feed balance accounting equation (kg per month)
-359 6 9 0
+360 6 9 0
 e_feedons
 156 0 4 0 0 0 0 60 1
 total amount of a feed consumed per month (from all animals)
-360 6 16 0
+361 6 16 0
 e_feed_purchased
 24 0 4 0 0 0 0 58 1
 total amount of feeds purchased per month (kg/month/hhold)
-361 6 9 0
+362 6 9 0
 e_laborAA
 12 0 3 0 0 0 57 1
 labor use for livestock activities (person-days/hh/month)
-362 6 16 0
+363 6 16 0
 e_grazing_demand
 1 0 2 0 0 46 1
 Demand for grazing land by cattle (ha/hh/year)
-363 6 11 0
+364 6 11 0
 e_rangeland
 1 0 2 0 0 50 1
 Availability of rangeland for grazing (ha/hh/year)
-364 6 9 0
+365 6 9 0
 e_pasture
 1 0 2 0 0 49 1
 Land dedicated to pasture production (ha/hh/year)
-366 6 10 0
+367 6 10 0
 e_mlk_prod
 6 0 5 0 0 0 0 0 0 0
 
-367 6 16 0
+368 6 16 0
 e_protein_intake
 432 0 7 0 0 0 0 0 0 0 0 0
 
-368 6 17 0
+369 6 17 0
 e_dryMatterIntake
 432 0 6 0 0 0 0 0 0 51 1
 Dry matter intake equation (from Goopy et al. 2018)
-369 6 26 0
+370 6 26 0
 e_dry_matter_digestibility
 432 0 7 0 0 0 0 0 0 0 48 1
 Dry matter digestibility (from Oddy et al. 1983)
-370 6 14 0
+371 6 14 0
 e_energySource
 396 0 6 0 0 0 0 0 0 30 1
 Specify required energy intake
-371 6 13 0
+372 6 13 0
 e_grossEnergy
 432 0 7 0 0 0 0 0 0 0 29 1
 Calculate gross energy intake
-373 6 18 0
+374 6 18 0
 e_digestibleEnergy
 432 0 7 0 0 0 0 0 0 0 27 1
 Calculate digestible energy
-374 6 8 0
+375 6 8 0
 e_diet_N
 432 0 7 0 0 0 0 0 0 0 23 1
 Calculate diet N intake
-375 6 10 0
+376 6 10 0
 e_diet_ADF
 432 0 7 0 0 0 0 0 0 0 25 1
 Calculate diet ADF intake
-376 6 10 0
+377 6 10 0
 e_diet_NDF
 432 0 7 0 0 0 0 0 0 0 25 1
 Calculate diet NDF intake
-377 6 13 0
+378 6 13 0
 e_min_protein
 396 0 7 0 0 0 0 0 0 0 22 1
 Minimum protein intake
-379 6 12 0
+380 6 12 0
 E_youngm_loc
 2 0 5 0 0 0 0 0 48 1
 young balance each month excluding jan each year
-380 6 12 0
+381 6 12 0
 E_youngy_loc
 0 0 5 0 0 0 0 0 28 1
 from dec y-1 to jan y if y>1
-381 6 13 0
+382 6 13 0
 E_youngm_loc2
 20 0 5 0 0 0 0 0 48 1
 young balance each month excluding jan each year
-382 6 14 0
+383 6 14 0
 E_fweanerm_loc
 1 0 4 0 0 0 0 56 1
 female weaner balance each month excluding jan each year
-383 6 15 0
+384 6 15 0
 E_fweanerm_loc2
 10 0 4 0 0 0 0 56 1
 female weaner balance each month excluding jan each year
-384 6 14 0
+385 6 14 0
 E_fweanery_loc
 0 0 4 0 0 0 0 28 1
 from dec y-1 to jan y if y>1
-385 6 14 0
+386 6 14 0
 E_mweanerm_loc
 1 0 4 0 0 0 0 54 1
 male weaner balance each month excluding jan each year
-386 6 15 0
+387 6 15 0
 E_mweanerm_loc2
 10 0 4 0 0 0 0 54 1
 male weaner balance each month excluding jan each year
-387 6 14 0
+388 6 14 0
 E_mweanery_loc
 0 0 4 0 0 0 0 28 1
 from dec y-1 to jan y if y>1
-388 6 13 0
+389 6 13 0
 E_adultfm_loc
 1 0 4 0 0 0 0 50 1
 breeder balance each month excluding jan each year
-389 6 14 0
+390 6 14 0
 E_adultfm_loc2
 10 0 4 0 0 0 0 50 1
 breeder balance each month excluding jan each year
-390 6 13 0
+391 6 13 0
 E_adultfy_loc
 0 0 4 0 0 0 0 44 1
 breeder balance from dec y-1 to jan y if y>1
-391 6 14 0
+392 6 14 0
 E_adultfy_loc2
 0 0 4 0 0 0 0 33 1
 cow balanace when y > 1 and m > 1
-393 6 17 0
+394 6 17 0
 E_adultfsold_loc2
 11 0 4 0 0 0 0 50 1
 must sell adults once reach end of productive life
-394 6 17 0
+395 6 17 0
 E_adultfsold_loc3
 0 0 4 0 0 0 0 50 1
 must sell adults once reach end of productive life
-395 6 13 0
+396 6 13 0
 E_reprod_loc1
 1 0 4 0 0 0 0 33 1
 bull balance when y = 1 and m = 2
-396 6 13 0
+397 6 13 0
 E_reprod_loc2
 10 0 4 0 0 0 0 23 1
 bull balance when m > 2
-397 6 13 0
+398 6 13 0
 E_reprod_loc3
 0 0 4 0 0 0 0 33 1
 bull balance when y > 1 and m = 1
-398 6 12 0
+399 6 12 0
 E_youngm_imp
 2 0 5 0 0 0 0 0 48 1
 young balance each month excluding jan each year
-399 6 13 0
+400 6 13 0
 E_youngm_imp2
 20 0 5 0 0 0 0 0 48 1
 young balance each month excluding jan each year
-400 6 12 0
+401 6 12 0
 E_youngy_imp
 0 0 5 0 0 0 0 0 28 1
 from dec y-1 to jan y if y>1
-401 6 14 0
+402 6 14 0
 E_fweanerm_imp
 1 0 4 0 0 0 0 56 1
 female weaner balance each month excluding jan each year
-402 6 15 0
+403 6 15 0
 E_fweanerm_imp2
 10 0 4 0 0 0 0 56 1
 female weaner balance each month excluding jan each year
-403 6 14 0
+404 6 14 0
 E_fweanery_imp
 0 0 4 0 0 0 0 28 1
 from dec y-1 to jan y if y>1
-404 6 14 0
+405 6 14 0
 E_mweanerm_imp
 1 0 4 0 0 0 0 54 1
 male weaner balance each month excluding jan each year
-405 6 15 0
+406 6 15 0
 E_mweanerm_imp2
 10 0 4 0 0 0 0 54 1
 male weaner balance each month excluding jan each year
-406 6 14 0
+407 6 14 0
 E_mweanery_imp
 0 0 4 0 0 0 0 28 1
 from dec y-1 to jan y if y>1
-407 6 13 0
+408 6 13 0
 E_adultfm_imp
 1 0 4 0 0 0 0 50 1
 breeder balance each month excluding jan each year
-408 6 14 0
+409 6 14 0
 E_adultfm_imp2
 10 0 4 0 0 0 0 50 1
 breeder balance each month excluding jan each year
-409 6 13 0
+410 6 13 0
 E_adultfy_imp
 0 0 4 0 0 0 0 44 1
 breeder balance from dec y-1 to jan y if y>1
-410 6 14 0
+411 6 14 0
 E_adultfy_imp2
 0 0 4 0 0 0 0 33 1
 cow balanace when y > 1 and m > 1
-412 6 17 0
+413 6 17 0
 E_adultfsold_imp2
 11 0 4 0 0 0 0 50 1
 must sell adults once reach end of productive life
-413 6 17 0
+414 6 17 0
 E_adultfsold_imp3
 0 0 4 0 0 0 0 50 1
 must sell adults once reach end of productive life
-414 6 13 0
+415 6 13 0
 E_reprod_imp1
 1 0 4 0 0 0 0 33 1
 bull balance when y = 1 and m = 2
-415 6 13 0
+416 6 13 0
 E_reprod_imp2
 10 0 4 0 0 0 0 23 1
 bull balance when m > 2
-416 6 13 0
+417 6 13 0
 E_reprod_imp3
 0 0 4 0 0 0 0 33 1
 bull balance when y > 1 and m = 1
-417 6 8 0
+418 6 8 0
 e_reprod
 12 0 3 0 0 0 38 1
 minimum number of reproductive animals
-462 5 8 0
+463 5 8 0
 v_income
 12 0 3 1 4 2 33 1
 Total household income (lc/hh/yr)
-463 5 6 0
+464 5 6 0
 v_cash
 12 0 3 1 4 2 53 1
 Cash available for the household in a given year (lc)
-465 5 16 0
+466 5 16 0
 v_labourcrophome
 12 0 3 1 4 2 64 1
 Home labour dedicated to cropping activities (person-days/month)
-466 5 17 0
+467 5 17 0
 v_labourliveshome
 12 0 3 1 4 2 65 1
 Home labour dedicated to livestock activities (person-days/month)
-467 5 6 0
+468 5 6 0
 v_cons
 24 0 4 1 4 2 5 64 1
 Consumption expenditure on good in year y and month m (Tsh/hh/m)
-468 5 20 0
+469 5 20 0
 v_labour_hired_lives
 12 0 3 1 4 2 57 1
 Hired labour for livestock activities (person-days/month)
-469 5 19 0
+470 5 19 0
 v_labour_hired_crop
 12 0 3 1 4 2 56 1
 Hired labour for cropping activities (person-days/month)
-470 5 9 0
+471 5 9 0
 v_leisure
 12 0 3 1 4 2 42 1
 Leisure time (person-days/household/month)
-472 5 16 0
+473 5 16 0
 v_lives_expenses
 12 0 3 1 4 2 52 1
 Total livestock expenses in a given month (lc/month)
-473 5 15 0
+474 5 15 0
 v_crop_expenses
 12 0 3 1 4 2 47 1
 Total crop expenses in a given month (lc/month)
-474 5 13 0
+475 5 13 0
 v_Qmilk_hcons
 12 0 3 1 4 2 42 1
 Milk consumed at home (kg/household/month)
-475 5 16 0
+476 5 16 0
 v_Qmilk_marketed
 12 0 3 1 4 2 50 1
 Total amount of milk marketed (kg/household/month)
-476 5 25 0
+477 5 25 0
 v_Qmilk_marketed_contract
 12 0 3 1 4 2 65 1
 Total amount of milk marketed via a contract (kg/household/month)
-477 5 25 0
+478 5 25 0
 v_Qmilk_marketed_informal
 12 0 3 1 4 2 61 1
 Total amount of milk marketed informally (kg/household/month)
-478 5 10 0
+479 5 10 0
 v_Land_use
 1 0 2 1 4 40 1
 Total on farm and upstream land use (ha)
-480 6 11 0
+481 6 11 0
 e_cash_flow
 12 0 3 0 0 0 33 1
 Cash flow equation without credit
-483 6 20 0
+484 6 20 0
 e_labourbalancetotal
 12 0 3 0 0 0 23 1
 Labour balance equation
-484 6 19 0
+485 6 19 0
 e_labourbalancecrop
 12 0 3 0 0 0 33 1
 Labour balance equation for crops
-485 6 20 0
+486 6 20 0
 e_labourbalancelives
 12 0 3 0 0 0 37 1
 Labour balance equation for livestock
-486 6 12 0
+487 6 12 0
 e_homelabour
 12 0 3 0 0 0 28 1
 Home labour balance equation
-488 6 21 0
+489 6 21 0
 e_home_produce_demand
 72 0 4 0 0 0 0 34 1
 Consumption of home produced food 
-489 6 18 0
+490 6 18 0
 e_home_food_demand
 12 0 3 0 0 0 45 1
 Consumption of milk produced by the household
-490 6 16 0
+491 6 16 0
 e_dairy_land_use
 1 0 2 0 0 58 1
 Calculate sum of cropland, pastureland, and rangeland (ha)
-491 6 6 0
+492 6 6 0
 e_cons
 22 0 4 0 0 0 0 48 1
 Calculate consumption of food and non-food goods
-492 6 15 0
+493 6 15 0
 e_milk_marketed
 12 0 3 0 0 0 29 1
 Total amount of milk marketed
-493 6 16 0
+494 6 16 0
 e_feed_crop_land
 1 0 2 0 0 34 1
 Total land dedicated to feed crops
-494 6 24 0
+495 6 24 0
 e_feed_crop_land_on_farm
 1 0 2 0 0 42 1
 Total land dedicated to feed crops on farm
-495 6 25 0
+496 6 25 0
 e_feed_crop_land_off_farm
 1 0 2 0 0 43 1
 Total land dedicated to feed crops off farm
-497 2 1 0
+498 2 1 0
 i
 100 0 1 0 0 0
 
-506 5 17 0
+507 5 17 0
 v_off_farm_income
 1 0 2 1 4 29 1
 Off farm income (TSh/hh/year)
-507 5 17 0
+508 5 17 0
 v_income_lives_rd
 1200 0 4 1 141 4 2 46 1
 Income from livestock activities (TSh/hh/year)
-508 5 19 0
+509 5 19 0
 v_lives_expenses_rd
 1200 0 4 1 141 4 2 57 1
 Random livestock expenses in ith iteration (TSh/hh/month)
-509 5 16 0
+510 5 16 0
 v_income_crop_rd
 1200 0 4 1 141 4 2 45 1
 Income from cropping activities (Tsh/hh/year)
-510 5 11 0
+511 5 11 0
 v_income_rd
 1200 0 4 1 141 4 2 45 1
 Random income in ith iteration (TSh/hh/month)
-511 5 5 0
+512 5 5 0
 v_npv
 1 0 0 25 1
 Net present value (lc/hh)
-512 5 5 0
+513 5 5 0
 v_dev
 1200 0 4 141 1 4 2 39 1
 Standard deviation of net present value
-513 5 15 0
+514 5 15 0
 v_stddev_income
 12 0 3 1 4 2 28 1
 Standard deviation of income
-514 6 27 0
+515 6 27 0
 e_offfarm_income_wo_loan_rd
 1 0 2 0 0 28 1
 Off farm income (lc/hh/year)
-516 6 22 0
+517 6 22 0
 e_farm_income_lives_rd
 1200 0 4 0 0 0 0 47 1
 Livestock income income definition (lc/hh/year)
-517 6 21 0
+518 6 21 0
 e_farm_income_crop_rd
 1200 0 4 0 0 0 0 46 1
 Crop enterprise income definition (lc/hh/year)
-518 6 18 0
+519 6 18 0
 e_crop_expenses_rd
 12 0 3 0 0 0 47 1
 Annual expenses on crop production (lc/hh/year)
-519 6 23 0
+520 6 23 0
 e_livestock_expenses_rd
 1200 0 4 0 0 0 0 52 1
 Annual expenses on livestock production (lc/hh/year)
-520 6 17 0
+521 6 17 0
 e_total_income_rd
 1200 0 4 0 0 0 0 72 1
 Total household income (farm plus off farm) in a given year (lc/hh/year)
-522 6 21 0
+523 6 21 0
 e_milk_no_contract_rd
 12 0 3 0 0 0 52 1
 Specify no milk is marketed under purchase agreement
-523 6 5 0
+524 6 5 0
 e_dev
 1200 0 4 0 0 0 0 45 1
 Specify deviation of income for ith iteration
-524 6 9 0
+525 6 9 0
 e_stdddev
 12 0 3 0 0 0 36 1
 Specify standard deviation of income
-525 6 12 0
+526 6 12 0
 e_objective2
 1 0 0 17 1
 Net present value
-527 5 14 0
+528 5 14 0
 v_income_lives
 12 0 3 1 4 2 45 1
 Income from livestock activities (lc/hh/year)
-528 5 13 0
+529 5 13 0
 v_income_crop
 12 0 3 1 4 2 44 1
 Income from cropping activities (lc/hh/year)
-529 5 23 0
+530 5 23 0
 v_milk_revenue_contract
 12 0 3 1 4 2 0 0
 
-530 5 23 0
+531 5 23 0
 v_milk_revenue_informal
 12 0 3 1 4 2 0 0
 
-532 6 24 0
+533 6 24 0
 e_offfarm_income_wo_loan
 1 0 2 0 0 28 1
 Off farm income (lc/hh/year)
-534 6 19 0
+535 6 19 0
 e_farm_income_lives
 12 0 3 0 0 0 47 1
 Livestock income income definition (lc/hh/year)
-535 6 18 0
+536 6 18 0
 e_farm_income_crop
 12 0 3 0 0 0 46 1
 Crop enterprise income definition (lc/hh/year)
-536 6 15 0
+537 6 15 0
 e_crop_expenses
 12 0 3 0 0 0 47 1
 Annual expenses on crop production (lc/hh/year)
-537 6 20 0
+538 6 20 0
 e_livestock_expenses
 12 0 3 0 0 0 52 1
 Annual expenses on livestock production (lc/hh/year)
-538 6 14 0
+539 6 14 0
 e_total_income
 12 0 3 0 0 0 72 1
 Total household income (farm plus off farm) in a given year (lc/hh/year)
-539 6 23 0
+540 6 23 0
 e_milk_revenue_contract
 12 0 3 0 0 0 0 0
 
-540 6 23 0
+541 6 23 0
 e_milk_revenue_informal
 12 0 3 0 0 0 0 0
 
-541 6 18 0
+542 6 18 0
 e_minimum_nutrient
 1 0 3 0 0 0 66 1
 Specify minimum required nutrient intake from farm produce (crops)
-543 6 18 0
+544 6 18 0
 e_milk_no_contract
 12 0 3 0 0 0 60 1
 Constraint on milk for when there is no option of a contract

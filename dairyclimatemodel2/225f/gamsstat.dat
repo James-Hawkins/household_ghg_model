@@ -1,0 +1,791 @@
+=0 GAMS/MINOS       Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows
+=1
+ 
+GAMS/MINOS       Jul  4, 2010 23.5.1 WIN 18414.18495 VS8 x86/MS Windows    
+M I N O S  5.51     (Jun 2004)
+
+    GAMS/MINOS 5.51, Large Scale Nonlinear Solver
+    B. A. Murtagh, University of New South Wales
+    P. E. Gill, University of California at San Diego,
+    W. Murray, M. A. Saunders, and M. H. Wright,
+    Systems Optimization Laboratory, Stanford University
+
+=2
+=1
+
+ Work space allocated           --   29.96 Mb
+
+=2
+1
+ 
+      ==============================
+      M I N O S  5.51     (Jun 2004)
+      ==============================
+
+ Nonzeros allowed for in LU factors  1355344
+1
+ 
+ Parameters
+ ----------
+
+ FILES.
+ MPS file ..............         0       Old basis file ........         0       (Card reader)..........         5
+ Solution file..........         0       New basis file ........         0       (Printer)..............        14
+ Insert file............         0       Backup basis file......         0       (Specs file)...........         0
+ Punch file.............         0       Load file..............         0       Dump file..............         0
+
+ FREQUENCIES.
+ Log frequency..........       100       Check row error........        60       Save new basis map.....       100
+ Summary frequency......       100       Factorize basis........        50       Expand frequency.......     10000
+
+ LP PARAMETERS.
+ Scale option...........         1       Feasibility tolerance..  1.00E-06       Iteration limit........  99999999
+ Scale tolerance........     0.900       Optimality tolerance...  1.00E-06       Partial  price.........         1
+ Crash option...........         3       Pivot tolerance........  3.25E-11       Multiple price.........         1
+ Crash tolerance........     0.100       Weight on objective....  0.00E+00
+
+ NONLINEAR PROBLEMS.
+ Nonlinear constraints..      2380       Hessian dimension......       500       Function precision.....  3.00E-13
+ Nonlinear Jacobian vars      8406       Superbasics limit......       500       Difference interval....  5.48E-07
+ Nonlinear objectiv vars      9606       Linesearch tolerance...   0.10000       Central difference int.  6.69E-05
+ Problem number.........         0       Subspace tolerance.....   0.50000       Derivative level.......         3
+ Unbounded objective val  1.00E+20       Unbounded step size....  1.00E+10       Verify level...........        -1
+
+ AUGMENTED LAGRANGIAN.
+ Jacobian...............    Sparse       Major iterations limit.  99999999       Radius of convergence..  1.00E-01
+ Lagrangian.............       Yes       Minor iterations limit.        40       Row tolerance..........  1.00E-06
+ Penalty parameter......  1.00E+00       Completion.............      Part       Print level..(JFLXB)...         1
+ Major damping parameter  2.00E+00       Minor damping parameter  2.00E+00
+
+ MISCELLANEOUS.
+ LU factor tolerance....      5.00       Workspace (user).......         0       Debug level............         0
+ LU update tolerance....      5.00       Workspace (total)......   3212461       Linesearch debug after.   9999999
+ LU singularity tol.....  3.25E-11       eps (machine precision)  2.22E-16       nwordr, nwordi, nwordh.   2  2  2
+ LU swap tolerance......  1.22E-04       Timing level...........         3
+
+ Scale option  1,      Partial price       1
+ Partial price section size (A)        17828
+ Partial price section size (I)        11868
+
+
+
+ Matrix Statistics
+ -----------------
+               Total      Normal        Free       Fixed     Bounded
+ Rows          11868         411           1       11456           0
+ Columns       17828        8781        8671         376           0
+
+ No. of matrix elements               210700     Density       0.100
+ Biggest                          6.3539E+07  (excluding fixed columns,
+ Smallest                         0.0000E+00   free rows, and RHS)
+
+ No. of objective coefficients            12
+ Biggest                          9.6154E-01  (excluding fixed columns)
+ Smallest                         9.6154E-01
+
+
+ Nonlinear constraints    2380     Linear constraints    9488
+ Nonlinear variables      9606     Linear variables      8222
+ Jacobian  variables      8406     Objective variables   9606
+
+ Initial basis
+ -------------
+ No basis file supplied
+
+
+ Scaling
+ -------
+             Min elem    Max elem       Max col ratio
+ After  0    1.00E-03    6.35E+07         63538573.84
+ After  1    4.54E-05    1.00E+02          2201040.76
+ After  2    2.01E-03    1.00E+02            49854.06
+ After  3    1.68E-02    5.96E+01             3552.98
+ After  4    1.78E-02    5.62E+01             3159.05
+ After  5    1.88E-02    5.31E+01             2816.21
+ After  6    1.98E-02    5.06E+01             2555.78
+
+            Min scale                       Max scale      Between 0.5 and 2.0
+ Col  14864   4.7E-05            Col   9680   8.6E+03            10377    58.2
+ Row   5326   1.6E-04            Row  10332   2.5E+05              988     8.3
+
+
+ Crash option  3
+
+ Crash on linear E  rows:
+ Slacks     0  Free cols  4373  Preferred     0
+ Unit    1655  Double      242  Triangle    119  Pad  2687
+1
+ 
+ Iterations
+ ----------
+
+ Factor      1  Demand      0  Itn          0  Infeas       0
+ Nonlin   2311  Linear   4078  Slacks    5479  Objective       0.00000000E+00
+ m       11868 =n       11868  Elems    42028  Amax   4.6E+01  Density   0.03
+ Singular(m=n)  rank    11867  n-rank       1  nsing        1
+ Merit     0.0  lenL      198  L+U      41980  Cmpressns    0  Incres   -0.11
+ Utri    11644  lenU    41782  Ltol   5.0E+00  Umax   4.6E+01  Ugrwth 1.0E+00
+ Ltri      115  dense1      0  Lmax   4.2E+00
+ bump      109  dense2      0  DUmax  3.7E+01  DUmin  2.4E-01  condU  1.6E+02
+ Column   7938  replaced by slack   9479
+ Nonlin   2310  Linear   4078  Slacks    5480  Objective       0.00000000E+00
+ m       11868 =n       11868  Elems    41911  Amax   4.6E+01  Density   0.03
+ Merit     0.0  lenL      187  L+U      41857  Cmpressns    0  Incres   -0.13
+ Utri    11647  lenU    41670  Ltol   5.0E+00  Umax   4.6E+01  Ugrwth 1.0E+00
+ Ltri      115  dense1      8  Lmax   4.2E+00
+ bump      106  dense2      6  DUmax  3.8E+01  DUmin  2.4E-01  condU  1.6E+02
+ Itn      0 -- infeasible.  Num =  254   Sum =   2.042691750E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+      1  1  1  2.2E+02  9919  9919 23358 1.6E-10  3.1E-01  254  2.04269175E+04   187 41670   0
+
+ Factor      2  Demand      1  Itn         50  Infeas     187
+ Nonlin   2310  Linear   4128  Slacks    5430  Sum infeas      1.69539629E+04
+ m       11868 =n       11868  Elems    42078  Amax   4.6E+01  Density   0.03
+ Merit     0.0  lenL      261  L+U      42038  Cmpressns    0  Incres   -0.10
+ Utri    11593  lenU    41777  Ltol   5.0E+00  Umax   4.6E+01  Ugrwth 1.0E+00
+ Ltri      140  dense1     12  Lmax   4.2E+00
+ bump      135  dense2      9  DUmax  3.9E+01  DUmin  9.0E-02  condU  4.3E+02
+ Itn     50 -- infeasible.  Num =  187   Sum =   1.695396291E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    100  1  1 -7.6E+00  8146  8146  8074 4.5E-12  1.1E+01  162  1.65413219E+04   561 42206   0
+
+ Factor      3  Demand      1  Itn        100  Infeas     162
+ Nonlin   2312  Linear   4165  Slacks    5391  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    42563  Amax   4.6E+01  Density   0.03
+ Merit     0.0  lenL      603  L+U      42648  Cmpressns    0  Incres    0.20
+ Utri    11315  lenU    42045  Ltol   5.0E+00  Umax   4.6E+01  Ugrwth 1.0E+00
+ Ltri      371  dense1      3  Lmax   4.2E+00
+ bump      182  dense2      2  DUmax  3.8E+01  DUmin  2.4E-01  condU  1.6E+02
+ Itn    100 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+ Factor      4  Demand      1  Itn        150  Infeas     162
+ Nonlin   2313  Linear   4206  Slacks    5349  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    44127  Amax   5.1E+01  Density   0.03
+ Merit     0.1  lenL      876  L+U      44263  Cmpressns    0  Incres    0.31
+ Utri    11217  lenU    43387  Ltol   5.0E+00  Umax   6.6E+01  Ugrwth 1.3E+00
+ Ltri      378  dense1     21  Lmax   4.2E+00
+ bump      273  dense2     16  DUmax  6.6E+01  DUmin  2.8E-02  condU  2.4E+03
+ Itn    150 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    200  1  1 -4.6E+01 15127 15127 25531 2.9E-11 -1.7E+00  162  1.65413219E+04  1381 46502   0
+
+ Factor      5  Demand      1  Itn        200  Infeas     162
+ Nonlin   2313  Linear   4256  Slacks    5299  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    47325  Amax   5.1E+01  Density   0.03
+ Merit     0.4  lenL     2188  L+U      48321  Cmpressns    0  Incres    2.10
+ Utri    11104  lenU    46133  Ltol   5.0E+00  Umax   2.7E+02  Ugrwth 5.3E+00
+ Ltri      362  dense1     54  Lmax   4.5E+00
+ bump      402  dense2     27  DUmax  6.5E+01  DUmin  6.2E-02  condU  1.0E+03
+ Itn    200 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+ Factor      6  Demand      1  Itn        250  Infeas     162
+ Nonlin   2313  Linear   4306  Slacks    5249  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    47375  Amax   5.1E+01  Density   0.03
+ Merit     0.3  lenL     2037  L+U      48261  Cmpressns    0  Incres    1.87
+ Utri    11104  lenU    46224  Ltol   5.0E+00  Umax   6.3E+01  Ugrwth 1.3E+00
+ Ltri      362  dense1     48  Lmax   4.7E+00
+ bump      402  dense2     25  DUmax  6.3E+01  DUmin  6.2E-02  condU  1.0E+03
+ Itn    250 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    300  1  1 -1.4E+02 14931 14931 25624 2.4E-11 -2.1E+00  162  1.65413219E+04  2467 46635   0
+
+ Factor      7  Demand      1  Itn        300  Infeas     162
+ Nonlin   2313  Linear   4356  Slacks    5199  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    47728  Amax   5.1E+01  Density   0.03
+ Merit     0.4  lenL     2343  L+U      48843  Cmpressns    0  Incres    2.34
+ Utri    11090  lenU    46500  Ltol   5.0E+00  Umax   8.8E+01  Ugrwth 1.7E+00
+ Ltri      362  dense1     52  Lmax   4.7E+00
+ bump      416  dense2     24  DUmax  8.8E+01  DUmin  3.5E-02  condU  2.5E+03
+ Itn    300 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+ Factor      8  Demand      1  Itn        350  Infeas     162
+ Nonlin   2313  Linear   4406  Slacks    5149  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    48981  Amax   5.1E+01  Density   0.03
+ Merit     0.5  lenL     2775  L+U      50403  Cmpressns    0  Incres    2.90
+ Utri    11017  lenU    47628  Ltol   5.0E+00  Umax   8.0E+01  Ugrwth 1.6E+00
+ Ltri      359  dense1     57  Lmax   4.6E+00
+ bump      492  dense2     37  DUmax  8.0E+01  DUmin  2.0E-02  condU  4.1E+03
+ Itn    350 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    400  1  1  1.2E+02 15902 15902 28046 4.5E-10  1.1E-01  162  1.65413219E+04  4552 47068   0
+
+ Factor      9  Demand      1  Itn        400  Infeas     162
+ Nonlin   2313  Linear   4454  Slacks    5101  Sum infeas      1.65413219E+04
+ m       11868 =n       11868  Elems    48929  Amax   5.1E+01  Density   0.03
+ Merit     0.6  lenL     2814  L+U      50477  Cmpressns    0  Incres    3.16
+ Utri    11020  lenU    47663  Ltol   5.0E+00  Umax   1.3E+02  Ugrwth 2.5E+00
+ Ltri      359  dense1     64  Lmax   4.7E+00
+ bump      489  dense2     34  DUmax  1.2E+02  DUmin  7.6E-02  condU  1.5E+03
+ Itn    400 -- infeasible.  Num =  162   Sum =   1.654132194E+04
+
+ Factor     10  Demand      1  Itn        450  Infeas     162
+ Nonlin   2313  Linear   4496  Slacks    5059  Sum infeas      1.65413218E+04
+ m       11868 =n       11868  Elems    49089  Amax   5.1E+01  Density   0.03
+ Merit     0.5  lenL     2752  L+U      50567  Cmpressns    0  Incres    3.01
+ Utri    11021  lenU    47815  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      363  dense1     62  Lmax   4.7E+00
+ bump      484  dense2     25  DUmax  2.3E+02  DUmin  2.2E-03  condU  1.1E+05
+ Itn    450 -- infeasible.  Num =  162   Sum =   1.654132183E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    500  1  1  1.8E+02 10098 10098 12080 5.6E-10  8.7E-02  162  1.65413215E+04  3436 52926   0
+
+ Factor     11  Demand      1  Itn        500  Infeas     162
+ Nonlin   2310  Linear   4526  Slacks    5032  Sum infeas      1.65413215E+04
+ m       11868 =n       11868  Elems    53266  Amax   5.1E+01  Density   0.04
+ Merit     0.7  lenL     3636  L+U      55560  Cmpressns    0  Incres    4.31
+ Utri    10963  lenU    51924  Ltol   5.0E+00  Umax   1.1E+02  Ugrwth 2.2E+00
+ Ltri      351  dense1     58  Lmax   4.9E+00
+ bump      554  dense2     26  DUmax  1.1E+02  DUmin  3.2E-05  condU  3.5E+06
+ Itn    500 -- infeasible.  Num =  162   Sum =   1.654132147E+04
+
+ Factor     12  Demand      1  Itn        550  Infeas     162
+ Nonlin   2303  Linear   4547  Slacks    5018  Sum infeas      1.65412366E+04
+ m       11868 =n       11868  Elems    56873  Amax   5.1E+01  Density   0.04
+ Merit     0.8  lenL     3465  L+U      59199  Cmpressns    0  Incres    4.09
+ Utri    10944  lenU    55734  Ltol   5.0E+00  Umax   1.5E+02  Ugrwth 2.9E+00
+ Ltri      329  dense1     59  Lmax   4.7E+00
+ bump      595  dense2     36  DUmax  1.5E+02  DUmin  1.3E-05  condU  1.2E+07
+ Itn    550 -- infeasible.  Num =  162   Sum =   1.654123657E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    600  1  1  4.0E+02 10255 10255 12237 1.2E-09  4.0E-02  162  1.65412365E+04  3658 60915   0
+
+ Factor     13  Demand      1  Itn        600  Infeas     162
+ Nonlin   2298  Linear   4556  Slacks    5014  Sum infeas      1.65412365E+04
+ m       11868 =n       11868  Elems    61038  Amax   5.1E+01  Density   0.04
+ Merit     0.9  lenL     4571  L+U      64484  Cmpressns    0  Incres    5.65
+ Utri    10926  lenU    59913  Ltol   5.0E+00  Umax   4.2E+02  Ugrwth 8.4E+00
+ Ltri      286  dense1     63  Lmax   4.6E+00
+ bump      656  dense2     34  DUmax  4.2E+02  DUmin  3.4E-05  condU  1.2E+07
+ Itn    600 -- infeasible.  Num =  162   Sum =   1.654123652E+04
+
+ Factor     14  Demand      1  Itn        650  Infeas     162
+ Nonlin   2287  Linear   4568  Slacks    5013  Sum infeas      1.65412360E+04
+ m       11868 =n       11868  Elems    65936  Amax   5.1E+01  Density   0.05
+ Merit     1.0  lenL     4955  L+U      69848  Cmpressns    0  Incres    5.93
+ Utri    10906  lenU    64893  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      253  dense1     52  Lmax   4.6E+00
+ bump      709  dense2     30  DUmax  2.3E+02  DUmin  3.2E-05  condU  7.2E+06
+ Itn    650 -- infeasible.  Num =  162   Sum =   1.654123604E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    700  1  1 -5.3E+02 12285 12285 12129 5.2E-08  1.1E+00  162  1.65412356E+04  5171 71160   0
+
+ Factor     15  Demand      1  Itn        700  Infeas     162
+ Nonlin   2281  Linear   4576  Slacks    5011  Sum infeas      1.65412356E+04
+ m       11868 =n       11868  Elems    70338  Amax   5.1E+01  Density   0.05
+ Merit     1.0  lenL     5547  L+U      74548  Cmpressns    0  Incres    5.99
+ Utri    10900  lenU    69001  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      213  dense1     61  Lmax   4.9E+00
+ bump      755  dense2     29  DUmax  2.3E+02  DUmin  6.8E-05  condU  3.4E+06
+ Itn    700 -- infeasible.  Num =  162   Sum =   1.654123556E+04
+
+ Factor     16  Demand      1  Itn        750  Infeas     162
+ Nonlin   2271  Linear   4594  Slacks    5003  Sum infeas      1.65412354E+04
+ m       11868 =n       11868  Elems    74346  Amax   5.1E+01  Density   0.05
+ Merit     1.1  lenL     5853  L+U      79095  Cmpressns    0  Incres    6.39
+ Utri    10890  lenU    73242  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      183  dense1     53  Lmax   4.9E+00
+ bump      795  dense2     29  DUmax  2.3E+02  DUmin  9.0E-05  condU  2.6E+06
+ Itn    750 -- infeasible.  Num =  162   Sum =   1.654123541E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    800  1  1 -4.3E+04 12977 12977 27451 1.9E-09 -4.3E-01  162  1.65412336E+04  8181 73857   0
+
+ Factor     17  Demand      1  Itn        800  Infeas     162
+ Nonlin   2270  Linear   4632  Slacks    4966  Sum infeas      1.65412336E+04
+ m       11868 =n       11868  Elems    75183  Amax   5.1E+01  Density   0.05
+ Merit     1.0  lenL     5197  L+U      79350  Cmpressns    0  Incres    5.54
+ Utri    10892  lenU    74153  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      207  dense1     57  Lmax   4.6E+00
+ bump      769  dense2     34  DUmax  2.3E+02  DUmin  1.6E-05  condU  1.5E+07
+ Itn    800 -- infeasible.  Num =  162   Sum =   1.654123348E+04
+
+ Factor     18  Demand      1  Itn        850  Infeas     162
+ Nonlin   2270  Linear   4669  Slacks    4929  Sum infeas      1.65412278E+04
+ m       11868 =n       11868  Elems    75821  Amax   5.1E+01  Density   0.05
+ Merit     1.0  lenL     5867  L+U      80438  Cmpressns    0  Incres    6.09
+ Utri    10893  lenU    74571  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      202  dense1     53  Lmax   4.4E+00
+ bump      773  dense2     29  DUmax  2.3E+02  DUmin  2.6E-06  condU  9.2E+07
+ Itn    850 -- infeasible.  Num =  162   Sum =   1.654122769E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+    900  1  1  2.6E+03 15723 15723 25935 2.0E-10 -2.5E-01  162  1.65412270E+04  6872 75320   0
+
+ Factor     19  Demand      1  Itn        900  Infeas     162
+ Nonlin   2270  Linear   4713  Slacks    4885  Sum infeas      1.65412270E+04
+ m       11868 =n       11868  Elems    76365  Amax   5.1E+01  Density   0.05
+ Merit     1.0  lenL     5843  L+U      81052  Cmpressns    0  Incres    6.14
+ Utri    10891  lenU    75209  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      197  dense1     52  Lmax   4.4E+00
+ bump      780  dense2     30  DUmax  2.3E+02  DUmin  3.6E-06  condU  6.6E+07
+ Itn    900 -- infeasible.  Num =  162   Sum =   1.654122701E+04
+
+ Factor     20  Demand      1  Itn        950  Infeas     162
+ Nonlin   2270  Linear   4763  Slacks    4835  Sum infeas      1.65412269E+04
+ m       11868 =n       11868  Elems    76415  Amax   5.1E+01  Density   0.05
+ Merit     1.1  lenL     5581  L+U      80966  Cmpressns    0  Incres    5.96
+ Utri    10887  lenU    75385  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      197  dense1     42  Lmax   4.4E+00
+ bump      784  dense2     19  DUmax  2.3E+02  DUmin  3.6E-06  condU  6.5E+07
+ Itn    950 -- infeasible.  Num =  162   Sum =   1.654122690E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1000  1  1  1.9E+02 17439 17439 28335 4.9E-08 -1.0E-03  162  1.65412261E+04  8992 74894   0
+
+ Factor     21  Demand      1  Itn       1000  Infeas     162
+ Nonlin   2270  Linear   4812  Slacks    4786  Sum infeas      1.65412261E+04
+ m       11868 =n       11868  Elems    76464  Amax   5.1E+01  Density   0.05
+ Merit     1.0  lenL     5649  L+U      80893  Cmpressns    0  Incres    5.79
+ Utri    10891  lenU    75244  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      199  dense1     52  Lmax   4.4E+00
+ bump      778  dense2     29  DUmax  2.3E+02  DUmin  3.6E-06  condU  6.5E+07
+ Itn   1000 -- infeasible.  Num =  162   Sum =   1.654122611E+04
+
+ Factor     22  Demand      1  Itn       1050  Infeas     162
+ Nonlin   2270  Linear   4857  Slacks    4741  Sum infeas      1.65412225E+04
+ m       11868 =n       11868  Elems    76409  Amax   5.1E+01  Density   0.05
+ Merit     1.1  lenL     5319  L+U      80645  Cmpressns    0  Incres    5.54
+ Utri    10895  lenU    75326  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      199  dense1     45  Lmax   4.7E+00
+ bump      774  dense2     22  DUmax  2.3E+02  DUmin  3.4E-05  condU  6.8E+06
+ Itn   1050 -- infeasible.  Num =  162   Sum =   1.654122243E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1100  1  1  5.9E+04 10476 10476 12398 1.5E-09  3.4E-02  162  1.65411721E+04  6528 78040   0
+
+ Factor     23  Demand      1  Itn       1100  Infeas     162
+ Nonlin   2265  Linear   4872  Slacks    4731  Sum infeas      1.65411721E+04
+ m       11868 =n       11868  Elems    78817  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5627  L+U      83348  Cmpressns    0  Incres    5.75
+ Utri    10904  lenU    77721  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      178  dense1     52  Lmax   4.7E+00
+ bump      786  dense2     29  DUmax  2.3E+02  DUmin  3.5E-06  condU  6.6E+07
+ Itn   1100 -- infeasible.  Num =  162   Sum =   1.654117206E+04
+
+ Factor     24  Demand      1  Itn       1150  Infeas     162
+ Nonlin   2265  Linear   4917  Slacks    4686  Sum infeas      1.65411711E+04
+ m       11868 =n       11868  Elems    78847  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5411  L+U      83276  Cmpressns    0  Incres    5.62
+ Utri    10900  lenU    77865  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      176  dense1     55  Lmax   4.7E+00
+ bump      792  dense2     30  DUmax  2.3E+02  DUmin  3.5E-06  condU  6.6E+07
+ Itn   1150 -- infeasible.  Num =  162   Sum =   1.654117108E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1200  1  1 -6.9E+01 16816 16816 27844 2.7E-08  1.8E-03  161  1.65411419E+04  6529 77753   0
+
+ Factor     25  Demand      1  Itn       1200  Infeas     161
+ Nonlin   2266  Linear   4963  Slacks    4639  Sum infeas      1.65411419E+04
+ m       11868 =n       11868  Elems    78895  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5618  L+U      83330  Cmpressns    0  Incres    5.62
+ Utri    10890  lenU    77712  Ltol   5.0E+00  Umax   2.1E+02  Ugrwth 4.2E+00
+ Ltri      178  dense1     53  Lmax   4.7E+00
+ bump      800  dense2     20  DUmax  2.1E+02  DUmin  3.5E-06  condU  6.0E+07
+ Itn   1200 -- infeasible.  Num =  161   Sum =   1.654114187E+04
+
+ Factor     26  Demand      1  Itn       1250  Infeas     161
+ Nonlin   2266  Linear   5012  Slacks    4590  Sum infeas      1.65411412E+04
+ m       11868 =n       11868  Elems    78944  Amax   5.1E+01  Density   0.06
+ Merit     1.1  lenL     5521  L+U      83394  Cmpressns    0  Incres    5.64
+ Utri    10894  lenU    77873  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      180  dense1     44  Lmax   4.7E+00
+ bump      794  dense2     22  DUmax  2.3E+02  DUmin  3.5E-06  condU  6.7E+07
+ Itn   1250 -- infeasible.  Num =  161   Sum =   1.654114109E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1300  1  1 -1.2E+03 12290 12290  8294 4.6E-10  1.1E-01  161  1.65406489E+04  8290 77375   0
+
+ Factor     27  Demand      1  Itn       1300  Infeas     161
+ Nonlin   2265  Linear   5053  Slacks    4550  Sum infeas      1.65406489E+04
+ m       11868 =n       11868  Elems    78581  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5129  L+U      82820  Cmpressns    0  Incres    5.39
+ Utri    10901  lenU    77691  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      180  dense1     46  Lmax   4.7E+00
+ bump      787  dense2     21  DUmax  2.3E+02  DUmin  4.9E-07  condU  4.8E+08
+ Itn   1300 -- infeasible.  Num =  161   Sum =   1.654064890E+04
+
+ Factor     28  Demand      1  Itn       1350  Infeas     161
+ Nonlin   2260  Linear   5070  Slacks    4538  Sum infeas      1.65398005E+04
+ m       11868 =n       11868  Elems    81294  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5068  L+U      85622  Cmpressns    0  Incres    5.32
+ Utri    10901  lenU    80554  Ltol   5.0E+00  Umax   7.4E+01  Ugrwth 1.5E+00
+ Ltri      160  dense1     46  Lmax   4.7E+00
+ bump      807  dense2     21  DUmax  7.4E+01  DUmin  4.6E-06  condU  1.6E+07
+ Itn   1350 -- infeasible.  Num =  161   Sum =   1.653980045E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1400  1  1 -3.0E+03 15533 15533 25793 2.0E-10 -2.5E-01  161  1.65398004E+04  5166 80626   0
+
+ Factor     29  Demand      1  Itn       1400  Infeas     161
+ Nonlin   2260  Linear   5120  Slacks    4488  Sum infeas      1.65398004E+04
+ m       11868 =n       11868  Elems    81344  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5428  L+U      85772  Cmpressns    0  Incres    5.44
+ Utri    10898  lenU    80344  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      160  dense1     43  Lmax   4.7E+00
+ bump      810  dense2     20  DUmax  2.3E+02  DUmin  3.4E-06  condU  6.8E+07
+ Itn   1400 -- infeasible.  Num =  161   Sum =   1.653980043E+04
+
+ Factor     30  Demand      1  Itn       1450  Infeas     159
+ Nonlin   2260  Linear   5168  Slacks    4440  Sum infeas      1.65397658E+04
+ m       11868 =n       11868  Elems    81393  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5258  L+U      85769  Cmpressns    0  Incres    5.38
+ Utri    10886  lenU    80511  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      165  dense1     43  Lmax   4.7E+00
+ bump      817  dense2     22  DUmax  2.3E+02  DUmin  3.4E-06  condU  6.8E+07
+ Itn   1450 -- infeasible.  Num =  159   Sum =   1.653976578E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1500  1  1 -2.0E+03 15797 15797 25289 1.7E-10  3.0E-01  159  1.65397649E+04  7995 80104   0
+
+ Factor     31  Demand      1  Itn       1500  Infeas     159
+ Nonlin   2260  Linear   5218  Slacks    4390  Sum infeas      1.65397649E+04
+ m       11868 =n       11868  Elems    81543  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5134  L+U      85873  Cmpressns    0  Incres    5.31
+ Utri    10885  lenU    80739  Ltol   5.0E+00  Umax   2.8E+02  Ugrwth 5.4E+00
+ Ltri      167  dense1     50  Lmax   4.7E+00
+ bump      816  dense2     21  DUmax  2.8E+02  DUmin  2.9E-03  condU  9.4E+04
+ Itn   1500 -- infeasible.  Num =  159   Sum =   1.653976494E+04
+
+ Factor     32  Demand      1  Itn       1550  Infeas     159
+ Nonlin   2254  Linear   5252  Slacks    4362  Sum infeas      1.65397440E+04
+ m       11868 =n       11868  Elems    82971  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5276  L+U      87401  Cmpressns    0  Incres    5.34
+ Utri    10890  lenU    82125  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      157  dense1     40  Lmax   4.7E+00
+ bump      821  dense2     20  DUmax  2.3E+02  DUmin  3.4E-06  condU  6.9E+07
+ Itn   1550 -- infeasible.  Num =  159   Sum =   1.653974387E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1600  1  1  2.6E+03 15894 15894 25194 2.0E-10 -2.4E-01  159  1.65397425E+04  5380 83518   0
+
+ Factor     33  Demand      1  Itn       1600  Infeas     159
+ Nonlin   2255  Linear   5286  Slacks    4327  Sum infeas      1.65397425E+04
+ m       11868 =n       11868  Elems    84107  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5230  L+U      88473  Cmpressns    0  Incres    5.19
+ Utri    10887  lenU    83243  Ltol   5.0E+00  Umax   2.8E+02  Ugrwth 5.4E+00
+ Ltri      144  dense1     39  Lmax   4.7E+00
+ bump      837  dense2     20  DUmax  2.8E+02  DUmin  3.4E-06  condU  8.2E+07
+ Itn   1600 -- infeasible.  Num =  159   Sum =   1.653974253E+04
+
+ Factor     34  Demand      1  Itn       1650  Infeas     159
+ Nonlin   2253  Linear   5336  Slacks    4279  Sum infeas      1.65397425E+04
+ m       11868 =n       11868  Elems    84019  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5315  L+U      88407  Cmpressns    0  Incres    5.22
+ Utri    10875  lenU    83092  Ltol   5.0E+00  Umax   1.6E+02  Ugrwth 3.1E+00
+ Ltri      145  dense1     40  Lmax   5.0E+00
+ bump      848  dense2     22  DUmax  1.6E+02  DUmin  3.4E-06  condU  4.7E+07
+ Itn   1650 -- infeasible.  Num =  158   Sum =   1.653971233E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1700  1  1 -1.9E+02 17718 17718 27606 8.3E-08  5.9E-04  158  1.65397117E+04  8810 82641   0
+
+ Factor     35  Demand      1  Itn       1700  Infeas     158
+ Nonlin   2253  Linear   5385  Slacks    4230  Sum infeas      1.65397117E+04
+ m       11868 =n       11868  Elems    84068  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5478  L+U      88582  Cmpressns    0  Incres    5.37
+ Utri    10876  lenU    83104  Ltol   5.0E+00  Umax   9.6E+01  Ugrwth 1.9E+00
+ Ltri      145  dense1     42  Lmax   4.7E+00
+ bump      847  dense2     22  DUmax  9.2E+01  DUmin  3.4E-06  condU  2.7E+07
+ Itn   1700 -- infeasible.  Num =  158   Sum =   1.653971167E+04
+
+ Factor     36  Demand      1  Itn       1750  Infeas     158
+ Nonlin   2253  Linear   5434  Slacks    4181  Sum infeas      1.65397085E+04
+ m       11868 =n       11868  Elems    84017  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5159  L+U      88354  Cmpressns    0  Incres    5.16
+ Utri    10883  lenU    83195  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      147  dense1     46  Lmax   4.9E+00
+ bump      838  dense2     21  DUmax  2.3E+02  DUmin  5.4E-03  condU  4.3E+04
+ Itn   1750 -- infeasible.  Num =  158   Sum =   1.653970841E+04
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1800  1  1 -7.3E+08 12577 12577 22934 5.6E-07 -1.2E+06  153  1.61354382E+04  6063 83339   0
+
+ Factor     37  Demand      1  Itn       1800  Infeas     153
+ Nonlin   2250  Linear   5445  Slacks    4173  Sum infeas      1.61354382E+04
+ m       11868 =n       11868  Elems    84006  Amax   5.1E+01  Density   0.06
+ Merit     0.8  lenL     4650  L+U      87832  Cmpressns    0  Incres    4.55
+ Utri    10907  lenU    83182  Ltol   5.0E+00  Umax   5.5E+01  Ugrwth 1.1E+00
+ Ltri      161  dense1     36  Lmax   5.0E+00
+ bump      800  dense2     19  DUmax  5.5E+01  DUmin  5.4E-03  condU  1.0E+04
+ Itn   1800 -- infeasible.  Num =  151   Sum =   1.572636426E+04
+
+ Factor     38  Demand      1  Itn       1850  Infeas     143
+ Nonlin   2261  Linear   5442  Slacks    4165  Sum infeas      9.83923541E+02
+ m       11868 =n       11868  Elems    85609  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5281  L+U      89604  Cmpressns    0  Incres    4.67
+ Utri    10874  lenU    84323  Ltol   5.0E+00  Umax   5.0E+02  Ugrwth 1.0E+01
+ Ltri      193  dense1     46  Lmax   4.4E+00
+ bump      801  dense2     20  DUmax  5.0E+02  DUmin  1.5E-02  condU  3.5E+04
+ Itn   1850 -- infeasible.  Num =  142   Sum =   9.719008444E+02
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   1900  1  1  3.2E+00  9964  9964 11799 1.9E-11  2.6E+00  128  8.92708965E+02  6094 85494   0
+
+ Factor     39  Demand      1  Itn       1900  Infeas     128
+ Nonlin   2263  Linear   5456  Slacks    4149  Sum infeas      8.92708965E+02
+ m       11868 =n       11868  Elems    86245  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5839  L+U      90706  Cmpressns    0  Incres    5.17
+ Utri    10845  lenU    84867  Ltol   5.0E+00  Umax   1.5E+02  Ugrwth 2.9E+00
+ Ltri      191  dense1     45  Lmax   4.4E+00
+ bump      832  dense2     22  DUmax  1.5E+02  DUmin  3.6E-05  condU  4.0E+06
+ Itn   1900 -- infeasible.  Num =  128   Sum =   8.927089649E+02
+
+ Factor     40  Demand      1  Itn       1950  Infeas     114
+ Nonlin   2264  Linear   5482  Slacks    4122  Sum infeas      1.28045348E+02
+ m       11868 =n       11868  Elems    86109  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5739  L+U      90329  Cmpressns    0  Incres    4.90
+ Utri    10801  lenU    84590  Ltol   5.0E+00  Umax   5.0E+02  Ugrwth 1.0E+01
+ Ltri      187  dense1     46  Lmax   4.4E+00
+ bump      880  dense2     23  DUmax  5.0E+02  DUmin  3.6E-05  condU  1.4E+07
+ Itn   1950 -- infeasible.  Num =  114   Sum =   1.280453468E+02
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2000  1  1  7.0E-01  9872  9872 23227 6.1E-11 -8.1E-01   16  2.65298661E+01  6063 84580   0
+
+ Factor     41  Demand      1  Itn       2000  Infeas      16
+ Nonlin   2264  Linear   5522  Slacks    4082  Sum infeas      2.65298661E+01
+ m       11868 =n       11868  Elems    85925  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5678  L+U      90307  Cmpressns    0  Incres    5.10
+ Utri    10790  lenU    84629  Ltol   5.0E+00  Umax   2.1E+02  Ugrwth 4.1E+00
+ Ltri      186  dense1     49  Lmax   4.4E+00
+ bump      892  dense2     24  DUmax  9.0E+01  DUmin  3.3E-05  condU  2.8E+06
+ Itn   2000 -- infeasible.  Num =   16   Sum =   2.652986615E+01
+
+ Factor     42  Demand      1  Itn       2050  Infeas      14
+ Nonlin   2264  Linear   5564  Slacks    4040  Sum infeas      2.37580475E+01
+ m       11868 =n       11868  Elems    85942  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5622  L+U      90127  Cmpressns    0  Incres    4.87
+ Utri    10819  lenU    84505  Ltol   5.0E+00  Umax   2.3E+02  Ugrwth 4.6E+00
+ Ltri      185  dense1     49  Lmax   4.4E+00
+ bump      864  dense2     24  DUmax  1.2E+02  DUmin  3.3E-05  condU  3.8E+06
+ Itn   2050 -- infeasible.  Num =   14   Sum =   2.375804749E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2100  1  1  3.0E-01 15585 15585 25905 2.3E-10  2.1E-01   14  2.37580475E+01  6526 84722   0
+
+ Factor     43  Demand      1  Itn       2100  Infeas      14
+ Nonlin   2264  Linear   5614  Slacks    3990  Sum infeas      2.37580475E+01
+ m       11868 =n       11868  Elems    85992  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5546  L+U      90231  Cmpressns    0  Incres    4.93
+ Utri    10814  lenU    84685  Ltol   5.0E+00  Umax   1.9E+02  Ugrwth 3.7E+00
+ Ltri      183  dense1     47  Lmax   4.4E+00
+ bump      871  dense2     24  DUmax  9.5E+01  DUmin  3.3E-05  condU  2.9E+06
+ Itn   2100 -- infeasible.  Num =   14   Sum =   2.375804749E+01
+
+ Factor     44  Demand      1  Itn       2150  Infeas      13
+ Nonlin   2264  Linear   5662  Slacks    3942  Sum infeas      2.33208609E+01
+ m       11868 =n       11868  Elems    85935  Amax   5.1E+01  Density   0.06
+ Merit     1.1  lenL     5650  L+U      90385  Cmpressns    0  Incres    5.18
+ Utri    10810  lenU    84735  Ltol   5.0E+00  Umax   3.1E+02  Ugrwth 6.1E+00
+ Ltri      178  dense1     56  Lmax   4.4E+00
+ bump      880  dense2     22  DUmax  3.1E+02  DUmin  3.3E-05  condU  9.5E+06
+ Itn   2150 -- infeasible.  Num =   13   Sum =   2.332086085E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2200  1  1  3.9E-01 15466 15466 25354 2.3E-10  2.2E-01   13  2.33208608E+01  6520 84833   0
+
+ Factor     45  Demand      1  Itn       2200  Infeas      13
+ Nonlin   2264  Linear   5712  Slacks    3892  Sum infeas      2.33208608E+01
+ m       11868 =n       11868  Elems    85985  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5416  L+U      90026  Cmpressns    0  Incres    4.70
+ Utri    10808  lenU    84610  Ltol   5.0E+00  Umax   3.1E+02  Ugrwth 6.1E+00
+ Ltri      176  dense1     54  Lmax   4.4E+00
+ bump      884  dense2     23  DUmax  3.1E+02  DUmin  3.3E-05  condU  9.5E+06
+ Itn   2200 -- infeasible.  Num =   13   Sum =   2.332086085E+01
+
+ Factor     46  Demand      1  Itn       2250  Infeas      12
+ Nonlin   2264  Linear   5760  Slacks    3844  Sum infeas      2.28836742E+01
+ m       11868 =n       11868  Elems    85928  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5921  L+U      90655  Cmpressns    0  Incres    5.50
+ Utri    10805  lenU    84734  Ltol   5.0E+00  Umax   8.0E+01  Ugrwth 1.6E+00
+ Ltri      173  dense1     47  Lmax   4.4E+00
+ bump      890  dense2     23  DUmax  8.0E+01  DUmin  3.3E-05  condU  2.5E+06
+ Itn   2250 -- infeasible.  Num =   12   Sum =   2.288367423E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2300  1  1  3.7E-01 15972 15972 25044 2.6E-10  1.9E-01   12  2.28836742E+01  7713 84798   0
+
+ Factor     47  Demand      1  Itn       2300  Infeas      12
+ Nonlin   2264  Linear   5810  Slacks    3794  Sum infeas      2.28836742E+01
+ m       11868 =n       11868  Elems    85978  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5839  L+U      90427  Cmpressns    0  Incres    5.17
+ Utri    10802  lenU    84588  Ltol   5.0E+00  Umax   3.0E+02  Ugrwth 5.9E+00
+ Ltri      170  dense1     52  Lmax   4.5E+00
+ bump      896  dense2     24  DUmax  3.0E+02  DUmin  3.3E-05  condU  9.1E+06
+ Itn   2300 -- infeasible.  Num =   12   Sum =   2.288367423E+01
+
+ Factor     48  Demand      1  Itn       2350  Infeas      11
+ Nonlin   2264  Linear   5858  Slacks    3746  Sum infeas      2.24464876E+01
+ m       11868 =n       11868  Elems    85921  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     6194  L+U      90641  Cmpressns    0  Incres    5.49
+ Utri    10799  lenU    84447  Ltol   5.0E+00  Umax   1.9E+02  Ugrwth 3.7E+00
+ Ltri      168  dense1     48  Lmax   4.7E+00
+ bump      901  dense2     23  DUmax  1.3E+02  DUmin  3.3E-05  condU  4.0E+06
+ Itn   2350 -- infeasible.  Num =   11   Sum =   2.244648760E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2400  1  1  7.9E-02 15695 15695 25187 1.9E-10 -2.6E-01    6  2.02605545E+01  6561 84598   0
+
+ Factor     49  Demand      1  Itn       2400  Infeas       6
+ Nonlin   2264  Linear   5903  Slacks    3701  Sum infeas      2.02605545E+01
+ m       11868 =n       11868  Elems    85956  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     6235  L+U      90754  Cmpressns    0  Incres    5.58
+ Utri    10795  lenU    84519  Ltol   5.0E+00  Umax   1.3E+02  Ugrwth 2.6E+00
+ Ltri      168  dense1     55  Lmax   4.8E+00
+ bump      905  dense2     23  DUmax  1.3E+02  DUmin  3.3E-05  condU  4.0E+06
+ Itn   2400 -- infeasible.  Num =    6   Sum =   2.026055454E+01
+
+ Factor     50  Demand      1  Itn       2450  Infeas       6
+ Nonlin   2264  Linear   5953  Slacks    3651  Sum infeas      2.02605545E+01
+ m       11868 =n       11868  Elems    86006  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     6330  L+U      90855  Cmpressns    0  Incres    5.64
+ Utri    10794  lenU    84525  Ltol   5.0E+00  Umax   3.1E+02  Ugrwth 6.1E+00
+ Ltri      167  dense1     48  Lmax   4.7E+00
+ bump      907  dense2     23  DUmax  3.1E+02  DUmin  3.3E-05  condU  9.5E+06
+ Itn   2450 -- infeasible.  Num =    6   Sum =   2.026055454E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2500  1  1  8.9E-02 15764 15764 25880 1.6E-10  3.1E-01    5  1.98233679E+01  6497 85086   0
+
+ Factor     51  Demand      1  Itn       2500  Infeas       5
+ Nonlin   2264  Linear   6002  Slacks    3602  Sum infeas      1.98233679E+01
+ m       11868 =n       11868  Elems    86053  Amax   5.1E+01  Density   0.06
+ Merit     1.1  lenL     6300  L+U      90918  Cmpressns    0  Incres    5.65
+ Utri    10794  lenU    84618  Ltol   5.0E+00  Umax   3.1E+02  Ugrwth 6.1E+00
+ Ltri      168  dense1     48  Lmax   4.7E+00
+ bump      906  dense2     23  DUmax  3.1E+02  DUmin  3.3E-05  condU  9.5E+06
+ Itn   2500 -- infeasible.  Num =    5   Sum =   1.982336792E+01
+
+ Factor     52  Demand      1  Itn       2550  Infeas       5
+ Nonlin   2264  Linear   6052  Slacks    3552  Sum infeas      1.98233679E+01
+ m       11868 =n       11868  Elems    86103  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     6247  L+U      91009  Cmpressns    0  Incres    5.70
+ Utri    10792  lenU    84762  Ltol   5.0E+00  Umax   3.1E+02  Ugrwth 6.1E+00
+ Ltri      166  dense1     54  Lmax   4.7E+00
+ bump      910  dense2     23  DUmax  3.1E+02  DUmin  3.3E-05  condU  9.5E+06
+ Itn   2550 -- infeasible.  Num =    5   Sum =   1.982336792E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2600  1  1 -6.1E-02 16583 16583 27731 1.9E-08  2.6E-03    4  1.95510594E+01  7177 85114   0
+
+ Factor     53  Demand      1  Itn       2600  Infeas       4
+ Nonlin   2264  Linear   6097  Slacks    3507  Sum infeas      1.95510594E+01
+ m       11868 =n       11868  Elems    86046  Amax   5.1E+01  Density   0.06
+ Merit     1.0  lenL     5906  L+U      90536  Cmpressns    0  Incres    5.22
+ Utri    10794  lenU    84630  Ltol   5.0E+00  Umax   1.1E+02  Ugrwth 2.2E+00
+ Ltri      165  dense1     49  Lmax   4.8E+00
+ bump      909  dense2     23  DUmax  1.0E+02  DUmin  3.3E-05  condU  3.1E+06
+ Itn   2600 -- infeasible.  Num =    4   Sum =   1.955105936E+01
+
+ Factor     54  Demand      1  Itn       2650  Infeas       4
+ Nonlin   2264  Linear   6141  Slacks    3463  Sum infeas      1.95510586E+01
+ m       11868 =n       11868  Elems    86090  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5898  L+U      90473  Cmpressns    0  Incres    5.09
+ Utri    10797  lenU    84575  Ltol   5.0E+00  Umax   5.3E+02  Ugrwth 1.1E+01
+ Ltri      166  dense1     48  Lmax   4.8E+00
+ bump      905  dense2     23  DUmax  5.3E+02  DUmin  3.3E-05  condU  1.6E+07
+ Itn   2650 -- infeasible.  Num =    4   Sum =   1.955105861E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2700  1  1  3.4E-02 16907 16907 12009 2.8E-04  8.9E-05    4  1.95510414E+01  8813 84099   0
+
+ Factor     55  Demand      1  Itn       2700  Infeas       4
+ Nonlin   2264  Linear   6178  Slacks    3426  Sum infeas      1.95510414E+01
+ m       11868 =n       11868  Elems    85926  Amax   5.1E+01  Density   0.06
+ Merit     0.8  lenL     5422  L+U      89972  Cmpressns    0  Incres    4.71
+ Utri    10811  lenU    84550  Ltol   5.0E+00  Umax   1.9E+02  Ugrwth 3.8E+00
+ Ltri      166  dense1     48  Lmax   4.8E+00
+ bump      891  dense2     23  DUmax  9.3E+01  DUmin  3.3E-05  condU  2.9E+06
+ Itn   2700 -- infeasible.  Num =    4   Sum =   1.955103198E+01
+
+ Factor     56  Demand      1  Itn       2750  Infeas       4
+ Nonlin   2261  Linear   6226  Slacks    3381  Sum infeas      1.95510317E+01
+ m       11868 =n       11868  Elems    85868  Amax   5.1E+01  Density   0.06
+ Merit     0.9  lenL     5571  L+U      90066  Cmpressns    0  Incres    4.89
+ Utri    10816  lenU    84495  Ltol   5.0E+00  Umax   9.1E+01  Ugrwth 1.8E+00
+ Ltri      166  dense1     48  Lmax   4.9E+00
+ bump      886  dense2     23  DUmax  7.6E+01  DUmin  3.3E-05  condU  2.3E+06
+ Itn   2750 -- infeasible.  Num =    4   Sum =   1.955103166E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2800  1  1 -9.7E-03 16812 16812 27840 1.7E-06  2.9E-03    4  1.95510263E+01 10131 84406   0
+
+ Factor     57  Demand      1  Itn       2800  Infeas       4
+ Nonlin   2261  Linear   6272  Slacks    3335  Sum infeas      1.95510263E+01
+ m       11868 =n       11868  Elems    85714  Amax   5.1E+01  Density   0.06
+ Merit     0.8  lenL     4904  L+U      89424  Cmpressns    0  Incres    4.33
+ Utri    10828  lenU    84520  Ltol   5.0E+00  Umax   8.8E+01  Ugrwth 1.7E+00
+ Ltri      167  dense1     46  Lmax   4.8E+00
+ bump      873  dense2     25  DUmax  8.8E+01  DUmin  3.3E-05  condU  2.7E+06
+ Itn   2800 -- infeasible.  Num =    4   Sum =   1.955102632E+01
+
+ Factor     58  Demand      1  Itn       2850  Infeas       4
+ Nonlin   2261  Linear   6315  Slacks    3292  Sum infeas      1.95510261E+01
+ m       11868 =n       11868  Elems    85657  Amax   5.1E+01  Density   0.06
+ Merit     0.8  lenL     4670  L+U      89165  Cmpressns    0  Incres    4.10
+ Utri    10835  lenU    84495  Ltol   5.0E+00  Umax   1.2E+02  Ugrwth 2.5E+00
+ Ltri      169  dense1     49  Lmax   4.8E+00
+ bump      864  dense2     23  DUmax  8.6E+01  DUmin  3.3E-05  condU  2.6E+06
+ Itn   2850 -- infeasible.  Num =    4   Sum =   1.955102612E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   2900  1  1 -1.8E-01 17496 17496 12610 6.7E-08  7.3E-04    4  1.95510244E+01  7542 84209   0
+
+ Factor     59  Demand      1  Itn       2900  Infeas       4
+ Nonlin   2261  Linear   6357  Slacks    3250  Sum infeas      1.95510244E+01
+ m       11868 =n       11868  Elems    85802  Amax   5.1E+01  Density   0.06
+ Merit     0.8  lenL     4787  L+U      89602  Cmpressns    0  Incres    4.43
+ Utri    10831  lenU    84815  Ltol   5.0E+00  Umax   1.3E+02  Ugrwth 2.7E+00
+ Ltri      168  dense1     48  Lmax   5.0E+00
+ bump      869  dense2     25  DUmax  8.4E+01  DUmin  3.3E-05  condU  2.6E+06
+ Itn   2900 -- infeasible.  Num =    4   Sum =   1.955102443E+01
+
+ Factor     60  Demand      1  Itn       2950  Infeas       4
+ Nonlin   2260  Linear   6393  Slacks    3215  Sum infeas      1.95509938E+01
+ m       11868 =n       11868  Elems    85432  Amax   5.1E+01  Density   0.06
+ Merit     0.6  lenL     4161  L+U      88641  Cmpressns    0  Incres    3.76
+ Utri    10859  lenU    84480  Ltol   5.0E+00  Umax   1.2E+02  Ugrwth 2.3E+00
+ Ltri      170  dense1     41  Lmax   4.8E+00
+ bump      839  dense2     22  DUmax  1.2E+02  DUmin  3.3E-05  condU  3.6E+06
+ Itn   2950 -- infeasible.  Num =    4   Sum =   1.955099379E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   3000  1  1  2.4E-02 17305 17305 27793 1.5E-07 -3.4E-04    4  1.95509934E+01  6386 84002   0
+
+ Factor     61  Demand      1  Itn       3000  Infeas       4
+ Nonlin   2260  Linear   6436  Slacks    3172  Sum infeas      1.95509934E+01
+ m       11868 =n       11868  Elems    85475  Amax   5.1E+01  Density   0.06
+ Merit     0.7  lenL     4216  L+U      88752  Cmpressns    0  Incres    3.83
+ Utri    10862  lenU    84536  Ltol   5.0E+00  Umax   7.8E+01  Ugrwth 1.5E+00
+ Ltri      171  dense1     40  Lmax   4.8E+00
+ bump      835  dense2     22  DUmax  7.8E+01  DUmin  3.3E-05  condU  2.4E+06
+ Itn   3000 -- infeasible.  Num =    4   Sum =   1.955099337E+01
+
+ Factor     62  Demand      1  Itn       3050  Infeas       3
+ Nonlin   2261  Linear   6466  Slacks    3141  Sum infeas      1.39618372E+01
+ m       11868 =n       11868  Elems    85601  Amax   5.1E+01  Density   0.06
+ Merit     0.5  lenL     3828  L+U      88304  Cmpressns    0  Incres    3.16
+ Utri    10883  lenU    84476  Ltol   5.0E+00  Umax   6.5E+01  Ugrwth 1.3E+00
+ Ltri      183  dense1     44  Lmax   5.0E+00
+ bump      802  dense2     22  DUmax  6.5E+01  DUmin  3.3E-05  condU  2.0E+06
+ Itn   3050 -- infeasible.  Num =    3   Sum =   1.396183721E+01
+
+    Itn ph pp     rg    +sbs  -sbs   -bs  step    pivot   ninf  sinf,objective     L     U ncp  nobj  ncon  nsb Hmod cond(H) conv
+   3100  1  1 -4.4E-03 16774 16774 27886 4.2E-08  1.2E-03    3  1.39618372E+01  6362 83952   0
+
+ Factor     63  Demand      1  Itn       3100  Infeas       3
+ Nonlin   2261  Linear   6509  Slacks    3098  Sum infeas      1.39618372E+01
+ m       11868 =n       11868  Elems    85544  Amax   5.1E+01  Density   0.06
+ Merit     0.4  lenL     3677  L+U      88060  Cmpressns    0  Incres    2.94
+ Utri    10890  lenU    84383  Ltol   5.0E+00  Umax   5.3E+01  Ugrwth 1.1E+00
+ Ltri      185  dense1     42  Lmax   4.9E+00
+ bump      793  dense2     20  DUmax  5.3E+01  DUmin  3.3E-05  condU  1.6E+06
+ Itn   3100 -- infeasible.  Num =    3   Sum =   1.396183719E+01

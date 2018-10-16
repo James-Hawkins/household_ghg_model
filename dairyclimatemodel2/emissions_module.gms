@@ -48,10 +48,7 @@ e_fossil_fuel_energy             'Fossil fuel energy'
 e_enteric_fermentation(hh,y)..                                                    v_enteric_methane(hh,y) =e=   28*Sum((aaact,type,minten,inten,m),30*v_aactLev(hh,aaact,type,inten,minten,y,m)*v_grossEnergy(hh,aaact,type,inten,minten,y,m)*v_Ym(hh,aaact,type,inten,minten,y,m)/(100*55.65))     ;
 
 e_Ym(hh,aaact,type,inten,minten,y,m)..                                            v_Ym(hh,aaact,type,inten,minten,y,m)       =e= 3.7 - 0.243*v_dryMatterIntake(hh,y,m,aaact,type,inten) + 0.0059*10*v_NDF(hh,y,m,aaact,type,inten,minten)   +  0.0057*10*v_dmd(hh,y,m,aaact,type,inten,minten) ;
-*3.7 - 0.243*p_DMI(y_fwd,r,breed,cohort,scen)+0.0059*10*p_ADF_intake(y_fwd,r,breed,cohort,scen)+0.0057*10*p_dry_matter_digestibility(y_fwd,r,breed,cohort,scen)/100             ;
 
-* 3.7 - 0.243*p_DMI(y_fwd,r,breed,cohort,scen)+0.0059*10*p_ADF_intake(y_fwd,r,breed,cohort,scen)+0.0057*10*p_dry_matter_digestibility(y_fwd,r,breed,cohort,scen)/100 ;
-*e_Ym_coeff(hh,aaact,type,inten,minten,y,m)..                                      v_Ym_coeff(hh,aaact,type,inten,minten,y,m)*v_grossEnergy(hh,aaact,type,inten,minten,y,m)    =e=  (.05)*100*v_digestibleEnergy(hh,aaact,type,inten,minten,y,m) ;
 
 * the below equation needs to be revised, see the equation listings in the appendix
 e_VS(hh,aaact,type,inten,minten,y,m)..                                            v_VS(hh,aaact,type,inten,minten,y,m) =e= 30*((v_grossEnergy(hh,aaact,type,inten,minten,y,m)-v_digestibleEnergy(hh,aaact,type,inten,minten,y,m))+((0.04*v_grossEnergy(hh,aaact,type,inten,minten,y,m)))*(0.92/18.45));
