@@ -29,7 +29,8 @@ p_credit_interest(hh) =0;
 
 
 * Specify maximum loan amount of 10,000 lc
-v_loan.up(hh)=500000;
+*v_loan.up(hh)=500000;
+v_loan.up(hh)=0;
 v_loan.lo(hh)=0   ;
 
 

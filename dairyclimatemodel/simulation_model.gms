@@ -16,7 +16,7 @@ v_milk_revenue_informal(hh,y,m)
 ;
 
 
-v_Qmilk_marketed_contract.FX(hh,y,m)=0;
+*v_Qmilk_marketed_contract.FX(hh,y,m)=0;
 
 Equations
          e_objective1                     'Objective function when credit is turned off'
