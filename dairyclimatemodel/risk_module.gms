@@ -92,7 +92,9 @@ e_livestock_expenses_rd(hh,i,y,m)..        v_lives_expenses_rd(hh,i,y,m) =e=
 
 e_farm_income_crop_rd (hh,i,y,m)..         v_income_crop_rd(hh,i,y,m) =e=  Sum((cash), v_prdCrop(hh,y,cash,m)*p_crop_sell_price(hh,y,cash)*CCPV(i,'banana'))  - v_crop_expenses(hh,y,m);
 
-e_farm_income_lives_rd(hh,i,y,m)..         v_income_lives_rd(hh,i,y,m) =e= sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice*OPV(i,'meat'))+ v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract + v_Qmilk_marketed_informal(hh,y,m) * p_milkPrice * OPV(i,'milk') - v_lives_expenses_rd(hh,i,y,m);
+e_farm_income_lives_rd(hh,i,y,m)..         v_income_lives_rd(hh,i,y,m) =e=  v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract + v_Qmilk_marketed_informal(hh,y,m) * p_milkPrice * OPV(i,'milk') - v_lives_expenses_rd(hh,i,y,m);
+* sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice*OPV(i,'meat'))+
+
 
 e_milk_contract_rd (hh,y,m)..              v_Qmilk_marketed_contract(hh,y,m) =l= 10000/12 ;
 

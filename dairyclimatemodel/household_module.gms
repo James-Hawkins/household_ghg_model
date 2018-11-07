@@ -55,6 +55,7 @@ e_labourbalancetotal       'Labour balance equation'
 e_labourbalancecrop        'Labour balance equation for crops'
 e_labourbalancelives       'Labour balance equation for livestock'
 e_homelabour               'Home labour balance equation'
+e_food_crop_constraint
 e_credit_expenses          'Credit expenses in a given month (lc/household/month)'
 e_home_produce_demand      'Consumption of home produced food '
 e_home_food_demand         'Consumption of milk produced by the household'
@@ -83,10 +84,12 @@ e_labourbalancecrop(hh,y,m)..                   v_totallabourdemcrop(hh,y,m)    
 
 e_labourbalancelives(hh,y,m)..                  v_totallabourdemlive(hh,y,m)    =e= v_labourliveshome(hh,y,m) + v_labour_hired_lives(hh,y,m) ;
 
-e_cons(hh,y,m,good)$(ord(m) gt 1)..                           v_cons(hh,y,m,good) =e= 100000*(0.75 + 0.55*(v_income(hh,y,m) - sum(good2,v_cons(hh,y,m,good2))))/1;
-
+e_cons(hh,y,m,good)$(ord(m) gt 1)..            v_cons(hh,y,m,good) =e= 100000*(0.75 + 0.55*(v_income(hh,y,m) - sum(good2,v_cons(hh,y,m,good2))))/1;
 
 e_home_produce_demand(hh,food,y,m)..            v_prdCrop(hh,y,food,m)   =e= v_crp_cons(hh,y,food,m);
+
+e_food_crop_constraint(hh,y)..                 sum((food,m),1000*v_prdCrop(hh,y,food,m)*10*3650) =g=  sum(hhold_member, 800*365*p_hhold_members(hh,hhold_member));
+* 0.50*p_arable_land(hh,y) ;
 
 e_home_food_demand(hh,y,m)..                    sum((type,inten,cow),v_prodQmilk(hh,cow,type,inten,y,m)) =e= v_Qmilk_marketed(hh,y,m)  + v_Qmilk_hcons(hh,y,m);
 
@@ -111,6 +114,7 @@ $ifi %CREDIT%==ON e_cash_flow2
 e_labourbalancetotal
 e_labourbalancecrop
 e_labourbalancelives
+e_food_crop_constraint
 e_dairy_land_use
 e_cons
 $ifi %CREDIT%==ON e_credit_expenses

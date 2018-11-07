@@ -37,11 +37,11 @@ Search for a first feasible solution
  
  
    Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
-      0   0        5.3497456645E+05 (Input point)
+      0   0        4.1423447849E+05 (Input point)
 =1
  
  ** Warning **  The number of nonlinear derivatives equal to zero
-                in the initial point is large (= 32 percent).
+                in the initial point is large (= 31 percent).
                 A better initial point will probably help the
                 optimization.
  
@@ -72,9 +72,9 @@ Search for an optimal solution.
   ***  Line    6  EXIT
 =1
  
- CONOPT time Total                            0.057 seconds
-   of which: Function evaluations             0.000 =  0.0%
-             1st Derivative evaluations       0.003 =  5.3%
+ CONOPT time Total                            0.009 seconds
+   of which: Function evaluations             0.001 = 11.1%
+             1st Derivative evaluations       0.001 = 11.1%
  
 =2
  
@@ -84,8 +84,8 @@ Search for an optimal solution.
  
  Timing for Function Evaluations:
  
- Statistics for FDEval-Fnc Calls:      879 Time:      0.000 T/C:    0.0000E+00
- Statistics for FDEval-Drv Calls:      879 Time:      0.003 T/C:    3.4130E-06
+ Statistics for FDEval-Fnc Calls:      879 Time:      0.001 T/C:    1.1377E-06
+ Statistics for FDEval-Drv Calls:      879 Time:      0.001 T/C:    1.1377E-06
  Statistics for 2DDir      Calls:        0 Time:      0.000 T/C:    0.0000E+00
  Statistics for 2DLagr     Calls:        0 Time:      0.000 T/C:    0.0000E+00
  

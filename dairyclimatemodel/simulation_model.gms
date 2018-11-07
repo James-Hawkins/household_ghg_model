@@ -16,6 +16,8 @@ v_milk_revenue_informal(hh,y,m)
 ;
 
 
+v_Qmilk_marketed_contract.FX(hh,y,m)=0;
+
 Equations
          e_objective1                     'Objective function when credit is turned off'
          e_objective2                     'Objective function when credit is turned on'
@@ -52,7 +54,8 @@ e_minimum_nutrient(hh,y,nut)..                  Sum((m,food),v_prdCrop(hh,y,food
 e_farm_income_crop(hh,y,m)..                    v_income_crop(hh,y,m) =e=  Sum((cash), v_prdCrop(hh,y,cash,m)*p_crop_sell_price(hh,y,cash))  - v_crop_expenses(hh,y,m);
 *Sum(cash,v_crop_sales_cash(hh,y,cash)*p_crop_sell_price(hh,y,cash))
 
-e_farm_income_lives(hh,y,m)..                   v_income_lives(hh,y,m) =e= sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice)+   v_milk_revenue_contract(hh,y,m)  + v_milk_revenue_informal(hh,y,m)  - v_lives_expenses(hh,y,m);
+e_farm_income_lives(hh,y,m)..                   v_income_lives(hh,y,m) =e=    v_milk_revenue_contract(hh,y,m)  + v_milk_revenue_informal(hh,y,m)  - v_lives_expenses(hh,y,m);
+*sum((type,inten,aaact),v_prodQmeat(hh,aaact,type,inten,y,m)*p_meatPrice)
 
 e_milk_revenue_contract(hh,y,m)..                v_milk_revenue_contract(hh,y,m) =e=  v_Qmilk_marketed_contract(hh,y,m) * p_milkPrice_contract ;
 
@@ -63,8 +66,8 @@ e_milk_contract(hh,y,m)..                       v_Qmilk_marketed_contract(hh,y,m
 
 e_milk_no_contract(hh,y,m)..                    v_Qmilk_marketed_contract(hh,y,m)  =e= 0;
 
-e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_income_lives(hh,y,m)  +  v_income_crop(hh,y,m)  +v_off_farm_income(hh,y)/12 ;    !! revise this to take into account credit expenses
-*- v_tot_credit_expenses(hh,y,m)      ;
+e_total_income(hh,y,m)..                        v_income(hh,y,m) =e=   v_income_lives(hh,y,m)    +  v_off_farm_income(hh,y)/12 ;    !! revise this to take into account credit expenses
+*- v_tot_credit_expenses(hh,y,m)      ;       +  v_income_crop(hh,y,m)
 *
 * v_off_farm_income(hh,y)/12
 e_objective1..                                  v_npv =e= sum( (hh,y,m) ,v_income(hh,y,m) + v_leisure(hh,y,m)*p_offFarm_wage(hh)*8*.02 / ( 1 + power(p_r,ord(y)) ) )   ;

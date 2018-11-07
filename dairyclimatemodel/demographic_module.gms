@@ -388,10 +388,6 @@ Sum((adultf_loc,inten,type,minten),v_aactLev(hh,adultf_loc,type,inten,minten,y,m
 
 
 
-
-
-
-
 Model demogMod    /
    E_youngm_loc
    E_youngy_loc
@@ -411,7 +407,6 @@ Model demogMod    /
    E_reprod_loc1
    E_reprod_loc2
    E_reprod_loc3
-
 
    E_youngm_imp
    E_youngy_imp

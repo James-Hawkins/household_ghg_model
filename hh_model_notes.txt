@@ -100,3 +100,9 @@ is dairy labour specific to local and improved?
 
 note that when crop costs get reduced alot the model results change (more invested in improved cattle)
 the protein intake equation should be an equality, otherwise the model feeds too much protein and gets unealistic milk yields
+
+10.23
+setting crop costs at 2000 made model go infeasible
+this is not properly integrated in the objective function
+so for now take crop income out of objective function.
+you can thus specify minimum amount of food crop production, allow for one cash crop, and maximize the sum of this cash crop and dairy income
