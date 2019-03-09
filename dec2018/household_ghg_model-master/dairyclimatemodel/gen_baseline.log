@@ -1,0 +1,13 @@
+
+--- Job gen_baseline.gms Start 12/28/18 14:32:56 WEX-WEI 23.5.2 x86_64/MS Windows     
+GAMS Rev 235  Copyright (C) 1987-2010 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- gen_baseline.gms(33) 2 Mb
+--- .set_definitions.gms(112) 3 Mb
+--- gen_baseline.gms(36) 3 Mb
+--- .parameters.gms(37) 3 Mb
+--- call gdxxrw.exe data/household_data.xlsx o=data/household_data.gdx index=index!A3
+Sending Stop signal
+Exit code = -1073741510

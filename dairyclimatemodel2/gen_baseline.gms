@@ -4,6 +4,8 @@ $setglobal filelocation  C:\Users\James\Documents\GitHub\household_ghg_model\hou
 $setglobal resdir  '%filelocation%results'
 $setglobal datdir  '%filelocation%data'
 
+$onUNDF
+
 
 $eolcom !!
 

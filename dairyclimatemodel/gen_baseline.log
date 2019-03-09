@@ -1,0 +1,207 @@
+
+--- Job gen_baseline.gms Start 03/09/19 08:25:29 24.8.3 r60202 WEX-WEI x86 64bit/MS Windows
+GAMS 24.8.3   Copyright (C) 1987-2017 GAMS Development. All rights reserved
+Licensee: James Hawkins, Single User License             S190118:0341AO-WIN
+          Lancaster University, Lancaster Environment Centre        DC14726
+          License for teaching and research at degree granting institutions
+          License user: j.hawkins1@lancaster.ac.uk                         
+--- Starting compilation
+--- gen_baseline.gms(34) 2 Mb
+--- .set_definitions.gms(112) 3 Mb
+--- gen_baseline.gms(37) 3 Mb
+--- .parameters.gms(37) 3 Mb
+--- call gdxxrw.exe data/household_data.xlsx o=data/household_data.gdx index=index!A3
+
+GDXXRW           24.8.3 r60202 Released Jan 28, 2017 VS8 x86 32bit/MS Windows 
+Input file : C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\household_data.xlsx
+Output file: C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\household_data.gdx
+Substituting Index
+Total time = 1781 Ms
+--- .parameters.gms(38) 3 Mb
+--- GDXin=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data/household_data.gdx
+--- .parameters.gms(58) 3 Mb
+--- call gdxxrw.exe data/model_data.xlsx o=data/model_data.gdx index=index!A3
+
+GDXXRW           24.8.3 r60202 Released Jan 28, 2017 VS8 x86 32bit/MS Windows 
+Input file : C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\model_data.xlsx
+Output file: C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\model_data.gdx
+Substituting Index
+Total time = 1579 Ms
+--- .parameters.gms(59) 3 Mb
+--- GDXin=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data/model_data.gdx
+--- .parameters.gms(266) 3 Mb
+--- gen_baseline.gms(39) 3 Mb
+--- .ghg_parameters.gms(42) 3 Mb
+--- call gdxxrw.exe data/ghg_params.xlsx o=data/ghg_params.gdx index=index!A3
+
+GDXXRW           24.8.3 r60202 Released Jan 28, 2017 VS8 x86 32bit/MS Windows 
+Input file : C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\ghg_params.xlsx
+Output file: C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\ghg_params.gdx
+Substituting Index
+Total time = 1562 Ms
+--- .ghg_parameters.gms(43) 3 Mb
+--- GDXin=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data/ghg_params.gdx
+--- .ghg_parameters.gms(72) 3 Mb
+--- gen_baseline.gms(41) 3 Mb
+--- .nutr_parameters.gms(14) 3 Mb
+--- call gdxxrw.exe data/nutrient_requirements.xlsx o=data/nutrient_requirements.gdx index=index!A3
+
+GDXXRW           24.8.3 r60202 Released Jan 28, 2017 VS8 x86 32bit/MS Windows 
+Input file : C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\nutrient_requirements.xlsx
+Output file: C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data\nutrient_requirements.gdx
+Substituting Index
+Total time = 1500 Ms
+--- .nutr_parameters.gms(15) 3 Mb
+--- GDXin=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\data/nutrient_requirements.gdx
+--- .nutr_parameters.gms(25) 3 Mb
+--- gen_baseline.gms(43) 3 Mb
+--- .scenario_parameters.gms(29) 3 Mb
+--- gen_baseline.gms(96) 3 Mb
+--- .crop_module.gms(83) 3 Mb
+--- gen_baseline.gms(99) 3 Mb
+--- .livestock_module.gms(192) 3 Mb
+--- gen_baseline.gms(102) 3 Mb
+--- .demographic_module.gms(432) 3 Mb
+--- gen_baseline.gms(105) 3 Mb
+--- .emissions_module.gms(112) 3 Mb
+--- gen_baseline.gms(108) 3 Mb
+--- .loan_module.gms(57) 3 Mb
+--- gen_baseline.gms(111) 3 Mb
+--- .household_module.gms(130) 3 Mb
+--- gen_baseline.gms(114) 3 Mb
+--- .risk_module.gms(126) 3 Mb
+--- gen_baseline.gms(117) 3 Mb
+--- .simulation_model.gms(98) 3 Mb
+--- gen_baseline.gms(267) 3 Mb
+--- .GHG_params.gms(12) 3 Mb
+--- gen_baseline.gms(290) 3 Mb
+--- .GHG_params2.gms(29) 3 Mb
+--- gen_baseline.gms(436) 3 Mb
+--- Starting execution: elapsed 0:00:06.850
+--- gen_baseline.gms(1905) 4 Mb
+--- Generating DNLP model DairyClimateModel
+--- gen_baseline.gms(1917) 26 Mb
+--- LOOPS y2 = 1
+---   11,982 rows  17,942 columns  168,509 non-zeroes
+---   102,590 nl-code  35,724 nl-non-zeroes
+--- gen_baseline.gms(1917) 24 Mb
+--- Executing CONOPT: elapsed 0:00:07.026
+CONOPT 3         24.8.3 r60202 Released Jan 28, 2017 WEI x86 64bit/MS Windows 
+*** No license found
+*** To update your license, please contact your distributor.
+*** Too many equations for demo mode
+***   Number of equations          : 11982
+***   Maximum allowed              : 300
+*** Too many variables for demo mode
+***   Number of variables          : 17942
+***   Maximum allowed              : 300
+*** Too many nonzero elements for demo mode
+***   Number of nonzeros           : 168509
+***   Maximum allowed              : 2000
+*** Too many nonlinear nonzero elements for demo mode
+***   Number of nonlinear nonzeros : 35724
+***   Maximum allowed              : 1000
+
+--- Restarting execution
+--- gen_baseline.gms(1917) 4 Mb
+--- Reading solution for model DairyClimateModel
+--- Executing after solve: elapsed 0:00:07.221
+--- gen_baseline.gms(1905) 5 Mb
+--- Generating NLP model Emissionsmod
+--- gen_baseline.gms(2014) 8 Mb
+--- LOOPS y2 = 1
+---   2,168 rows  9,538 columns  14,746 non-zeroes
+---   32,851 nl-code  9,936 nl-non-zeroes
+--- gen_baseline.gms(2014) 6 Mb
+--- Executing IPOPT: elapsed 0:00:07.292
+
+COIN-OR Ipopt    24.8.3 r60202 Released Jan 28, 2017 WEI x86 64bit/MS Windows 
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.12)
+written by A. Waechter.
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.12, running with linear solver mumps.
+
+Number of nonzeros in equality constraint Jacobian...:     4807
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:        0
+
+Total number of variables............................:     2191
+                     variables with only lower bounds:       24
+                variables with lower and upper bounds:        0
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:     2167
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0 1.0000000e+001 2.66e+002 1.81e+000   0.0 0.00e+000    -  0.00e+000 0.00e+000   0
+   1 1.0000000e+001 1.14e-013 1.00e-002  -8.0 1.88e+004    -  9.90e-001 1.00e+000h  1
+   2 1.0000000e+001 1.39e-017 1.00e-004 -10.0 5.40e-008    -  9.90e-001 1.00e+000h  1
+   3 1.0000000e+001 4.16e-017 8.00e-011  -6.1 4.32e-002    -  1.00e+000 1.00e+000f  1
+
+Number of Iterations....: 3
+
+                                   (scaled)                 (unscaled)
+Objective...............: -1.0000000000000000e+001   1.0000000000000000e+001
+Dual infeasibility......:  8.0000160006732032e-011   8.0000160006732032e-011
+Constraint violation....:  4.1633363423443370e-017   4.1633363423443370e-017
+Complementarity.........:  1.4400056961277050e-012  -1.4400056961277050e-012
+Overall NLP error.......:  8.0000160006732032e-011   8.0000160006732032e-011
+
+
+Number of objective function evaluations             = 4
+Number of objective gradient evaluations             = 4
+Number of equality constraint evaluations            = 4
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 4
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 3
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.154
+Total CPU secs in NLP function evaluations           =      0.006
+
+EXIT: Optimal Solution Found.
+--- Restarting execution
+--- gen_baseline.gms(2014) 4 Mb
+--- Reading solution for model Emissionsmod
+--- Executing after solve: elapsed 0:00:07.849
+--- gen_baseline.gms(1905) 4 Mb
+*** Error at line 2026: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 1 Error
+*** Error at line 2027: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 2 Errors
+*** Error at line 2028: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 3 Errors
+*** Error at line 2029: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 4 Errors
+*** Error at line 2030: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 5 Errors
+*** Error at line 2031: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 6 Errors
+*** Error at line 2032: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 7 Errors
+*** Error at line 2033: division by zero (0)
+--- gen_baseline.gms(1905) 4 Mb 8 Errors
+*** Error at line 2034: division by zero (0)
+--- gen_baseline.gms(2165) 4 Mb 9 Errors
+--- GDX File C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\results/results.gdx
+--- gen_baseline.gms(2189) 4 Mb
+
+GDXXRW           24.8.3 r60202 Released Jan 28, 2017 VS8 x86 32bit/MS Windows 
+Input file : C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\results\results.gdx
+Output file: C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\results\results.xls
+**** Unable to save XLS file: Cannot access read-only document 'results.xls'
+
+Any changes made to the spreadsheet were not saved
+Total time = 1734 Ms
+--- gen_baseline.gms(2190) 4 Mb
+Sending CtrlBreakp signal
+Exit code = -1073741510

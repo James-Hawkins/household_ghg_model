@@ -1,0 +1,382 @@
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 11:54:40 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ~~~~*
+   2  * #1 Core model parameters   (all parameters are declared in terms of gene
+      ric sets)
+   3  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ~~~~*
+   4   
+   5  Parameters
+   6  cropnutrientsdata        'Nutrition properties of feeds'
+   7  labourdata               'Labour requirements for livestock'
+   8  prodparams               'Productivity parameters for livestock'
+   9  startfeed                'Starting feed balance'
+  10  startlivestock           'Starting livestock quantities'
+  11  transferrate             'Transfer rate for feed biomass'
+  12  maintenanceExpense       'General expenses on livestock'
+  13  mortality                'Mortality rate of livestock'
+  14  prices_lives             'Sale and purchase prices of livestock'
+  15  prices_milk              'Sale price of milk'
+  16  prices_milk_contract     'Sale price of milk under a contract'
+  17  prices_meat              'Sale price of meat'
+  18  prices_feed              'Feed prices'
+  19  offfarm_income           'Annual off farm income (lc/hh/year)'
+  20  labour_rate              'Wage rate for hired labour'
+  21  arable_land              'Available arable land per household'
+  22  hhold_size               'Number of dependents per household'
+  23  area_crop                'Area dedicated to a given crop (ha)'
+  24  rangeland                'Available rangeland (ha)'
+  25  crop_price               'sale prices of crops (lc/Mg)'
+  26  crop_labour              'monthly crop labour demand in hours per hectare'
+  27  crop_costs               'costs of crop production per ha'
+  28  livestock_labour         'labour requirements for livestock'
+  29  total_ag_land            'Total agricultural land owned by the household'
+  30  crop_yield               'Yields of crops (Mg/ha/year)'
+  31  crop_yield_off_farm      'Yields of feed crops grown off farm (Mg/ha/year)
+      '
+  32  start_cash               'amount of cash available to the household in fir
+      st year (lc/hh)'
+  33  rangeland_yield          'Yield of rangeland (Mg DM/ha/m)'
+  34  harvest_index            'Harvest index for crops (ratio)'
+  35  ;
+  36   
+GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
+        yclimatemodel2\data/household_data.gdx
+  39  *household specific params
+--- LOAD  offfarm_income = 2:offfarm_income
+--- LOAD  total_ag_land = 5:total_ag_land
+--- LOAD  hhold_size = 1:hhold_size
+--- LOAD  arable_land = 6:arable_land
+--- LOAD  start_cash = 3:start_cash
+--- LOAD  rangeland = 4:rangeland
+--- LOAD  crop_price = 17:crop_price
+--- LOAD  area_crop = 7:area_crop
+--- LOAD  crop_costs = 19:crop_costs
+--- LOAD  crop_yield = 8:crop_yield
+--- LOAD  rangeland_yield = 9:rangeland_yield
+--- LOAD  startfeed = 13:startfeed
+--- LOAD  startlivestock = 14:startlivestock
+--- LOAD  maintenanceExpense = 15:maintenanceExpense
+--- LOAD  mortality = 16:mortality
+  56   
+  57   
+GDXIN   C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\dair
+        yclimatemodel2\data/model_data.gdx
+  60  *general model parameters
+  61  *$LOAD crop_price
+--- LOAD  prices_lives = 4:prices_lives
+--- LOAD  prices_milk = 5:prices_milk
+--- LOAD  prices_milk_contract = 6:prices_milk_contract
+--- LOAD  prices_meat = 7:prices_meat
+--- LOAD  prices_feed = 8:prices_feed
+--- LOAD  labour_rate = 10:labour_rate
+--- LOAD  cropnutrientsdata = 1:cropnutrientsdata
+--- LOAD  crop_labour = 9:crop_labour
+--- LOAD  crop_yield_off_farm = 11:crop_yield_off_farm
+--- LOAD  labourdata = 2:labourdata
+--- LOAD  prodparams = 3:prodparams
+--- LOAD  harvest_index = 12:harvest_index
+  75   
+  76   
+  77   
+  78   
+  79   
+  80   
+  81   
+  82  Parameters
+  83   
+  84   
+  85  * general household parameters
+  86    p_hhold_adult_equivalents(hh)      'Amount of household adult equivalent
+****                               $120
+      s (AE/hh)'
+  87    p_cash(hh)                         'Starting cash balance (lc/hh)'
+  88    p_offFarmIncome(hh)                'Annual off farm income (lc/hh/yr)'
+  89    p_labouravailablehome(hh,y,m)      'Total labour available from the home
+****                             $120,120
+       (person-days per month)'
+  90    p_arable_land(hh,y)                'Arable land owned by the household (
+      ha)'
+  91    p_total_land(hh,y)                 'Total land owned by the household (h
+      a)'
+  92    p_rangeland(hh,y)                  'Total available rangeland (ha)'
+  93    p_hhold_members(hh,hhold_member)   'Households dependents (people/hh)'
+****                                  $120
+  94    p_offFarm_wage(hh)                 'Wage rate for off farm employment (l
+      c/person/hour)'
+  95   
+  96  * farm cost parameters
+  97    p_cropcosts(hh,c)                        'Costs related to crop producti
+****                   $120
+      on (lc/ha/year)'
+  98    p_maintExpense(hh,aaact,type,minten)     'Annual expenses per head of li
+****                          $120 $120   $120
+      vestock (lc/hd/yr)'
+  99   
+ 100  * crop parameters
+ 101    p_harvestindex(food)             'Harvest index of different crops (rati
+****                      $120
+      o of grain to total biomass)'
+ 102    p_res_FRAC_soil(hh,food)         'Parameter defining the fraction of tot
+      al residues being left on the field (fraction, e.g. 0.4)'
+ 103    p_yldCrop(hh,c,m)                'Crop yields (kg/ha/year)'
+ 104    p_transferrate                   'transfer rate of feed biomass'
+ 105    p_forage_yield(m)                'yield of forage (tons DM/ha/yr)'
+ 106   
+ 107   
+ 108  * household food parameters
+ 109    p_nutrientrequirement(hh,nut)    'Nutrient requirement of the given nutr
+****                               $120
+      ient per AE per year (per AE per year)'
+ 110    p_nutrientproperty(food,nut)     'Nutrient density of the given nutrient
+       per unit food (per kg)'
+ 111    p_FRAC_farmproduce(nut)          'Fraction of a given nutrient coming fr
+      om farm produce'
+ 112   
+ 113   
+ 114  * livestock parameters
+ 115    p_rateFert(aaact,type,inten)              'fertility rate, young born pe
+****                              $120
+      r female adult per month'
+ 116    p_mreprodf(aaact,type,inten)              'number of males reproduction 
+      animals per female breeder'
+ 117    p_sexratio(aaact,type,inten)              'birth ratio male and female'
+ 118    p_survivalrate(aaact,type,inten)          'survival rate,% of livestock 
+      that survive each year'
+ 119    p_grad(aaact,type,inten)                  'months in class, used for liv
+      estock dynamics, for example a young animal is in young class for X months
+      , the moves to weaner class (aaact)'
+ 120    p_mort(aaact,type,minten)                 'fraction of animals that die 
+      (monthly)'
+ 121    p_gain(aaact,type,inten)                  'Average daily gain for a give
+      n animal (kg/head/day)'
+ 122    p_milkprod(aaact,type,inten)              'milk produced per adult femal
+      e (kg/head/day)'
+ 123    p_salesw(aaact,type,inten)                'sales weight of a given anima
+      l'
+ 124    p_dress_pct(aaact,type,inten)             'dressing percentage of aninal
+       (expressed as fraction)'
+ 125    p_corrfc_en(cow)
+****                  $120
+ 126  * starting livestock numbers
+ 127    v0_aactLev(hh,aaact,type,inten,minten)    'parameter used to specify liv
+      estock numbers in 1st period of each iteration'
+ 128   
+ 129  * starting feed balance
+ 130    p_s(hh,feed)                              'starting feed balance in kg'
+****              $120
+ 131   
+ 132  * labour demand
+ 133    p_labour_lives(m,inten,aaact,type)             'labour demand for each a
+      ctivity in each season and intensification level across households'
+ 134    p_labourdemcrop(c,m)                            'labour requirements for
+       crop activities ()'
+ 135   
+ 136   
+ 137  * prices
+ 138    p_milkPrice                                     'Price of milk (lc/l)'
+ 139    p_milkPrice_contract                            'Price of milk under a b
+      uyer-agreement (lc/l)'
+ 140    p_meatPrice                                     'Price of meat (lc/kg)'
+ 141    p_salesPrice(hh,aaact)                          'Sales price of a given 
+      animal (lc/head)'
+ 142    p_purchPrice(hh,aaact)                          'Purchase price of a giv
+      en animal (lc/head)'
+ 143    p_labourPrice(hh)                               'Hired labour price (lc/
+      hour)'
+ 144    p_feedPrice(feed)                               'Feed prices (for purcha
+      sed feeds) in lc per kg'
+ 145  *  p_buyPrice(aaact,type,inten)                   'buy price of livestock'
+ 146    p_crop_sell_price(hh,y,c)                        'Sell price of crops (l
+      c/kg)'
+ 147   
+ 148   
+ 149  *nutrient properties
+ 150    p_dryMatter(feed)
+ 151    p_grossEnergy(feed)
+ 152    p_netEnergy(feed)
+ 153    p_digestibleEnergy(feed)
+ 154    p_crudeProtein(feed)
+ 155    p_ADF(feed)
+ 156    p_NDF(feed)
+ 157  ;
+ 158   
+ 159  **---- Household parameters
+ 160   
+ 161  * quantity of household dependents
+ 162  p_hhold_members(hh,hhold_member)=hhold_size(hhold_member,hh);
+ 163   
+ 164  *- Financial parameters
+ 165  p_offFarmIncome(hh)=offfarm_income(hh)  ;
+ 166  p_offFarm_wage(hh)=3000;
+ 167  p_cropcosts(hh,c)=crop_costs(hh,c) ;
+ 168  p_cash(hh)  = start_cash(hh)  ;
+ 169  p_labourPrice(hh)= labour_rate(hh,'lives');
+ 170  *p_maintExpense(hh,aaact,'dairy',minten)= maintenanceExpense(hh,aaact);
+ 171  p_maintExpense(hh,aaact,'dairy',minten)= maintenanceExpense(hh,aaact,type,
+****                                                                           $
+      minten);
+      149
+ 172   
+ 173   
+ 174   
+ 175  *- Crop and forage parameters
+ 176  * rangeland available in hectares
+ 177  p_rangeland(hh,y)= rangeland('rangeland',hh);
+ 178   
+ 179  *arable land available in hectares
+ 180  p_arable_land(hh,y)=arable_land(hh);
+ 181   
+ 182  *total land available in hectares
+ 183  p_total_land(hh,y)=total_ag_land(hh);
+ 184   
+ 185  * crop and forage yields (Mg/ha)
+ 186  p_yldCrop(hh,c,m)=crop_yield(c,hh,m);
+ 187  p_forage_yield(m)=rangeland_yield(m);
+ 188   
+ 189   
+ 190  **---- Model parameters
+ 191   
+ 192  * fertility (calving) rate of adult females
+ 193  p_rateFert(aaact,type,inten)=  prodparams (aaact,type,inten,'p_rateFert');
+ 194  *
+ 195  p_mreprodf(aaact,type,inten)=  prodparams (aaact,type,inten,'p_mreprodf');
+ 196  * ratio of male to female reproductive animals (assumed 0.5)
+ 197  p_sexratio(aaact,type,inten)=  prodparams (aaact,type,inten,'p_sexratio');
+ 198   
+ 199  * rate at which animals graduate to new class
+ 200  p_grad(aaact,type,inten)=prodparams (aaact,type,inten,'graduatetonextclass
+      ');
+ 201  * mortality rate
+ 202  p_mort(aaact,type,minten)=mortality(aaact,type,minten)/12 ;
+ 203  p_transferrate=1;
+ 204  p_gain(aaact,type,inten)=prodparams (aaact,type,inten,'adg');
+ 205  * milk production (kg)
+ 206  p_milkprod(adultf,type,inten)=prodparams(adultf,type,inten,'milkprod');
+****                  $120,340,171
+ 207   
+ 208  * sales weight (kg)
+ 209  p_salesw(aaact,type,inten)=prodparams (aaact,type,inten,'fnweight');
+ 210   
+ 211   
+ 212  p_corrfc_en(cow)=1;
+ 213   
+ 214  * livestock numbers
+ 215  v0_aactLev(hh,aaact,type,inten,minten)=startlivestock(hh,aaact,type,inten,
+      minten,'startvalue');
+ 216   
+ 217  * starting feed balance (kg)
+ 218  p_s(hh,feed)= startfeed(hh,feed, 'p_s');
+ 219   
+ 220  * labour requirements
+ 221  p_labour_lives(m,inten,aaact,'dairy')=labourdata(m,inten,aaact,'dairy');
+****                                     $353
+ 222  p_labourdemcrop(c,m)=crop_labour(c,m);
+ 223   
+ 224  * prices
+ 225  p_milkPrice=prices_milk;
+ 226  p_milkPrice_contract=prices_milk_contract;
+ 227  p_meatPrice=prices_meat;
+ 228  p_feedPrice(feed)= 0.75*prices_feed(feed);
+ 229  p_crop_sell_price(hh,y,c)=crop_price(c,hh)  ;
+ 230  p_salesPrice(hh,aaact)=prices_lives(aaact,'sell') ;
+ 231  p_purchPrice(hh,aaact_imp)=0.8*prices_lives(aaact_imp,'buy') ;
+****                          $120,340,171
+ 232  p_purchPrice(hh,aaact_loc)=prices_lives(aaact_loc,'buy') ;
+****                          $120,340,171
+ 233  p_labourPrice(hh)= labour_rate(hh,'lives');
+ 234   
+ 235   
+ 236  * feed nutrient properties
+ 237  p_grossEnergy(feed)=cropnutrientsdata('grossenergy',feed) ;
+ 238  p_dryMatter(feed)=cropnutrientsdata('drymatter',feed) ;
+ 239  p_netEnergy(feed)=cropnutrientsdata('netenergy',feed) ;
+ 240  p_digestibleEnergy(feed)=cropnutrientsdata('digestibility',feed)*cropnutri
+      entsdata('grossenergy',feed) ;
+ 241  p_crudeProtein(feed)=cropnutrientsdata('crudeprotein',feed) ;
+ 242  p_ADF(feed)=cropnutrientsdata('ADF',feed);
+ 243  p_NDF(feed)=cropnutrientsdata('NDF',feed)  ;
+ 244   
+ 245  display    p_NDF,p_ADF;
+ 246   
+ 247  * human nutrition related parameters
+ 248  p_nutrientrequirement(hh,'kcal')=2500;
+ 249  p_nutrientproperty(food,'kcal')=5000;
+****                               $353
+ 250  p_FRAC_farmproduce(nut)=0.2;
+ 251   
+ 252  **-management or biophysical related parameters
+ 253  p_harvestindex(food)=harvest_index(food);
+ 254  p_res_FRAC_soil(hh,food)=0.5;
+ 255   
+ 256   
+ 257  ** -- calculate parameters off of raw data
+ 258  *calculate monhtly home labour availability based on number of household m
+      embers of specific age categories
+ 259  p_labouravailablehome(hh,y,m) = 4*(2*p_hhold_members(hh,'under_15') + 3.5*
+      p_hhold_members(hh,'over_65') + 7*p_hhold_members(hh,'adult'))   ;
+ 260   
+ 261  *convert actual household members to adult equivalents
+ 262  p_hhold_adult_equivalents(hh)=0.5*p_hhold_members(hh,'under_15') + p_hhold
+      _members(hh,'over_65') + p_hhold_members(hh,'adult');
+ 263   
+ 264   
+ 265   
+ 266   
+ 267   
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 11:54:40 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Error Messages
+
+
+120  Unknown identifier entered as set
+149  Uncontrolled set entered as constant
+171  Domain violation for set
+340  A label/element with the same name exist. You may have forgotten
+        to quote a label/element reference. For example,
+        set i / a,b,c /; parameter x(i); x('a') = 10;
+353  The domain for this index position is unknown and the element
+        cannot be checked at this point. Missing data statement.
+
+**** 25 ERROR(S)   0 WARNING(S)
+GAMS Rev 235  WEX-VS8 23.5.1 x86/MS Windows             10/15/18 11:54:40 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Users\hawkins3\Documents\household_
+                                          ghg_model\household_ghg_model\dairycli
+                                          matemodel2\data\parameters.gms
+     2       37 CALL           1      37  gdxxrw.exe data/household_data.xlsx o=
+                                          data/household_data.gdx index=index!A3
+     3       38 GDXIN          1      38  C:\Users\hawkins3\Documents\household_
+                                          ghg_model\household_ghg_model\dairycli
+                                          matemodel2\data/household_data.gdx
+     4       58 CALL           1      58  gdxxrw.exe data/model_data.xlsx o=data
+                                          /model_data.gdx index=index!A3
+     5       59 GDXIN          1      59  C:\Users\hawkins3\Documents\household_
+                                          ghg_model\household_ghg_model\dairycli
+                                          matemodel2\data/model_data.gdx
+
+
+COMPILATION TIME     =       11.922 SECONDS      3 Mb  WIN235-235 Jul  2, 2010
+
+
+USER: Gary Goldstein                                 G010614:2121CA-WIN
+      Decision Ware, Inc.                                        DC2807
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
+           airyclimatemodel2\data\parameters.gms
+Output     C:\Users\hawkins3\Documents\household_ghg_model\household_ghg_model\d
+           airyclimatemodel2\parameters.lst
+
+**** USER ERROR(S) ENCOUNTERED

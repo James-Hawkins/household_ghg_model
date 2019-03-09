@@ -1,0 +1,1691 @@
+[PROJECT]
+
+[RP:OPTIMIZER_MODULE]
+1=
+
+[RP:SCENARIO_MODULE]
+1=
+
+[RP:GREENHOUSE_GAS_MODULE]
+1=
+
+[RP:HHOLD_PARAMETERS]
+1=
+
+[RP:SETTINGS2]
+1=
+
+[RP:GEN_BASELINE2]
+1=
+
+[RP:LIVESTOCK_MODULE2]
+1=
+
+[RP:HOUSEHOLD_MODULE2]
+1=
+
+[RP:OLD_CODE]
+1=
+
+[RP:OLD_FRAGMENTS]
+1=
+
+[GDXDISP: animal_numbers_annual Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: credit Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: crops Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: diet_annual Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: financials Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: financials_crop Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: financials_livestock Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: herd_changes Par 8]
+PlaneDim=0
+RowDim=8
+Squeeze=1
+Order=1,2,3,4,5,6,7,8
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: herd2 Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: labour Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: biomass Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: cash_balance Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: prices_milk Par 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: dry_matter_intake Par 6]
+PlaneDim=0
+RowDim=6
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: land Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: Model_status Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: production Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: total_feed_consumed1 Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: total_feed_consumed2 Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: animal_numbers_monthly Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: diet Par 7]
+PlaneDim=0
+RowDim=7
+Squeeze=1
+Order=1,2,3,4,5,6,7
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: hh1_animals Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: GHG_emissions Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: hh1_animals Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: ghg_summary Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: ghg_summary Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: ghgs Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[RP:TEST_DATA]
+1=
+
+[RP:SETTINGS]
+1=
+
+[RP:UNTITLED_3]
+1=
+
+[RP:SCENARIO_PARAMS]
+1=
+
+[RP:DEMOGRAPHIC_MODULE_OLD]
+1=
+
+[RP:DEMOGRAPHIC_MODULE_NEW]
+1=
+
+[RP:SCENARIOS]
+1=
+
+[RP:GHG_PARAMS2]
+1=
+
+[GDXDISP: agri_ecol Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: beta1 Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: breed Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: d Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_calib_demand Equ 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_calib_supply Equ 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_cons_percap Equ 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_dummy Equ 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_feed_demand Equ 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_MarketMargin Equ 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_MktClearance Equ 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_Production Equ 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_regDemand Equ 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_regSupply Equ 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: e_Trade Equ 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: feed Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: herd_population_improved Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: herd_population_local Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: households Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: human_population Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: lprod Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_FDME Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_FDPE Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_feedPurchases Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_herdsize Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_households Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_MarketMargin Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_MDIE Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_MDPE Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_marketed Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_marketed_per_capita Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_milkConsn Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_milkPrice Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_milkProdn Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_pc_income Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_quantAnimals_imp Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_observ_quantAnimals_loc Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_popn Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_popn_rur Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_popn_rur_lives Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_popn_rur_Nonlives Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_popn_urb Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_suppfdprice Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: price Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: reg Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: reg2 Alias 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: scen Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: scen_x1 Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: scen_x2 Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: scen_x3 Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: suppfdprice Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: supply Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: urban_population Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_calib_demand Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_dummy Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_feedPurchases Var 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_prodQn Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: d Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: year Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r43 Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: milk_yd_per_hd1 Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[RP:_GAMS_PY_GJO24]
+1=
+
+[RP:_GAMS_PY_GJO0]
+1=
+
+[GDXDISP: base_land_use Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_domTrade Var 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: milk_yd_per_hd8 Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[RP:_GAMS_PY_GJO4]
+1=
+
+[GDXDISP: milk_yd_per_hd Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_regSupply Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_regPriceP Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_regPriceC Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: v_regDemand Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_milk_yield Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_FRAC_cow Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_netImp Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_cons_pc Var 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: y Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_milk_calves Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: y_1 Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: y_clb Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: y_fwd Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: y_post Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: y2 Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: price_scen Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[RP:_GAMS_PY_GJO3]
+1=
+
+[RP:_GAMS_PY_GJO2]
+1=
+
+[GDXDISP: v_feedPurchases Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_milk_yield_per_head Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[RP:_GAMS_PY_GJO36]
+1=
+
+[RP:_GAMS_PY_GJO1]
+1=
+
+[GDXDISP: alpha0 Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_calib_supply Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: v_sq_dev Var 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[RP:PRODUCTIVITY_MODULE]
+1=
+
+[RP:OLD_TEXT]
+1=
+
+[GDXDISP: allocation_factor Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: soil_N2O Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: soil_N2O_off_farm Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: B0 Par 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: C_storage_land Par 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: CO2_Fossil_Fuel Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: EF_3 Par 0]
+PlaneDim=0
+RowDim=0
+Squeeze=1
+Order=
+Decim=7
+PlaneRownr=-1
+
+[RP:SCENARIO_PARAMETERS]
+1=
+
+[RP:MARKET_MODEL]
+1=
+
+[RP:RISK_MODULE]
+1=
+
+[RP:DEMOGRAPHIC_MODULE]
+1=
+
+[RP:GHG_PARAMS]
+1=
+
+[RP:NUTR_PARAMETERS]
+1=
+
+[RP:LIVESTOCK_MODULE]
+1=
+
+[RP:GHG_PARAMETERS]
+1=
+
+[RP:EMISSIONS_MODULE]
+1=
+
+[RP:PARAMETERS]
+1=
+
+[GDXDISP: p_enteric_methane_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: r_DMI Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_DMD Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_Ym Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_VS Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_carbon_dioxide_area_expansion_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: r_milk_yield Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=2,1,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_mlk_price Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_regSupply Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_land_spared Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_feedArea_aggregate Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=2,1,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_feedArea_aggregate_base Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_carbon_dioxide_area_expansion Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_carbon_dioxide_cropland_expansion Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_reg_Prod Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ei_cle Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ei_refor Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_e_int Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_e_int_mn_lch Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ei_ef Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ei_mm Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ei_sn Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_regPriceP Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ei_ae Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_Enteric_Methane Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_GE Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_ADF Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_NDF Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_manure_nitrogen Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_feed_intake Par 6]
+PlaneDim=0
+RowDim=6
+Squeeze=1
+Order=4,6,2,3,1,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_fd_DM_intake Par 6]
+PlaneDim=0
+RowDim=6
+Squeeze=1
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_foodPurchases Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_manure_nitrous_oxide_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_soil_nitrous_oxide_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_carbon_dioxide_cropland_expansion_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_feed_area Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=2,4,3,1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_CropArea Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_feedprice Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=2,4,1,3
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[GDXDISP: p_manure_methane_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_soil_nitrous_oxide_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_enteric_methane_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,2,1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_manure_methane_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_manure_methane Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_carbon_dioxide_area_expansion_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_carbon_dioxide_cropland_expansion_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_manure_nitrous_oxide_direct Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_manure_nitrous_oxide_vol Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_manure_nitrous_oxide_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_herd_size Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_e_int_mn_vol Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_e_int_mn_dir Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_areaExpansion Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_cropExpansion Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_soil_emissions Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[RP:_GAMS_PY_GJO643]
+1=
+
+[RP:SET_DEFINITIONS]
+1=
+
+[RP:HOUSEHOLD_MODULE]
+1=
+
+[RP:CROP_MODULE]
+1=
+
+[GDXDISP: gamma0 Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: beta2 Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: beta0 Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: sigma2 Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: gamma1 Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_manure_nitrous_oxide_leach Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[RP:UNTITLED_1]
+1=
+
+[RP:_GAMS_PY_GJO1021]
+1=
+
+[GDXDISP: demand_units Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: supply_units Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=1,2
+Decim=7
+PlaneRownr=-1
+SqTrail0=0
+
+[RP:UNTITLED_2]
+1=
+
+[GDXDISP: r_total_emissions_region Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=2,1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_regSupply_agg Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+Order=2,1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_feedAreaLPS Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+Order=4,2,1,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: r_carbon_dioxide_refor Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: p_carbon_dioxide_reforestation_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[RP:_GAMS_PY_GJO16]
+1=
+
+[GDXDISP: p_carbon_dioxide_reforestation_int_LPS Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=3,1,2
+Decim=7
+PlaneRownr=-1
+
+[SOLVERS]
+NLP=CONOPT
+RMINLP=SNOPT
+
+[RP:LOAN_MODULE]
+1=
+
+[RP:SIMULATION_MODEL]
+1=
+
+[RP:GEN_BASELINE]
+1=
+
+[MRUFILES]
+1=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo282.lst
+2=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo249.lst
+3=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo16.lst
+4=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo16.gms
+5=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo435.lst
+6=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo418.lst
+7=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo401.lst
+8=C:\Users\PC1\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\more_advanced_version\Dynamic_PE_Model_Dairy_GHG_Tz-master\sectoral_model\main\src\gams folder\_gams_py_gjo384.lst
+
+[OPENWINDOW_1]
+FILE0=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dec2018\household_ghg_model-master\dairyclimatemodel2\gen_baseline.gms
+FILE1=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dec2018\household_ghg_model-master\dairyclimatemodel2\gen_baseline.lst
+FILE2=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dec2018\household_ghg_model-master\dairyclimatemodel2\loan_module.gms
+FILE3=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dec2018\household_ghg_model-master\dairyclimatemodel2\simulation_model.gms
+FILE4=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dec2018\household_ghg_model-master\dairyclimatemodel2\gen_baseline.lst
+MAXIM=0
+TOP=2
+LEFT=108
+HEIGHT=541
+WIDTH=1171

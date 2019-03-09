@@ -4,6 +4,7 @@ $setglobal filelocation  C:\Users\James\Documents\GitHub\household_ghg_model\hou
 $setglobal resdir  '%filelocation%results'
 $setglobal datdir  '%filelocation%data'
 
+$onUNDF
 
 $eolcom !!
 
@@ -75,11 +76,11 @@ p_labourPrice;
 
 *define scenarios and model versions
 $setglobal CREDIT ON
-$setglobal output_SCEN ON
+$setglobal output_SCEN OFF
 $setglobal RISK ON
 $setglobal GHG_Emissions OFF
 $setglobal Scenario Base
-$setglobal rangeland_constraint OFF
+$setglobal rangeland_constraint ON
 
 
 ** Price scenarios
@@ -167,7 +168,6 @@ cash_balance(*,*,*)
 
 
 *-- recursive loop
-
 Loop(y2,
 
 *v_aactLevsell.fx(hh,'adultf_imp',type,inten,minten,'y01','m01') = v_aactLev.l(hh,'adultf_imp',type,inten,minten,'y01','m12')*p_grad('adultf_imp',type,inten)*(1-p_mort('adultf_imp',type,minten));

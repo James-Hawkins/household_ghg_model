@@ -1281,9 +1281,6 @@ PlaneRownr=-1
 [RP:SETS_SPECIFIC]
 1=
 
-[RP:SET_DEFINITIONS]
-1=
-
 [GDXDISP: p_regSupply Par 2]
 PlaneDim=0
 RowDim=2
@@ -2450,40 +2447,47 @@ Order=1
 Decim=7
 PlaneRownr=-1
 
-[SOLVERS]
-NLP=CONOPT
-DNLP=SNOPT
-RMINLP=SNOPT
-
-[RP:RISK_MODULE]
-1=
-
 [RP:LOAN_MODULE]
 1=
 
 [RP:SIMULATION_MODEL]
 1=
 
+[RP:RISK_MODULE]
+1=
+
+[RP:SET_DEFINITIONS]
+1=
+
+[SOLVERS]
+DNLP=CONOPT
+CNS=IPOPT
+LP=IPOPT
+NLP=IPOPT
+QCP=IPOPT
+RMINLP=IPOPT
+RMIP=IPOPT
+RMIQCP=IPOPT
+
 [RP:GEN_BASELINE]
 1=
 
 [MRUFILES]
-1=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\PE_RESULTS2.gdx
-2=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\PE_RESULTS1.gdx
-3=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\PE_RESULTS0.gdx
-4=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\LS_RESULTS.gdx
-5=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo3.lst
-6=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo17.lst
-7=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo25.lst
-8=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo21.lst
+1=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\gen_baseline.lst
+2=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\PE_RESULTS2.gdx
+3=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\PE_RESULTS1.gdx
+4=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\PE_RESULTS0.gdx
+5=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\LS_RESULTS.gdx
+6=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo3.lst
+7=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo17.lst
+8=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo25.lst
+9=C:\Users\James\Documents\GitHub\Dynamic_PE_Model_Dairy_GHG_Tz\sectoral_model\main\src\gams folder\_gams_py_gjo21.lst
 
 [OPENWINDOW_1]
-FILE0=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
-FILE1=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.lst
-FILE2=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\loan_module.gms
-FILE3=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\risk_module.gms
-FILE4=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\simulation_model.gms
-FILE5=C:\Users\James\Documents\GitHub\household_ghg_model\household_ghg_model\dairyclimatemodel\gen_baseline.gms
+FILE0=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\gen_baseline.gms
+FILE1=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\risk_module.gms
+FILE2=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\set_definitions.gms
+FILE3=C:\Users\hawkj\Documents\GitHub\household_ghg_model\dairyclimatemodel\gen_baseline.gms
 MAXIM=1
 TOP=2
 LEFT=108

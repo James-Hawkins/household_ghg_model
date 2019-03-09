@@ -1,0 +1,195 @@
+GAMS Rev 235  WEX-WEI 23.5.2 x86_64/MS Windows          12/28/18 14:32:56 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   2   
+   3   
+   6   
+   7   
+   9   
+  10   
+  11  *$LIBINCLUDE GNUPLTXY credit Y-AXIS X-AXIS
+  12   
+  13   
+      This file is used to run the global model. It includes all the necessary m
+      odules and specifies the model definition (i.e. what modules to include de
+      pending on the settings).
+      The model solve statment is embedded in a loop which is used to run the mo
+      del sequentially over a multi-year period. After each instance of the solv
+      e statement, the variables get saved
+      and re-defined as intializing parameters in the next instance of the model
+      . Then all the results get exported to excel files.
+       
+  20   
+  21   
+  22   
+  23   
+  24   
+      ***************************
+      Dairy climate model
+      ***************************
+  30   
+  31   
+  32  * Set Declarations
+INCLUDE    C:\Users\PC1\Documents\GitHub\household_ghg_model-master\dairyclimate
+           model\set_definitions.gms
+  34  Sets
+  35   
+  36  *-- household sets
+  37  hh households          /hh2/
+  38   
+  39  * -- household members
+  40  hhold_member /total,over_65,under_15,adult/
+  41   
+  42  *-- time sets
+  43  m twelve months                                  /m01*m12/
+  44  year years                                       /1*20,y01*y12/
+  45  y(year) years in model horizon                   /y01/
+  46  y2(year) years in current run or recursive steps /1/
+  47   
+  48  laterm(m) /m02*m12/
+  49  firsty(y2) /1/
+  50  firstm(m)  /m01/
+  51  *lasty(y2)  /2/
+  52  lastm(m)   /m12/
+  53   
+  54  *scenarios
+  55  scen 'Model scenarios' /Base/
+  56  *, Scen1, Scen2, Scen3, Scen4/
+  57   
+  58  good /food, nonfood/
+  59   
+  60  *- nutrients for human consumption
+  61  nut /kcal/
+  62   
+  63  *-- types of animals
+  64  type             /dairy/
+  65   
+  66  * animal products
+  67  outputs /meat,milk/
+  68   
+  69  *-- intensity sets
+  70  inten intensity level for feeding  /ext,med,int/
+  71  *ext,med,int/
+  72  minten level for maintenance       /ext/
+  73   
+  74   
+  75  *- nutrient sets
+  76  anut /netenergy,grossenergy,crudeprotein,metabolisableprotein,drymatter,di
+      gestibility,N,ADF,NDF/
+  77   
+  78  *-- animal activity related sets
+  79  breed /local,improved/
+  80   
+  81   
+  82  aaact  animal activity /youngf_loc,youngm_loc,weanerf_loc,weanerm_loc,adul
+      tf_loc,reprod_loc,youngf_imp,youngm_imp,weanerf_imp,weanerm_imp,adultf_imp
+      ,reprod_imp/
+  83  aaact_loc(aaact)       /youngf_loc,youngm_loc,weanerf_loc,weanerm_loc,adul
+      tf_loc,reprod_loc/
+  84  aaact_imp(aaact)       /youngf_imp,youngm_imp,weanerf_imp,weanerm_imp,adul
+      tf_imp,reprod_imp/
+  85  young(aaact)           /youngm_loc,youngf_loc,youngm_imp,youngf_imp/
+  86  young_imp(aaact)       /youngm_imp,youngf_imp/
+  87  young_loc(aaact)       /youngm_loc,youngf_loc/
+  88  weaner(aaact)          /weanerm_loc,weanerf_loc,weanerm_imp,weanerf_imp/
+  89  weaner_loc(aaact)      /weanerm_imp,weanerf_imp/
+  90  weaner_imp(aaact)      /weanerm_loc,weanerf_loc/
+  91  adult(aaact)           /adultf_loc,reprod_loc,adultf_imp,reprod_imp/
+  92  adult_loc(aaact)       /adultf_loc,reprod_loc/
+  93  adult_imp(aaact)       /adultf_imp,reprod_imp/
+  94  adultf(aaact)          /adultf_loc,adultf_imp/
+  95  adultf_imp(aaact)      /adultf_imp/
+  96  adultf_loc(aaact)      /adultf_loc/
+  97  cow(aaact)             /adultf_loc,adultf_imp/
+  98  male(aaact)            /youngm_loc,weanerm_loc,reprod_loc,youngm_imp,weane
+      rm_imp,reprod_imp/
+  99  male_loc(aaact)        /youngm_loc,weanerm_loc,reprod_loc/
+ 100  male_imp(aaact)        /youngm_imp,weanerm_imp,reprod_imp/
+ 101  reprod(aaact)          /reprod_loc,reprod_imp/
+ 102  reprod_loc(aaact)      /reprod_loc/
+ 103  reprod_imp(aaact)      /reprod_imp/
+ 104  yfemale(aaact)         /youngf_loc,youngf_imp/
+ 105  yfemale_loc(aaact)     /youngf_loc/
+ 106  yfemale_imp(aaact)     /youngf_imp/
+ 107  notadult(aaact)        /youngf_loc,youngm_loc,weanerf_loc,weanerm_loc,youn
+      gf_imp,youngm_imp,weanerf_imp,weanerm_imp/
+ 108  notadultf(aaact)       /youngf_loc,youngm_loc,weanerf_loc,weanerm_loc,youn
+      gf_imp,youngm_imp,weanerf_imp,weanerm_imp,reprod_loc,reprod_imp/
+ 109  notadult_loc(aaact)    /youngf_loc,youngm_loc,weanerf_loc,weanerm_loc/
+ 110  notadult_imp(aaact)    /youngf_imp,youngm_imp,weanerf_imp,weanerm_imp/
+ 111  local(aaact)           /youngf_loc,youngm_loc,weanerf_loc,weanerm_loc,adul
+      tf_loc,reprod_loc/
+ 112  improved(aaact)        /youngf_imp,youngm_imp,weanerf_imp,weanerm_imp,adul
+      tf_imp,reprod_imp/
+ 113   
+ 114   
+ 115  *-- crop and grazing related sets
+ 116  c         /beans,maize,sorghum,millet,groundnut,cowpea,banana,napier,pastu
+      re/
+ 117  food(c)   /beans,maize,sorghum,millet,groundnut,cowpea/
+ 118  fodder(c) /napier,pasture/
+ 119  silage(c) /maize/
+ 120  cash(c)   /banana/
+ 121  non_fodder(c) /beans,maize,sorghum,millet,groundnut,cowpea,banana/
+ 122  crop_not_pasture(c) /beans,maize,sorghum,millet,groundnut,cowpea,banana,na
+      pier/
+ 123   
+ 124   
+ 125  *feed sets
+ 126  feed       'feed sources'          /maize_residue,cpea_residue,grnut_resid
+      ue,bean_residue,sorgh_residue,millet_residue,banana_residue,maize_silage,s
+      unflower_seed_cake,maize_bran,grass,grass_hay,napier/
+ 127  feed_off_farm(feed)                /sunflower_seed_cake,maize_bran/
+ 128  feed_on_farm(feed)                 /maize_residue,cpea_residue,grnut_resid
+      ue,bean_residue,sorgh_residue,millet_residue,grass,grass_hay,napier,maize_
+      silage/
+ 129  residues(feed)                     /maize_residue,bean_residue,grnut_resid
+      ue,sorgh_residue,cpea_residue,millet_residue,banana_residue/
+ 130  grazed(feed)                       /grass/
+ 131  ration(feed)                       /maize_residue,bean_residue,cpea_residu
+      e,grnut_residue,sorgh_residue,millet_residue,maize_silage,grass_hay,napier
+      ,sunflower_seed_cake,maize_bran/
+ 132  feed_on_farm_non_fodder(feed)      /maize_residue,cpea_residue,grnut_resid
+      ue,bean_residue,sorgh_residue,millet_residue,banana_residue/
+ 133   
+ 134  **-- Mappings
+ 135  crop_silage(c,feed)      /maize.maize_silage/
+ 136  crop_residue(c,residues) /maize.maize_residue,beans.bean_residue,groundnut
+      .grnut_residue,sorghum.sorgh_residue,millet.millet_residue/
+ 137  fodder_feed(fodder,feed) /napier.napier,pasture.grass_hay/
+ 138  feedbuy_ration(ration,feed_off_farm) /sunflower_seed_cake.sunflower_seed_c
+      ake,maize_bran.maize_bran/
+ 139  residues_ration(residues,ration) /maize_residue.maize_residue,bean_residue
+      .bean_residue,millet_residue.millet_residue,grnut_residue.grnut_residue,so
+      rgh_residue.sorgh_residue,cpea_residue.cpea_residue/
+ 140  breed_aaact(breed,aaact) /local.youngf_loc,local.youngm_loc,local.weanerf_
+      loc,local.weanerm_loc,local.adultf_loc,local.reprod_loc, improved.youngf_i
+      mp,improved.youngm_imp,improved.weanerf_imp,improved.weanerm_imp,improved.
+      adultf_imp,improved.reprod_imp/
+ 141  residues_non_fodder(residues,non_fodder) /bean_residue.beans,maize_residue
+      .maize,sorgh_residue.sorghum,millet_residue.millet,grnut_residue.groundnut
+      ,cpea_residue.cowpea,banana_residue.banana/
+ 142  ;
+ 143   
+ 144  alias(good,good2)
+ 145   
+ 146   
+ 147  * Data load in
+INCLUDE    C:\Users\PC1\Documents\GitHub\household_ghg_model-master\dairyclimate
+           model\data\parameters.gms
+ 149  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ~~~~*
+ 150  * #1 Core model parameters   (all parameters are declared in terms of gene
+      ric sets)
+ 151  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ~~~~*
+ 152   
+ 153  Parameters
+ 154  cropnutrientsdata        'Nutrition properties of feeds'
+ 155  labourdata               'Labour requirements for livestock'
+ 156  prodparams               'Productivity parameters for livestock'
+ 157  startfeed                'Starting feed balance'
+ 158  startlivestock           'Starting livestock quantities'
+ 159  transferrate             'Tra

@@ -104,7 +104,7 @@ e_total_income_rd(hh,i,y,m)..              v_income_rd(hh,i,y,m) =e=  v_off_farm
 
 e_dev(i,hh,y,m)..                          v_dev(i,hh,y,m) =e= v_income(hh,y,m) - v_income_rd(hh,i,y,m)   ;
 
-e_stdddev(hh,y,m)..                        v_stddev_income(hh,y,m) =e=  SQRT{ SUM(i,power(v_dev(i,hh,y,m),2))/CARD(i)}   ;
+e_stdddev(hh,y,m)..                        v_stddev_income(hh,y,m) =e=  SQRT{ SUM(i,power(1+v_dev(i,hh,y,m),2))/CARD(i)}   ;
 
 e_objective2..                             v_npv =e= sum( (hh,y,m) ,((v_income(hh,y,m) - 0.25*v_stddev_income(hh,y,m)) / ( 1 + power(p_r,ord(y))) ) )   ;
 

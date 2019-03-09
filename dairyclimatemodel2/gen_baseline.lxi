@@ -1,33 +1,72 @@
 B 2 C o m p i l a t i o n
-B 2893 Include File Summary
-B 2973 E x e c u t i o n
-I 2974 p_NDF
-I 2985 p_ADF
-I 2995 v0_aactLev
-I 3030 p_B0
-I 3032 p_FRAC_leach
-I 3035 p_FRAC_vol
-I 3038 p_EF_5
-I 3042 p_EF_4
-I 3046 p_MCF
-I 3051 p_ADF
-I 3061 p_crudeProtein
-I 3071 p_Energy_req
-I 3170 p_digestibleEnergy
-I 3180 p_grossEnergy
-I 3190 p_crop_sell_price
-I 3201 offfarm_income
-I 3206 p_offFarmIncome
-I 3211 p_forage_yield
-I 3217 rangeland_yield
-I 3223 p_yldCrop
-I 3242 p_s
-I 3253 startfeed
-I 3303 p_netEnergy
-I 3313 p_dryMatter
-I 3324 p_transferrate
-I 3326 p_fossil_fuel_emissions
-I 3333 p_meatPrice
-I 3334 p_purchPrice
-I 3345 p_labourPrice
-B 3352 Model Statistics    SOLVE DairyClimateModel Using DNLP From line 1912
+B 2894 Include File Summary
+B 2974 E x e c u t i o n
+I 2975 p_NDF
+I 2986 p_ADF
+I 2996 v0_aactLev
+I 3031 p_B0
+I 3033 p_FRAC_leach
+I 3036 p_FRAC_vol
+I 3039 p_EF_5
+I 3043 p_EF_4
+I 3047 p_MCF
+I 3052 p_ADF
+I 3062 p_crudeProtein
+I 3072 p_Energy_req
+I 3171 p_digestibleEnergy
+I 3181 p_grossEnergy
+I 3191 p_crop_sell_price
+I 3202 offfarm_income
+I 3207 p_offFarmIncome
+I 3212 p_forage_yield
+I 3218 rangeland_yield
+I 3224 p_yldCrop
+I 3243 p_s
+I 3254 startfeed
+I 3304 p_netEnergy
+I 3314 p_dryMatter
+I 3325 p_transferrate
+I 3327 p_fossil_fuel_emissions
+I 3334 p_meatPrice
+I 3335 p_purchPrice
+I 3346 p_labourPrice
+B 3353 Model Statistics    SOLVE DairyClimateModel Using DNLP From line 1914
+B 3376 Solution Report     SOLVE DairyClimateModel Using DNLP From line 1914
+B 3399 Model Statistics    SOLVE Emissionsmod Using NLP From line 2011
+B 3422 Solution Report     SOLVE Emissionsmod Using NLP From line 2011
+F 3443 e_enteric_fermentation
+F 3449 e_Ym
+F 4318 e_VS
+F 5187 e_manure_methane
+F 5193 e_nitrogen_intake
+F 6062 e_nitrogen_retained_lact
+F 6931 e_nitrogen_excretion
+F 7800 e_manure_nitrous_oxide_direct
+F 7806 e_manure_nitrous_oxide_leach
+F 7812 e_manure_nitrous_oxide_vol
+F 7818 e_soil_nitrous_oxide
+F 7824 e_fossil_fuel_energy
+F 7828 e_dummy
+G 7829 v_areaCrop
+G 7836 v_dmd
+G 8705 v_NDF
+G 9574 v_grossEnergy
+G 10443 v_digestibleEnergy
+G 11313 v_dryMatterIntake
+G 11750 v_feedbuy
+G 11779 v_fdcons
+G 21289 v_aactLev
+G 22158 dummy
+G 22164 v_enteric_methane
+G 22170 v_Ym
+G 23039 v_VS
+G 23908 v_manure_methane
+G 23914 v_manure_nitrous_oxide_direct
+G 23921 v_manure_nitrous_oxide_leach
+G 23928 v_manure_nitrous_oxide_vol
+G 23935 v_nitrogen_intake
+G 24804 v_nitrogen_retained_lact
+G 25674 v_nitrogen_excretion
+G 26544 v_soil_nitrous_oxide
+G 26552 v_fossil_fuel_CO2
+B 26567 E x e c u t i o n
